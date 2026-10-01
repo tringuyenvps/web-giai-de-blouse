@@ -1,0 +1,1202 @@
+{
+  "exam": "vsat",
+  "subject": "toan",
+  "title": "V-SAT Phần Toán - Đề 2",
+  "sourceTitle": "LE HOANG EDUCATION - TH.S Phạm Hoàng Điệp - ĐỀ CHÍNH THỨC",
+  "sourceCode": "Mã đề thi 1",
+  "durationMinutes": 90,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "vsat-toan-de2-q01",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Xét tính tăng giảm và bị chặn của dãy số (u_n) với u_n = n^3 + 2n + 1. Các mệnh đề sau đúng hay sai?",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Dãy số tăng, bị chặn."
+        },
+        {
+          "key": "b",
+          "text": "Dãy số giảm, bị chặn trên."
+        },
+        {
+          "key": "c",
+          "text": "Dãy số giảm, bị chặn."
+        },
+        {
+          "key": "d",
+          "text": "Dãy số tăng, bị chặn dưới."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q02",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Cho đồ thị của hàm số y = x^3 + 2x^2 - x + 1 và đồ thị của hàm số y = x^2 - x + 3. Mỗi mệnh đề sau đây đúng hay sai?",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Hai đồ thị đã cho không có điểm chung."
+        },
+        {
+          "key": "b",
+          "text": "Hai đồ thị cắt nhau tại điểm (1; 3)."
+        },
+        {
+          "key": "c",
+          "text": "Tổng tung độ của các giao điểm là 3."
+        },
+        {
+          "key": "d",
+          "text": "Số giao điểm của hai đồ thị trên là số nghiệm phân biệt của phương trình hoành độ giao điểm."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": true,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q03",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Một lớp học có 50 học sinh, trong đó có 30 học sinh nam. Biết tỷ lệ học sinh biết bơi trong số học sinh nam là 60% và tỷ lệ học sinh biết bơi trong số học sinh nữ là 50%. Chọn ngẫu nhiên một học sinh.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Xác suất học sinh được chọn là học sinh nam bằng 3/5."
+        },
+        {
+          "key": "b",
+          "text": "Xác suất học sinh được chọn là học sinh biết bơi, biết học sinh này là nam bằng 3/5."
+        },
+        {
+          "key": "c",
+          "text": "Biết học sinh được chọn là học sinh biết bơi, xác suất học sinh đó là học sinh nam bằng 1/4."
+        },
+        {
+          "key": "d",
+          "text": "Xác suất học sinh được chọn là nam biết học sinh đó không biết bơi là 6/11."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q04",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Trong không gian với hệ trục tọa độ Oxyz, cho đường thẳng d: (x + 4)/3 = (y - 5)/(-4) = (z + 2)/1.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Điểm A(3; -4; 1) nằm trên đường thẳng d."
+        },
+        {
+          "key": "b",
+          "text": "Một vectơ chỉ phương của d là u = (-6; 8; -2)."
+        },
+        {
+          "key": "c",
+          "text": "Đường thẳng d song song với đường thẳng Δ: x = -4 + 3s, y = 5 - 4s, z = -2 + s."
+        },
+        {
+          "key": "d",
+          "text": "Đường thẳng Δ song song với đường thẳng d, cắt cả hai đường thẳng d1: (x - 1)/3 = (y + 1)/1 = (z - 2)/2 và d2: (x + 2)/2 = (y - 3)/4 = (z - 1)/1 có phương trình (x + 4)/3 = (y + 1)/(-4) = (z + 1)/1."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q05",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Trong một hộp có 6 quả cầu đỏ, 5 quả cầu xanh và 4 quả cầu vàng (các quả cầu khác nhau). Lấy ngẫu nhiên từ trong hộp 5 quả cầu.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Số phần tử của không gian mẫu là 3003."
+        },
+        {
+          "key": "b",
+          "text": "Xác suất của biến cố A: 'Cả 5 quả cầu lấy ra đều màu đỏ' là 2/1001."
+        },
+        {
+          "key": "c",
+          "text": "Xác suất của biến cố B: 'Trong 5 quả cầu lấy ra có hai quả màu vàng' là 25/91."
+        },
+        {
+          "key": "d",
+          "text": "Xác suất của biến cố C: 'Lấy được 5 quả cầu có đủ 3 màu' là 40/143."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q06",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Hàm số F(x) là một nguyên hàm của hàm số f(x) = 3x^2 + 2.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "F'(1) = 6."
+        },
+        {
+          "key": "b",
+          "text": "Hàm số F(x) + 2 là một nguyên hàm của hàm số f(x)."
+        },
+        {
+          "key": "c",
+          "text": "Mọi nguyên hàm của hàm số f(x) có dạng F(x) + C với C là hằng số thực."
+        },
+        {
+          "key": "d",
+          "text": "Nếu F(sqrt(2)) - F(1) = m sqrt(2) + n (m và n là các số nguyên) thì m + n = 1."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": true,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q07",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Trong không gian Oxyz, cho mặt cầu (S): x^2 + y^2 + z^2 - 4x - 4y - 4z = 0 và điểm A(4; 4; 0). Gọi B là điểm thuộc (S) sao cho tam giác OAB là tam giác đều.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Mặt cầu (S) có tâm I(2; 2; 2), bán kính R = 2."
+        },
+        {
+          "key": "b",
+          "text": "Điểm A nằm ngoài mặt cầu (S)."
+        },
+        {
+          "key": "c",
+          "text": "Điểm O nằm trên mặt cầu (S)."
+        },
+        {
+          "key": "d",
+          "text": "Mặt phẳng (OAB) có phương trình là x - y + z = 0 hoặc x - y - z = 0."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q08",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Một nhóm các chuyên gia y tế đang nghiên cứu và thử nghiệm độ chính xác của một bộ xét nghiệm COVID-19. Giả sử cứ sau n lần thử nghiệm và điều chỉnh bộ xét nghiệm thì tỉ lệ chính xác của bộ xét nghiệm đó tuân theo công thức S(n) = 1 / (1 + 2020 * 10^(-0,01n)). Hỏi phải tiến hành ít nhất bao nhiêu lần thử nghiệm và điều chỉnh bộ xét nghiệm để đảm bảo tỉ lệ chính xác của bộ xét nghiệm đó đạt trên 90%?",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Độ chính xác sau 250 lần thử nghiệm là 13,5%."
+        },
+        {
+          "key": "b",
+          "text": "Để đạt được độ chính xác trên 90%, nhóm nghiên cứu cần tiến hành ít nhất 425 lần thử nghiệm."
+        },
+        {
+          "key": "c",
+          "text": "Giả sử chi phí cho mỗi lần thử nghiệm và điều chỉnh là 100 000 đồng. Tổng chi phí thấp nhất để đạt được tỉ lệ chính xác 90% là 42 500 000 đồng."
+        },
+        {
+          "key": "d",
+          "text": "Công thức S(n) cho thấy tỉ lệ chính xác tăng dần theo số lần thử nghiệm."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q09",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Năm 2001, Cộng đồng Châu Âu có làm một đợt kiểm tra rất rộng rãi các con bò để phát hiện những con bị bệnh bò điên. Người ta tiến hành một loại xét nghiệm và cho kết quả như sau: Khi con bò bị bệnh bò điên thì xác suất để ra phản ứng dương tính trong xét nghiệm là 70%; còn khi con bò không bị bệnh thì xác suất để xảy ra phản ứng dương tính trong xét nghiệm đó là 10%. Biết rằng tỉ lệ bò bị mắc bệnh bò điên ở Hà Lan là 1,3 con trên 100 000 con. Gọi X là biến cố một con bò bị bệnh bò điên, Y là biến cố một con bò phản ứng dương tính với xét nghiệm.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "P(X) = 13 * 10^(-6)."
+        },
+        {
+          "key": "b",
+          "text": "P(Y | X) = 0,07."
+        },
+        {
+          "key": "c",
+          "text": "P(Y | X̄) = 0,1."
+        },
+        {
+          "key": "d",
+          "text": "P(Y ∩ X) = 91 * 10^(-8)."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q10",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Một xe ô tô đang chuyển động đều với vận tốc 16 m/s thì người lái xe thấy một chướng ngại vật nên đạp phanh tại điểm đó, ô tô chuyển động chậm dần đều với vận tốc v(t) = -2t + 16 trong đó t là thời gian (tính bằng giây) kể từ lúc đạp phanh. Quãng đường mà ô tô đi được trong 10 giây cuối cùng bằng",
+      "options": [
+        {
+          "key": "A",
+          "text": "60 m."
+        },
+        {
+          "key": "B",
+          "text": "64 m."
+        },
+        {
+          "key": "C",
+          "text": "160 m."
+        },
+        {
+          "key": "D",
+          "text": "96 m."
+        }
+      ],
+      "answer": "D"
+    },
+    {
+      "id": "vsat-toan-de2-q11",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Một người lái xe ô tô đang chạy với vận tốc 20 m/s thì người lái xe phát hiện có hàng rào ngăn đường ở phía trước cách 45 m (tính từ vị trí đầu xe đến hàng rào) vì vậy, người lái xe đạp phanh. Từ thời điểm đó xe chuyển động chậm dần đều với vận tốc v(t) = -5t + 20 (m/s), trong đó t là khoảng thời gian tính bằng giây, kể từ lúc bắt đầu đạp phanh. Hỏi từ lúc đạp phanh đến khi dừng hẳn, xe ô tô còn cách hàng rào ngăn cách bao nhiêu mét (tính từ vị trí đầu xe đến hàng rào)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "5 m."
+        },
+        {
+          "key": "B",
+          "text": "6 m."
+        },
+        {
+          "key": "C",
+          "text": "4 m."
+        },
+        {
+          "key": "D",
+          "text": "3 m."
+        }
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "vsat-toan-de2-q12",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Một ô tô đang chuyển động đều với vận tốc 15 m/s thì phía trước xuất hiện chướng ngại vật nên người lái xe đạp phanh gấp. Kể từ thời điểm đó, ô tô chuyển động chậm dần đều với gia tốc -a (m/s^2), (a > 0). Biết ô tô chuyển động được 20 m nữa thì dừng hẳn. Hỏi a thuộc khoảng nào dưới đây?",
+      "options": [
+        {
+          "key": "A",
+          "text": "(3; 4)."
+        },
+        {
+          "key": "B",
+          "text": "(4; 5)."
+        },
+        {
+          "key": "C",
+          "text": "(5; 6)."
+        },
+        {
+          "key": "D",
+          "text": "(6; 7)."
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "id": "vsat-toan-de2-q13",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Cho mẫu số liệu thống kê {1; 2; 3; 4; 5; 6; 7; 8; 9}. Tính độ lệch chuẩn của mẫu số liệu trên (kết quả làm tròn đến hàng phần trăm).",
+      "options": [
+        {
+          "key": "A",
+          "text": "2,45."
+        },
+        {
+          "key": "B",
+          "text": "2,58."
+        },
+        {
+          "key": "C",
+          "text": "6,67."
+        },
+        {
+          "key": "D",
+          "text": "6,03."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "vsat-toan-de2-q14",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Một siêu thị thống kê số tiền (đơn vị: chục nghìn đồng) mà 44 khách hàng mua hàng ở siêu thị đó trong một ngày. Số liệu được ghi lại trong bảng sau: Doanh thu [40;45), [45;50), [50;55), [55;60), [60;65), [65;70) có tần số lần lượt 4, 14, 8, 10, 6, 2. Phương sai của mẫu số liệu ghép nhóm trên là",
+      "options": [
+        {
+          "key": "A",
+          "text": "53,2."
+        },
+        {
+          "key": "B",
+          "text": "46,1."
+        },
+        {
+          "key": "C",
+          "text": "54."
+        },
+        {
+          "key": "D",
+          "text": "11."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "vsat-toan-de2-q15",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "type": "mcq",
+      "text": "Kiểm tra điện lượng của một số viên pin tiểu do một hãng sản xuất thu được kết quả sau: Điện lượng (nghìn mAh) [0,9;0,95), [0,95;1,0), [1,0;1,05), [1,05;1,1), [1,1;1,15) có số viên pin lần lượt 10, 20, 35, 15, 5. Tìm khoảng tứ phân vị của dãy số liệu trên (làm tròn đến hàng phần trăm).",
+      "options": [
+        {
+          "key": "A",
+          "text": "0,68."
+        },
+        {
+          "key": "B",
+          "text": "0,07."
+        },
+        {
+          "key": "C",
+          "text": "0,61."
+        },
+        {
+          "key": "D",
+          "text": "0,81."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "id": "vsat-toan-de2-q16",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Đổi số đo của các góc sau sang radian, ghép mỗi mệnh đề với giá trị radian tương ứng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "30°",
+          "options": [
+            {
+              "key": "A",
+              "text": "π/6"
+            },
+            {
+              "key": "B",
+              "text": "3π/2"
+            },
+            {
+              "key": "C",
+              "text": "11π/5"
+            },
+            {
+              "key": "D",
+              "text": "11π/15"
+            },
+            {
+              "key": "E",
+              "text": "11π/4"
+            },
+            {
+              "key": "F",
+              "text": "13π/4"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "270°",
+          "options": [
+            {
+              "key": "A",
+              "text": "π/6"
+            },
+            {
+              "key": "B",
+              "text": "3π/2"
+            },
+            {
+              "key": "C",
+              "text": "11π/5"
+            },
+            {
+              "key": "D",
+              "text": "11π/15"
+            },
+            {
+              "key": "E",
+              "text": "11π/4"
+            },
+            {
+              "key": "F",
+              "text": "13π/4"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "132°",
+          "options": [
+            {
+              "key": "A",
+              "text": "π/6"
+            },
+            {
+              "key": "B",
+              "text": "3π/2"
+            },
+            {
+              "key": "C",
+              "text": "11π/5"
+            },
+            {
+              "key": "D",
+              "text": "11π/15"
+            },
+            {
+              "key": "E",
+              "text": "11π/4"
+            },
+            {
+              "key": "F",
+              "text": "13π/4"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "495°",
+          "options": [
+            {
+              "key": "A",
+              "text": "π/6"
+            },
+            {
+              "key": "B",
+              "text": "3π/2"
+            },
+            {
+              "key": "C",
+              "text": "11π/5"
+            },
+            {
+              "key": "D",
+              "text": "11π/15"
+            },
+            {
+              "key": "E",
+              "text": "11π/4"
+            },
+            {
+              "key": "F",
+              "text": "13π/4"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "D",
+        "4": "E"
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q17",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Cho hai đường thẳng chéo nhau: d1: (x - 1)/2 = y/(-1) = (z + 1)/1 và d2: x/1 = (y - 1)/2 = (z - 2)/(-1). Ghép mỗi phát biểu ở cột I với một ý ở cột II để được mệnh đề đúng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Vectơ chỉ phương của đường thẳng d1 là",
+          "options": [
+            {
+              "key": "A",
+              "text": "(2, -1, 1)"
+            },
+            {
+              "key": "B",
+              "text": "(-1, 3, 5)"
+            },
+            {
+              "key": "C",
+              "text": "(0, 1, 1)"
+            },
+            {
+              "key": "D",
+              "text": "(2, -1, 0)"
+            },
+            {
+              "key": "E",
+              "text": "(1, 2, -1)"
+            },
+            {
+              "key": "F",
+              "text": "(2, 5, 0)"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Toạ độ một điểm thuộc d2 là",
+          "options": [
+            {
+              "key": "A",
+              "text": "(2, -1, 1)"
+            },
+            {
+              "key": "B",
+              "text": "(-1, 3, 5)"
+            },
+            {
+              "key": "C",
+              "text": "(0, 1, 1)"
+            },
+            {
+              "key": "D",
+              "text": "(2, -1, 0)"
+            },
+            {
+              "key": "E",
+              "text": "(1, 2, -1)"
+            },
+            {
+              "key": "F",
+              "text": "(2, 5, 0)"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Vectơ vuông góc với cả d1 và d2",
+          "options": [
+            {
+              "key": "A",
+              "text": "(2, -1, 1)"
+            },
+            {
+              "key": "B",
+              "text": "(-1, 3, 5)"
+            },
+            {
+              "key": "C",
+              "text": "(0, 1, 1)"
+            },
+            {
+              "key": "D",
+              "text": "(2, -1, 0)"
+            },
+            {
+              "key": "E",
+              "text": "(1, 2, -1)"
+            },
+            {
+              "key": "F",
+              "text": "(2, 5, 0)"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Đường thẳng d2 vuông góc với vectơ",
+          "options": [
+            {
+              "key": "A",
+              "text": "(2, -1, 1)"
+            },
+            {
+              "key": "B",
+              "text": "(-1, 3, 5)"
+            },
+            {
+              "key": "C",
+              "text": "(0, 1, 1)"
+            },
+            {
+              "key": "D",
+              "text": "(2, -1, 0)"
+            },
+            {
+              "key": "E",
+              "text": "(1, 2, -1)"
+            },
+            {
+              "key": "F",
+              "text": "(2, 5, 0)"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "F",
+        "3": "B",
+        "4": "D"
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q18",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Cho hình chóp S.ABCD có đáy là hình chữ nhật, AB = a, AD = √3a. Biết SA vuông góc với mặt phẳng đáy và SA = 4a. Ghép mỗi phát biểu ở cột I với một ý ở cột II để được mệnh đề đúng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "tan của góc giữa AB và SC bằng",
+          "options": [
+            {
+              "key": "A",
+              "text": "√19"
+            },
+            {
+              "key": "B",
+              "text": "4/√3"
+            },
+            {
+              "key": "C",
+              "text": "1/√19"
+            },
+            {
+              "key": "D",
+              "text": "1"
+            },
+            {
+              "key": "E",
+              "text": "√57/19"
+            },
+            {
+              "key": "F",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "tan của góc giữa SD và (ABCD) bằng",
+          "options": [
+            {
+              "key": "A",
+              "text": "√19"
+            },
+            {
+              "key": "B",
+              "text": "4/√3"
+            },
+            {
+              "key": "C",
+              "text": "1/√19"
+            },
+            {
+              "key": "D",
+              "text": "1"
+            },
+            {
+              "key": "E",
+              "text": "√57/19"
+            },
+            {
+              "key": "F",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "cos của góc nhị diện [S,CD,A] bằng",
+          "options": [
+            {
+              "key": "A",
+              "text": "√19"
+            },
+            {
+              "key": "B",
+              "text": "4/√3"
+            },
+            {
+              "key": "C",
+              "text": "1/√19"
+            },
+            {
+              "key": "D",
+              "text": "1"
+            },
+            {
+              "key": "E",
+              "text": "√57/19"
+            },
+            {
+              "key": "F",
+              "text": "2"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "sin của góc nhị diện [B,SA,C] bằng",
+          "options": [
+            {
+              "key": "A",
+              "text": "√19"
+            },
+            {
+              "key": "B",
+              "text": "4/√3"
+            },
+            {
+              "key": "C",
+              "text": "1/√19"
+            },
+            {
+              "key": "D",
+              "text": "1"
+            },
+            {
+              "key": "E",
+              "text": "√57/19"
+            },
+            {
+              "key": "F",
+              "text": "2"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "E",
+        "4": "D"
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q19",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Cho hàm số y = f(x), với f''(x) là đạo hàm bậc 2, có đồ thị hàm số y = f''(x) như hình vẽ. Hàm số g(x) = f(-x^2 + 6x - m). Ghép mỗi phát biểu ở cột I với một ý ở cột II để được mệnh đề đúng.",
+      "image": "database/vsat/toan/assets/cau19_do_thi_f2.png",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Khi m = 2, số điểm cực trị của hàm số g(x) là",
+          "options": [
+            {
+              "key": "A",
+              "text": "2"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "5"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            },
+            {
+              "key": "F",
+              "text": "3"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Số giá trị nguy hiểm của tham số m để hàm số g(x) có đúng 3 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "2"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "5"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            },
+            {
+              "key": "F",
+              "text": "3"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Số giá trị nguy hiểm của tham số m để hàm số g(x) có đúng 5 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "2"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "5"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            },
+            {
+              "key": "F",
+              "text": "3"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Số giá trị nguy hiểm của tham số m thuộc [4;14] để hàm số g(x) có đúng 7 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "2"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "5"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            },
+            {
+              "key": "F",
+              "text": "3"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "D",
+        "2": "E",
+        "3": "A",
+        "4": "B"
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q20",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Cho hàm số y = |3x^4 - 4x^3 - 12x^2 + m|. Ghép mỗi phát biểu ở cột I với một ý ở cột II để được mệnh đề đúng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Với m = 1 thì hàm số đã cho có số điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "4"
+            },
+            {
+              "key": "B",
+              "text": "27"
+            },
+            {
+              "key": "C",
+              "text": "35"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "19"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Số giá trị nguyên để hàm số y có 7 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "4"
+            },
+            {
+              "key": "B",
+              "text": "27"
+            },
+            {
+              "key": "C",
+              "text": "35"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "19"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Số giá trị nguyên dương để hàm số y có 5 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "4"
+            },
+            {
+              "key": "B",
+              "text": "27"
+            },
+            {
+              "key": "C",
+              "text": "35"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "19"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Số giá trị nguyên của tham số m thuộc [-50;50] để hàm số y có 3 điểm cực trị là",
+          "options": [
+            {
+              "key": "A",
+              "text": "4"
+            },
+            {
+              "key": "B",
+              "text": "27"
+            },
+            {
+              "key": "C",
+              "text": "35"
+            },
+            {
+              "key": "D",
+              "text": "7"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "19"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "D",
+        "2": "A",
+        "3": "B",
+        "4": "F"
+      }
+    },
+    {
+      "id": "vsat-toan-de2-q21",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Biết họ nguyên hàm của hàm số f(x) = 2x(1 + 3x^3) là F(x) = ax^5 + bx^2 + C. Tính a + b.",
+      "acceptedAnswers": [
+        "2.2",
+        "2,2",
+        "11/5"
+      ],
+      "answer": "2,2"
+    },
+    {
+      "id": "vsat-toan-de2-q22",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Cho log_2^2(xy) = log_2(x/4) log_2(4y). Tính giá trị biểu thức P = log_3(x + 4y + 4) + log_2(x - 4y - 1).",
+      "acceptedAnswers": [
+        "3"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "vsat-toan-de2-q23",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Cho hàm số y = ax^4 + bx^3 + cx^2 + dx + e, (a ≠ 0) có đồ thị (C) và đường d: y = mx + n cắt đồ thị (C) tại các điểm có hoành độ lần lượt là -2; -1; 0; 1. Biết rằng hình phẳng giới hạn bởi (C), d và đường x = -2, x = 0 có diện tích bằng 1. Diện tích hình phẳng giới hạn bởi đồ thị (C), đường thẳng d, trục tung và đường x = 1 bằng",
+      "image": "database/vsat/toan/assets/cau23_do_thi.png",
+      "acceptedAnswers": [
+        "19/30",
+        "0,6333333333",
+        "19/30"
+      ],
+      "answer": "19/30"
+    },
+    {
+      "id": "vsat-toan-de2-q24",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Một nhà đầu tư phân loại các dự án trong một chu kỳ đầu tư thành 3 loại: ít rủi ro, rủi ro trung bình và rủi ro cao. Tỷ lệ các dự án các loại đó tương ứng là 20%, 45% và 35%. Kinh nghiệm cho thấy tỷ lệ các dự án gặp rủi ro khi đầu tư tương ứng là 5%, 20% và 40%. Nếu một dự án gặp rủi ro sau kỳ đầu tư thì khả năng dự án thuộc loại rủi ro cao là bao nhiêu? (Đơn vị phần trăm).",
+      "acceptedAnswers": [
+        "5/8",
+        "0,625",
+        "0.625"
+      ],
+      "answer": "5/8"
+    },
+    {
+      "id": "vsat-toan-de2-q25",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Trong không gian Oxyz, cho điểm M(1; 1; 2). Mặt phẳng (P) đi qua điểm M, cắt các tia Ox, Oy, Oz lần lượt tại A, B, C sao cho thể tích tứ diện OABC nhỏ nhất. Gọi n_P = (1; m; n) là một véc-tơ pháp tuyến của (P). Giá trị của m^3 - 2n bằng",
+      "acceptedAnswers": [
+        "0"
+      ],
+      "answer": "0"
+    }
+  ]
+}

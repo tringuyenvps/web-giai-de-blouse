@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "exam": "vsat",
+  "subject": "toan",
+  "files": ["de1.json", "de2.json"]
+}

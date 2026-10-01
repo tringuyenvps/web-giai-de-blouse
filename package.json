@@ -1,0 +1,13 @@
+{
+  "name": "my-exam-web-v5-vercel",
+  "version": "5.0.1",
+  "private": true,
+  "description": "My Exam Web - VSAT / THPTQG, Vercel + Neon PostgreSQL",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  }
+}

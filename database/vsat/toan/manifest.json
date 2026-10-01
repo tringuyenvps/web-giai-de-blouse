@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "exam": "vsat",
+  "subject": "toan",
+  "description": "Danh sách đề thật cho môn Toán VSAT.",
+  "files": [
+    "de2.json"
+  ]
+}
