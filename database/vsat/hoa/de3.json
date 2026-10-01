@@ -1,0 +1,1260 @@
+{
+  "exam": "vsat",
+  "subject": "hoa",
+  "title": "V-SAT Hóa học - Đề 3",
+  "sourceTitle": "[V-SAT - HÓA HỌC] Đề 3(1).pdf",
+  "sourceCode": "Đề 3",
+  "durationMinutes": 90,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "vsat-hoa-de3-q1",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Cho 3 pin Galvani đơn giản. Đánh giá các phát biểu về vai trò điện cực và thế điện cực.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Khi làm điện cực, kẽm luôn đóng vai trò anode, đồng luôn đóng vai trò cathode."
+        },
+        {
+          "key": "b",
+          "text": "Thế cực chuẩn tăng dần theo Cu2+/Cu < Fe2+/Fe < Zn2+/Zn."
+        },
+        {
+          "key": "c",
+          "text": "Sau khi 3 pin ngừng hoạt động, tổng khối lượng hai điện cực của cả 3 pin đều tăng."
+        },
+        {
+          "key": "d",
+          "text": "Giá trị sức điện động của pin 2 bằng +0,458 V."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q19"
+    },
+    {
+      "id": "vsat-hoa-de3-q2",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Geranyl acetate trong tinh dầu hoa hồng. 1155 g geraniol phản ứng dư acetic acid cho 882 g ester.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Công thức geranyl acetate là CH3COOC10H17."
+        },
+        {
+          "key": "b",
+          "text": "Geraniol có đồng phân hình học."
+        },
+        {
+          "key": "c",
+          "text": "Geranyl acetate là ester no đơn chức."
+        },
+        {
+          "key": "d",
+          "text": "Hiệu suất phản ứng este hóa bằng 60%."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q20"
+    },
+    {
+      "id": "vsat-hoa-de3-q3",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Naftifine là chất chống nấm, có cấu tạo như hình trong đề.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Naftifine là amine bậc III."
+        },
+        {
+          "key": "b",
+          "text": "Naftifine thuộc loại arylamine."
+        },
+        {
+          "key": "c",
+          "text": "Naftifine tác dụng với HNO2 tạo ra alcohol đơn chức."
+        },
+        {
+          "key": "d",
+          "text": "Naftifine có thể tác dụng với HCl tạo muối naftifine hydrochloride C21H22NCl."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q21"
+    },
+    {
+      "id": "vsat-hoa-de3-q4",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Điện phân dung dịch X gồm NaCl (x mol) và CuSO4 (y mol), điện cực trơ, màng ngăn, đến khi nước bắt đầu điện phân ở cả hai điện cực. Đánh giá các phát biểu.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Dung dịch Y có chứa Na+, SO4^2−, H+."
+        },
+        {
+          "key": "b",
+          "text": "Trong dung dịch X, x > 2y."
+        },
+        {
+          "key": "c",
+          "text": "Khí Z không màu thoát ra khi nhúng Fe vào dung dịch sau điện phân là H2."
+        },
+        {
+          "key": "d",
+          "text": "Khí ở anode là Cl2 và O2."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q22"
+    },
+    {
+      "id": "vsat-hoa-de3-q5",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Phát biểu về ester CH3CH2COOC2H5",
+      "statements": [
+        {
+          "key": "a",
+          "text": "X là ethyl propionate."
+        },
+        {
+          "key": "b",
+          "text": "X là methyl propionate."
+        },
+        {
+          "key": "c",
+          "text": "X là ester của methanol."
+        },
+        {
+          "key": "d",
+          "text": "X chứa 5 nguyên tử carbon."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q6",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Phát biểu về glucose và nhóm –OH hemiacetal",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Glucose có nhóm –OH hemiacetal."
+        },
+        {
+          "key": "b",
+          "text": "CH3OH/HCl khan có thể phản ứng tại nhóm –OH hemiacetal."
+        },
+        {
+          "key": "c",
+          "text": "Cu(OH)2 ở nhiệt độ thường là thuốc thử đặc trưng duy nhất cho nhóm –OH hemiacetal."
+        },
+        {
+          "key": "d",
+          "text": "Glucose có thể tham gia phản ứng tráng bạc."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q7",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Phát biểu về fructose",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Fructose có công thức phân tử C6H12O6."
+        },
+        {
+          "key": "b",
+          "text": "Fructose là disaccharide."
+        },
+        {
+          "key": "c",
+          "text": "Fructose là monosaccharide."
+        },
+        {
+          "key": "d",
+          "text": "Fructose có nhiều trong mật ong."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q8",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Phát biểu về polymer",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Polymer nhiệt dẻo thích hợp cho tái chế."
+        },
+        {
+          "key": "b",
+          "text": "Tơ tằm và tơ acetate đều là tơ thiên nhiên."
+        },
+        {
+          "key": "c",
+          "text": "Cao su lưu hóa luôn có cấu trúc mạch không phân nhánh."
+        },
+        {
+          "key": "d",
+          "text": "Nylon-6,6 được điều chế bằng phản ứng trùng ngưng."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q9",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Phát biểu về điện phân NaCl",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Điện phân dung dịch NaCl có thể tạo khí Cl2 ở anode."
+        },
+        {
+          "key": "b",
+          "text": "Điện phân NaCl nóng chảy tạo Na ở cathode."
+        },
+        {
+          "key": "c",
+          "text": "Trong điện phân dung dịch NaCl, cathode có thể tạo H2."
+        },
+        {
+          "key": "d",
+          "text": "Khí Cl2 sinh ra ở cathode."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q10",
+      "type": "mcq",
+      "text": "Trong công nghiệp thực phẩm, để tạo hương dứa cho bánh kẹo người ta dùng ester X có công thức cấu tạo CH3CH2COOC2H5. Tên gọi của X là",
+      "options": [
+        {
+          "key": "A",
+          "text": "methyl propionate."
+        },
+        {
+          "key": "B",
+          "text": "ethyl propionate."
+        },
+        {
+          "key": "C",
+          "text": "methyl acetate."
+        },
+        {
+          "key": "D",
+          "text": "propyl acetate."
+        }
+      ],
+      "answer": "B",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q01"
+    },
+    {
+      "id": "vsat-hoa-de3-q11",
+      "type": "mcq",
+      "text": "Khi pin Galvani Zn–Cu hoạt động thì",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zn đóng vai trò cực âm, Cu đóng vai trò cực dương."
+        },
+        {
+          "key": "B",
+          "text": "Ở điện cực âm, anode xảy ra quá trình khử Zn."
+        },
+        {
+          "key": "C",
+          "text": "Ở điện cực dương, cathode xảy ra quá trình oxi hóa Cu."
+        },
+        {
+          "key": "D",
+          "text": "Dòng điện chạy từ Cu sang Zn."
+        }
+      ],
+      "answer": "A",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q02"
+    },
+    {
+      "id": "vsat-hoa-de3-q12",
+      "type": "mcq",
+      "text": "Tỉ lệ số người chết vì bệnh phổi do hút thuốc lá cao gấp hàng chục lần số người không hút thuốc lá. Chất gây nghiện có trong thuốc lá là",
+      "options": [
+        {
+          "key": "A",
+          "text": "acid nicotineic."
+        },
+        {
+          "key": "B",
+          "text": "caffeine."
+        },
+        {
+          "key": "C",
+          "text": "nicotine."
+        },
+        {
+          "key": "D",
+          "text": "morphine."
+        }
+      ],
+      "answer": "C",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q03"
+    },
+    {
+      "id": "vsat-hoa-de3-q13",
+      "type": "mcq",
+      "text": "Cho công thức của muối xà phòng có đầu ưa nước và đuôi dài kị nước như hình trong đề. Phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Muối trên có công thức C15H31COOK và có trong thành phần chính của chất giặt rửa tổng hợp."
+        },
+        {
+          "key": "B",
+          "text": "Sau khi sử dụng để giặt rửa vật liệu bẩn dầu mỡ, chất giặt rửa trên gây ô nhiễm môi trường đáng kể."
+        },
+        {
+          "key": "C",
+          "text": "Trong quá trình điều chế muối trên bằng chất béo tương ứng và dung dịch KOH cũng sinh ra ethylene glycol."
+        },
+        {
+          "key": "D",
+          "text": "Trong công nghiệp, có thể điều chế muối trên từ sơ đồ alkane lấy trong dầu mỏ."
+        }
+      ],
+      "answer": "D",
+      "part": 2,
+      "needs_review": false,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q04"
+    },
+    {
+      "id": "vsat-hoa-de3-q14",
+      "type": "mcq",
+      "text": "Tính chất riêng của nhóm –OH hemiacetal của glucose được thể hiện khi phản ứng với chất nào sau đây?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cu(OH)2."
+        },
+        {
+          "key": "B",
+          "text": "[Ag(NH3)2]OH (to)."
+        },
+        {
+          "key": "C",
+          "text": "Cu(OH)2/NaOH (to)."
+        },
+        {
+          "key": "D",
+          "text": "CH3OH/HCl khan."
+        }
+      ],
+      "answer": "D",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q05"
+    },
+    {
+      "id": "vsat-hoa-de3-q15",
+      "type": "mcq",
+      "text": "Công thức cấu tạo mạch hở trong đề mô tả carbohydrate nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Glucose."
+        },
+        {
+          "key": "B",
+          "text": "Fructose."
+        },
+        {
+          "key": "C",
+          "text": "Saccharose."
+        },
+        {
+          "key": "D",
+          "text": "Maltose."
+        }
+      ],
+      "answer": "A",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "hoa03-q06"
+    },
+    {
+      "id": "vsat-hoa-de3-q16",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép chất với tên gọi đúng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "CH3CH2COOC2H5",
+          "options": [
+            {
+              "key": "A",
+              "text": "ethyl propionate"
+            },
+            {
+              "key": "B",
+              "text": "methyl propionate"
+            },
+            {
+              "key": "C",
+              "text": "ethyl acetate"
+            },
+            {
+              "key": "D",
+              "text": "methyl acetate"
+            },
+            {
+              "key": "E",
+              "text": "propyl acetate"
+            },
+            {
+              "key": "F",
+              "text": "butyl acetate"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "C6H12O6",
+          "options": [
+            {
+              "key": "A",
+              "text": "glucose"
+            },
+            {
+              "key": "B",
+              "text": "sucrose"
+            },
+            {
+              "key": "C",
+              "text": "starch"
+            },
+            {
+              "key": "D",
+              "text": "cellulose"
+            },
+            {
+              "key": "E",
+              "text": "glycine"
+            },
+            {
+              "key": "F",
+              "text": "ethanol"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "C6H12O6 (dạng ketose)",
+          "options": [
+            {
+              "key": "A",
+              "text": "fructose"
+            },
+            {
+              "key": "B",
+              "text": "glucose"
+            },
+            {
+              "key": "C",
+              "text": "sucrose"
+            },
+            {
+              "key": "D",
+              "text": "maltose"
+            },
+            {
+              "key": "E",
+              "text": "lactose"
+            },
+            {
+              "key": "F",
+              "text": "cellulose"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "C17H35COOK",
+          "options": [
+            {
+              "key": "A",
+              "text": "potassium stearate"
+            },
+            {
+              "key": "B",
+              "text": "sodium acetate"
+            },
+            {
+              "key": "C",
+              "text": "potassium acetate"
+            },
+            {
+              "key": "D",
+              "text": "sodium stearate"
+            },
+            {
+              "key": "E",
+              "text": "methyl stearate"
+            },
+            {
+              "key": "F",
+              "text": "glycerol"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q17",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép vị trí điện cực với quá trình.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Anode của pin Galvani",
+          "options": [
+            {
+              "key": "A",
+              "text": "oxi hóa"
+            },
+            {
+              "key": "B",
+              "text": "khử"
+            },
+            {
+              "key": "C",
+              "text": "trung hòa"
+            },
+            {
+              "key": "D",
+              "text": "kết tủa"
+            },
+            {
+              "key": "E",
+              "text": "thủy phân"
+            },
+            {
+              "key": "F",
+              "text": "trùng hợp"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Cathode của pin Galvani",
+          "options": [
+            {
+              "key": "A",
+              "text": "oxi hóa"
+            },
+            {
+              "key": "B",
+              "text": "khử"
+            },
+            {
+              "key": "C",
+              "text": "trung hòa"
+            },
+            {
+              "key": "D",
+              "text": "kết tủa"
+            },
+            {
+              "key": "E",
+              "text": "thủy phân"
+            },
+            {
+              "key": "F",
+              "text": "trùng hợp"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Anode khi điện phân",
+          "options": [
+            {
+              "key": "A",
+              "text": "oxi hóa"
+            },
+            {
+              "key": "B",
+              "text": "khử"
+            },
+            {
+              "key": "C",
+              "text": "trung hòa"
+            },
+            {
+              "key": "D",
+              "text": "kết tủa"
+            },
+            {
+              "key": "E",
+              "text": "thủy phân"
+            },
+            {
+              "key": "F",
+              "text": "trùng hợp"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Cathode khi điện phân",
+          "options": [
+            {
+              "key": "A",
+              "text": "oxi hóa"
+            },
+            {
+              "key": "B",
+              "text": "khử"
+            },
+            {
+              "key": "C",
+              "text": "trung hòa"
+            },
+            {
+              "key": "D",
+              "text": "kết tủa"
+            },
+            {
+              "key": "E",
+              "text": "thủy phân"
+            },
+            {
+              "key": "F",
+              "text": "trùng hợp"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": "B"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q18",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép chất với đặc điểm/ứng dụng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Nicotine",
+          "options": [
+            {
+              "key": "A",
+              "text": "chất gây nghiện trong thuốc lá"
+            },
+            {
+              "key": "B",
+              "text": "monosaccharide"
+            },
+            {
+              "key": "C",
+              "text": "polymer"
+            },
+            {
+              "key": "D",
+              "text": "amino acid"
+            },
+            {
+              "key": "E",
+              "text": "ester tạo hương"
+            },
+            {
+              "key": "F",
+              "text": "kim loại"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Glutamic acid",
+          "options": [
+            {
+              "key": "A",
+              "text": "thành phần tạo monosodium glutamate"
+            },
+            {
+              "key": "B",
+              "text": "ester"
+            },
+            {
+              "key": "C",
+              "text": "polymer"
+            },
+            {
+              "key": "D",
+              "text": "kim loại"
+            },
+            {
+              "key": "E",
+              "text": "alcohol"
+            },
+            {
+              "key": "F",
+              "text": "halogen"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Cellulose",
+          "options": [
+            {
+              "key": "A",
+              "text": "polysaccharide trong bột gỗ"
+            },
+            {
+              "key": "B",
+              "text": "amine"
+            },
+            {
+              "key": "C",
+              "text": "ester"
+            },
+            {
+              "key": "D",
+              "text": "muối vô cơ"
+            },
+            {
+              "key": "E",
+              "text": "ketone"
+            },
+            {
+              "key": "F",
+              "text": "alkane"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Nylon-6,6",
+          "options": [
+            {
+              "key": "A",
+              "text": "polyamide"
+            },
+            {
+              "key": "B",
+              "text": "polysaccharide"
+            },
+            {
+              "key": "C",
+              "text": "protein tự nhiên"
+            },
+            {
+              "key": "D",
+              "text": "ester"
+            },
+            {
+              "key": "E",
+              "text": "carbohydrate đơn giản"
+            },
+            {
+              "key": "F",
+              "text": "kim loại"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q19",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép bài toán với đại lượng cần tính.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Pin nhiên liệu H2",
+          "options": [
+            {
+              "key": "A",
+              "text": "khối lượng H2 tiêu thụ"
+            },
+            {
+              "key": "B",
+              "text": "thể tích Cl2"
+            },
+            {
+              "key": "C",
+              "text": "khối lượng Ag"
+            },
+            {
+              "key": "D",
+              "text": "số mol glucose"
+            },
+            {
+              "key": "E",
+              "text": "khối lượng Cu"
+            },
+            {
+              "key": "F",
+              "text": "nồng độ NaCl"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Mạ kẽm quả cân",
+          "options": [
+            {
+              "key": "A",
+              "text": "thời gian điện phân"
+            },
+            {
+              "key": "B",
+              "text": "khối lượng cellulose"
+            },
+            {
+              "key": "C",
+              "text": "thể tích alcohol"
+            },
+            {
+              "key": "D",
+              "text": "số mol ester"
+            },
+            {
+              "key": "E",
+              "text": "khối lượng glucose"
+            },
+            {
+              "key": "F",
+              "text": "pH dung dịch"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Mạ bạc gương",
+          "options": [
+            {
+              "key": "A",
+              "text": "số gương được tráng"
+            },
+            {
+              "key": "B",
+              "text": "thể tích H2"
+            },
+            {
+              "key": "C",
+              "text": "khối lượng Zn"
+            },
+            {
+              "key": "D",
+              "text": "số mol NaCl"
+            },
+            {
+              "key": "E",
+              "text": "nhiệt độ nóng chảy"
+            },
+            {
+              "key": "F",
+              "text": "độ điện li"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Xà phòng hóa chất béo",
+          "options": [
+            {
+              "key": "A",
+              "text": "khối lượng chất béo tối thiểu"
+            },
+            {
+              "key": "B",
+              "text": "số proton"
+            },
+            {
+              "key": "C",
+              "text": "thể tích O2"
+            },
+            {
+              "key": "D",
+              "text": "độ tan protein"
+            },
+            {
+              "key": "E",
+              "text": "thời gian chiếu sáng"
+            },
+            {
+              "key": "F",
+              "text": "số codon"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q20",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép carbohydrate với loại chất.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Glucose",
+          "options": [
+            {
+              "key": "A",
+              "text": "monosaccharide"
+            },
+            {
+              "key": "B",
+              "text": "disaccharide"
+            },
+            {
+              "key": "C",
+              "text": "polysaccharide"
+            },
+            {
+              "key": "D",
+              "text": "amino acid"
+            },
+            {
+              "key": "E",
+              "text": "ester"
+            },
+            {
+              "key": "F",
+              "text": "polyamide"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Fructose",
+          "options": [
+            {
+              "key": "A",
+              "text": "monosaccharide"
+            },
+            {
+              "key": "B",
+              "text": "disaccharide"
+            },
+            {
+              "key": "C",
+              "text": "polysaccharide"
+            },
+            {
+              "key": "D",
+              "text": "amine"
+            },
+            {
+              "key": "E",
+              "text": "ester"
+            },
+            {
+              "key": "F",
+              "text": "lipid"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Saccharose",
+          "options": [
+            {
+              "key": "A",
+              "text": "disaccharide"
+            },
+            {
+              "key": "B",
+              "text": "monosaccharide"
+            },
+            {
+              "key": "C",
+              "text": "polysaccharide"
+            },
+            {
+              "key": "D",
+              "text": "amine"
+            },
+            {
+              "key": "E",
+              "text": "ester"
+            },
+            {
+              "key": "F",
+              "text": "alkene"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Cellulose",
+          "options": [
+            {
+              "key": "A",
+              "text": "polysaccharide"
+            },
+            {
+              "key": "B",
+              "text": "monosaccharide"
+            },
+            {
+              "key": "C",
+              "text": "disaccharide"
+            },
+            {
+              "key": "D",
+              "text": "amine"
+            },
+            {
+              "key": "E",
+              "text": "ester"
+            },
+            {
+              "key": "F",
+              "text": "alcohol"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-hoa-de3-q21",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Trong số methylamine, glycine, aniline, glutamic acid, lysine, tristearine, acetic acid, dimethylamine: có bao nhiêu chất làm quỳ tím chuyển sang màu xanh?",
+      "answer": "4",
+      "acceptedAnswers": [
+        "4"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q23"
+    },
+    {
+      "id": "vsat-hoa-de3-q22",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Pin nhiên liệu H2 có hiệu suất 56%, mỗi ngày phát 500 kWh. Biết ΔH tạo thành H2O(l) = −285,84 kJ/mol và 1 kWh = 3,6×10^6 J. Khối lượng H2 tiêu thụ (kg), làm tròn 0,1.",
+      "answer": "22.5",
+      "acceptedAnswers": [
+        "22.5"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q24"
+    },
+    {
+      "id": "vsat-hoa-de3-q23",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Mạ Zn lên quả cân hình cầu bán kính 5 cm, lớp Zn dày 1 mm, I = 16 A, hiệu suất 100%, D(Zn)=7,13 g/cm3, π=3,1416. Thời gian mạ điện (giờ), làm tròn 0,1.",
+      "answer": "11.7",
+      "acceptedAnswers": [
+        "11.7"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q25"
+    },
+    {
+      "id": "vsat-hoa-de3-q24",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Dung dịch X trộn từ Na2SO4, CuSO4, Fe(NO3)3, MgCl2, ZnCl2, Al(NO3)3. Điện phân với điện cực trơ (graphit). Có bao nhiêu ion bị điện phân?",
+      "answer": "6",
+      "acceptedAnswers": [
+        "6"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q26"
+    },
+    {
+      "id": "vsat-hoa-de3-q25",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Thủy phân 129,76 g saccharose, hiệu suất thủy phân 80%, sau đó tráng bạc hiệu suất 80%. Toàn bộ bạc thu được dùng tráng gương diện tích 104 cm2, dày 10^-5 cm, D(Ag)=10,49 g/cm3. Số gương tối đa tráng được là",
+      "answer": "9603",
+      "acceptedAnswers": [
+        "9603"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "hoa03-q27"
+    }
+  ]
+}
