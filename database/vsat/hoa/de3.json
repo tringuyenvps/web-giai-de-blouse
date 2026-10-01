@@ -1,0 +1,620 @@
+{
+  "version": 1,
+  "exam": "vsat",
+  "subject": "hoa",
+  "code": "de03",
+  "title": "V-SAT Hóa học – Đề 3",
+  "questions": [
+    {
+      "id": "hoa03-q01",
+      "type": "mcq",
+      "text": "Trong công nghiệp thực phẩm, để tạo hương dứa cho bánh kẹo người ta dùng ester X có công thức cấu tạo CH3CH2COOC2H5. Tên gọi của X là",
+      "options": [
+        {
+          "key": "A",
+          "text": "methyl propionate."
+        },
+        {
+          "key": "B",
+          "text": "ethyl propionate."
+        },
+        {
+          "key": "C",
+          "text": "methyl acetate."
+        },
+        {
+          "key": "D",
+          "text": "propyl acetate."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q02",
+      "type": "mcq",
+      "text": "Khi pin Galvani Zn–Cu hoạt động thì",
+      "options": [
+        {
+          "key": "A",
+          "text": "Zn đóng vai trò cực âm, Cu đóng vai trò cực dương."
+        },
+        {
+          "key": "B",
+          "text": "Ở điện cực âm, anode xảy ra quá trình khử Zn."
+        },
+        {
+          "key": "C",
+          "text": "Ở điện cực dương, cathode xảy ra quá trình oxi hóa Cu."
+        },
+        {
+          "key": "D",
+          "text": "Dòng điện chạy từ Cu sang Zn."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q03",
+      "type": "mcq",
+      "text": "Tỉ lệ số người chết vì bệnh phổi do hút thuốc lá cao gấp hàng chục lần số người không hút thuốc lá. Chất gây nghiện có trong thuốc lá là",
+      "options": [
+        {
+          "key": "A",
+          "text": "acid nicotineic."
+        },
+        {
+          "key": "B",
+          "text": "caffeine."
+        },
+        {
+          "key": "C",
+          "text": "nicotine."
+        },
+        {
+          "key": "D",
+          "text": "morphine."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q04",
+      "type": "mcq",
+      "text": "Cho công thức của muối xà phòng có đầu ưa nước và đuôi dài kị nước như hình trong đề. Phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Muối trên có công thức C15H31COOK và có trong thành phần chính của chất giặt rửa tổng hợp."
+        },
+        {
+          "key": "B",
+          "text": "Sau khi sử dụng để giặt rửa vật liệu bẩn dầu mỡ, chất giặt rửa trên gây ô nhiễm môi trường đáng kể."
+        },
+        {
+          "key": "C",
+          "text": "Trong quá trình điều chế muối trên bằng chất béo tương ứng và dung dịch KOH cũng sinh ra ethylene glycol."
+        },
+        {
+          "key": "D",
+          "text": "Trong công nghiệp, có thể điều chế muối trên từ sơ đồ alkane lấy trong dầu mỏ."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "needs_review": false,
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q05",
+      "type": "mcq",
+      "text": "Tính chất riêng của nhóm –OH hemiacetal của glucose được thể hiện khi phản ứng với chất nào sau đây?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cu(OH)2."
+        },
+        {
+          "key": "B",
+          "text": "[Ag(NH3)2]OH (to)."
+        },
+        {
+          "key": "C",
+          "text": "Cu(OH)2/NaOH (to)."
+        },
+        {
+          "key": "D",
+          "text": "CH3OH/HCl khan."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q06",
+      "type": "mcq",
+      "text": "Công thức cấu tạo mạch hở trong đề mô tả carbohydrate nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Glucose."
+        },
+        {
+          "key": "B",
+          "text": "Fructose."
+        },
+        {
+          "key": "C",
+          "text": "Saccharose."
+        },
+        {
+          "key": "D",
+          "text": "Maltose."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q07",
+      "type": "mcq",
+      "text": "Thành phần chính của bột ngọt là muối monosodium của",
+      "options": [
+        {
+          "key": "A",
+          "text": "formic acid."
+        },
+        {
+          "key": "B",
+          "text": "lysine."
+        },
+        {
+          "key": "C",
+          "text": "alanine."
+        },
+        {
+          "key": "D",
+          "text": "glutamic acid."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q08",
+      "type": "mcq",
+      "text": "Fructose là một loại monosaccharide có nhiều trong mật ong, có vị ngọt đậm. Công thức phân tử của fructose là",
+      "options": [
+        {
+          "key": "A",
+          "text": "(C6H10O5)n."
+        },
+        {
+          "key": "B",
+          "text": "C6H12O6."
+        },
+        {
+          "key": "C",
+          "text": "C5H10O5."
+        },
+        {
+          "key": "D",
+          "text": "C12H22O11."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q09",
+      "type": "mcq",
+      "text": "Lòng trắng trứng phản ứng với Cu(OH)2 tạo sản phẩm có",
+      "options": [
+        {
+          "key": "A",
+          "text": "màu vàng"
+        },
+        {
+          "key": "B",
+          "text": "màu tím."
+        },
+        {
+          "key": "C",
+          "text": "màu da cam."
+        },
+        {
+          "key": "D",
+          "text": "màu đỏ."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q10",
+      "type": "mcq",
+      "text": "Pin quả chanh gồm dây Cu và Zn. Bán phản ứng nào xảy ra ở cực dương?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cu2+(aq) + 2e → Cu(s)."
+        },
+        {
+          "key": "B",
+          "text": "Zn(s) → Zn2+(aq) + 2e."
+        },
+        {
+          "key": "C",
+          "text": "2H+(aq) + 2e → H2(g)."
+        },
+        {
+          "key": "D",
+          "text": "Cu(s) → Cu2+(aq) + 2e."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q11",
+      "type": "mcq",
+      "text": "Phát biểu nào sau đây đúng?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Polymer nhiệt dẻo thích hợp cho việc tái chế."
+        },
+        {
+          "key": "B",
+          "text": "Tơ tằm, tơ acetate đều thuộc loại tơ thiên nhiên."
+        },
+        {
+          "key": "C",
+          "text": "Cao su lưu hóa có cấu trúc mạch không phân nhánh."
+        },
+        {
+          "key": "D",
+          "text": "Tơ nylon-6,6 được điều chế bằng phản ứng trùng hợp."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q12",
+      "type": "mcq",
+      "text": "Carbohydrate nào dưới đây không có nhóm –OH hemiacetal hoặc nhóm –OH hemiketal?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Glucose."
+        },
+        {
+          "key": "B",
+          "text": "Fructose."
+        },
+        {
+          "key": "C",
+          "text": "Saccharose."
+        },
+        {
+          "key": "D",
+          "text": "Maltose."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q13",
+      "type": "mcq",
+      "text": "Trong hệ điện phân ở đề, khí màu vàng lục sinh ra tại cực (1) và kim loại màu trắng bạc sinh ra tại cực (2). Phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cực (1) là anode, cực (2) là cathode và X là dung dịch NaCl."
+        },
+        {
+          "key": "B",
+          "text": "Cực (1) là cathode, cực (2) là anode và X là NaCl nóng chảy."
+        },
+        {
+          "key": "C",
+          "text": "Cực (1) là anode, cực (2) là cathode và X là NaCl nóng chảy."
+        },
+        {
+          "key": "D",
+          "text": "Cực (1) là cathode, cực (2) là anode và X là dung dịch NaCl."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q14",
+      "type": "mcq",
+      "text": "Polysaccharide X là chất rắn, dạng bột vô định hình, màu trắng, được tạo thành trong cây xanh nhờ quang hợp. Thủy phân X thu được monosaccharide Y. Phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Y hòa tan được Cu(OH)2 trong môi trường kiềm."
+        },
+        {
+          "key": "B",
+          "text": "X có phản ứng tráng bạc."
+        },
+        {
+          "key": "C",
+          "text": "Phân tử khối của Y là 162."
+        },
+        {
+          "key": "D",
+          "text": "X dễ tan trong nước nóng."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q15",
+      "type": "mcq",
+      "text": "Quan sát cấu trúc phân tử carbohydrate X trong đề. Phát biểu đúng về carbohydrate X là",
+      "options": [
+        {
+          "key": "A",
+          "text": "X có nhiều trong trái cây chín."
+        },
+        {
+          "key": "B",
+          "text": "X chỉ có cấu trúc mạch không phân nhánh."
+        },
+        {
+          "key": "C",
+          "text": "Phản ứng của X với HNO3 được dùng để sản xuất tơ nhân tạo."
+        },
+        {
+          "key": "D",
+          "text": "X là thành phần chính của các loại hạt như ngô, gạo, đậu,..."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q16",
+      "type": "mcq",
+      "text": "Cho E°: Al3+/Al = −1,66 V; Zn2+/Zn = −0,76 V; Pb2+/Pb = −0,13 V; Cu2+/Cu = +0,34 V. Pin nào có suất điện động chuẩn lớn nhất?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Pin Zn–Cu."
+        },
+        {
+          "key": "B",
+          "text": "Pin Zn–Pb."
+        },
+        {
+          "key": "C",
+          "text": "Pin Pb–Cu."
+        },
+        {
+          "key": "D",
+          "text": "Pin Al–Zn."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q17",
+      "type": "mcq",
+      "text": "Từ một loại bột gỗ chứa 60% cellulose. Dùng 1 tấn bột gỗ, hiệu suất điều chế ethanol 70%, khối lượng riêng ethanol nguyên chất 0,8 g/mL. Thể tích alcohol 70° thu được gần bằng",
+      "options": [
+        {
+          "key": "A",
+          "text": "420 lít."
+        },
+        {
+          "key": "B",
+          "text": "450 lít."
+        },
+        {
+          "key": "C",
+          "text": "456 lít."
+        },
+        {
+          "key": "D",
+          "text": "426 lít."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q18",
+      "type": "mcq",
+      "text": "Mạ vàng đồng hồ bằng điện phân dung dịch. Xét các phát biểu: (1) anode là Au, cathode là đồng hồ; (2) hai điện cực trong dung dịch muối Au3+; (3) Au3+ di chuyển về anode và bị khử; (4) nồng độ Au3+ giảm dần; (5) anode tan, cathode tăng khối lượng. Số phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "3"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "5"
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q19",
+      "type": "true_false",
+      "text": "Cho 3 pin Galvani đơn giản. Đánh giá các phát biểu về vai trò điện cực và thế điện cực.",
+      "statements": [
+        "Khi làm điện cực, kẽm luôn đóng vai trò anode, đồng luôn đóng vai trò cathode.",
+        "Thế cực chuẩn tăng dần theo Cu2+/Cu < Fe2+/Fe < Zn2+/Zn.",
+        "Sau khi 3 pin ngừng hoạt động, tổng khối lượng hai điện cực của cả 3 pin đều tăng.",
+        "Giá trị sức điện động của pin 2 bằng +0,458 V."
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "part": "II",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q20",
+      "type": "true_false",
+      "text": "Geranyl acetate trong tinh dầu hoa hồng. 1155 g geraniol phản ứng dư acetic acid cho 882 g ester.",
+      "statements": [
+        "Công thức geranyl acetate là CH3COOC10H17.",
+        "Geraniol có đồng phân hình học.",
+        "Geranyl acetate là ester no đơn chức.",
+        "Hiệu suất phản ứng este hóa bằng 60%."
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "part": "II",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q21",
+      "type": "true_false",
+      "text": "Naftifine là chất chống nấm, có cấu tạo như hình trong đề.",
+      "statements": [
+        "Naftifine là amine bậc III.",
+        "Naftifine thuộc loại arylamine.",
+        "Naftifine tác dụng với HNO2 tạo ra alcohol đơn chức.",
+        "Naftifine có thể tác dụng với HCl tạo muối naftifine hydrochloride C21H22NCl."
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "part": "II",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q22",
+      "type": "true_false",
+      "text": "Điện phân dung dịch X gồm NaCl (x mol) và CuSO4 (y mol), điện cực trơ, màng ngăn, đến khi nước bắt đầu điện phân ở cả hai điện cực. Đánh giá các phát biểu.",
+      "statements": [
+        "Dung dịch Y có chứa Na+, SO4^2−, H+.",
+        "Trong dung dịch X, x > 2y.",
+        "Khí Z không màu thoát ra khi nhúng Fe vào dung dịch sau điện phân là H2.",
+        "Khí ở anode là Cl2 và O2."
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "part": "II",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q23",
+      "type": "short_answer",
+      "text": "Trong số methylamine, glycine, aniline, glutamic acid, lysine, tristearine, acetic acid, dimethylamine: có bao nhiêu chất làm quỳ tím chuyển sang màu xanh?",
+      "answer": "4",
+      "acceptedAnswers": [
+        "4"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q24",
+      "type": "short_answer",
+      "text": "Pin nhiên liệu H2 có hiệu suất 56%, mỗi ngày phát 500 kWh. Biết ΔH tạo thành H2O(l) = −285,84 kJ/mol và 1 kWh = 3,6×10^6 J. Khối lượng H2 tiêu thụ (kg), làm tròn 0,1.",
+      "answer": "22.5",
+      "acceptedAnswers": [
+        "22.5"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q25",
+      "type": "short_answer",
+      "text": "Mạ Zn lên quả cân hình cầu bán kính 5 cm, lớp Zn dày 1 mm, I = 16 A, hiệu suất 100%, D(Zn)=7,13 g/cm3, π=3,1416. Thời gian mạ điện (giờ), làm tròn 0,1.",
+      "answer": "11.7",
+      "acceptedAnswers": [
+        "11.7"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q26",
+      "type": "short_answer",
+      "text": "Dung dịch X trộn từ Na2SO4, CuSO4, Fe(NO3)3, MgCl2, ZnCl2, Al(NO3)3. Điện phân với điện cực trơ (graphit). Có bao nhiêu ion bị điện phân?",
+      "answer": "6",
+      "acceptedAnswers": [
+        "6"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q27",
+      "type": "short_answer",
+      "text": "Thủy phân 129,76 g saccharose, hiệu suất thủy phân 80%, sau đó tráng bạc hiệu suất 80%. Toàn bộ bạc thu được dùng tráng gương diện tích 104 cm2, dày 10^-5 cm, D(Ag)=10,49 g/cm3. Số gương tối đa tráng được là",
+      "answer": "9603",
+      "acceptedAnswers": [
+        "9603"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "hoa03-q28",
+      "type": "short_answer",
+      "text": "Chất béo chứa 65% triolein. Sản xuất 2,3 triệu hộp kem, mỗi hộp chứa 5 g glycerol. Phản ứng xà phòng hóa tạo glycerol. Khối lượng tối thiểu loại chất béo cần dùng x (tấn), làm tròn đơn vị.",
+      "answer": "170",
+      "acceptedAnswers": [
+        "170"
+      ],
+      "part": "III",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    }
+  ]
+}

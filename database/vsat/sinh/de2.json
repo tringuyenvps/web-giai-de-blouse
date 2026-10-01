@@ -1,0 +1,949 @@
+{
+  "version": 1,
+  "exam": "vsat",
+  "subject": "sinh",
+  "code": "de02",
+  "title": "V-SAT Sinh học – Đề 2",
+  "questions": [
+    {
+      "id": "sinh02-q01",
+      "type": "mcq",
+      "text": "Ở chuột chũi trụi lông Heterocephalus glaber, khi nhiệt độ môi trường tăng thì nhiệt độ cơ thể có xu hướng",
+      "options": [
+        {
+          "key": "A",
+          "text": "tăng lên."
+        },
+        {
+          "key": "B",
+          "text": "giảm."
+        },
+        {
+          "key": "C",
+          "text": "không thay đổi."
+        },
+        {
+          "key": "D",
+          "text": "tăng hoặc giảm."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q02",
+      "type": "mcq",
+      "text": "Nuôi cách ly một cặp chuột Heterocephalus glaber trong môi trường sống khác tự nhiên. Sau một thế hệ, kết quả phù hợp là",
+      "options": [
+        {
+          "key": "A",
+          "text": "những con chuột con sinh ra hình thành quần thể mới giống quần thể ngoài tự nhiên."
+        },
+        {
+          "key": "B",
+          "text": "những con chuột con sinh ra không thể thích nghi với môi trường sống ngoài tự nhiên."
+        },
+        {
+          "key": "C",
+          "text": "những con chuột con sinh ra toàn là chuột đực."
+        },
+        {
+          "key": "D",
+          "text": "những con chuột con sinh ra đều trở thành chuột cái."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q03",
+      "type": "mcq",
+      "text": "Có bao nhiêu đặc điểm sau đây cho thấy Heterocephalus glaber thích nghi với môi trường sống của chúng? I. Sống sót trong điều kiện không có oxygen lâu hơn chuột khác; II. Không có lớp mỡ dày dưới da; III. Có thể tránh được tất cả loại ung thư; IV. Trong không khí chỉ chứa nitrogen vẫn sống sót một thời gian.",
+      "options": [
+        {
+          "key": "A",
+          "text": "1"
+        },
+        {
+          "key": "B",
+          "text": "2"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "3"
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q04",
+      "type": "mcq",
+      "text": "Khi nói về tế bào ghép hoàn chỉnh 1 trong thí nghiệm cắt – ghép Acetabularia, nhận xét đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mỗi tế bào ghép đều có bộ nhiễm sắc thể của hai loài."
+        },
+        {
+          "key": "B",
+          "text": "Hình dạng tán của tế bào ghép do nhân quy định."
+        },
+        {
+          "key": "C",
+          "text": "Phần thân có ảnh hưởng đến hình dạng tán của tế bào."
+        },
+        {
+          "key": "D",
+          "text": "Phần gốc của tế bào ghép do phần thân quy định."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q05",
+      "type": "mcq",
+      "text": "Hình dạng tán của tế bào ghép hoàn chỉnh 2 do thành phần nào quy định?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Nhiễm sắc thể trong nhân."
+        },
+        {
+          "key": "B",
+          "text": "Các tế bào trong phần thân."
+        },
+        {
+          "key": "C",
+          "text": "Nhiễm sắc thể trong phần thân."
+        },
+        {
+          "key": "D",
+          "text": "Tế bào chất trong phần tán."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q06",
+      "type": "mcq",
+      "text": "Khi nói về kết quả thí nghiệm 1 và thí nghiệm 2 ở Acetabularia, nhận định đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tế bào chất không liên quan đến hình dạng tán trong các tế bào ghép."
+        },
+        {
+          "key": "B",
+          "text": "Nhân từ phần gốc di chuyển lên phần thân quy định hình dạng tán."
+        },
+        {
+          "key": "C",
+          "text": "Nhân quy định các phân tử sinh học ảnh hưởng đến hình dạng tán."
+        },
+        {
+          "key": "D",
+          "text": "Tế bào chất của hai loài chứa các loại protein giống nhau."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q07",
+      "type": "mcq",
+      "text": "Từ kết quả thí nghiệm 4 với các chủng vi khuẩn B, D, E có thể kết luận",
+      "options": [
+        {
+          "key": "A",
+          "text": "Chủng D trực tiếp sử dụng enzyme của chủng D để sinh trưởng."
+        },
+        {
+          "key": "B",
+          "text": "Đột biến gene ở chủng D và chủng E xảy ra trên cùng một gene."
+        },
+        {
+          "key": "C",
+          "text": "Chủng E sử dụng sản phẩm chuyển hóa của chủng D để tổng hợp protein."
+        },
+        {
+          "key": "D",
+          "text": "Chủng D sử dụng sản phẩm chuyển hóa của chủng E để tổng hợp tryptophan."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q08",
+      "type": "mcq",
+      "text": "Từ kết quả thí nghiệm 4 và 5 có thể kết luận",
+      "options": [
+        {
+          "key": "A",
+          "text": "Chủng B có enzyme xúc tác phản ứng chuyển các sản phẩm tạo ra từ chủng E và B thành tryptophan."
+        },
+        {
+          "key": "B",
+          "text": "Chủng D có enzyme xúc tác phản ứng chuyển các sản phẩm tạo ra từ chủng E và D thành tryptophan."
+        },
+        {
+          "key": "C",
+          "text": "Chủng E có enzyme xúc tác phản ứng chuyển các sản phẩm tạo ra từ chủng B và D thành tryptophan."
+        },
+        {
+          "key": "D",
+          "text": "Chủng E mang đột biến gene xúc tác phản ứng cuối cùng trong con đường sinh tổng hợp tryptophan."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q09",
+      "type": "mcq",
+      "text": "Khi nuôi chung 3 chủng B, D, E trong một môi trường, kết quả là",
+      "options": [
+        {
+          "key": "A",
+          "text": "chủng B không hình thành khuẩn lạc."
+        },
+        {
+          "key": "B",
+          "text": "chỉ có chủng B hình thành khuẩn lạc."
+        },
+        {
+          "key": "C",
+          "text": "chỉ có chủng D hình thành khuẩn lạc."
+        },
+        {
+          "key": "D",
+          "text": "chỉ có chủng E hình thành khuẩn lạc."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q10",
+      "type": "mcq",
+      "text": "Nhận định đúng về chủng nấm Neurospora là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bộ gene của chủng nấm hoang dại mang đủ thông tin điều khiển quá trình tổng hợp các chất sinh học mà tế bào cần."
+        },
+        {
+          "key": "B",
+          "text": "Chủng hoang dại chỉ có thể tổng hợp hợp chất sinh học khi sống trên môi trường tối thiểu."
+        },
+        {
+          "key": "C",
+          "text": "Chủng đột biến khuyết dưỡng chỉ có thể sống và phát triển trong môi trường dinh dưỡng đầy đủ."
+        },
+        {
+          "key": "D",
+          "text": "Chủng hoang dại không sống được trong môi trường tối thiểu có bổ sung thêm các hợp chất sinh học."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q11",
+      "type": "mcq",
+      "text": "Chủng nấm đột biến A chỉ phát triển trên môi trường đầy đủ hoặc tối thiểu có bổ sung arginine. Nhận định đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Gene tham gia con đường tổng hợp arginine bị đột biến."
+        },
+        {
+          "key": "B",
+          "text": "Bộ gene của chủng đột biến tăng lên gấp nhiều lần."
+        },
+        {
+          "key": "C",
+          "text": "Enzyme tham gia tổng hợp các amino acid bị biến đổi."
+        },
+        {
+          "key": "D",
+          "text": "Hoạt tính của các enzyme chuyển hóa trong tế bào bị giảm mạnh."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q12",
+      "type": "mcq",
+      "text": "Từ chủng đột biến khuyết dưỡng arginine, môi trường nào có thể giúp bào tử phát triển? I. 20 amino acid; II. lysine; III. arginine; IV. methionine; V. glutamine và lysine; VI. methionine và arginine.",
+      "options": [
+        {
+          "key": "A",
+          "text": "II và V."
+        },
+        {
+          "key": "B",
+          "text": "I và V."
+        },
+        {
+          "key": "C",
+          "text": "IV và V."
+        },
+        {
+          "key": "D",
+          "text": "I, III và VI."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q13",
+      "type": "mcq",
+      "text": "Cho tế bào: 1 da; 2 gan; 3 sinh tinh; 4 tủy xương; 5 sinh trứng. Có bao nhiêu loại tế bào khi xảy ra đột biến có thể hình thành đột biến soma?",
+      "options": [
+        {
+          "key": "A",
+          "text": "3"
+        },
+        {
+          "key": "B",
+          "text": "5"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "2"
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q14",
+      "type": "mcq",
+      "text": "Các đột biến soma xuất hiện ở các phôi: 1) 7 ngày; 2) 3 tháng; 3) 30 ngày; 4) 15 ngày; 5) 45 ngày. Thứ tự giảm dần số tế bào mang đột biến soma là",
+      "options": [
+        {
+          "key": "A",
+          "text": "2 → 5 → 4 → 3 → 1."
+        },
+        {
+          "key": "B",
+          "text": "2 → 5 → 3 → 4 → 1."
+        },
+        {
+          "key": "C",
+          "text": "1 → 3 → 4 → 5 → 2."
+        },
+        {
+          "key": "D",
+          "text": "1 → 4 → 3 → 5 → 2."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q15",
+      "type": "mcq",
+      "text": "Người A trưởng thành bị đột biến soma ở một số tế bào da làm mất khả năng tổng hợp melanin. Kiểu hình phù hợp là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tất cả tế bào da mất melanin, bạch tạng hoàn toàn."
+        },
+        {
+          "key": "B",
+          "text": "Cơ thể biểu hiện kiểu hình dạng thể khảm, một số đốm trắng xen với da bình thường."
+        },
+        {
+          "key": "C",
+          "text": "Cơ thể có da bình thường vì tế bào mất chức năng bị thay thế."
+        },
+        {
+          "key": "D",
+          "text": "Màu sắc da giảm do sự hòa trộn hai nhóm tế bào bình thường và bạch tạng."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q16",
+      "type": "mcq",
+      "text": "Về thuốc trừ sâu sinh học Bt: I duy trì lâu trong môi trường; II không ảnh hưởng sức khỏe con người; III giết tất cả côn trùng; IV dễ phân hủy trong môi trường tự nhiên. Số nhận định đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "1"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "3"
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q17",
+      "type": "mcq",
+      "text": "Gene khảm trong DNA tái tổ hợp có thể thực hiện quá trình nào sau đây?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tái tổ hợp với plasmid bất kỳ trong vi khuẩn Agrobacterium."
+        },
+        {
+          "key": "B",
+          "text": "Phiên mã tạo thành tRNA trong tế bào thực vật."
+        },
+        {
+          "key": "C",
+          "text": "Nhân lên thành nhiều bản sao trong một tế bào thực vật."
+        },
+        {
+          "key": "D",
+          "text": "Phiên mã và dịch mã tạo sản phẩm protein trong tế bào thực vật."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q18",
+      "type": "mcq",
+      "text": "Trong thí nghiệm tạo cây thuốc lá mang gene Bt, nếu gắn trực tiếp gene Bt vào vector biểu hiện và không sử dụng gene neo+ thì kết quả là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Gene Bt không thể chuyển từ DNA tái tổ hợp vào Ti plasmid."
+        },
+        {
+          "key": "B",
+          "text": "Mô lá không tái sinh thành cây trong môi trường có kanamycin."
+        },
+        {
+          "key": "C",
+          "text": "Gene Bt không thể cài vào bộ gene của thực vật."
+        },
+        {
+          "key": "D",
+          "text": "Protein độc tố Bt không gây hại cho ấu trùng bướm."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q19",
+      "type": "mcq",
+      "text": "Dựa vào biểu đồ lượng carbon-14C ở các cơ quan sau khi cho chuột ăn, kết luận đúng được hỏi trong đề. Các nhóm: lô 1 đối chứng, lô 2 phenformin, lô 3 somatostatin.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lượng carbon-14C trong gan nhóm đối chứng thấp hơn nhóm tiêm somatostatin."
+        },
+        {
+          "key": "B",
+          "text": "Lượng carbon-14C trong máu nhóm đối chứng cao hơn so với trong máu các nhóm chuột khác."
+        },
+        {
+          "key": "C",
+          "text": "Somatostatin hoặc phenformin không ảnh hưởng đến quá trình tiêu hóa các chất."
+        },
+        {
+          "key": "D",
+          "text": "Phenformin thêm vào thức ăn làm giảm lượng carbon-14C ở các cơ quan."
+        }
+      ],
+      "answer": null,
+      "part": "I",
+      "needs_review": true,
+      "note": "Câu phụ thuộc trực tiếp vào biểu đồ ở trang 7; các cột A/B/D đều có vẻ phù hợp với dữ liệu OCR/hình nên để kiểm tra lại trước khi dùng chấm tự động.",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q20",
+      "type": "mcq",
+      "text": "Kết luận nào sau đây không đúng về ảnh hưởng của somatostatin lên quá trình tiêu hóa ở chuột?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lượng somatostatin cao trong máu không ảnh hưởng đến tiêu hóa chất béo."
+        },
+        {
+          "key": "B",
+          "text": "Somatostatin có thể làm tăng lượng carbon-14C trong ống tiêu hóa."
+        },
+        {
+          "key": "C",
+          "text": "Somatostatin có thể tác động lên hoạt động chuyển hóa mỡ ở mô tinh hoàn."
+        },
+        {
+          "key": "D",
+          "text": "Somatostatin có thể di chuyển trong máu và đến các cơ quan."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q21",
+      "type": "mcq",
+      "text": "Phenformin và somatostatin trong cơ thể chuột ảnh hưởng đến hoạt động nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hấp thu và chuyển hóa chất béo."
+        },
+        {
+          "key": "B",
+          "text": "Tiêu hóa, hấp thu và chuyển hóa chất béo."
+        },
+        {
+          "key": "C",
+          "text": "Hấp thu và chuyển hóa protein."
+        },
+        {
+          "key": "D",
+          "text": "Tiêu hóa, hấp thu và chuyển hóa protein."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q22",
+      "type": "mcq",
+      "text": "Cá Tuyết Nam Cực là động vật biến nhiệt. Khi nhiệt độ nước tăng thì",
+      "options": [
+        {
+          "key": "A",
+          "text": "nhiệt độ cơ thể cá tăng."
+        },
+        {
+          "key": "B",
+          "text": "nhiệt độ cơ thể cá giảm."
+        },
+        {
+          "key": "C",
+          "text": "nhiệt độ cơ thể cá không đổi."
+        },
+        {
+          "key": "D",
+          "text": "nhiệt độ cơ thể cá tăng và giảm liên tục."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q23",
+      "type": "mcq",
+      "text": "Giải thích đúng về sự thích nghi của cá Tuyết Nam Cực khi nhiệt độ thấp là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Độ nhớt của máu tăng, mất tế bào hồng cầu giúp điều hòa dòng chảy của máu."
+        },
+        {
+          "key": "B",
+          "text": "Độ nhớt của máu giảm, mất tế bào hồng cầu giúp điều hòa dòng chảy của máu."
+        },
+        {
+          "key": "C",
+          "text": "Khi nhiệt độ tăng, độ nhớt của máu tăng, mất tế bào hồng cầu giúp điều hòa dòng chảy."
+        },
+        {
+          "key": "D",
+          "text": "Độ nhớt của máu không chịu ảnh hưởng của nhiệt độ, mất tế bào hồng cầu giúp điều hòa dòng chảy."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q24",
+      "type": "mcq",
+      "text": "Nếu bắt cá Tuyết Nam Cực non và nuôi trong vùng biển nhiệt đới thì",
+      "options": [
+        {
+          "key": "A",
+          "text": "cá không thể sống và phát triển."
+        },
+        {
+          "key": "B",
+          "text": "cá sống và phát triển bình thường do có đặc điểm thích nghi tốt."
+        },
+        {
+          "key": "C",
+          "text": "cá sống nhưng có nhiều đặc điểm hình thái thay đổi."
+        },
+        {
+          "key": "D",
+          "text": "cá sống và sản xuất hemoglobin trong máu."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q25",
+      "type": "mcq",
+      "text": "Giai đoạn nào không xảy ra trong quá trình hình thành mRNA trưởng thành?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cắt intron và nối các exon."
+        },
+        {
+          "key": "B",
+          "text": "Gắn đuôi polyA."
+        },
+        {
+          "key": "C",
+          "text": "Gắn mũ 5’P."
+        },
+        {
+          "key": "D",
+          "text": "Cuộn xoắn với protein Histon."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q26",
+      "type": "mcq",
+      "text": "Cho các quá trình: (1) cắt trình tự 3’ intron; (2) cắt trình tự 5’ intron; (3) nối đầu 5’ intron với vị trí nhánh A; (4) loại bỏ intron. Thứ tự đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "1-2-3-4"
+        },
+        {
+          "key": "B",
+          "text": "2-3-1-4"
+        },
+        {
+          "key": "C",
+          "text": "2-3-4-1"
+        },
+        {
+          "key": "D",
+          "text": "3-2-1-4"
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q27",
+      "type": "mcq",
+      "text": "Một mRNA có cấu trúc exon 1–intron 1–exon 2–intron 2–exon 3–intron 3–exon 4. Intron và exon dài bằng nhau 340 Å. Enzyme cắt intron có thể loại bỏ đoạn RNA dài tối đa 1.020 Å. Quá trình ghép nối thay đổi có thể tạo bao nhiêu loại mRNA trưởng thành?",
+      "options": [
+        {
+          "key": "A",
+          "text": "2"
+        },
+        {
+          "key": "B",
+          "text": "3"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "1"
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "needs_review": true,
+      "note": "Câu phụ thuộc cách hiểu cơ chế ghép nối thay đổi; đáp án C là cách diễn giải theo khả năng loại bỏ các đoạn dài tối đa 3×340 Å.",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q28",
+      "type": "mcq",
+      "text": "Thí nghiệm thanh long: không chiếu sáng ban đêm cho 0% ra hoa; chiếu sáng 0,5/1/2/3/4/5 giờ cho lần lượt 0/12/51/79/90/99%. Để điều khiển cây thanh long ra hoa đồng loạt vào thời điểm ngày ngắn, cần chiếu đèn từ 0 giờ và tắt vào",
+      "options": [
+        {
+          "key": "A",
+          "text": "0 giờ 30 phút."
+        },
+        {
+          "key": "B",
+          "text": "1 giờ 30 phút."
+        },
+        {
+          "key": "C",
+          "text": "2 giờ 10 phút."
+        },
+        {
+          "key": "D",
+          "text": "5 giờ 10 phút."
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q29",
+      "type": "mcq",
+      "text": "Một loài thực vật ngày ngắn có độ dài đêm tới hạn 09 giờ, trồng trong chu kỳ 24 giờ. Điều kiện chiếu sáng nào kích thích ra hoa?",
+      "options": [
+        {
+          "key": "A",
+          "text": "10 giờ tối/24 giờ."
+        },
+        {
+          "key": "B",
+          "text": "16 giờ sáng/24 giờ."
+        },
+        {
+          "key": "C",
+          "text": "08 giờ tối/24 giờ."
+        },
+        {
+          "key": "D",
+          "text": "19 giờ sáng/24 giờ."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q30",
+      "type": "mcq",
+      "text": "Loài thực vật nào sau đây được xếp vào nhóm cây ngày dài?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cây ké đầu ngựa (Xanthium strumarium) chỉ ra hoa khi chiếu sáng tối đa 16 giờ hoặc ít hơn."
+        },
+        {
+          "key": "B",
+          "text": "Cây Jusquiame (Hyoscyamus niger) ra hoa khi điều kiện chiếu sáng tối thiểu là 11,5 giờ."
+        },
+        {
+          "key": "C",
+          "text": "Cây thuốc lá (Nicotiana tabacum) chỉ ra hoa khi chiếu sáng tối đa 14 giờ hoặc ít hơn."
+        },
+        {
+          "key": "D",
+          "text": "Cây cà chua có đủ 14 cặp NST có thể ra hoa khi chiếu sáng tối thiểu là 12 giờ hoặc nhiều hơn."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q31",
+      "type": "mcq",
+      "text": "Từ các thí nghiệm hormone A và B, trong máu chuột bình thường khi hàm lượng hormone B tăng thì hàm lượng hormone A",
+      "options": [
+        {
+          "key": "A",
+          "text": "sẽ dần tăng lên."
+        },
+        {
+          "key": "B",
+          "text": "không thay đổi."
+        },
+        {
+          "key": "C",
+          "text": "giảm dần."
+        },
+        {
+          "key": "D",
+          "text": "giảm xuống và sau đó tăng lên."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q32",
+      "type": "mcq",
+      "text": "Phát biểu đúng về mối quan hệ giữa hormone A và hormone B là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Nồng độ hormone A và B tăng tỉ lệ thuận với nhau."
+        },
+        {
+          "key": "B",
+          "text": "Hormone A và B không có mối liên hệ."
+        },
+        {
+          "key": "C",
+          "text": "Nồng độ hormone A cao làm giảm hoạt động của tuyến tiết hormone B."
+        },
+        {
+          "key": "D",
+          "text": "Nồng độ hormone B và hormone A tăng tỉ lệ nghịch với nhau."
+        }
+      ],
+      "answer": "C",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q33",
+      "type": "mcq",
+      "text": "Nếu nồng độ hormone A cao làm con vật hoạt động và A thấp làm con vật ngủ, chuột đang thức bình thường sẽ thế nào nếu tiêm thêm hormone B?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Chuột sẽ nhanh chóng đi vào giấc ngủ."
+        },
+        {
+          "key": "B",
+          "text": "Không có tác dụng lên hoạt động của chuột."
+        },
+        {
+          "key": "C",
+          "text": "Chuột ngủ thời gian dài hơn bình thường."
+        },
+        {
+          "key": "D",
+          "text": "Chuột trở nên năng động hơn."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q34",
+      "type": "mcq",
+      "text": "Theo bảng lượng nước tiểu trung bình của nhóm R (1,8;1,9;2,0;2,2;2,5;2,6;2,8 gallon) và nhóm S (2,1;2,0;1,8;1,9;1,8;2,0;1,9), phát biểu đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lượng nước tiểu chỉ tăng theo thời gian đối với nhóm S."
+        },
+        {
+          "key": "B",
+          "text": "Lượng nước tiểu chỉ tăng theo thời gian đối với nhóm R."
+        },
+        {
+          "key": "C",
+          "text": "Lượng nước tiểu tăng theo thời gian đối với nhóm R hoặc nhóm S."
+        },
+        {
+          "key": "D",
+          "text": "Lượng nước tiểu tăng theo thời gian đối với nhóm R và nhóm S."
+        }
+      ],
+      "answer": "B",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q35",
+      "type": "mcq",
+      "text": "Phát biểu phù hợp với kết quả nghiên cứu về chất X ở ngựa là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Không thể phát hiện ngay tác động của chất X lên lượng nước tiểu."
+        },
+        {
+          "key": "B",
+          "text": "Nên dùng chất X trong thời gian dài để tăng hiệu quả chống nhiễm trùng."
+        },
+        {
+          "key": "C",
+          "text": "Thức ăn bổ sung X không ảnh hưởng đến lượng nước tiểu ở ngựa."
+        },
+        {
+          "key": "D",
+          "text": "Những con ngựa nhóm R đi tiểu ít hơn nhóm S."
+        }
+      ],
+      "answer": "A",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    },
+    {
+      "id": "sinh02-q36",
+      "type": "mcq",
+      "text": "Để tăng tính chính xác kết quả thí nghiệm, đề xuất hợp lý là: I chọn 2 nhóm ngựa có khối lượng cơ thể khác nhau; II cho 2 nhóm ăn 2 loại thức ăn khác nhau nhưng cùng bổ sung X; III kéo dài thêm thời gian thực hiện; IV tăng số lượng ngựa trong mỗi nhóm.",
+      "options": [
+        {
+          "key": "A",
+          "text": "1"
+        },
+        {
+          "key": "B",
+          "text": "2"
+        },
+        {
+          "key": "C",
+          "text": "3"
+        },
+        {
+          "key": "D",
+          "text": "4"
+        }
+      ],
+      "answer": "D",
+      "part": "I",
+      "source": "V-SAT PDF do người dùng cung cấp"
+    }
+  ]
+}
