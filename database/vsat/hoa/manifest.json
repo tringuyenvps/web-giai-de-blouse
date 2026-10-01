@@ -2,8 +2,11 @@
   "version": 1,
   "exam": "vsat",
   "subject": "hoa",
-  "description": "Danh sách đề thật cho môn Đề 3.",
+  "description": "Manifest mẫu sau khi thêm các đề mới.",
   "files": [
-    "de3.json"
+    "de3.json",
+    "de7.json",
+    "de9.json",
+    "de11.json"
   ]
 }
