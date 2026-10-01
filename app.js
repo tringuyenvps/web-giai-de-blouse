@@ -609,7 +609,7 @@
         DOM.selectedExamBreadcrumb.textContent = exam.name;
         DOM.selectionExamName.textContent = exam.name;
         DOM.selectionTitle.textContent = `Chọn môn ${exam.name} để bắt đầu`;
-        DOM.selectionDescription.textContent = `${exam.description} Dữ liệu chỉ lấy từ manifest.json, không tạo câu hỏi giả.`;
+        DOM.selectionDescription.textContent = "";
         DOM.subjectLoading.classList.add("hidden");
         DOM.subjectGrid.innerHTML = exam.subjects.map((subject, i) => {
             const duration = getDurationMinutes(exam.key, subject.key);
