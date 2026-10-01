@@ -1,0 +1,1307 @@
+{
+  "exam": "vsat",
+  "subject": "hoa",
+  "title": "V-SAT Hóa học – Đề 9",
+  "sourceTitle": "[V-SAT - HÓA HỌC] Đề 9.pdf — đề phát triển từ đề minh họa V-SAT",
+  "sourceCode": "de9",
+  "durationMinutes": 50,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "hoa09-q01",
+      "type": "true_false",
+      "text": "Cân bằng MS(s) ⇌ M2+(aq) + S2-(aq), với S2- thủy phân tạo HS- và OH-. Muốn tăng độ tan MS:",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Thêm base mạnh vào dung dịch MS."
+        },
+        {
+          "key": "b",
+          "text": "Thêm acid mạnh vào dung dịch MS."
+        },
+        {
+          "key": "c",
+          "text": "Tăng lượng sulfide kim loại hiện có trong dung dịch MS."
+        },
+        {
+          "key": "d",
+          "text": "Thêm muối M(NO3)2 vào dung dịch MS."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q02",
+      "type": "true_false",
+      "text": "Cho các phát biểu về carbonyl.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Formic aldehyde (methanal) có công thức HCHO."
+        },
+        {
+          "key": "b",
+          "text": "CH3COOH và CH3CHO đều thuộc loại hợp chất carbonyl."
+        },
+        {
+          "key": "c",
+          "text": "Có thể phân biệt acetaldehyde và acetone bằng phản ứng iodoform."
+        },
+        {
+          "key": "d",
+          "text": "Khử aldehyde bằng NaBH4 thu được alcohol bậc I."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q03",
+      "type": "true_false",
+      "text": "Cho các phát biểu về ester, chất béo.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Ester no, đơn chức, mạch hở có công thức chung CnH2nO2 (n ≥ 2)."
+        },
+        {
+          "key": "b",
+          "text": "Các ester là chất lỏng hoặc chất rắn ở điều kiện thường."
+        },
+        {
+          "key": "c",
+          "text": "Cho tristearin tác dụng với dung dịch NaOH đun nóng thu được stearic acid và glycerol."
+        },
+        {
+          "key": "d",
+          "text": "Tristearin, triolein có công thức lần lượt là (C17H33COO)3C3H5, (C17H35COO)3C3H5."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q04",
+      "type": "true_false",
+      "text": "Cho các phát biểu sau về kim loại.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Các tính chất vật lý chung của kim loại do các electron tự do gây ra."
+        },
+        {
+          "key": "b",
+          "text": "Tính chất hoá học đặc trưng của kim loại là tính oxi hoá."
+        },
+        {
+          "key": "c",
+          "text": "Phương pháp điện phân nóng chảy có thể điều chế được các kim loại Na, Al."
+        },
+        {
+          "key": "d",
+          "text": "Mg, Zn, Cu thuộc dãy kim loại chuyển tiếp dãy thứ nhất."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q05",
+      "type": "true_false",
+      "text": "Sản xuất đường kính từ cây mía theo sơ đồ: ép mía → nước mía → xử lí vôi → CO2/lọc → SO2/tẩy màu → cô đặc, làm lạnh kết tinh.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Phương pháp được sử dụng để tinh chế đường từ cây mía là chiết lỏng-rắn và kết tinh."
+        },
+        {
+          "key": "b",
+          "text": "Có calcium gluconate trong dung dịch đường thu được sau bước (2)."
+        },
+        {
+          "key": "c",
+          "text": "Quá trình cô đặc ở giai đoạn (5) được thực hiện bằng cách cô cạn dung môi ở áp suất thường để thu được đường kết tinh."
+        },
+        {
+          "key": "d",
+          "text": "Từ 260 L nước mía, nồng độ đường 7,5%, d = 1,103 g/mL, chế biến được 15,36 kg đường kết tinh chứa 2% tạp chất; chỉ 70% đường thu được ở dạng kết tinh."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q05.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q06",
+      "type": "true_false",
+      "text": "Phân tích E mạch hở: %C=40,68%; %H=5,08%; %O=54,24%; M=118. Sơ đồ E + 2NaOH → X + Y + Z; X + HCl → F + NaCl; Y + HCl → T + NaCl; Z là alcohol đơn chức, MF < MT.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Trong Y, số nguyên tử hydrogen bằng số nguyên tử oxygen."
+        },
+        {
+          "key": "b",
+          "text": "Chất F có khả năng tham gia phản ứng tráng bạc."
+        },
+        {
+          "key": "c",
+          "text": "Nhiệt độ sôi của Z thấp hơn nhiệt độ sôi của ethanol."
+        },
+        {
+          "key": "d",
+          "text": "Chất T thuộc loại hợp chất hữu cơ đa chức."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "needs_review": true,
+      "reviewNote": "Sơ đồ ở PDF có điểm bất nhất ở phản ứng (3) Y + HCl → T + NaCl khi Y theo (2) là sản phẩm alcohol; các mệnh đề được điền theo cách hiểu hóa học dự kiến và cần kiểm tra lại nếu muốn khóa đáp án."
+    },
+    {
+      "id": "hoa09-q07",
+      "type": "true_false",
+      "text": "Salbutamol có công thức cấu tạo như hình trong đề.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Công thức phân tử của salbutamol là C13H22NO3."
+        },
+        {
+          "key": "b",
+          "text": "Salbutamol là hợp chất hữu cơ đa chức vì có chứa nhiều nhóm chức."
+        },
+        {
+          "key": "c",
+          "text": "Nhóm amine trong phân tử salbutamol có bậc là I."
+        },
+        {
+          "key": "d",
+          "text": "Salbutamol có khả năng phản ứng với dung dịch Br2 ở điều kiện thường."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q07.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q08",
+      "type": "true_false",
+      "text": "Chuẩn độ acid acetic trong giấm: pha loãng 10,00 mL giấm thành 100,00 mL X; lấy 10,00 mL X chuẩn độ bằng NaOH 0,02 M. Ba lần dùng 37,5; 37,4; 37,6 mL.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Phương trình phản ứng là CH3COOH + NaOH → CH3COONa + H2O."
+        },
+        {
+          "key": "b",
+          "text": "Để rút ngắn thời gian chuẩn độ, ta có thể làm thí nghiệm một lần nhưng phải cẩn thận."
+        },
+        {
+          "key": "c",
+          "text": "Thời điểm kết thúc chuẩn độ là lúc dung dịch xuất hiện ngay màu hồng nhạt."
+        },
+        {
+          "key": "d",
+          "text": "Từ kết quả trên, nồng độ dung dịch giấm ăn ban đầu là 0,5 M."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q08.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q09",
+      "type": "true_false",
+      "text": "Một pin Galvani Cu–Ag ở điều kiện chuẩn, cầu muối KNO3; E°Cu2+/Cu = 0,34 V và E°Ag+/Ag = x V.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Điện cực Cu đóng vai trò là cathode."
+        },
+        {
+          "key": "b",
+          "text": "Khi pin hoạt động ion NO3- của cầu muối sẽ di chuyển về cathode."
+        },
+        {
+          "key": "c",
+          "text": "Khối lượng điện cực Cu giảm đúng bằng khối lượng điện cực Ag tăng."
+        },
+        {
+          "key": "d",
+          "text": "Giá trị x là 0,799."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q09.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q10",
+      "type": "mcq",
+      "text": "Vết tại vị trí C trong điện di hỗn hợp glutamic acid, glycine, arginine ở pH=5,97 là dạng tồn tại chủ yếu của",
+      "options": [
+        {
+          "key": "A",
+          "text": "Glycine."
+        },
+        {
+          "key": "B",
+          "text": "Glutamic acid."
+        },
+        {
+          "key": "C",
+          "text": "Arginine."
+        },
+        {
+          "key": "D",
+          "text": "Glycine và Arginine."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q10.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q11",
+      "type": "mcq",
+      "text": "Tại pH = 5,97, glycine tồn tại chủ yếu dạng",
+      "options": [
+        {
+          "key": "A",
+          "text": "NH2CH2COOH."
+        },
+        {
+          "key": "B",
+          "text": "NH3+CH2COO-."
+        },
+        {
+          "key": "C",
+          "text": "NH2CH2COO-."
+        },
+        {
+          "key": "D",
+          "text": "NH3+CH2COOH+"
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q12",
+      "type": "mcq",
+      "text": "Cho 14,7 g glutamic acid tác dụng với 200 mL HCl 1 M, sau đó với 400 mL NaOH 1 M; cô cạn dung dịch sau phản ứng thu được chất rắn",
+      "options": [
+        {
+          "key": "A",
+          "text": "30,8 g"
+        },
+        {
+          "key": "B",
+          "text": "34,45 g"
+        },
+        {
+          "key": "C",
+          "text": "22,75 g"
+        },
+        {
+          "key": "D",
+          "text": "20,55 g"
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q13",
+      "type": "mcq",
+      "text": "Phát biểu đúng về phân bón hóa học là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bón phân đạm như NH4NO3, NH4Cl có thể làm chua đất."
+        },
+        {
+          "key": "B",
+          "text": "Hàm lượng đạm trong urea là 23,3%."
+        },
+        {
+          "key": "C",
+          "text": "Bón đạm trước rồi vài ngày sau mới bón vôi khử chua."
+        },
+        {
+          "key": "D",
+          "text": "Công thức superphosphate đơn là Ca(H2PO4)2."
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q14",
+      "type": "mcq",
+      "text": "X là phân bón: tác dụng NaOH đun nóng có khí; X + H2SO4 loãng rồi thêm Cu tạo khí không màu hóa nâu. X là",
+      "options": [
+        {
+          "key": "A",
+          "text": "(NH4)2SO4."
+        },
+        {
+          "key": "B",
+          "text": "(NH4)2CO3."
+        },
+        {
+          "key": "C",
+          "text": "NH4NO3."
+        },
+        {
+          "key": "D",
+          "text": "KNO3."
+        }
+      ],
+      "answer": "C",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q15",
+      "type": "mcq",
+      "text": "NPK 20-20-15, phân kali 60%, urea 46%; cần 150 kg N, 60 kg P2O5 và 110 kg K2O/ha. Giá NPK 14.000, kali 18.000, urea 20.000 VND/kg. Tổng tiền là",
+      "options": [
+        {
+          "key": "A",
+          "text": "10.063.043 VND"
+        },
+        {
+          "key": "B",
+          "text": "10.829.710 VND"
+        },
+        {
+          "key": "C",
+          "text": "5.380.000 VND"
+        },
+        {
+          "key": "D",
+          "text": "9.888.405 VND"
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q16",
+      "type": "matching",
+      "text": "Ghép thí nghiệm với kết quả sản phẩm.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "BaCl2 + NaHCO3 đun nóng",
+          "options": [
+            {
+              "key": "A",
+              "text": "Thu được hỗn hợp 2 chất rắn."
+            },
+            {
+              "key": "B",
+              "text": "Có 1 khí và 1 chất rắn."
+            },
+            {
+              "key": "C",
+              "text": "Có 1 chất rắn."
+            },
+            {
+              "key": "D",
+              "text": "Dung dịch trong suốt."
+            },
+            {
+              "key": "E",
+              "text": "Có 1 khí và 2 chất rắn."
+            },
+            {
+              "key": "F",
+              "text": "Có 2 khí và 1 chất rắn."
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "CO2 từ từ đến dư vào Ca(OH)2",
+          "options": [
+            {
+              "key": "A",
+              "text": "Thu được hỗn hợp 2 chất rắn."
+            },
+            {
+              "key": "B",
+              "text": "Có 1 khí và 1 chất rắn."
+            },
+            {
+              "key": "C",
+              "text": "Có 1 chất rắn."
+            },
+            {
+              "key": "D",
+              "text": "Dung dịch trong suốt."
+            },
+            {
+              "key": "E",
+              "text": "Có 1 khí và 2 chất rắn."
+            },
+            {
+              "key": "F",
+              "text": "Có 2 khí và 1 chất rắn."
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Ba(HCO3)2 + NaHSO4",
+          "options": [
+            {
+              "key": "A",
+              "text": "Thu được hỗn hợp 2 chất rắn."
+            },
+            {
+              "key": "B",
+              "text": "Có 1 khí và 1 chất rắn."
+            },
+            {
+              "key": "C",
+              "text": "Có 1 chất rắn."
+            },
+            {
+              "key": "D",
+              "text": "Dung dịch trong suốt."
+            },
+            {
+              "key": "E",
+              "text": "Có 1 khí và 2 chất rắn."
+            },
+            {
+              "key": "F",
+              "text": "Có 2 khí và 1 chất rắn."
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "FeCl2 + AgNO3 dư",
+          "options": [
+            {
+              "key": "A",
+              "text": "Thu được hỗn hợp 2 chất rắn."
+            },
+            {
+              "key": "B",
+              "text": "Có 1 khí và 1 chất rắn."
+            },
+            {
+              "key": "C",
+              "text": "Có 1 chất rắn."
+            },
+            {
+              "key": "D",
+              "text": "Dung dịch trong suốt."
+            },
+            {
+              "key": "E",
+              "text": "Có 1 khí và 2 chất rắn."
+            },
+            {
+              "key": "F",
+              "text": "Có 2 khí và 1 chất rắn."
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "E",
+        "b": "D",
+        "c": "B",
+        "d": "A"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q17",
+      "type": "matching",
+      "text": "Ghép thí nghiệm với sản phẩm.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Cl2 + H2, chiếu sáng",
+          "options": [
+            {
+              "key": "A",
+              "text": "Khói trắng AlCl3."
+            },
+            {
+              "key": "B",
+              "text": "Khí HCl."
+            },
+            {
+              "key": "C",
+              "text": "Nước Javen."
+            },
+            {
+              "key": "D",
+              "text": "NaCl và I2."
+            },
+            {
+              "key": "E",
+              "text": "NaIO3."
+            },
+            {
+              "key": "F",
+              "text": "Dung dịch NaOH."
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Dây Al đun nóng trong Cl2",
+          "options": [
+            {
+              "key": "A",
+              "text": "Khói trắng AlCl3."
+            },
+            {
+              "key": "B",
+              "text": "Khí HCl."
+            },
+            {
+              "key": "C",
+              "text": "Nước Javen."
+            },
+            {
+              "key": "D",
+              "text": "NaCl và I2."
+            },
+            {
+              "key": "E",
+              "text": "NaIO3."
+            },
+            {
+              "key": "F",
+              "text": "Dung dịch NaOH."
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Cl2 + dung dịch NaI",
+          "options": [
+            {
+              "key": "A",
+              "text": "Khói trắng AlCl3."
+            },
+            {
+              "key": "B",
+              "text": "Khí HCl."
+            },
+            {
+              "key": "C",
+              "text": "Nước Javen."
+            },
+            {
+              "key": "D",
+              "text": "NaCl và I2."
+            },
+            {
+              "key": "E",
+              "text": "NaIO3."
+            },
+            {
+              "key": "F",
+              "text": "Dung dịch NaOH."
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Điện phân dung dịch NaCl, không màng ngăn",
+          "options": [
+            {
+              "key": "A",
+              "text": "Khói trắng AlCl3."
+            },
+            {
+              "key": "B",
+              "text": "Khí HCl."
+            },
+            {
+              "key": "C",
+              "text": "Nước Javen."
+            },
+            {
+              "key": "D",
+              "text": "NaCl và I2."
+            },
+            {
+              "key": "E",
+              "text": "NaIO3."
+            },
+            {
+              "key": "F",
+              "text": "Dung dịch NaOH."
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "B",
+        "b": "A",
+        "c": "D",
+        "d": "F"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q18",
+      "type": "matching",
+      "text": "Ghép chất với tính chất.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Oxalic acid",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tạo kết tủa vàng với I2/NaOH."
+            },
+            {
+              "key": "B",
+              "text": "Hoà tan Cu(OH)2 tạo phức chất màu xanh lam."
+            },
+            {
+              "key": "C",
+              "text": "Phản ứng ester hóa với CH3OH chỉ tạo được ester đơn."
+            },
+            {
+              "key": "D",
+              "text": "Tạo kết tủa màu vàng với nước Br2."
+            },
+            {
+              "key": "E",
+              "text": "Có phản ứng với thuốc thử Tollens."
+            },
+            {
+              "key": "F",
+              "text": "Phản ứng ester hóa với CH3OH tạo được ester tối đa 2 chức."
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Phenol",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tạo kết tủa vàng với I2/NaOH."
+            },
+            {
+              "key": "B",
+              "text": "Hoà tan Cu(OH)2 tạo phức chất màu xanh lam."
+            },
+            {
+              "key": "C",
+              "text": "Phản ứng ester hóa với CH3OH chỉ tạo được ester đơn."
+            },
+            {
+              "key": "D",
+              "text": "Tạo kết tủa màu vàng với nước Br2."
+            },
+            {
+              "key": "E",
+              "text": "Có phản ứng với thuốc thử Tollens."
+            },
+            {
+              "key": "F",
+              "text": "Phản ứng ester hóa với CH3OH tạo được ester tối đa 2 chức."
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Ethylen glycol",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tạo kết tủa vàng với I2/NaOH."
+            },
+            {
+              "key": "B",
+              "text": "Hoà tan Cu(OH)2 tạo phức chất màu xanh lam."
+            },
+            {
+              "key": "C",
+              "text": "Phản ứng ester hóa với CH3OH chỉ tạo được ester đơn."
+            },
+            {
+              "key": "D",
+              "text": "Tạo kết tủa màu vàng với nước Br2."
+            },
+            {
+              "key": "E",
+              "text": "Có phản ứng với thuốc thử Tollens."
+            },
+            {
+              "key": "F",
+              "text": "Phản ứng ester hóa với CH3OH tạo được ester tối đa 2 chức."
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Acetone",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tạo kết tủa vàng với I2/NaOH."
+            },
+            {
+              "key": "B",
+              "text": "Hoà tan Cu(OH)2 tạo phức chất màu xanh lam."
+            },
+            {
+              "key": "C",
+              "text": "Phản ứng ester hóa với CH3OH chỉ tạo được ester đơn."
+            },
+            {
+              "key": "D",
+              "text": "Tạo kết tủa màu vàng với nước Br2."
+            },
+            {
+              "key": "E",
+              "text": "Có phản ứng với thuốc thử Tollens."
+            },
+            {
+              "key": "F",
+              "text": "Phản ứng ester hóa với CH3OH tạo được ester tối đa 2 chức."
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "F",
+        "b": "D",
+        "c": "B",
+        "d": "A"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "needs_review": true
+    },
+    {
+      "id": "hoa09-q19",
+      "type": "matching",
+      "text": "Cho peptide X có công thức cấu tạo như hình. Ghép yêu cầu với giá trị.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Số loại amino acid thu được khi thủy phân hoàn toàn X",
+          "options": [
+            {
+              "key": "A",
+              "text": "6"
+            },
+            {
+              "key": "B",
+              "text": "5"
+            },
+            {
+              "key": "C",
+              "text": "1"
+            },
+            {
+              "key": "D",
+              "text": "2"
+            },
+            {
+              "key": "E",
+              "text": "3"
+            },
+            {
+              "key": "F",
+              "text": "4"
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Số nguyên tử N trong X",
+          "options": [
+            {
+              "key": "A",
+              "text": "6"
+            },
+            {
+              "key": "B",
+              "text": "5"
+            },
+            {
+              "key": "C",
+              "text": "1"
+            },
+            {
+              "key": "D",
+              "text": "2"
+            },
+            {
+              "key": "E",
+              "text": "3"
+            },
+            {
+              "key": "F",
+              "text": "4"
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Thủy phân hoàn toàn 1 mol X cần lượng NaOH (mol)",
+          "options": [
+            {
+              "key": "A",
+              "text": "6"
+            },
+            {
+              "key": "B",
+              "text": "5"
+            },
+            {
+              "key": "C",
+              "text": "1"
+            },
+            {
+              "key": "D",
+              "text": "2"
+            },
+            {
+              "key": "E",
+              "text": "3"
+            },
+            {
+              "key": "F",
+              "text": "4"
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Thủy phân không hoàn toàn X thu được bao nhiêu dipeptide chứa glycine",
+          "options": [
+            {
+              "key": "A",
+              "text": "6"
+            },
+            {
+              "key": "B",
+              "text": "5"
+            },
+            {
+              "key": "C",
+              "text": "1"
+            },
+            {
+              "key": "D",
+              "text": "2"
+            },
+            {
+              "key": "E",
+              "text": "3"
+            },
+            {
+              "key": "F",
+              "text": "4"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "F",
+        "b": "A",
+        "c": "B",
+        "d": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q19.png",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q20",
+      "type": "matching",
+      "text": "Ghép phản ứng tạo polymer với sản phẩm.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Trùng hợp butadien và styrene",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tơ nitron."
+            },
+            {
+              "key": "B",
+              "text": "Tơ nilon-6."
+            },
+            {
+              "key": "C",
+              "text": "Tơ nilon-7."
+            },
+            {
+              "key": "D",
+              "text": "Tơ nilon-6,6."
+            },
+            {
+              "key": "E",
+              "text": "Cao su buna-S."
+            },
+            {
+              "key": "F",
+              "text": "Cao su lưu hóa."
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Trùng ngưng hexamethylendiamine và adipic acid",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tơ nitron."
+            },
+            {
+              "key": "B",
+              "text": "Tơ nilon-6."
+            },
+            {
+              "key": "C",
+              "text": "Tơ nilon-7."
+            },
+            {
+              "key": "D",
+              "text": "Tơ nilon-6,6."
+            },
+            {
+              "key": "E",
+              "text": "Cao su buna-S."
+            },
+            {
+              "key": "F",
+              "text": "Cao su lưu hóa."
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Trùng ngưng ε-aminocaproic acid",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tơ nitron."
+            },
+            {
+              "key": "B",
+              "text": "Tơ nilon-6."
+            },
+            {
+              "key": "C",
+              "text": "Tơ nilon-7."
+            },
+            {
+              "key": "D",
+              "text": "Tơ nilon-6,6."
+            },
+            {
+              "key": "E",
+              "text": "Cao su buna-S."
+            },
+            {
+              "key": "F",
+              "text": "Cao su lưu hóa."
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Trùng hợp acrylonitrile",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tơ nitron."
+            },
+            {
+              "key": "B",
+              "text": "Tơ nilon-6."
+            },
+            {
+              "key": "C",
+              "text": "Tơ nilon-7."
+            },
+            {
+              "key": "D",
+              "text": "Tơ nilon-6,6."
+            },
+            {
+              "key": "E",
+              "text": "Cao su buna-S."
+            },
+            {
+              "key": "F",
+              "text": "Cao su lưu hóa."
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "E",
+        "b": "D",
+        "c": "B",
+        "d": "A"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q21",
+      "type": "short_answer",
+      "text": "Điện phân dung dịch NaCl không màng ngăn tạo nước Javel. Dung dịch Javel 1 L, d=1,15 g/mL, chứa 14,9% NaClO và 11,7% NaCl. Nồng độ NaCl ban đầu a% để sản xuất trực tiếp lượng này, làm tròn 0,1.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "23.4",
+      "acceptedAnswers": [
+        "23.4"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q22",
+      "type": "short_answer",
+      "text": "Mạ Ag một mặt đĩa tròn r=12 cm, dày lớp mạ 0,01 mm, I=2 A, hiệu suất 100%, D(Ag)=10,5 g/cm3, M=108, F=96485 C/mol. Thời gian t (giờ), làm tròn 0,01.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "0.59",
+      "acceptedAnswers": [
+        "0.59"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q23",
+      "type": "short_answer",
+      "text": "Bình 12 kg gas, propane:butane = 1:1. Nhiệt cháy lần lượt 2220 và 2874 kJ/mol; hộ gia đình dùng 4000 kJ/ngày, hiệu suất hấp thụ 50%. Số ngày dùng hết bình, làm tròn hàng đơn vị.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "75",
+      "acceptedAnswers": [
+        "75"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q24",
+      "type": "short_answer",
+      "text": "Kevlar tạo từ terephthalic acid và benzene-1,4-diamine bằng trùng ngưng. Sản xuất 10 tấn Kevlar, hiệu suất 88%. Tổng khối lượng hai monomer tối thiểu (tấn), làm tròn hàng đơn vị.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "13",
+      "acceptedAnswers": [
+        "13"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de9/q24.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI"
+    },
+    {
+      "id": "hoa09-q25",
+      "type": "short_answer",
+      "text": "Mỡ gồm 30% tristearin, 40% tripalmitin, 30% triolein; xà phòng hóa 1 tấn bằng NaOH hiệu suất 80%; xà phòng chứa 72% muối acid béo. Khối lượng xà phòng thu được (tấn), làm tròn phần trăm.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "1.15",
+      "acceptedAnswers": [
+        "1.15"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI"
+    }
+  ]
+}

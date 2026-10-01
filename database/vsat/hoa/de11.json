@@ -1,0 +1,1306 @@
+{
+  "exam": "vsat",
+  "subject": "hoa",
+  "title": "V-SAT Hóa học – Đề 11",
+  "sourceTitle": "[V-SAT - HÓA HỌC] Đề 11.pdf — PDF ghi tiêu đề gốc DMT Education: Đề thi V-SAT Hóa học 2025 – Đề 4",
+  "sourceCode": "de11",
+  "durationMinutes": 50,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "hoa11-q01",
+      "type": "true_false",
+      "text": "Oxide cao nhất của R có công thức thực nghiệm R2O5; hydride của R chứa 8,82% H và là khí độc sinh ra khi phân hủy xác động thực vật.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Tính phi kim của R mạnh hơn nguyên tố X (Z=16)."
+        },
+        {
+          "key": "b",
+          "text": "Vị trí của R: ô số 15, chu kì 3, nhóm VA."
+        },
+        {
+          "key": "c",
+          "text": "Khi cho 1 mol hydroxide cao nhất của R tác dụng với NaOH dư thì số mol NaOH phản ứng là 2."
+        },
+        {
+          "key": "d",
+          "text": "Trong oxide cao nhất của R, R chiếm 43,66% khối lượng."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q02",
+      "type": "true_false",
+      "text": "Độ acid/kiềm của dung dịch được đánh giá bằng [H+] hoặc pH.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Dung dịch acid nào có nồng độ mol lớn hơn thì có tính acid mạnh hơn."
+        },
+        {
+          "key": "b",
+          "text": "Với cùng nồng độ K2SO3, NaClO4, HNO3, Ca(OH)2, chất có pH cao nhất là K2SO3."
+        },
+        {
+          "key": "c",
+          "text": "Với ba dung dịch cùng pH: NH3 (1), Ca(OH)2 (2), KOH (3), nồng độ mol giảm dần là (2),(3),(1)."
+        },
+        {
+          "key": "d",
+          "text": "Trong các dung dịch cùng nồng độ, dung dịch có [H+] nhỏ hơn và pH cao sẽ có tính acid yếu hơn."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q03",
+      "type": "true_false",
+      "text": "Cho các phát biểu về sulfuric acid.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "H2SO4 đặc có tính háo nước, gây bỏng nặng khi tiếp xúc da."
+        },
+        {
+          "key": "b",
+          "text": "Khi pha loãng H2SO4 đặc cần cho từ từ nước vào acid."
+        },
+        {
+          "key": "c",
+          "text": "Khi bị bỏng H2SO4 đặc, điều đầu tiên cần làm là xả nhanh chỗ bỏng với nước lạnh."
+        },
+        {
+          "key": "d",
+          "text": "H2SO4 loãng có tính oxi hóa mạnh, khi tác dụng với kim loại không sinh H2."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q04",
+      "type": "true_false",
+      "text": "Cho aniline (X), glutamic acid (Y), Gly-Ala (Z).",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Các chất trên đều chứa C, H, O và N."
+        },
+        {
+          "key": "b",
+          "text": "Chất Z phản ứng với thuốc thử biuret tạo màu tím đặc trưng."
+        },
+        {
+          "key": "c",
+          "text": "Ở điều kiện thường, X là chất lỏng; Y là chất rắn."
+        },
+        {
+          "key": "d",
+          "text": "Có thể nhận biết dung dịch ba chất trên bằng quỳ tím."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q05",
+      "type": "true_false",
+      "text": "Điện phân dung dịch X gồm NaCl (x mol) và CuSO4 (y mol), điện cực trơ, màng ngăn xốp, đến khi nước bắt đầu điện phân ở cả hai điện cực; sau điện phân nhúng Fe thấy khí Z không màu.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Dung dịch Y có các ion Na+, SO4^2-, H+."
+        },
+        {
+          "key": "b",
+          "text": "Trong dung dịch X, x > 2y."
+        },
+        {
+          "key": "c",
+          "text": "Khí Z là H2."
+        },
+        {
+          "key": "d",
+          "text": "Khí ở anode là Cl2 và O2."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q06",
+      "type": "true_false",
+      "text": "Glucose và fructose là monosaccharide, không bị thủy phân.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Glucose là chất rắn, vị ngọt, dễ tan trong nước, có trong nhiều trái cây chín."
+        },
+        {
+          "key": "b",
+          "text": "Ở người trưởng thành khỏe mạnh, glucose máu trước khi ăn khoảng 4,4–7,2 mmol/L."
+        },
+        {
+          "key": "c",
+          "text": "Fructose là chất rắn, dễ tan, ngọt hơn glucose và có nhiều trong mật ong."
+        },
+        {
+          "key": "d",
+          "text": "Trong dung dịch, glucose chủ yếu dạng vòng 6 cạnh còn fructose chủ yếu dạng mạch hở."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q07",
+      "type": "true_false",
+      "text": "Isopropyl formate là một ester có trong cà phê Arabica.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Công thức isopropyl formate là HCOOCH(CH3)2."
+        },
+        {
+          "key": "b",
+          "text": "Isopropyl formate là ester không no, có 1 C=C, đơn chức, mạch hở."
+        },
+        {
+          "key": "c",
+          "text": "Phần trăm khối lượng oxygen trong isopropyl formate là 37,5%."
+        },
+        {
+          "key": "d",
+          "text": "Isopropyl formate được điều chế từ propyl alcohol và formic acid."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q07.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q08",
+      "type": "true_false",
+      "text": "Có nhiều phương pháp chống ăn mòn kim loại.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Phủ sơn là một cách phổ biến để bảo vệ kim loại."
+        },
+        {
+          "key": "b",
+          "text": "Gắn tấm kẽm vào vỏ tàu biển giúp bảo vệ bằng phương pháp điện hóa."
+        },
+        {
+          "key": "c",
+          "text": "Sử dụng thép không gỉ là phương pháp hiệu quả nhất trong mọi trường hợp để ngăn ngừa ăn mòn."
+        },
+        {
+          "key": "d",
+          "text": "Giảm độ ẩm môi trường xung quanh có thể hạn chế ăn mòn kim loại."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q09",
+      "type": "true_false",
+      "text": "Điện phân dung dịch chứa m gam NaCl và CuSO4 bằng điện cực trơ, màng ngăn; tại t giây catot tăng 5,12 g và anot có 1,2395 L khí; tại 2t catot tăng 7,68 g và anot có V L khí.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Giá trị m là 21,54 g."
+        },
+        {
+          "key": "b",
+          "text": "Ở thời điểm 2t, Cu2+ ở catot chưa điện phân hết."
+        },
+        {
+          "key": "c",
+          "text": "Giá trị V là 3,016 L."
+        },
+        {
+          "key": "d",
+          "text": "Khối lượng dung dịch giảm sau thời gian t giây là 7,8 g."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q09-10.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q10",
+      "type": "mcq",
+      "text": "Trong thí nghiệm 1, bán phản ứng xảy ra ở cathode khi điện phân dung dịch Pb(NO3)2 và Al(NO3)3 bằng điện cực than chì là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Pb2+ + 2e → Pb"
+        },
+        {
+          "key": "B",
+          "text": "Al3+ + 3e → Al"
+        },
+        {
+          "key": "C",
+          "text": "O2 + 4H+ + 4e → 2H2O"
+        },
+        {
+          "key": "D",
+          "text": "H2O + 2e → H2 + 2OH-"
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q10-electrochem.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q11",
+      "type": "mcq",
+      "text": "Nếu đổi 2 điện cực than chì bằng 2 điện cực Pb trong thí nghiệm 1, phản ứng nào xảy ra ở cathode và anode?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cathode: Pb2+ + 2e → Pb; Anode: H2O → O2 + 4H+ + 4e"
+        },
+        {
+          "key": "B",
+          "text": "Cathode: Al3+ + 3e → Al; Anode: Pb → Pb2+ + 2e"
+        },
+        {
+          "key": "C",
+          "text": "Cathode: H2O + 2e → H2 + 2OH-; Anode: Pb → Pb2+ + 2e"
+        },
+        {
+          "key": "D",
+          "text": "Cathode: Pb2+ + 2e → Pb; Anode: H2O → O2 + 4H+ + 4e"
+        }
+      ],
+      "answer": null,
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q10-electrochem.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "needs_review": true,
+      "reviewNote": "PDF không có phương án khớp với phản ứng đúng dự kiến Pb2+ + 2e → Pb ở cathode và Pb → Pb2+ + 2e ở anode; không tự đoán đáp án."
+    },
+    {
+      "id": "hoa11-q12",
+      "type": "mcq",
+      "text": "Trong thí nghiệm 2, số gam Ag bám lên điện cực trong bình 2 là",
+      "options": [
+        {
+          "key": "A",
+          "text": "0"
+        },
+        {
+          "key": "B",
+          "text": "3,24"
+        },
+        {
+          "key": "C",
+          "text": "12,96"
+        },
+        {
+          "key": "D",
+          "text": "6,48"
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q13",
+      "type": "mcq",
+      "text": "Phương trình xà phòng hóa vinyl acetate trong NaOH là",
+      "options": [
+        {
+          "key": "A",
+          "text": "CH2=CHCOOCH3 + NaOH → CH2=CHCOONa + CH3OH"
+        },
+        {
+          "key": "B",
+          "text": "CH3COOCH=CH2 + NaOH → CH3COONa + CH3CHO"
+        },
+        {
+          "key": "C",
+          "text": "CH3COOCH=CH2 + NaOH → CH3COONa + CH3COCH3"
+        },
+        {
+          "key": "D",
+          "text": "CH3COOCH=CH2 + NaOH → CH3COONa + CH2=CH-OH"
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q14",
+      "type": "mcq",
+      "text": "Cho isoamyl acetate (dầu chuối) vào NaOH thấy hai lớp; khuấy và đun sôi một thời gian thành dung dịch đồng nhất. Phát biểu không đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Các sản phẩm của phản ứng đều tan được trong nước tạo dung dịch đồng nhất."
+        },
+        {
+          "key": "B",
+          "text": "Khi đun nóng và khuấy đều hỗn hợp thì xảy ra phản ứng ester hóa tạo isoamyl acetate."
+        },
+        {
+          "key": "C",
+          "text": "Ban đầu phân thành hai lớp vì dầu chuối không tan trong nước."
+        },
+        {
+          "key": "D",
+          "text": "Nước có khối lượng riêng hơn dầu chuối nên dầu chuối nổi lên trên nước."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q15",
+      "type": "mcq",
+      "text": "Thủy phân hoàn toàn CH3COOCH2COOC2H5 trong dung dịch KOH thu được",
+      "options": [
+        {
+          "key": "A",
+          "text": "CH3COOH, HOCH2COOH, C2H5OH."
+        },
+        {
+          "key": "B",
+          "text": "CH3COOK, HOCH2COOK, C2H5OH."
+        },
+        {
+          "key": "C",
+          "text": "C2H5COOK, HOCH2COOK, CH3OH."
+        },
+        {
+          "key": "D",
+          "text": "C2H5COOK, CH3COOK, C2H5OH."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q16",
+      "type": "matching",
+      "text": "Ghép chất khí với mô tả.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Mô tả 1: khí không màu, mùi khai; nguồn phân đạm phổ biến.",
+          "options": [
+            {
+              "key": "A",
+              "text": "N2"
+            },
+            {
+              "key": "B",
+              "text": "NH3"
+            },
+            {
+              "key": "C",
+              "text": "NO"
+            },
+            {
+              "key": "D",
+              "text": "NO2"
+            },
+            {
+              "key": "E",
+              "text": "N2O"
+            },
+            {
+              "key": "F",
+              "text": "N2O5"
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Mô tả 2: khí không màu; dạng lỏng dùng bảo quản mẫu sinh học, làm đông lạnh thực phẩm.",
+          "options": [
+            {
+              "key": "A",
+              "text": "N2"
+            },
+            {
+              "key": "B",
+              "text": "NH3"
+            },
+            {
+              "key": "C",
+              "text": "NO"
+            },
+            {
+              "key": "D",
+              "text": "NO2"
+            },
+            {
+              "key": "E",
+              "text": "N2O"
+            },
+            {
+              "key": "F",
+              "text": "N2O5"
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Mô tả 3: khí màu nâu sinh ra khi kim loại tác dụng HNO3.",
+          "options": [
+            {
+              "key": "A",
+              "text": "N2"
+            },
+            {
+              "key": "B",
+              "text": "NH3"
+            },
+            {
+              "key": "C",
+              "text": "NO"
+            },
+            {
+              "key": "D",
+              "text": "NO2"
+            },
+            {
+              "key": "E",
+              "text": "N2O"
+            },
+            {
+              "key": "F",
+              "text": "N2O5"
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Mô tả 4: khí tạo thành khi trời sấm chớp mưa rào.",
+          "options": [
+            {
+              "key": "A",
+              "text": "N2"
+            },
+            {
+              "key": "B",
+              "text": "NH3"
+            },
+            {
+              "key": "C",
+              "text": "NO"
+            },
+            {
+              "key": "D",
+              "text": "NO2"
+            },
+            {
+              "key": "E",
+              "text": "N2O"
+            },
+            {
+              "key": "F",
+              "text": "N2O5"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "B",
+        "b": "A",
+        "c": "D",
+        "d": "C"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q17",
+      "type": "matching",
+      "text": "Ghép tính chất vật lí của kim loại với giải thích.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Tính dẻo",
+          "options": [
+            {
+              "key": "A",
+              "text": "Electron tự do trong tinh thể kim loại chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "B",
+              "text": "Electron tự do phản xạ tia sáng nhìn thấy."
+            },
+            {
+              "key": "C",
+              "text": "Electron tự do và ion dương chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "D",
+              "text": "Electron ở vùng nhiệt độ cao truyền năng lượng cho ion dương và electron khác."
+            },
+            {
+              "key": "E",
+              "text": "Electron hóa trị tự do liên kết các ion dương kim loại."
+            },
+            {
+              "key": "F",
+              "text": "Các ion dương trong mạng tinh thể có thể trượt lên nhau nhờ lực hút với electron hóa trị tự do."
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Tính dẫn điện",
+          "options": [
+            {
+              "key": "A",
+              "text": "Electron tự do trong tinh thể kim loại chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "B",
+              "text": "Electron tự do phản xạ tia sáng nhìn thấy."
+            },
+            {
+              "key": "C",
+              "text": "Electron tự do và ion dương chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "D",
+              "text": "Electron ở vùng nhiệt độ cao truyền năng lượng cho ion dương và electron khác."
+            },
+            {
+              "key": "E",
+              "text": "Electron hóa trị tự do liên kết các ion dương kim loại."
+            },
+            {
+              "key": "F",
+              "text": "Các ion dương trong mạng tinh thể có thể trượt lên nhau nhờ lực hút với electron hóa trị tự do."
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Tính ánh kim",
+          "options": [
+            {
+              "key": "A",
+              "text": "Electron tự do trong tinh thể kim loại chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "B",
+              "text": "Electron tự do phản xạ tia sáng nhìn thấy."
+            },
+            {
+              "key": "C",
+              "text": "Electron tự do và ion dương chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "D",
+              "text": "Electron ở vùng nhiệt độ cao truyền năng lượng cho ion dương và electron khác."
+            },
+            {
+              "key": "E",
+              "text": "Electron hóa trị tự do liên kết các ion dương kim loại."
+            },
+            {
+              "key": "F",
+              "text": "Các ion dương trong mạng tinh thể có thể trượt lên nhau nhờ lực hút với electron hóa trị tự do."
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Tính dẫn nhiệt",
+          "options": [
+            {
+              "key": "A",
+              "text": "Electron tự do trong tinh thể kim loại chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "B",
+              "text": "Electron tự do phản xạ tia sáng nhìn thấy."
+            },
+            {
+              "key": "C",
+              "text": "Electron tự do và ion dương chuyển động có hướng dưới điện trường."
+            },
+            {
+              "key": "D",
+              "text": "Electron ở vùng nhiệt độ cao truyền năng lượng cho ion dương và electron khác."
+            },
+            {
+              "key": "E",
+              "text": "Electron hóa trị tự do liên kết các ion dương kim loại."
+            },
+            {
+              "key": "F",
+              "text": "Các ion dương trong mạng tinh thể có thể trượt lên nhau nhờ lực hút với electron hóa trị tự do."
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "F",
+        "b": "A",
+        "c": "B",
+        "d": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q18",
+      "type": "matching",
+      "text": "Ghép yêu cầu về triglyceride/ester với giá trị.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Số phân tử acid béo trong một phân tử triglyceride",
+          "options": [
+            {
+              "key": "A",
+              "text": "1"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3"
+            },
+            {
+              "key": "D",
+              "text": "4"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "6"
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "1 mol triolein tác dụng vừa đủ với số mol H2",
+          "options": [
+            {
+              "key": "A",
+              "text": "1"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3"
+            },
+            {
+              "key": "D",
+              "text": "4"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "6"
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Thủy phân 1 mol triglyceride thu được số mol glycerol",
+          "options": [
+            {
+              "key": "A",
+              "text": "1"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3"
+            },
+            {
+              "key": "D",
+              "text": "4"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "6"
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Trong 6 ester đã cho, số ester điều chế từ alcohol và acid",
+          "options": [
+            {
+              "key": "A",
+              "text": "1"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3"
+            },
+            {
+              "key": "D",
+              "text": "4"
+            },
+            {
+              "key": "E",
+              "text": "5"
+            },
+            {
+              "key": "F",
+              "text": "6"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "C",
+        "b": "F",
+        "c": "A",
+        "d": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q19",
+      "type": "matching",
+      "text": "Ghép yêu cầu về tốc độ phản ứng với yếu tố phù hợp.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Nghiền nhỏ chất rắn trước phản ứng",
+          "options": [
+            {
+              "key": "A",
+              "text": "Giảm nhiệt độ"
+            },
+            {
+              "key": "B",
+              "text": "Giảm nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "C",
+              "text": "Tăng nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "D",
+              "text": "Tăng diện tích bề mặt"
+            },
+            {
+              "key": "E",
+              "text": "Tăng áp suất"
+            },
+            {
+              "key": "F",
+              "text": "Có chất xúc tác"
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Thổi không khí nén vào lò cao khi đốt than cốc",
+          "options": [
+            {
+              "key": "A",
+              "text": "Giảm nhiệt độ"
+            },
+            {
+              "key": "B",
+              "text": "Giảm nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "C",
+              "text": "Tăng nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "D",
+              "text": "Tăng diện tích bề mặt"
+            },
+            {
+              "key": "E",
+              "text": "Tăng áp suất"
+            },
+            {
+              "key": "F",
+              "text": "Có chất xúc tác"
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Bảo quản thức ăn trong tủ lạnh",
+          "options": [
+            {
+              "key": "A",
+              "text": "Giảm nhiệt độ"
+            },
+            {
+              "key": "B",
+              "text": "Giảm nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "C",
+              "text": "Tăng nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "D",
+              "text": "Tăng diện tích bề mặt"
+            },
+            {
+              "key": "E",
+              "text": "Tăng áp suất"
+            },
+            {
+              "key": "F",
+              "text": "Có chất xúc tác"
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Nhai kĩ cơm thấy vị ngọt",
+          "options": [
+            {
+              "key": "A",
+              "text": "Giảm nhiệt độ"
+            },
+            {
+              "key": "B",
+              "text": "Giảm nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "C",
+              "text": "Tăng nhiệt độ, tăng áp suất"
+            },
+            {
+              "key": "D",
+              "text": "Tăng diện tích bề mặt"
+            },
+            {
+              "key": "E",
+              "text": "Tăng áp suất"
+            },
+            {
+              "key": "F",
+              "text": "Có chất xúc tác"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "D",
+        "b": "C",
+        "c": "A",
+        "d": "F"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q20",
+      "type": "matching",
+      "text": "Ghép phương pháp tách/tinh chế với ví dụ.",
+      "pairs": [
+        {
+          "key": "a",
+          "left": "Ngâm rượu táo mèo",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chưng cất"
+            },
+            {
+              "key": "B",
+              "text": "Kết tủa"
+            },
+            {
+              "key": "C",
+              "text": "Chiết lỏng–lỏng"
+            },
+            {
+              "key": "D",
+              "text": "Chiết lỏng–rắn"
+            },
+            {
+              "key": "E",
+              "text": "Sắc kí"
+            },
+            {
+              "key": "F",
+              "text": "Kết tinh"
+            }
+          ]
+        },
+        {
+          "key": "b",
+          "left": "Tách tinh dầu từ hỗn hợp tinh dầu và nước bằng hexane",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chưng cất"
+            },
+            {
+              "key": "B",
+              "text": "Kết tủa"
+            },
+            {
+              "key": "C",
+              "text": "Chiết lỏng–lỏng"
+            },
+            {
+              "key": "D",
+              "text": "Chiết lỏng–rắn"
+            },
+            {
+              "key": "E",
+              "text": "Sắc kí"
+            },
+            {
+              "key": "F",
+              "text": "Kết tinh"
+            }
+          ]
+        },
+        {
+          "key": "c",
+          "left": "Tách ethanol ra khỏi nước",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chưng cất"
+            },
+            {
+              "key": "B",
+              "text": "Kết tủa"
+            },
+            {
+              "key": "C",
+              "text": "Chiết lỏng–lỏng"
+            },
+            {
+              "key": "D",
+              "text": "Chiết lỏng–rắn"
+            },
+            {
+              "key": "E",
+              "text": "Sắc kí"
+            },
+            {
+              "key": "F",
+              "text": "Kết tinh"
+            }
+          ]
+        },
+        {
+          "key": "d",
+          "left": "Tách chất màu thực phẩm thành các chất màu riêng",
+          "options": [
+            {
+              "key": "A",
+              "text": "Chưng cất"
+            },
+            {
+              "key": "B",
+              "text": "Kết tủa"
+            },
+            {
+              "key": "C",
+              "text": "Chiết lỏng–lỏng"
+            },
+            {
+              "key": "D",
+              "text": "Chiết lỏng–rắn"
+            },
+            {
+              "key": "E",
+              "text": "Sắc kí"
+            },
+            {
+              "key": "F",
+              "text": "Kết tinh"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "a": "D",
+        "b": "C",
+        "c": "A",
+        "d": "F"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q21",
+      "type": "short_answer",
+      "text": "Trong saccharose, glucose, fructose, ethyl formate, formic acid và acetaldehyde, có bao nhiêu chất vừa tráng bạc vừa phản ứng với Cu(OH)2 ở điều kiện thường?",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "3",
+      "acceptedAnswers": [
+        "3"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q22",
+      "type": "short_answer",
+      "text": "Một loại chất béo chứa 75% tristearin. Để sản xuất 3000 bánh xà phòng, mỗi bánh chứa 70 g sodium stearate. Khối lượng tối thiểu loại chất béo (kg), làm tròn 0,1.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "361.9",
+      "acceptedAnswers": [
+        "361.9"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q23",
+      "type": "short_answer",
+      "text": "Trong tinh bột, tơ tằm, polystyrene, tơ nitron, polyethylene, polypropylene, nylon-6,6, tơ visco, cao su buna: có bao nhiêu polymer được tổng hợp bằng phản ứng trùng hợp?",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "5",
+      "acceptedAnswers": [
+        "5"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q24",
+      "type": "short_answer",
+      "text": "Mỗi viên ritalin chứa 10 mg methylphenidate hydrochloride. Sản xuất 1000 hộp, mỗi hộp 30 viên. Số mol methylphenidate hydrochloride tối thiểu, làm tròn 0,01.",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "1.11",
+      "acceptedAnswers": [
+        "1.11"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q24.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "hoa11-q25",
+      "type": "short_answer",
+      "text": "Methyl eugenol có %C=74,16%, %H=7,86%, còn lại O; phổ khối lượng cho M=178. Có bao nhiêu nguyên tử carbon trong 1 phân tử?",
+      "options": [],
+      "statements": [],
+      "pairs": [],
+      "answer": "11",
+      "acceptedAnswers": [
+        "11"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/hoa/assets/de11/q25.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    }
+  ]
+}
