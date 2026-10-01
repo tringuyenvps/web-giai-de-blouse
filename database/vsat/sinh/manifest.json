@@ -2,8 +2,10 @@
   "version": 1,
   "exam": "vsat",
   "subject": "sinh",
-  "description": "Danh sách đề thật cho môn Đề 2.",
+  "description": "Danh sách đề thật cho môn Sinh học.",
   "files": [
-    "de2.json"
+    "de2.json",
+    "de4.json",
+    "de13.json"
   ]
 }
