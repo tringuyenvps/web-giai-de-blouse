@@ -499,7 +499,6 @@
               <button class="primary-button auth-submit" type="submit">Đăng nhập</button>
               <div id="loginError" class="auth-error hidden"></div>
             </form>
-            <small class="auth-note">Admin mặc định lần đầu: <b>admin</b> / <b>Admin@123</b>. Hãy đổi/không chia sẻ mật khẩu này khi triển khai thật.</small>
           </div>`;
         document.body.appendChild(gate);
         $('#loginForm').addEventListener('submit', async e => {
