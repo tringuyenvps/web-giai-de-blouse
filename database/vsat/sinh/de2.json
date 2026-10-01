@@ -1,0 +1,1264 @@
+{
+  "exam": "vsat",
+  "subject": "sinh",
+  "title": "V-SAT Sinh học - Đề 2",
+  "sourceTitle": "[V-SAT - SINH HỌC] Đề 2(1).pdf",
+  "sourceCode": "Đề 2",
+  "durationMinutes": 90,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "vsat-sinh-de2-q10",
+      "type": "mcq",
+      "text": "Ở chuột chũi trụi lông Heterocephalus glaber, khi nhiệt độ môi trường tăng thì nhiệt độ cơ thể có xu hướng",
+      "options": [
+        {
+          "key": "A",
+          "text": "tăng lên."
+        },
+        {
+          "key": "B",
+          "text": "giảm."
+        },
+        {
+          "key": "C",
+          "text": "không thay đổi."
+        },
+        {
+          "key": "D",
+          "text": "tăng hoặc giảm."
+        }
+      ],
+      "answer": "A",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q01"
+    },
+    {
+      "id": "vsat-sinh-de2-q11",
+      "type": "mcq",
+      "text": "Nuôi cách ly một cặp chuột Heterocephalus glaber trong môi trường sống khác tự nhiên. Sau một thế hệ, kết quả phù hợp là",
+      "options": [
+        {
+          "key": "A",
+          "text": "những con chuột con sinh ra hình thành quần thể mới giống quần thể ngoài tự nhiên."
+        },
+        {
+          "key": "B",
+          "text": "những con chuột con sinh ra không thể thích nghi với môi trường sống ngoài tự nhiên."
+        },
+        {
+          "key": "C",
+          "text": "những con chuột con sinh ra toàn là chuột đực."
+        },
+        {
+          "key": "D",
+          "text": "những con chuột con sinh ra đều trở thành chuột cái."
+        }
+      ],
+      "answer": "A",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q02"
+    },
+    {
+      "id": "vsat-sinh-de2-q12",
+      "type": "mcq",
+      "text": "Có bao nhiêu đặc điểm sau đây cho thấy Heterocephalus glaber thích nghi với môi trường sống của chúng? I. Sống sót trong điều kiện không có oxygen lâu hơn chuột khác; II. Không có lớp mỡ dày dưới da; III. Có thể tránh được tất cả loại ung thư; IV. Trong không khí chỉ chứa nitrogen vẫn sống sót một thời gian.",
+      "options": [
+        {
+          "key": "A",
+          "text": "1"
+        },
+        {
+          "key": "B",
+          "text": "2"
+        },
+        {
+          "key": "C",
+          "text": "4"
+        },
+        {
+          "key": "D",
+          "text": "3"
+        }
+      ],
+      "answer": "B",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q03"
+    },
+    {
+      "id": "vsat-sinh-de2-q13",
+      "type": "mcq",
+      "text": "Khi nói về tế bào ghép hoàn chỉnh 1 trong thí nghiệm cắt – ghép Acetabularia, nhận xét đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mỗi tế bào ghép đều có bộ nhiễm sắc thể của hai loài."
+        },
+        {
+          "key": "B",
+          "text": "Hình dạng tán của tế bào ghép do nhân quy định."
+        },
+        {
+          "key": "C",
+          "text": "Phần thân có ảnh hưởng đến hình dạng tán của tế bào."
+        },
+        {
+          "key": "D",
+          "text": "Phần gốc của tế bào ghép do phần thân quy định."
+        }
+      ],
+      "answer": "B",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q04"
+    },
+    {
+      "id": "vsat-sinh-de2-q14",
+      "type": "mcq",
+      "text": "Hình dạng tán của tế bào ghép hoàn chỉnh 2 do thành phần nào quy định?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Nhiễm sắc thể trong nhân."
+        },
+        {
+          "key": "B",
+          "text": "Các tế bào trong phần thân."
+        },
+        {
+          "key": "C",
+          "text": "Nhiễm sắc thể trong phần thân."
+        },
+        {
+          "key": "D",
+          "text": "Tế bào chất trong phần tán."
+        }
+      ],
+      "answer": "A",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q05"
+    },
+    {
+      "id": "vsat-sinh-de2-q15",
+      "type": "mcq",
+      "text": "Khi nói về kết quả thí nghiệm 1 và thí nghiệm 2 ở Acetabularia, nhận định đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tế bào chất không liên quan đến hình dạng tán trong các tế bào ghép."
+        },
+        {
+          "key": "B",
+          "text": "Nhân từ phần gốc di chuyển lên phần thân quy định hình dạng tán."
+        },
+        {
+          "key": "C",
+          "text": "Nhân quy định các phân tử sinh học ảnh hưởng đến hình dạng tán."
+        },
+        {
+          "key": "D",
+          "text": "Tế bào chất của hai loài chứa các loại protein giống nhau."
+        }
+      ],
+      "answer": "C",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "aiGenerated": false,
+      "sourceQuestion": "sinh02-q06"
+    },
+    {
+      "id": "vsat-sinh-de2-q1",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Vi khuẩn B, D, E trong thí nghiệm tương tác",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Theo kết quả thí nghiệm, chủng D có thể hình thành khuẩn lạc trong điều kiện được nêu."
+        },
+        {
+          "key": "b",
+          "text": "Chủng B chắc chắn không thể sống trong mọi môi trường."
+        },
+        {
+          "key": "c",
+          "text": "Chủng E không liên quan đến kết quả thí nghiệm."
+        },
+        {
+          "key": "d",
+          "text": "Kết luận phải dựa trên dữ liệu thí nghiệm chứ không suy diễn ngoài dữ liệu."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q07"
+    },
+    {
+      "id": "vsat-sinh-de2-q2",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Kết quả thí nghiệm với các chủng vi khuẩn",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Có thể dùng kết quả thí nghiệm 4 và 5 để suy ra quan hệ dinh dưỡng giữa các chủng."
+        },
+        {
+          "key": "b",
+          "text": "Mọi chủng vi khuẩn đều có kiểu hình giống nhau."
+        },
+        {
+          "key": "c",
+          "text": "Kết quả nuôi chung có thể khác nuôi riêng."
+        },
+        {
+          "key": "d",
+          "text": "Không thể rút ra bất kỳ kết luận nào từ thí nghiệm."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q08"
+    },
+    {
+      "id": "vsat-sinh-de2-q3",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Nuôi chung B, D, E",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Kết quả nuôi chung phụ thuộc môi trường nuôi."
+        },
+        {
+          "key": "b",
+          "text": "Không thể mặc định cả ba chủng đều tạo khuẩn lạc."
+        },
+        {
+          "key": "c",
+          "text": "Kết quả thực nghiệm là cơ sở để chọn phương án."
+        },
+        {
+          "key": "d",
+          "text": "Mọi chủng luôn phát triển như nhau."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q09"
+    },
+    {
+      "id": "vsat-sinh-de2-q4",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Neurospora và chuyển hóa arginine",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Đột biến khuyết dưỡng có thể làm mất khả năng tổng hợp một chất cần thiết."
+        },
+        {
+          "key": "b",
+          "text": "Môi trường bổ sung chất phù hợp có thể giúp chủng đột biến phát triển."
+        },
+        {
+          "key": "c",
+          "text": "Mọi đột biến đều làm chết tế bào."
+        },
+        {
+          "key": "d",
+          "text": "Kiểu hình sinh trưởng có thể giúp suy luận chức năng gene."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q10"
+    },
+    {
+      "id": "vsat-sinh-de2-q5",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Đột biến khuyết dưỡng arginine",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Bổ sung arginine có thể cứu kiểu hình khuyết dưỡng."
+        },
+        {
+          "key": "b",
+          "text": "Bổ sung chất không liên quan chắc chắn luôn cứu được kiểu hình."
+        },
+        {
+          "key": "c",
+          "text": "Đột biến có thể ảnh hưởng một bước trong con đường sinh tổng hợp."
+        },
+        {
+          "key": "d",
+          "text": "Kiểu hình sinh trưởng giúp suy luận chức năng gene."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q11"
+    },
+    {
+      "id": "vsat-sinh-de2-q6",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Đột biến soma",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Đột biến soma phát sinh ở tế bào cơ thể có thể tạo khảm soma."
+        },
+        {
+          "key": "b",
+          "text": "Đột biến ở tế bào sinh dục không liên quan đến giao tử."
+        },
+        {
+          "key": "c",
+          "text": "Thời điểm phôi phát triển ảnh hưởng số tế bào mang đột biến soma."
+        },
+        {
+          "key": "d",
+          "text": "Mọi đột biến soma đều truyền cho thế hệ sau."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q13"
+    },
+    {
+      "id": "vsat-sinh-de2-q7",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Đột biến soma ở da",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Đột biến soma ở một số tế bào da có thể tạo kiểu hình khu trú."
+        },
+        {
+          "key": "b",
+          "text": "Mất khả năng tổng hợp melanin có thể làm thay đổi màu sắc vùng da bị ảnh hưởng."
+        },
+        {
+          "key": "c",
+          "text": "Đột biến soma nhất thiết xuất hiện ở mọi tế bào cơ thể."
+        },
+        {
+          "key": "d",
+          "text": "Đột biến soma ở da luôn truyền cho con."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q15"
+    },
+    {
+      "id": "vsat-sinh-de2-q8",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Thuốc trừ sâu Bt",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Protein Bt có tính đặc hiệu với một số nhóm côn trùng."
+        },
+        {
+          "key": "b",
+          "text": "Thuốc trừ sâu sinh học luôn giết tất cả côn trùng."
+        },
+        {
+          "key": "c",
+          "text": "Bt có thể phân hủy trong môi trường tự nhiên."
+        },
+        {
+          "key": "d",
+          "text": "Không thể dùng công nghệ gene để tạo cây mang gene Bt."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q16"
+    },
+    {
+      "id": "vsat-sinh-de2-q9",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "type": "true_false",
+      "text": "Gene khảm trong DNA tái tổ hợp",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Gene khảm có thể được thiết kế để biểu hiện sản phẩm protein."
+        },
+        {
+          "key": "b",
+          "text": "Vector biểu hiện có thể mang gene cần biểu hiện."
+        },
+        {
+          "key": "c",
+          "text": "Không cần promoter cho mọi quá trình biểu hiện gene."
+        },
+        {
+          "key": "d",
+          "text": "DNA tái tổ hợp có thể được dùng trong công nghệ sinh học."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q17"
+    },
+    {
+      "id": "vsat-sinh-de2-q16",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép quá trình với mô tả.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Phiên mã",
+          "options": [
+            {
+              "key": "A",
+              "text": "DNA → RNA"
+            },
+            {
+              "key": "B",
+              "text": "RNA → protein"
+            },
+            {
+              "key": "C",
+              "text": "DNA → DNA"
+            },
+            {
+              "key": "D",
+              "text": "RNA → DNA"
+            },
+            {
+              "key": "E",
+              "text": "protein → RNA"
+            },
+            {
+              "key": "F",
+              "text": "protein → DNA"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Dịch mã",
+          "options": [
+            {
+              "key": "A",
+              "text": "DNA → RNA"
+            },
+            {
+              "key": "B",
+              "text": "RNA → protein"
+            },
+            {
+              "key": "C",
+              "text": "DNA → DNA"
+            },
+            {
+              "key": "D",
+              "text": "RNA → DNA"
+            },
+            {
+              "key": "E",
+              "text": "protein → RNA"
+            },
+            {
+              "key": "F",
+              "text": "protein → DNA"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Nhân đôi DNA",
+          "options": [
+            {
+              "key": "A",
+              "text": "DNA → RNA"
+            },
+            {
+              "key": "B",
+              "text": "RNA → protein"
+            },
+            {
+              "key": "C",
+              "text": "DNA → DNA"
+            },
+            {
+              "key": "D",
+              "text": "RNA → DNA"
+            },
+            {
+              "key": "E",
+              "text": "protein → RNA"
+            },
+            {
+              "key": "F",
+              "text": "protein → DNA"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Cắt nối RNA",
+          "options": [
+            {
+              "key": "A",
+              "text": "loại intron, nối exon"
+            },
+            {
+              "key": "B",
+              "text": "tạo DNA mới"
+            },
+            {
+              "key": "C",
+              "text": "tạo protein"
+            },
+            {
+              "key": "D",
+              "text": "nhân đôi nhiễm sắc thể"
+            },
+            {
+              "key": "E",
+              "text": "tạo giao tử"
+            },
+            {
+              "key": "F",
+              "text": "tạo lipid"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q17",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép hiện tượng với khái niệm.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Đột biến soma",
+          "options": [
+            {
+              "key": "A",
+              "text": "xảy ra ở tế bào cơ thể"
+            },
+            {
+              "key": "B",
+              "text": "xảy ra ở giao tử"
+            },
+            {
+              "key": "C",
+              "text": "luôn di truyền"
+            },
+            {
+              "key": "D",
+              "text": "không làm thay đổi DNA"
+            },
+            {
+              "key": "E",
+              "text": "chỉ ở vi khuẩn"
+            },
+            {
+              "key": "F",
+              "text": "chỉ ở thực vật"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Đột biến giao tử",
+          "options": [
+            {
+              "key": "A",
+              "text": "xảy ra ở tế bào cơ thể"
+            },
+            {
+              "key": "B",
+              "text": "xảy ra ở tế bào tạo giao tử"
+            },
+            {
+              "key": "C",
+              "text": "luôn không di truyền"
+            },
+            {
+              "key": "D",
+              "text": "chỉ ở da"
+            },
+            {
+              "key": "E",
+              "text": "chỉ ở gan"
+            },
+            {
+              "key": "F",
+              "text": "không liên quan DNA"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Khảm soma",
+          "options": [
+            {
+              "key": "A",
+              "text": "các tế bào có kiểu gene khác nhau do đột biến soma"
+            },
+            {
+              "key": "B",
+              "text": "mọi tế bào giống nhau"
+            },
+            {
+              "key": "C",
+              "text": "chỉ có ở vi khuẩn"
+            },
+            {
+              "key": "D",
+              "text": "chỉ do lai xa"
+            },
+            {
+              "key": "E",
+              "text": "không có ở động vật"
+            },
+            {
+              "key": "F",
+              "text": "chỉ có ở giao tử"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Gene khảm",
+          "options": [
+            {
+              "key": "A",
+              "text": "gene được tạo từ các đoạn nguồn khác nhau"
+            },
+            {
+              "key": "B",
+              "text": "gene không có promoter"
+            },
+            {
+              "key": "C",
+              "text": "gene không có DNA"
+            },
+            {
+              "key": "D",
+              "text": "gene chỉ có ở virus"
+            },
+            {
+              "key": "E",
+              "text": "gene không biểu hiện"
+            },
+            {
+              "key": "F",
+              "text": "gene chỉ ở giao tử"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q18",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép hormone/quá trình với vai trò phù hợp.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Hormone A tăng",
+          "options": [
+            {
+              "key": "A",
+              "text": "gây trạng thái hoạt động theo giả thiết"
+            },
+            {
+              "key": "B",
+              "text": "gây ngủ theo giả thiết"
+            },
+            {
+              "key": "C",
+              "text": "không ảnh hưởng"
+            },
+            {
+              "key": "D",
+              "text": "tạo mRNA"
+            },
+            {
+              "key": "E",
+              "text": "tạo glucose trực tiếp"
+            },
+            {
+              "key": "F",
+              "text": "tạo giao tử"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Hormone B tăng",
+          "options": [
+            {
+              "key": "A",
+              "text": "làm A thay đổi theo quan hệ điều hòa trong thí nghiệm"
+            },
+            {
+              "key": "B",
+              "text": "luôn làm A tăng"
+            },
+            {
+              "key": "C",
+              "text": "không bao giờ ảnh hưởng A"
+            },
+            {
+              "key": "D",
+              "text": "phá hủy DNA"
+            },
+            {
+              "key": "E",
+              "text": "tạo intron"
+            },
+            {
+              "key": "F",
+              "text": "tạo cellulose"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Somatostatin",
+          "options": [
+            {
+              "key": "A",
+              "text": "ảnh hưởng hoạt động tiêu hóa"
+            },
+            {
+              "key": "B",
+              "text": "tạo hemoglobin"
+            },
+            {
+              "key": "C",
+              "text": "nhân đôi DNA"
+            },
+            {
+              "key": "D",
+              "text": "tạo kháng thể"
+            },
+            {
+              "key": "E",
+              "text": "tạo cellulose"
+            },
+            {
+              "key": "F",
+              "text": "tạo ATP trực tiếp"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Phenformin",
+          "options": [
+            {
+              "key": "A",
+              "text": "ảnh hưởng chuyển hóa"
+            },
+            {
+              "key": "B",
+              "text": "tạo giao tử"
+            },
+            {
+              "key": "C",
+              "text": "tạo intron"
+            },
+            {
+              "key": "D",
+              "text": "tạo protein cấu trúc"
+            },
+            {
+              "key": "E",
+              "text": "tạo cellulose"
+            },
+            {
+              "key": "F",
+              "text": "phá hủy nhiễm sắc thể"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "A",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q19",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép nhóm thực vật với phản ứng quang chu kỳ.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "Cây ngày dài",
+          "options": [
+            {
+              "key": "A",
+              "text": "ra hoa khi đêm ngắn hơn đêm tới hạn"
+            },
+            {
+              "key": "B",
+              "text": "ra hoa khi đêm dài hơn đêm tới hạn"
+            },
+            {
+              "key": "C",
+              "text": "không phụ thuộc quang chu kỳ"
+            },
+            {
+              "key": "D",
+              "text": "chỉ ra hoa ban đêm"
+            },
+            {
+              "key": "E",
+              "text": "không ra hoa"
+            },
+            {
+              "key": "F",
+              "text": "chỉ ra hoa dưới nước"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "Cây ngày ngắn",
+          "options": [
+            {
+              "key": "A",
+              "text": "ra hoa khi đêm ngắn hơn đêm tới hạn"
+            },
+            {
+              "key": "B",
+              "text": "ra hoa khi đêm dài hơn đêm tới hạn"
+            },
+            {
+              "key": "C",
+              "text": "không phụ thuộc quang chu kỳ"
+            },
+            {
+              "key": "D",
+              "text": "chỉ ra hoa ban đêm"
+            },
+            {
+              "key": "E",
+              "text": "không ra hoa"
+            },
+            {
+              "key": "F",
+              "text": "chỉ ra hoa dưới nước"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "Cây trung tính",
+          "options": [
+            {
+              "key": "A",
+              "text": "ra hoa tương đối không phụ thuộc độ dài ngày đêm"
+            },
+            {
+              "key": "B",
+              "text": "ra hoa chỉ khi đêm dài"
+            },
+            {
+              "key": "C",
+              "text": "ra hoa chỉ khi đêm ngắn"
+            },
+            {
+              "key": "D",
+              "text": "không thể ra hoa"
+            },
+            {
+              "key": "E",
+              "text": "chỉ ra hoa mùa đông"
+            },
+            {
+              "key": "F",
+              "text": "chỉ ra hoa mùa hè"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Thanh long",
+          "options": [
+            {
+              "key": "A",
+              "text": "có thể được điều khiển ra hoa bằng chiếu sáng ban đêm"
+            },
+            {
+              "key": "B",
+              "text": "không chịu ảnh hưởng ánh sáng"
+            },
+            {
+              "key": "C",
+              "text": "chỉ ra hoa khi hoàn toàn tối"
+            },
+            {
+              "key": "D",
+              "text": "không ra hoa nhân tạo"
+            },
+            {
+              "key": "E",
+              "text": "chỉ ra hoa khi nhiệt độ 0°C"
+            },
+            {
+              "key": "F",
+              "text": "không có quang chu kỳ"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "A",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q20",
+      "part": 3,
+      "partTitle": "PHẦN III - Trắc nghiệm ghép nối",
+      "type": "matching",
+      "text": "Ghép cấu trúc RNA với chức năng.",
+      "pairs": [
+        {
+          "key": "1",
+          "left": "mRNA trưởng thành",
+          "options": [
+            {
+              "key": "A",
+              "text": "mang thông tin mã hóa protein"
+            },
+            {
+              "key": "B",
+              "text": "vận chuyển amino acid"
+            },
+            {
+              "key": "C",
+              "text": "xúc tác ribosome"
+            },
+            {
+              "key": "D",
+              "text": "lưu trữ DNA"
+            },
+            {
+              "key": "E",
+              "text": "tạo lipid"
+            },
+            {
+              "key": "F",
+              "text": "tạo cellulose"
+            }
+          ]
+        },
+        {
+          "key": "2",
+          "left": "tRNA",
+          "options": [
+            {
+              "key": "A",
+              "text": "mang thông tin mã hóa protein"
+            },
+            {
+              "key": "B",
+              "text": "vận chuyển amino acid"
+            },
+            {
+              "key": "C",
+              "text": "xúc tác ribosome"
+            },
+            {
+              "key": "D",
+              "text": "lưu trữ DNA"
+            },
+            {
+              "key": "E",
+              "text": "tạo lipid"
+            },
+            {
+              "key": "F",
+              "text": "tạo cellulose"
+            }
+          ]
+        },
+        {
+          "key": "3",
+          "left": "rRNA",
+          "options": [
+            {
+              "key": "A",
+              "text": "mang thông tin mã hóa protein"
+            },
+            {
+              "key": "B",
+              "text": "vận chuyển amino acid"
+            },
+            {
+              "key": "C",
+              "text": "thành phần cấu trúc/chức năng của ribosome"
+            },
+            {
+              "key": "D",
+              "text": "lưu trữ DNA"
+            },
+            {
+              "key": "E",
+              "text": "tạo lipid"
+            },
+            {
+              "key": "F",
+              "text": "tạo cellulose"
+            }
+          ]
+        },
+        {
+          "key": "4",
+          "left": "Intron",
+          "options": [
+            {
+              "key": "A",
+              "text": "đoạn thường bị loại khỏi RNA trưởng thành"
+            },
+            {
+              "key": "B",
+              "text": "mang toàn bộ amino acid"
+            },
+            {
+              "key": "C",
+              "text": "là protein"
+            },
+            {
+              "key": "D",
+              "text": "là DNA"
+            },
+            {
+              "key": "E",
+              "text": "là lipid"
+            },
+            {
+              "key": "F",
+              "text": "là polysaccharide"
+            }
+          ]
+        }
+      ],
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "A"
+      },
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q21",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Một mRNA có 3 intron, mỗi intron dài 340 Å. Tổng chiều dài 3 intron là bao nhiêu Å?",
+      "answer": "1020",
+      "acceptedAnswers": [
+        "1020"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q27"
+    },
+    {
+      "id": "vsat-sinh-de2-q22",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Trong thí nghiệm thanh long, chiếu sáng ban đêm 1; 2; 3; 4; 5 giờ cho tỉ lệ ra hoa lần lượt 12%; 51%; 79%; 90%; 99%. Tỉ lệ ra hoa khi chiếu 4 giờ là bao nhiêu %?",
+      "answer": "90",
+      "acceptedAnswers": [
+        "90"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q28"
+    },
+    {
+      "id": "vsat-sinh-de2-q23",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Một nhóm có 7 giá trị lượng nước tiểu: 1,8; 1,9; 2,0; 2,2; 2,5; 2,6; 2,8 gallon. Tính giá trị trung bình, làm tròn đến 2 chữ số thập phân.",
+      "answer": "2.26",
+      "acceptedAnswers": [
+        "2.26",
+        "2,26"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true,
+      "sourceQuestion": "sinh02-q34"
+    },
+    {
+      "id": "vsat-sinh-de2-q24",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Một đoạn DNA mạch khuôn có 3 bộ ba mã hóa liên tiếp. Số nucleotide của mRNA được phiên mã từ 3 bộ ba này là bao nhiêu, không tính nucleotide ngoài vùng mã hóa?",
+      "answer": "9",
+      "acceptedAnswers": [
+        "9"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true
+    },
+    {
+      "id": "vsat-sinh-de2-q25",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trắc nghiệm trả lời ngắn",
+      "type": "short_answer",
+      "text": "Nếu một giao tử có xác suất mang allele A là 0,5 và hai giao tử kết hợp độc lập, xác suất hợp tử có kiểu gene AA là bao nhiêu phần trăm?",
+      "answer": "25",
+      "acceptedAnswers": [
+        "25",
+        "25%"
+      ],
+      "answerSource": "AI",
+      "aiGenerated": true
+    }
+  ]
+}
