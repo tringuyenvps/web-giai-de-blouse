@@ -1,0 +1,916 @@
+{
+  "exam": "vsat",
+  "subject": "sinh",
+  "title": "V-SAT Sinh học – Đề 13",
+  "sourceTitle": "[V-SAT - SINH HỌC] Đề 13(1).pdf — không có đáp án trong PDF",
+  "sourceCode": "sinh13",
+  "durationMinutes": 60,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "sinh13-q01",
+      "type": "true_false",
+      "text": "Cho thông tin về các thành phần hóa học của tế bào.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Tinh bột là một loại đường đơn cấu thành từ nhiều đơn phân glucose tạo nên cấu trúc dùng làm năng lượng dự trữ ở thực vật."
+        },
+        {
+          "key": "b",
+          "text": "Tính lưỡng cực của phospholipid tạo nên vai trò quan trọng của các loại màng tế bào."
+        },
+        {
+          "key": "c",
+          "text": "Protein không cấu tạo theo nguyên tắc đa phân do cấu tạo từ hơn 20 loại amino acid khác nhau."
+        },
+        {
+          "key": "d",
+          "text": "DNA và RNA đều là acid nucleic nhưng khác nhau ở nhóm đường với DNA cấu tạo từ đường 6C còn RNA là đường 5C."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q02",
+      "type": "true_false",
+      "text": "Cho thông tin về quá trình trao đổi nước và khoáng ở thực vật.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Quá trình hấp thu nước và khoáng ở rễ cây trên cạn thông qua lông hút có thành tế bào dày, không thấm cutin và có không bào trung tâm lớn."
+        },
+        {
+          "key": "b",
+          "text": "Thoát hơi nước đóng vai trò lực kéo – là động lực chính của quá trình vận chuyển nước."
+        },
+        {
+          "key": "c",
+          "text": "Đai Caspari là cấu trúc giúp chuyển con đường tế bào chất thành con đường gian bào."
+        },
+        {
+          "key": "d",
+          "text": "Mạch gỗ và mạch rây đều được vận chuyển hai chiều phụ thuộc vào nhu cầu của cây."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q03",
+      "type": "true_false",
+      "text": "Cho thông tin về DNA.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "DNA được cấu tạo theo nguyên tắc đa phân với đơn phân gồm 4 loại nucleotide adenine, cytosine, uracil và cytosine."
+        },
+        {
+          "key": "b",
+          "text": "DNA là vật chất di truyền của toàn bộ sinh vật và có dạng mạch kép."
+        },
+        {
+          "key": "c",
+          "text": "DNA có vai trò bảo quản thông tin di truyền nhờ các liên kết phosphodiester giữa các nucleotide trong cùng một mạch."
+        },
+        {
+          "key": "d",
+          "text": "Thông tin di truyền được truyền đạt qua các thế hệ tế bào và cơ thể thông qua các cơ chế phân tử dựa trên sự bắt cặp hydrogen giữa hai mạch DNA."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q04",
+      "type": "true_false",
+      "text": "Cho thông tin về cấu trúc và chức năng của nhiễm sắc thể.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Các vùng như tâm động, đầu mút có khoảng cách giữa các nucleosome xa nhau hơn các vùng chứa gene hoạt động."
+        },
+        {
+          "key": "b",
+          "text": "Quá trình cuộn xoắn làm chiều dài NST giảm mạnh và tăng chiều rộng."
+        },
+        {
+          "key": "c",
+          "text": "Nhiễm sắc thể mang thông tin di truyền với các vùng chứa gene được gọi là allele."
+        },
+        {
+          "key": "d",
+          "text": "Nhờ nhân đôi DNA mà NST cũng nhân đôi, tuy nhiên sự phân li số lượng NST về các tế bào con trong nguyên phân bình thường là không đồng đều."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q05",
+      "type": "true_false",
+      "text": "Cho thông tin về các bằng chứng tiến hóa.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Hóa thạch là bằng chứng trực tiếp cho sự tồn tại và tiến hóa, phân bố của các loài sinh vật."
+        },
+        {
+          "key": "b",
+          "text": "Cánh bướm và cánh dơi cùng thực hiện chức năng bay lượn nên có cùng nguồn gốc tổ tiên."
+        },
+        {
+          "key": "c",
+          "text": "Nhiều bằng chứng ở cấp độ tế bào cho thấy mọi sinh vật trên Trái Đất đều có chung tổ tiên."
+        },
+        {
+          "key": "d",
+          "text": "Mức độ giống nhau trong trình tự nucleotide hoặc amino acid là một bằng chứng tiến hóa trực tiếp."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q06",
+      "type": "true_false",
+      "text": "Ở E. coli, allele B bị đột biến thay thế một cặp nucleotide làm codon 5’-UUA-3’ thành 5’-UUG-3’.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Chỉ cần cơ thể mang allele b thì lập tức biểu hiện kiểu hình đột biến."
+        },
+        {
+          "key": "b",
+          "text": "Chuỗi polypeptide tổng hợp từ allele B dài hơn allele b."
+        },
+        {
+          "key": "c",
+          "text": "Allele b nhiều hơn allele B hai liên kết hydrogen."
+        },
+        {
+          "key": "d",
+          "text": "Do thay thế làm thay đổi codon nên sẽ làm thay đổi thành phần amino acid trong chuỗi polypeptide."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q07",
+      "type": "true_false",
+      "text": "Cho thông tin về môi trường và các nhân tố sinh thái.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Chỉ các nhân tố môi trường có tác động trực tiếp đến đời sống sinh vật được gọi là nhân tố sinh thái."
+        },
+        {
+          "key": "b",
+          "text": "Giới hạn sinh thái là khoảng giá trị thuận lợi nhất cho sự phát triển của sinh vật."
+        },
+        {
+          "key": "c",
+          "text": "Hiệu quả kinh tế giảm khi bón đủ phân nhưng thiếu nước là ví dụ về quy luật tác động tổng hợp của các nhân tố sinh thái."
+        },
+        {
+          "key": "d",
+          "text": "Cá hồi thay đổi môi trường sống giữa nước ngọt và nước mặn trong vòng đời là ví dụ của quy luật tác động không đồng đều của các nhân tố sinh thái."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q08",
+      "type": "true_false",
+      "text": "Ở một loài thực vật, lai cây lá vàng và cây lá xanh thuần chủng cho F1 100% lá vàng; F1 tự thụ cho F2.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Kiểu hình lá xanh trội hoàn toàn so với lá vàng."
+        },
+        {
+          "key": "b",
+          "text": "F2 có 4 loại kiểu gene khác nhau."
+        },
+        {
+          "key": "c",
+          "text": "Dựa vào kiểu hình F1 có thể khẳng định đây là hiện tượng trội không hoàn toàn."
+        },
+        {
+          "key": "d",
+          "text": "Nếu các cây lá vàng ở F2 giao phối ngẫu nhiên thì tỉ lệ lá vàng ở F3 là 1/9."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q09",
+      "type": "true_false",
+      "text": "Ở thỏ, allele A quy định lông trắng trội hoàn toàn so với a quy định lông đen; quần thể cân bằng di truyền với 16% cá thể lông đen.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Quần thể trên không tồn tại tần số allele A."
+        },
+        {
+          "key": "b",
+          "text": "Nếu quần thể tiến hành giao phối không ngẫu nhiên thì trạng thái cân bằng vẫn được duy trì."
+        },
+        {
+          "key": "c",
+          "text": "Nếu cho các cá thể lông trắng giao phối ngẫu nhiên thì ở F1 số cá thể lông trắng thuần chủng chiếm 50%."
+        },
+        {
+          "key": "d",
+          "text": "Nếu cho quần thể ngẫu phối qua các thế hệ thì tần số allele a sẽ tăng dần."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q10",
+      "type": "mcq",
+      "text": "Từ thí nghiệm về quang chu kì của hai loài A và B, phân loại hai loài thuộc nhóm cây ngày dài, ngày ngắn hoặc ngày trung tính.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Loài A – nhóm cây ngày dài, loài B – nhóm cây ngày ngắn."
+        },
+        {
+          "key": "B",
+          "text": "Loài B – nhóm cây ngày trung tính, loài A – nhóm cây ngày dài."
+        },
+        {
+          "key": "C",
+          "text": "Loài A – nhóm cây ngày ngắn, loài B – nhóm cây ngày dài."
+        },
+        {
+          "key": "D",
+          "text": "Loài B – nhóm cây ngày dài, loài A – nhóm cây trung tính."
+        }
+      ],
+      "answer": "C",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p6.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q11",
+      "type": "mcq",
+      "text": "Giả sử trồng cây loài A trong 10 giờ chiếu sáng + 14 giờ đêm và cây loài B trong 15 giờ chiếu sáng + 9 giờ đêm. Nhận định đúng là",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cây loài A ra hoa và cây loài B không ra hoa."
+        },
+        {
+          "key": "B",
+          "text": "Cây loài A không ra hoa và cây loài B ra hoa."
+        },
+        {
+          "key": "C",
+          "text": "Cây loài A và cây loài B đều ra hoa."
+        },
+        {
+          "key": "D",
+          "text": "Cây loài A và cây loài B đều không ra hoa."
+        }
+      ],
+      "answer": "C",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p6.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q12",
+      "type": "mcq",
+      "text": "Tại các cánh đồng mía ở Cuba, bắn pháo hoa giữa cánh đồng vào mùa đông có ý nghĩa sinh học nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Giúp cây mía sinh trưởng tốt hơn, tăng năng suất."
+        },
+        {
+          "key": "B",
+          "text": "Ngắt đêm dài thành hai đêm ngắn, ức chế mía ra hoa làm giảm năng suất."
+        },
+        {
+          "key": "C",
+          "text": "Tăng độ dài ngày từ đó kích thích ra hoa ở mía."
+        },
+        {
+          "key": "D",
+          "text": "Chỉ là truyền thống cầu mong bội thu."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p7.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q13",
+      "type": "mcq",
+      "text": "Tại bước 3 của quy trình tách chiết DNA từ gan gà, nước rửa bát được thêm vào dịch lọc với mục đích gì?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tăng thể tích dung dịch."
+        },
+        {
+          "key": "B",
+          "text": "Phá hủy thành tế bào của tế bào gan gà."
+        },
+        {
+          "key": "C",
+          "text": "Phá hủy cấu trúc màng sinh chất."
+        },
+        {
+          "key": "D",
+          "text": "Rửa sạch dịch lọc tinh sạch DNA."
+        }
+      ],
+      "answer": "C",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p8.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q14",
+      "type": "mcq",
+      "text": "Tại bước 4, nước cốt dứa được cho vào hỗn hợp dịch lọc cùng nước rửa bát với mục đích gì?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Pha loãng hỗn hợp bị hóa đặc bởi nước rửa bát."
+        },
+        {
+          "key": "B",
+          "text": "Giảm mùi tanh của gan gà."
+        },
+        {
+          "key": "C",
+          "text": "Tách dịch tế bào và nước rửa bát."
+        },
+        {
+          "key": "D",
+          "text": "Phân giải protein."
+        }
+      ],
+      "answer": "D",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p8.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q15",
+      "type": "mcq",
+      "text": "Nhận định nào sau đây sai khi nói về kiểm chứng tủa DNA bằng diphenylamine?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ethanol làm DNA kết tủa màu trắng trong điều kiện thích hợp."
+        },
+        {
+          "key": "B",
+          "text": "Nếu phức màu hồng xuất hiện với diphenylamine thì đó là DNA."
+        },
+        {
+          "key": "C",
+          "text": "Nhận biết DNA bằng diphenylamine cần điều kiện nhiệt độ cao và tạo phức màu xanh lam."
+        },
+        {
+          "key": "D",
+          "text": "Có thể thay ethanol 90% bằng isopropanol 99% và vẫn thu được kết quả tương tự."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p8.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q16",
+      "type": "matching",
+      "text": "Các thành phần hóa học, đại phân tử sinh học của tế bào",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Carbohydrate"
+          },
+          {
+            "key": "2",
+            "text": "Lipid"
+          },
+          {
+            "key": "3",
+            "text": "Protein"
+          },
+          {
+            "key": "4",
+            "text": "Acid nucleic"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Nhóm chất đa dạng về cấu trúc nhưng có đặc tính chung là kị nước."
+          },
+          {
+            "key": "b",
+            "text": "Được cấu tạo từ 3 nguyên tố C, H, O với tỉ lệ 1:2:1 và công thức chung (CH2O)n."
+          },
+          {
+            "key": "c",
+            "text": "Chứa nhiều trong nội tạng động vật, tôm, cua và nhiều loại thịt đỏ dễ gây rối loạn chuyển hóa uric acid."
+          },
+          {
+            "key": "d",
+            "text": "Phân tử bao gồm 4 bậc cấu trúc và chức năng còn phụ thuộc vào các bậc cấu trúc."
+          },
+          {
+            "key": "e",
+            "text": "Chứa các liên kết hydrogen và tạo nên nhiều đặc tính như sức căng bề mặt cao, tỷ nhiệt bay hơi lớn."
+          }
+        ]
+      },
+      "answer": {
+        "1": "b",
+        "2": "a",
+        "3": "d",
+        "4": ""
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p8.png",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI.",
+      "needs_review": true,
+      "reviewNote": "Nguồn không cung cấp mô tả đúng cho Acid nucleic; không có lựa chọn phù hợp. Không tự bịa đáp án."
+    },
+    {
+      "id": "sinh13-q17",
+      "type": "matching",
+      "text": "Quá trình trao đổi nước và khoáng ở thực vật",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Sắt (Fe)"
+          },
+          {
+            "key": "2",
+            "text": "Khí khổng"
+          },
+          {
+            "key": "3",
+            "text": "Xylem"
+          },
+          {
+            "key": "4",
+            "text": "Phloem"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Sự thay đổi sức trương nước của tế bào kèm tạo nên cơ chế đóng mở."
+          },
+          {
+            "key": "b",
+            "text": "Được cấu tạo bởi các tế bào mất nhân, chất nguyên sinh và màng sinh chất (tế bào chết) làm tăng hiệu quả vận chuyển."
+          },
+          {
+            "key": "c",
+            "text": "Biểu hiện vàng lá từ lá non đến lá già."
+          },
+          {
+            "key": "d",
+            "text": "Ống dẫn được hỗ trợ cung cấp năng lượng bởi các tế bào kèm có nhiều ti thể."
+          },
+          {
+            "key": "e",
+            "text": "Biểu hiện vàng lá từ lá già đến lá non."
+          }
+        ]
+      },
+      "answer": {
+        "1": "e",
+        "2": "a",
+        "3": "b",
+        "4": "d"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q18",
+      "type": "matching",
+      "text": "Sinh thái học quần thể",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Quan hệ hỗ trợ"
+          },
+          {
+            "key": "2",
+            "text": "Mật độ cá thể"
+          },
+          {
+            "key": "3",
+            "text": "Kích thước tối đa"
+          },
+          {
+            "key": "4",
+            "text": "Phân bố đồng đều"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Xuất hiện ở quần thể có nguồn sống phân bố đồng đều và giữa các cá thể có tính cạnh tranh cao."
+          },
+          {
+            "key": "b",
+            "text": "Số lượng cá thể lớn nhất mà quần thể có thể đạt được phù hợp với sức chứa và sự cung cấp nguồn sống của môi trường."
+          },
+          {
+            "key": "c",
+            "text": "Số lượng cá thể trên một đơn vị thể tích hoặc diện tích."
+          },
+          {
+            "key": "d",
+            "text": "Xảy ra khi số lượng cá thể vượt quá khả năng cung cấp của môi trường."
+          },
+          {
+            "key": "e",
+            "text": "Đảm bảo cho quần thể khai thác tối ưu nguồn sống, tăng hiệu quả sinh sản."
+          }
+        ]
+      },
+      "answer": {
+        "1": "e",
+        "2": "c",
+        "3": "b",
+        "4": "a"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q19",
+      "type": "matching",
+      "text": "Xét tính trạng màu hoa ở một loài thực vật; hai cây thuần chủng tương phản cho F1 100% hoa đỏ, F2 phân li 3 đỏ : 1 trắng. Cho cây đỏ F2 giao phối ngẫu nhiên.",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Kiểu gene F1"
+          },
+          {
+            "key": "2",
+            "text": "Tỉ lệ kiểu gene Aa ở F2"
+          },
+          {
+            "key": "3",
+            "text": "Tỉ lệ hoa trắng F3"
+          },
+          {
+            "key": "4",
+            "text": "Tỉ lệ hoa đỏ dị hợp F3"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "50% AA : 50% Aa"
+          },
+          {
+            "key": "b",
+            "text": "Aa"
+          },
+          {
+            "key": "c",
+            "text": "50%"
+          },
+          {
+            "key": "d",
+            "text": "1/9"
+          },
+          {
+            "key": "e",
+            "text": "4/9"
+          }
+        ]
+      },
+      "answer": {
+        "1": "b",
+        "2": "c",
+        "3": "d",
+        "4": "e"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q20",
+      "type": "matching",
+      "text": "DNA và quá trình tái bản DNA",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "DNA ở sinh vật nhân sơ"
+          },
+          {
+            "key": "2",
+            "text": "Mạch tổng hợp liên tục"
+          },
+          {
+            "key": "3",
+            "text": "Mạch tổng hợp gián đoạn"
+          },
+          {
+            "key": "4",
+            "text": "RNA polymerase"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Hình thành liên kết giữa các nucleotide tự do với nhau dựa trên mạch khuôn để tạo mạch mới."
+          },
+          {
+            "key": "b",
+            "text": "Mạch mới được kéo dài liên tục trên mạch khuôn có chiều 3’ → 5’ cùng chiều mở chạc."
+          },
+          {
+            "key": "c",
+            "text": "Tạo các đoạn Okazaki và được nối lại bởi DNA ligase."
+          },
+          {
+            "key": "d",
+            "text": "Tồn tại dạng mạch kép, xoắn và vòng."
+          },
+          {
+            "key": "e",
+            "text": "Mạch mới được kéo dài liên tục dựa trên mạch khuôn có chiều 5’ → 3’ cùng chiều mở chạc."
+          }
+        ]
+      },
+      "answer": {
+        "1": "d",
+        "2": "b",
+        "3": "c",
+        "4": "a"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q21",
+      "type": "short_answer",
+      "text": "Có bao nhiêu bào quan, thành phần cấu tạo dưới đây thuộc tế bào nhân sơ điển hình: thành tế bào, màng tế bào, lông/roi, plasmid, ti thể, lục lạp, ribosome?",
+      "answer": "5",
+      "acceptedAnswers": [
+        "5"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q22",
+      "type": "short_answer",
+      "text": "Có bao nhiêu vi sinh vật dưới đây tham gia vào quá trình chuyển hóa nitrogen cung cấp cho thực vật: vi khuẩn cố định nitrogen, vi khuẩn ammonium, E. coli, vi khuẩn lưu huỳnh tía, vi khuẩn nitrate hóa, vi khuẩn cộng sinh dạ cỏ?",
+      "answer": "3",
+      "acceptedAnswers": [
+        "3"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q23",
+      "type": "short_answer",
+      "text": "Có bao nhiêu bộ ba không tham gia mã hóa amino acid trong quá trình dịch mã?",
+      "answer": "3",
+      "acceptedAnswers": [
+        "3"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q24",
+      "type": "short_answer",
+      "text": "Quần thể 1 có AA = 16%; quần thể 2 có 64% cá thể lông đen; cả hai cân bằng Hardy–Weinberg. Lấy các cá thể lông đen của hai quần thể giao phối ngẫu nhiên, tỉ lệ cá thể lông trắng là bao nhiêu?",
+      "answer": "14.06",
+      "acceptedAnswers": [
+        "14.06"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh13-q25",
+      "type": "short_answer",
+      "text": "Theo phả hệ đã cho, xác suất cặp vợ chồng 12–13 sinh con mắc bệnh A là bao nhiêu phần trăm?",
+      "answer": "13.33",
+      "acceptedAnswers": [
+        "13.33"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de13/p11.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    }
+  ]
+}

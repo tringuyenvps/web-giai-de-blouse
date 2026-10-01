@@ -1,0 +1,842 @@
+{
+  "exam": "vsat",
+  "subject": "sinh",
+  "title": "V-SAT Sinh học – Đề 10 (nguồn thiếu câu 10–12)",
+  "sourceTitle": "[V-SAT - SINH HỌC] Đề 10(1).pdf — PDF không có nội dung câu 10–12",
+  "sourceCode": "sinh10",
+  "durationMinutes": 60,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 3
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "sinh10-q01",
+      "type": "true_false",
+      "text": "Sơ đồ mô tả quá trình hô hấp hiếu khí ở thực vật.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Các giai đoạn I, II, III và IV lần lượt là đường phân, oxy hóa pyruvate, chu trình Krebs và chuỗi truyền electron."
+        },
+        {
+          "key": "b",
+          "text": "Phân tử (1) là acetyl-CoA, phân tử (4) là pyruvate."
+        },
+        {
+          "key": "c",
+          "text": "Phân tử (2) và (5) đều là NADH, phân tử (3) và (6) đều là H2O."
+        },
+        {
+          "key": "d",
+          "text": "Các phân tử CO2 chỉ được tạo ra ở giai đoạn III của quá trình này."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p1.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q02",
+      "type": "true_false",
+      "text": "Thí nghiệm trồng riêng ngô và lúa ở các nồng độ CO2 350, 600 và 1000 ppm cho sinh khối tương ứng của ngô 91, 89, 80 g và lúa 37, 47, 58 g.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Tại mỗi nồng độ CO2 trong thí nghiệm, năng suất quang hợp của ngô đều cao hơn lúa."
+        },
+        {
+          "key": "b",
+          "text": "Nồng độ CO2 1000 ppm đã vượt qua điểm bão hòa của ngô nhưng chưa đạt điểm bão hòa của lúa."
+        },
+        {
+          "key": "c",
+          "text": "Ở nồng độ CO2 thấp, ngô sinh trưởng ưu thế hơn lúa nhưng khi CO2 tăng thì ưu thế này giảm dần."
+        },
+        {
+          "key": "d",
+          "text": "Điểm bù CO2 của ngô cao hơn điểm bù CO2 ở lúa."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p1.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q03",
+      "type": "true_false",
+      "text": "Khi nghiên cứu hoạt động operon Lac ở ba chủng E. coli.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Có hai chủng vi khuẩn bị lãng phí vật chất di truyền và năng lượng bởi phiên mã không kiểm soát."
+        },
+        {
+          "key": "b",
+          "text": "Chủng 1 có operon Lac hoạt động bình thường."
+        },
+        {
+          "key": "c",
+          "text": "Có thể vùng P của gene lacI ở chủng 3 đã bị mất chức năng."
+        },
+        {
+          "key": "d",
+          "text": "Chủng 2 có thể đã bị đột biến trong các gene lacZ, lacY, lacA khiến chúng tăng cường phiên mã."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q04",
+      "type": "true_false",
+      "text": "Một loài có 2n=8; biểu đồ cho thấy A có 4 bản sao ở cả 4 cặp NST, B có 3 bản sao ở cả 4 cặp, C có một cặp 3 bản sao và D có một cặp 1 bản sao.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Thể đột biến A là thể đa bội, B, C, D là thể lệch bội."
+        },
+        {
+          "key": "b",
+          "text": "Thể đột biến B có thể hình thành từ sinh sản hữu tính hoặc đa bội hóa trực tiếp tế bào lưỡng bội."
+        },
+        {
+          "key": "c",
+          "text": "Thể đột biến C và D có thể hình thành do rối loạn phân bào trong quá trình giảm phân tạo giao tử."
+        },
+        {
+          "key": "d",
+          "text": "Thể đột biến B thường không có khả năng tạo giao tử bình thường, do đó được ứng dụng tạo quả không hạt."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p4.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q05",
+      "type": "true_false",
+      "text": "Ở người, hai vợ chồng đều tóc xoăn sinh con gái đầu lòng tóc thẳng; allele trội hoàn toàn.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Allele quy định tóc xoăn trội hơn allele quy định tóc thẳng."
+        },
+        {
+          "key": "b",
+          "text": "Cặp vợ chồng đều có kiểu gene dị hợp."
+        },
+        {
+          "key": "c",
+          "text": "Con gái đầu lòng có kiểu gene đồng hợp lặn."
+        },
+        {
+          "key": "d",
+          "text": "Xác suất sinh thêm một con trai tóc xoăn là 3/4."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q06",
+      "type": "true_false",
+      "text": "Ba cặp gene K/k, L/l, M/m phân li độc lập, các enzyme lần lượt tạo chất không màu → chất không màu 2 → sắc tố vàng → sắc tố đỏ; allele lặn không tạo enzyme.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Tính trạng màu sắc hoa được chi phối bởi các gene đa allele tương tác bổ sung."
+        },
+        {
+          "key": "b",
+          "text": "F1 phân li 9 hoa đỏ : 6 hoa vàng : 1 hoa trắng."
+        },
+        {
+          "key": "c",
+          "text": "Hoa đỏ ở F2 có tối đa 7 kiểu gene quy định."
+        },
+        {
+          "key": "d",
+          "text": "Trong số cây hoa đỏ ở F2, cây dị hợp 2 cặp gene chiếm tỉ lệ 9/8."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p5.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q07",
+      "type": "true_false",
+      "text": "Hình mô tả cấu trúc một gene trong nhân tế bào nhân thực; M và N là chiều của DNA.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "M và N lần lượt là đầu 5’ và đầu 3’ của gene."
+        },
+        {
+          "key": "b",
+          "text": "Trình tự nucleotide ở vùng A quy định tín hiệu mở đầu và kết thúc quá trình phiên mã."
+        },
+        {
+          "key": "c",
+          "text": "Tất cả nucleotide ở vùng B mang thông tin quy định trình tự amino acid."
+        },
+        {
+          "key": "d",
+          "text": "Vùng D mang thông tin quy định tín hiệu kết thúc quá trình dịch mã."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p5.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q08",
+      "type": "true_false",
+      "text": "Ở một loài thực vật, P tự thụ; F1 có 10 loại kiểu gene và aabb chiếm 16%.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Kiểu gene P là AB/ab."
+        },
+        {
+          "key": "b",
+          "text": "Tần số hoán vị gene là 40%."
+        },
+        {
+          "key": "c",
+          "text": "Tỉ lệ cây mang 1 tính trạng trội ở F1 là 18%."
+        },
+        {
+          "key": "d",
+          "text": "Trong số cây hoa đỏ, quả tròn, cây dị hợp chiếm 17/66."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p6.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q09",
+      "type": "true_false",
+      "text": "Ở một quần thể biệt lập, biểu đồ cho thấy tần số AA, Aa, aa qua P → F3 lần lượt thay đổi nhưng tần số allele ổn định.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Sự thay đổi tỉ lệ kiểu gene qua các thế hệ chủ yếu do di cư cá thể theo mùa."
+        },
+        {
+          "key": "b",
+          "text": "Qua các thế hệ, cấu trúc di truyền của quần thể vẫn biến đổi mặc dù tần số allele ổn định."
+        },
+        {
+          "key": "c",
+          "text": "Nếu môi trường thay đổi, các cá thể thuần chủng sẽ trở nên bất lợi và đào thải."
+        },
+        {
+          "key": "d",
+          "text": "Nếu từ F3 quần thể ngẫu phối và không chịu tác động của nhân tố tiến hóa nào, cấu trúc di truyền F4 sẽ giống F3."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p6.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q13",
+      "type": "mcq",
+      "text": "Sự biến động số lượng của gà gô xám và hai loài chim săn mồi thuộc dạng biến động nào?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Biến động theo chu kỳ."
+        },
+        {
+          "key": "B",
+          "text": "Biến động theo mùa."
+        },
+        {
+          "key": "C",
+          "text": "Biến động theo chu kỳ ngày đêm."
+        },
+        {
+          "key": "D",
+          "text": "Biến động không theo chu kỳ."
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p8.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q14",
+      "type": "mcq",
+      "text": "Nhận định nào dưới đây sai khi nói về sự biến động của các loài ở hình 1?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Năm 1993 và năm 1996 tỉ lệ giữa chim săn mồi và gà gô xám bằng nhau."
+        },
+        {
+          "key": "B",
+          "text": "Số lượng gà gô xám đạt thấp nhất khi số lượng chim săn mồi đạt cao nhất."
+        },
+        {
+          "key": "C",
+          "text": "Quần thể gà gô xám đạt kích thước lớn nhất tại năm 1977."
+        },
+        {
+          "key": "D",
+          "text": "Kích thước quần thể của cả hai quần thể chim săn mồi cao nhất vào năm 1999."
+        }
+      ],
+      "answer": "D",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p7.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q15",
+      "type": "mcq",
+      "text": "Kết hợp dữ liệu về hiệu quả diệt khuẩn và liều lượng gây độc ở người trưởng thành, nhận định nào sau đây sai?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Kháng sinh D có độ an toàn cao nhất vì liều bắt đầu gây độc lớn nhất."
+        },
+        {
+          "key": "B",
+          "text": "Kháng sinh E dù diệt khuẩn mạnh nhưng có nguy cơ độc cao nhất vì bắt đầu gây độc dưới 2 mg."
+        },
+        {
+          "key": "C",
+          "text": "Kháng sinh C là lựa chọn không hiệu quả nhất vì hiệu quả diệt khuẩn kém và độc tính cao hơn A, B, D."
+        },
+        {
+          "key": "D",
+          "text": "Kháng sinh A an toàn hơn kháng sinh B vì liều bắt đầu gây độc cao hơn."
+        }
+      ],
+      "answer": "D",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p9hi.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q16",
+      "type": "matching",
+      "text": "Miễn dịch ở động vật",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Phản ứng viêm"
+          },
+          {
+            "key": "2",
+            "text": "Dị ứng"
+          },
+          {
+            "key": "3",
+            "text": "Sốc phản vệ"
+          },
+          {
+            "key": "4",
+            "text": "Tự miễn"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Phản ứng quá mức của cơ thể với kháng nguyên nhất định"
+          },
+          {
+            "key": "b",
+            "text": "Hàng rào miễn dịch bên ngoài, thuộc đáp ứng miễn dịch không đặc hiệu"
+          },
+          {
+            "key": "c",
+            "text": "Bệnh phát sinh do tế bào miễn dịch hoặc kháng thể tấn công và hủy hoại tế bào, cơ quan trên chính cơ thể"
+          },
+          {
+            "key": "d",
+            "text": "Phản ứng dị ứng cấp tính do phát tán lượng lớn histamin trên diện rộng"
+          },
+          {
+            "key": "e",
+            "text": "Hệ thống miễn dịch suy giảm do HIV"
+          },
+          {
+            "key": "f",
+            "text": "Dấu hiệu đặc trưng là sưng, nóng, đỏ, đau"
+          }
+        ]
+      },
+      "answer": {
+        "1": "f",
+        "2": "a",
+        "3": "d",
+        "4": "c"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q17",
+      "type": "matching",
+      "text": "Sự vận động của nhiễm sắc thể trong phân bào bình thường",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Các NST kép được thoi phân bào co rút và kéo về hai cực tế bào"
+          },
+          {
+            "key": "2",
+            "text": "Các NST đơn nhân đôi thành các NST kép"
+          },
+          {
+            "key": "3",
+            "text": "Các NST kép xếp thành một hàng trên mặt phẳng xích đạo của thoi phân bào"
+          },
+          {
+            "key": "4",
+            "text": "Các NST tiếp hợp và có thể trao đổi đoạn cho nhau"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Pha S kì trung gian"
+          },
+          {
+            "key": "b",
+            "text": "Kì đầu giảm phân I"
+          },
+          {
+            "key": "c",
+            "text": "Kì giữa giảm phân II"
+          },
+          {
+            "key": "d",
+            "text": "Kì sau nguyên phân"
+          },
+          {
+            "key": "e",
+            "text": "Kì sau giảm phân I"
+          },
+          {
+            "key": "f",
+            "text": "Kì giữa nguyên phân"
+          }
+        ]
+      },
+      "answer": {
+        "1": "d",
+        "2": "a",
+        "3": "c",
+        "4": "b"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q18",
+      "type": "matching",
+      "text": "Học thuyết di truyền",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Một gene có hai allele, dị hợp biểu hiện kiểu hình trung gian"
+          },
+          {
+            "key": "2",
+            "text": "Một gene có hai allele, dị hợp biểu hiện giống đồng hợp trội"
+          },
+          {
+            "key": "3",
+            "text": "Một gene quy định nhiều tính trạng"
+          },
+          {
+            "key": "4",
+            "text": "Hai hay nhiều gene khác locus cùng quy định một tính trạng"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Gene đa hiệu"
+          },
+          {
+            "key": "b",
+            "text": "Gene đa allele"
+          },
+          {
+            "key": "c",
+            "text": "Trội lặn hoàn toàn"
+          },
+          {
+            "key": "d",
+            "text": "Đồng trội"
+          },
+          {
+            "key": "e",
+            "text": "Tương tác gene không allele"
+          },
+          {
+            "key": "f",
+            "text": "Trội lặn không hoàn toàn"
+          }
+        ]
+      },
+      "answer": {
+        "1": "f",
+        "2": "c",
+        "3": "a",
+        "4": "e"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q19",
+      "type": "matching",
+      "text": "Phả hệ di truyền bệnh mù màu và máu khó đông liên kết X",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Số người biết kiểu gene chính xác"
+          },
+          {
+            "key": "2",
+            "text": "Số loại giao tử tối đa từ người II-1"
+          },
+          {
+            "key": "3",
+            "text": "Số người chắc chắn không mang allele gây bệnh"
+          },
+          {
+            "key": "4",
+            "text": "Số người tối đa ở thế hệ III có thể được sinh ra từ giao tử hoán vị ở mẹ và giao tử không hoán vị ở bố"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "1"
+          },
+          {
+            "key": "b",
+            "text": "3"
+          },
+          {
+            "key": "c",
+            "text": "5"
+          },
+          {
+            "key": "d",
+            "text": "4"
+          },
+          {
+            "key": "e",
+            "text": "6"
+          },
+          {
+            "key": "f",
+            "text": "7"
+          }
+        ]
+      },
+      "answer": {
+        "1": "f",
+        "2": "d",
+        "3": "d",
+        "4": "d"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p11.png",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q20",
+      "type": "matching",
+      "text": "Khu sinh học dưới nước",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Nước ngọt và đứng, tích lũy nhiều chất dinh dưỡng"
+          },
+          {
+            "key": "2",
+            "text": "Nước ngọt và luôn lưu chuyển, giàu oxygen hòa tan"
+          },
+          {
+            "key": "3",
+            "text": "Độ đa dạng sinh học cao, gồm rừng ngập mặn, rạn san hô, thảm cỏ biển"
+          },
+          {
+            "key": "4",
+            "text": "Tầng nước mặt nghèo dinh dưỡng nhưng có tảo, động vật nổi, cá nổi, sứa; tầng đáy chủ yếu là sinh vật phân giải"
+          }
+        ],
+        "right": [
+          {
+            "key": "a",
+            "text": "Bãi bồi"
+          },
+          {
+            "key": "b",
+            "text": "Ao hồ"
+          },
+          {
+            "key": "c",
+            "text": "Vùng nước mặn ven bờ"
+          },
+          {
+            "key": "d",
+            "text": "Sông, suối"
+          },
+          {
+            "key": "e",
+            "text": "Vùng đầm lầy"
+          },
+          {
+            "key": "f",
+            "text": "Vùng khơi đại dương"
+          }
+        ]
+      },
+      "answer": {
+        "1": "b",
+        "2": "d",
+        "3": "c",
+        "4": "f"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q21",
+      "type": "short_answer",
+      "text": "Có bao nhiêu trình tự mRNA khác nhau có thể mã hóa Met–Leu–Arg nếu số codon tương ứng là 1–6–6?",
+      "answer": "36",
+      "acceptedAnswers": [
+        "36"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q22",
+      "type": "short_answer",
+      "text": "Trong 4 trường hợp tạo thể đột biến, hãy ghi theo thứ tự tăng dần các trường hợp tạo thể tứ bội: (1) thụ tinh hai giao tử 2n; (2) trao đổi chéo không cân; (3) lai xa kết hợp đa bội hóa; (4) toàn bộ NST không phân li ở lần nguyên phân đầu tiên của hợp tử.",
+      "answer": "1,3,4",
+      "acceptedAnswers": [
+        "1,3,4"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q23",
+      "type": "short_answer",
+      "text": "P có kiểu gene Ab/aB, tự thụ, hoán vị gene 30%. Tỉ lệ kiểu gene AB/aB ở F1 là bao nhiêu phần trăm?",
+      "answer": "10.50",
+      "acceptedAnswers": [
+        "10.50"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p13.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q24",
+      "type": "short_answer",
+      "text": "Chỉ ra đường cong lần lượt thể hiện nồng độ CO2, nồng độ O2, độ đục và sinh khối thực vật nổi theo độ sâu nước hồ.",
+      "answer": "4-3-1-2",
+      "acceptedAnswers": [
+        "4-3-1-2"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p13.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    },
+    {
+      "id": "sinh10-q25",
+      "type": "short_answer",
+      "text": "Theo bảng trình tự DNA, loài vi khuẩn mới có quan hệ họ hàng gần gũi nhất với loài nào?",
+      "answer": "Loài 4",
+      "acceptedAnswers": [
+        "Loài 4"
+      ],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de10/p13.png",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "AI",
+      "answerNote": "Đáp án do AI."
+    }
+  ],
+  "warning": "Nguồn PDF tải lên bị thiếu câu 10–12. Chỉ giữ các câu có thật trong nguồn, không tạo câu giả."
+}

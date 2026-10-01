@@ -1,0 +1,909 @@
+{
+  "exam": "vsat",
+  "subject": "sinh",
+  "title": "V-SAT Sinh học – Đề 4",
+  "sourceTitle": "[V-SAT - SINH HỌC] Đề 4(1).pdf — đáp án có sẵn trong PDF",
+  "sourceCode": "sinh04",
+  "durationMinutes": 60,
+  "maxScore": 150,
+  "structure": {
+    "part1": {
+      "type": "true_false",
+      "count": 9
+    },
+    "part2": {
+      "type": "mcq",
+      "count": 6
+    },
+    "part3": {
+      "type": "matching",
+      "count": 5
+    },
+    "part4": {
+      "type": "short_answer",
+      "count": 5
+    }
+  },
+  "questions": [
+    {
+      "id": "sinh04-q01",
+      "type": "true_false",
+      "text": "Cho thông tin về hiện tượng vận chuyển các chất trong thân ở thực vật trên cạn.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Thành phần chủ yếu của dịch mạch gỗ là nước và muối khoáng hòa tan."
+        },
+        {
+          "key": "b",
+          "text": "Động lực của dòng mạch rây là sự chênh lệch áp suất thẩm thấu giữa cơ quan nguồn (nơi có áp suất thẩm thấu thấp) và cơ quan chứa (nơi có áp suất thẩm thấu cao)."
+        },
+        {
+          "key": "c",
+          "text": "Lực hút do quá trình thoát hơi nước ở lá là động lực chính của dòng mạch gỗ."
+        },
+        {
+          "key": "d",
+          "text": "Trong các động lực của dòng mạch gỗ, lực đẩy do áp suất rễ tạo ra."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q02",
+      "type": "true_false",
+      "text": "Cho thông tin về tiêu hóa ở động vật.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Tiêu hóa là quá trình biến đổi các chất dinh dưỡng trong thức ăn thành năng lượng dạng ATP để cung cấp cho các hoạt động sống của tế bào và cơ thể."
+        },
+        {
+          "key": "b",
+          "text": "Thú ăn cỏ chỉ có tiêu hóa sinh học ở manh tràng mà không có tiêu hóa cơ học và tiêu hóa hóa học."
+        },
+        {
+          "key": "c",
+          "text": "Ở động vật có túi tiêu hóa, thức ăn được tiêu hóa ngoại bào và tiêu hóa nội bào."
+        },
+        {
+          "key": "d",
+          "text": "Sản phẩm cuối cùng của quá trình tiêu hóa protein ở ruột non là các amino acid."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q03",
+      "type": "true_false",
+      "text": "Cho thông tin về quá trình phiên mã.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Phiên mã là quá trình tổng hợp RNA."
+        },
+        {
+          "key": "b",
+          "text": "Trong quá trình phiên mã, enzyme RNA polymerase trượt dọc trên mạch mã gốc của gene theo chiều 3’ → 5’."
+        },
+        {
+          "key": "c",
+          "text": "Các gene trên các nhiễm sắc thể khác nhau thường có số lần phiên mã khác nhau."
+        },
+        {
+          "key": "d",
+          "text": "Phiên mã được thực hiện theo nguyên tắc bổ sung và bán bảo tồn."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q04",
+      "type": "true_false",
+      "text": "Quá trình đột biến số lượng nhiễm sắc thể ở tế bào nhân thực.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Thể ba nhiễm có thể được hình thành do sự thụ tinh giữa giao tử đơn bội với giao tử lưỡng bội."
+        },
+        {
+          "key": "b",
+          "text": "Colchicine là chất gây đột biến đa bội vì nó cản trở sự hình thành thoi vô sắc trong quá trình phân bào."
+        },
+        {
+          "key": "c",
+          "text": "Lai xa kèm đa bội hóa có thể tạo ra thể dị đa bội có kiểu gene dị hợp tử về tất cả các gene."
+        },
+        {
+          "key": "d",
+          "text": "Trong tế bào sinh dưỡng của thể tứ bội (4n), chỉ có một loại nhiễm sắc thể nào đó tồn tại thành một nhóm có 4 chiếc, tất cả các nhiễm sắc thể còn lại tồn tại thành từng cặp tương đồng."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": false,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q05",
+      "type": "true_false",
+      "text": "Ở người, bệnh máu khó đông do allele lặn nằm ở vùng không tương đồng trên nhiễm sắc thể giới tính X quy định, allele trội quy định nhìn màu bình thường và không xảy ra đột biến.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Gene của mẹ chỉ di truyền cho con trai mà không di truyền cho con gái."
+        },
+        {
+          "key": "b",
+          "text": "Gene của bố chỉ di truyền cho con gái mà không di truyền cho con trai."
+        },
+        {
+          "key": "c",
+          "text": "Ở nữ giới, trong tế bào sinh dưỡng gene tồn tại thành cặp allele."
+        },
+        {
+          "key": "d",
+          "text": "Một người phụ nữ bình thường (có bố bị bệnh máu khó đông) kết hôn với người đàn ông bị bệnh máu khó đông thì khả năng họ sinh được một đứa con trai mắc bệnh máu khó đông là 25%."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": true,
+        "c": true,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q06",
+      "type": "true_false",
+      "text": "Ở bí Cucurbita pepo, hình dạng quả do hai cặp gene A, a và B, b phân li độc lập cùng quy định theo sơ đồ đã cho.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Loài này có 4 kiểu gene đồng hợp quy định kiểu hình quả dẹt."
+        },
+        {
+          "key": "b",
+          "text": "Phép lai ở P có thể là AAbb × aaBB."
+        },
+        {
+          "key": "c",
+          "text": "F2 có tổng số 2400 cây quả hình cầu."
+        },
+        {
+          "key": "d",
+          "text": "Ở F2, nếu cho các cây quả dẹt giao phấn với các cây quả hình cầu thì tỉ lệ kiểu hình thu được ở F3 là 16 cây quả hình cầu : 10 cây quả dẹt : 1 cây quả dài."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p2.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q07",
+      "type": "true_false",
+      "text": "Bảng dưới đây thể hiện chuỗi polynucleotide của một gene mã hóa cho chuỗi polypeptide có trình tự amino acid là MATE.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Chuỗi polynucleotide trên là mạch bổ sung của gene."
+        },
+        {
+          "key": "b",
+          "text": "Cặp nucleotide bị mất có thể ở vị trí số 1 hoặc số 2."
+        },
+        {
+          "key": "c",
+          "text": "Nếu đột biến mất một cặp nucleotide ở vị trí số 3 thì gọi là đột biến vô nghĩa."
+        },
+        {
+          "key": "d",
+          "text": "Có thể xác định chính xác loại nucleotide vị trí số 4 và 5."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": true,
+        "c": false,
+        "d": true
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p2.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q08",
+      "type": "true_false",
+      "text": "Ở một loài thực vật, gene quy định màu sắc hoa có 3 allele nằm trên nhiễm sắc thể thường; A1 quy định màu đỏ trội hoàn toàn so với A2 và A3; A2 quy định hoa hồng trội hoàn toàn so với A3 quy định hoa trắng.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Loài này có tất cả 6 kiểu gene đồng hợp về tính trạng màu sắc hoa."
+        },
+        {
+          "key": "b",
+          "text": "Các cây hoa trắng có thể có kiểu gene đồng hợp hoặc dị hợp về tính trạng màu sắc hoa."
+        },
+        {
+          "key": "c",
+          "text": "Cho lai hai cây cùng màu với nhau thì đời con có thể thu được tối đa 4 loại kiểu gene về tính trạng màu sắc hoa."
+        },
+        {
+          "key": "d",
+          "text": "Loài này có 3 sơ đồ lai tự thụ phấn về tính trạng màu sắc hoa."
+        }
+      ],
+      "answer": {
+        "a": false,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p2.png",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q09",
+      "type": "true_false",
+      "text": "Ở một loài thực vật, allele B quy định hoa đỏ trội hoàn toàn so với allele b quy định hoa trắng. Quần thể ở thế hệ xuất phát P có 0,3BB : 0,6Bb : 0,1bb.",
+      "statements": [
+        {
+          "key": "a",
+          "text": "Ở thế hệ P, tần số allele B và b lần lượt là 0,6 và 0,4."
+        },
+        {
+          "key": "b",
+          "text": "Nếu cho P tự thụ phấn nghiêm ngặt qua 3 thế hệ thì ở F3 tỉ lệ hoa đỏ là 21/80."
+        },
+        {
+          "key": "c",
+          "text": "Nếu cho P giao phấn ngẫu nhiên thì quần thể F1 sẽ đạt trạng thái cân bằng di truyền."
+        },
+        {
+          "key": "d",
+          "text": "Cho các cây hoa đỏ ở P tự thụ phấn, thu được các cây F1 với tỉ lệ kiểu hình là 1 đỏ : 5 trắng."
+        }
+      ],
+      "answer": {
+        "a": true,
+        "b": false,
+        "c": true,
+        "d": false
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 1,
+      "partTitle": "PHẦN I - Đúng / Sai",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q10",
+      "type": "mcq",
+      "text": "Một loài côn trùng S chuyên hút nhựa của hai loài cây thân thảo một năm X và Y. Kết quả theo dõi cho thấy khi có côn trùng S, sự đa dạng của quần xã thực vật được duy trì.",
+      "options": [
+        {
+          "key": "A",
+          "text": "Côn trùng S giúp duy trì sự đa dạng của quần xã thực vật."
+        },
+        {
+          "key": "B",
+          "text": "Côn trùng S làm giảm số lượng loài thực vật trong khu vực."
+        },
+        {
+          "key": "C",
+          "text": "Côn trùng S không ảnh hưởng đến sự phát triển của loài Y."
+        },
+        {
+          "key": "D",
+          "text": "Khi có côn trùng S, loài X bị tuyệt diệt hoàn toàn."
+        }
+      ],
+      "answer": "A",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p3.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q11",
+      "type": "mcq",
+      "text": "Trong khu vực trên, loài côn trùng S đóng vai trò là",
+      "options": [
+        {
+          "key": "A",
+          "text": "loài ưu thế"
+        },
+        {
+          "key": "B",
+          "text": "loài chủ chốt"
+        },
+        {
+          "key": "C",
+          "text": "loài đặc trưng"
+        },
+        {
+          "key": "D",
+          "text": "loài ngoại lai"
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p3.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q12",
+      "type": "mcq",
+      "text": "Kết luận nào sau đây không đúng về nghiên cứu này?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mối quan hệ sinh thái giữa loài X và loài Y có thể là cạnh tranh khác loài."
+        },
+        {
+          "key": "B",
+          "text": "Loài Y có khả năng cạnh tranh tốt hơn loài X khi có côn trùng S."
+        },
+        {
+          "key": "C",
+          "text": "Sự có mặt của côn trùng S làm giảm đáng kể số lượng cá thể của loài Y."
+        },
+        {
+          "key": "D",
+          "text": "Số lượng loài thực vật trong khu vực nghiên cứu giảm khi không có côn trùng S."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p3.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q13",
+      "type": "mcq",
+      "text": "Hiện tượng chủng vi khuẩn R sống tiếp nhận vật chất di truyền từ chủng vi khuẩn S đã chết và biến đổi thành chủng S sống được gọi là",
+      "options": [
+        {
+          "key": "A",
+          "text": "biến dị tổ hợp"
+        },
+        {
+          "key": "B",
+          "text": "đột biến gene"
+        },
+        {
+          "key": "C",
+          "text": "biến nạp"
+        },
+        {
+          "key": "D",
+          "text": "tiếp hợp"
+        }
+      ],
+      "answer": "C",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p4.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q14",
+      "type": "mcq",
+      "text": "Kết quả thí nghiệm chứng minh vật chất di truyền của phế cầu khuẩn Streptococcus pneumoniae là",
+      "options": [
+        {
+          "key": "A",
+          "text": "polysaccharide"
+        },
+        {
+          "key": "B",
+          "text": "lipid"
+        },
+        {
+          "key": "C",
+          "text": "RNA"
+        },
+        {
+          "key": "D",
+          "text": "DNA"
+        }
+      ],
+      "answer": "D",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p4.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q15",
+      "type": "mcq",
+      "text": "Nếu tiêm hỗn hợp gồm chủng S sống và chủng R đã chết do xử lý nhiệt cho chuột thì khả năng nào sau đây có xác suất xảy ra cao nhất?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Chuột sống vì chủng R đã chết và không còn khả năng gây bệnh."
+        },
+        {
+          "key": "B",
+          "text": "Chuột chết vì chủng S sống có khả năng gây bệnh."
+        },
+        {
+          "key": "C",
+          "text": "Chuột sống vì chỉ chủng S đã chết mới có thể biến nạp DNA sang chủng R."
+        },
+        {
+          "key": "D",
+          "text": "Chuột chết vì chủng R đã chết có thể phục hồi và gây bệnh."
+        }
+      ],
+      "answer": "B",
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "./database/vsat/sinh/assets/de4/p4.png",
+      "part": 2,
+      "partTitle": "PHẦN II - Trắc nghiệm nhiều lựa chọn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q16",
+      "type": "matching",
+      "text": "Hô hấp ở động vật",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Côn trùng sống trên cạn"
+          },
+          {
+            "key": "2",
+            "text": "Động vật đơn bào hoặc đa bào bậc thấp"
+          },
+          {
+            "key": "3",
+            "text": "Chim"
+          },
+          {
+            "key": "4",
+            "text": "Lưỡng cư"
+          }
+        ],
+        "right": [
+          {
+            "key": "A",
+            "text": "Có phổi được cấu tạo từ các ống khí được mao mạch bao quanh."
+          },
+          {
+            "key": "B",
+            "text": "Trao đổi khí qua phổi và da."
+          },
+          {
+            "key": "C",
+            "text": "Hô hấp bằng mang"
+          },
+          {
+            "key": "D",
+            "text": "Hô hấp bằng hệ thống ống khí."
+          },
+          {
+            "key": "E",
+            "text": "Hô hấp hoàn toàn bằng phổi và phổi được cấu tạo từ các phế nang."
+          },
+          {
+            "key": "F",
+            "text": "Có hình thức hô hấp qua bề mặt cơ thể."
+          }
+        ]
+      },
+      "answer": {
+        "1": "D",
+        "2": "F",
+        "3": "A",
+        "4": "B"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q17",
+      "type": "matching",
+      "text": "Về đột biến gene",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Đột biến gene"
+          },
+          {
+            "key": "2",
+            "text": "Thể đột biến"
+          },
+          {
+            "key": "3",
+            "text": "Đột biến thay thế một cặp nucleotide"
+          },
+          {
+            "key": "4",
+            "text": "Đột biến mất một cặp nucleotide"
+          }
+        ],
+        "right": [
+          {
+            "key": "A",
+            "text": "Không làm thay đổi chiều dài của gene."
+          },
+          {
+            "key": "B",
+            "text": "Làm thay đổi vị trí sắp xếp của các gene trên nhiễm sắc thể."
+          },
+          {
+            "key": "C",
+            "text": "Là cơ thể mang các tế bào sinh dưỡng bị mất một nhiễm sắc thể."
+          },
+          {
+            "key": "D",
+            "text": "Làm giảm số nucleotide của gene."
+          },
+          {
+            "key": "E",
+            "text": "Liên quan đến một số cặp nucleotide."
+          },
+          {
+            "key": "F",
+            "text": "Là cơ thể mang gene đột biến đã được biểu hiện thành kiểu hình."
+          }
+        ]
+      },
+      "answer": {
+        "1": "E",
+        "2": "F",
+        "3": "A",
+        "4": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q18",
+      "type": "matching",
+      "text": "Ở một loài thực vật, mỗi tính trạng màu sắc hoa và hình dạng quả đều do một cặp gene nằm trên nhiễm sắc thể thường quy định.",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Nếu F1 có 10 loại kiểu gene thì hai cây P có thể mang kiểu gene giống hoặc khác nhau và đều xảy ra hoán vị gene với tần số bằng hoặc khác nhau."
+          },
+          {
+            "key": "2",
+            "text": "Nếu F1 có 7 loại kiểu gene thì hai cây P có kiểu gene khác nhau và xảy ra hoán vị gene."
+          },
+          {
+            "key": "3",
+            "text": "Nếu tỉ lệ cây hoa trắng, quả tròn ở F1 là 1/16 thì tỉ lệ cây hoa đỏ, quả dài ở F1 là 9/16."
+          },
+          {
+            "key": "4",
+            "text": "Nếu F1 có hai loại kiểu gene dị hợp về 2 cặp gene luôn chiếm tỉ lệ bằng nhau thì hai cặp gene phân li độc lập."
+          }
+        ],
+        "right": [
+          {
+            "key": "A",
+            "text": "Hai cây P có thể mang kiểu gene giống hoặc khác nhau"
+          },
+          {
+            "key": "B",
+            "text": "Hai cây P có kiểu gene khác nhau và xảy ra hoán vị gene"
+          },
+          {
+            "key": "C",
+            "text": "Tỉ lệ cây hoa đỏ, quả dài ở F1 là 9/16"
+          },
+          {
+            "key": "D",
+            "text": "Hai cây P có kiểu gene khác nhau và đều xảy ra hoán vị gene với tần số bằng nhau"
+          },
+          {
+            "key": "E",
+            "text": "Hai cặp gene phân li độc lập"
+          },
+          {
+            "key": "F",
+            "text": "Tỉ lệ kiểu hình ở F1 là 3:1"
+          }
+        ]
+      },
+      "answer": {
+        "1": "A",
+        "2": "B",
+        "3": "C",
+        "4": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q19",
+      "type": "matching",
+      "text": "Các bằng chứng tiến hóa",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Cơ quan tương đồng"
+          },
+          {
+            "key": "2",
+            "text": "Cơ quan tương tự"
+          },
+          {
+            "key": "3",
+            "text": "Bằng chứng sinh học phân tử"
+          },
+          {
+            "key": "4",
+            "text": "Hóa thạch"
+          }
+        ],
+        "right": [
+          {
+            "key": "A",
+            "text": "Là bằng chứng chính xác nhất để xác định mối quan hệ họ hàng gần gũi giữa các loài."
+          },
+          {
+            "key": "B",
+            "text": "Là những cơ quan có cùng nguồn gốc và phản ánh hướng tiến hóa đồng quy."
+          },
+          {
+            "key": "C",
+            "text": "Là bằng chứng trực tiếp về lịch sử phát triển của sinh giới."
+          },
+          {
+            "key": "D",
+            "text": "Phản ánh hướng tiến hóa phân li."
+          },
+          {
+            "key": "E",
+            "text": "Là những cơ quan có nguồn gốc khác nhau nhưng thực hiện các chức năng như nhau."
+          },
+          {
+            "key": "F",
+            "text": "Thuộc bằng chứng tiến hóa địa lí - sinh vật học."
+          }
+        ]
+      },
+      "answer": {
+        "1": "D",
+        "2": "E",
+        "3": "A",
+        "4": "C"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q20",
+      "type": "matching",
+      "text": "Cấu trúc và chức năng của tế bào sinh vật nhân thực",
+      "pairs": {
+        "left": [
+          {
+            "key": "1",
+            "text": "Trung thể"
+          },
+          {
+            "key": "2",
+            "text": "Ti thể"
+          },
+          {
+            "key": "3",
+            "text": "Lục lạp"
+          },
+          {
+            "key": "4",
+            "text": "Ribosome"
+          }
+        ],
+        "right": [
+          {
+            "key": "A",
+            "text": "Thực hiện hô hấp hiếu khí, chuyển hóa đường thành ATP, cung cấp năng lượng cho mọi hoạt động sống của tế bào."
+          },
+          {
+            "key": "B",
+            "text": "Có vai trò thu gom, biến đổi, đóng gói và phân phối sản phẩm từ nơi sản xuất đến nơi sử dụng."
+          },
+          {
+            "key": "C",
+            "text": "Hình thành nên thoi phân bào trong quá trình phân bào."
+          },
+          {
+            "key": "D",
+            "text": "Là nơi tổng hợp protein cho tế bào."
+          },
+          {
+            "key": "E",
+            "text": "Là trung tâm điều khiển mọi hoạt động sống của tế bào."
+          },
+          {
+            "key": "F",
+            "text": "Có vai trò chuyển hóa quang năng thành hóa năng trong các hợp chất hữu cơ."
+          }
+        ]
+      },
+      "answer": {
+        "1": "C",
+        "2": "A",
+        "3": "F",
+        "4": "D"
+      },
+      "acceptedAnswers": [],
+      "explanation": "",
+      "image": "",
+      "part": 3,
+      "partTitle": "PHẦN III - Ghép hợp",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q21",
+      "type": "short_answer",
+      "text": "Xác định chính xác kiểu gene của tối đa bao nhiêu người trong phả hệ đã cho.",
+      "answer": "6",
+      "acceptedAnswers": [
+        "6"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q22",
+      "type": "short_answer",
+      "text": "Lúa nước có bộ nhiễm sắc thể 2n = 24. Một tế bào sinh dưỡng của thể bốn nhiễm ở loài này có bao nhiêu nhiễm sắc thể?",
+      "answer": "26",
+      "acceptedAnswers": [
+        "26"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q23",
+      "type": "short_answer",
+      "text": "Ở một loài thực vật, tính trạng màu hoa do hai gene không allele (Aa và Bb) quy định, tính trạng hình dạng quả do cặp gene Dd quy định. Theo lí thuyết, F1 có tối đa bao nhiêu kiểu gene khác nhau về 2 tính trạng đang xét?",
+      "answer": "30",
+      "acceptedAnswers": [
+        "30"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q24",
+      "type": "short_answer",
+      "text": "Xen canh là biện pháp trồng hai hay nhiều loài cây khác nhau trên cùng đơn vị diện tích trong cùng một mùa vụ. Có bao nhiêu phát biểu đúng?",
+      "answer": "3",
+      "acceptedAnswers": [
+        "3"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    },
+    {
+      "id": "sinh04-q25",
+      "type": "short_answer",
+      "text": "Trong chu kì kinh nguyệt 28 ngày của một phụ nữ bình thường, có bao nhiêu loại hormone do thể vàng tiết ra làm cho lớp niêm mạc tử cung phát triển dày lên?",
+      "answer": "2",
+      "acceptedAnswers": [
+        "2"
+      ],
+      "explanation": "",
+      "image": "",
+      "part": 4,
+      "partTitle": "PHẦN IV - Trả lời ngắn",
+      "answerSource": "PDF"
+    }
+  ]
+}
