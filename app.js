@@ -578,17 +578,32 @@
         gate.id = 'authGate';
         gate.className = 'auth-gate';
         gate.innerHTML = `
-          <div class="auth-card glass-card">
-            <div class="auth-logo">✦</div>
-            <div class="auth-kicker">BLOUSE EXAM WEB V6</div>
-            <h1>Đăng nhập hệ thống</h1>
-            <p>Đăng nhập tài khoản học sinh để luyện đề hoặc tài khoản Admin để quản lý và sửa đề trực tiếp trên web.</p>
-            <form id="loginForm" class="auth-form">
-              <label>Tên đăng nhập<input id="loginUsername" autocomplete="username" placeholder="Nhập username (VD: admin)" required></label>
-              <label>Mật khẩu<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required></label>
-              <button class="primary-button auth-submit" type="submit">Đăng nhập</button>
-              <div id="loginError" class="auth-error hidden"></div>
-            </form>
+          <div class="auth-card auth-portal-card glass-card">
+            <div class="auth-visual-side">
+              <div>
+                <span class="promo-badge">BLOUSE EXAM PRO V6.5</span>
+                <h2>Hệ thống Luyện thi Đánh giá Năng lực VSAT & THPTQG</h2>
+                <p>Mô phỏng phòng thi thực tế với công nghệ hiển thị ngữ liệu đọc hiểu song song và chấm điểm phân tích chuyên sâu.</p>
+                <div class="auth-feature-bullets">
+                  <div class="auth-feature-bullet"><span>📖</span><span>Trắc nghiệm Đọc ngữ liệu (Từ câu X đến câu Y)</span></div>
+                  <div class="auth-feature-bullet"><span>📷</span><span>Đính kèm & phóng to hình ảnh từng câu hỏi</span></div>
+                  <div class="auth-feature-bullet"><span>🛠</span><span>Admin Studio tạo & sửa đề trực tiếp trên Web</span></div>
+                </div>
+              </div>
+              <div style="font-size:11.5px;opacity:0.7;">© Blouse Exam Pro · Cloud PostgreSQL Synchronized</div>
+            </div>
+            <div class="auth-form-side">
+              <div class="auth-logo" style="margin:0 0 12px;">✦</div>
+              <div class="auth-kicker">CỔNG ĐĂNG NHẬP</div>
+              <h1 style="margin:6px 0 8px;font-size:26px;">Chào mừng trở lại</h1>
+              <p style="margin-bottom:18px;font-size:13px;">Đăng nhập bằng tài khoản học sinh hoặc tài khoản Quản trị viên (Admin).</p>
+              <form id="loginForm" class="auth-form">
+                <label>Tên đăng nhập<input id="loginUsername" autocomplete="username" placeholder="Nhập username (VD: admin)" required></label>
+                <label>Mật khẩu<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required></label>
+                <button class="primary-button auth-submit" type="submit">Đăng nhập vào hệ thống →</button>
+                <div id="loginError" class="auth-error hidden"></div>
+              </form>
+            </div>
           </div>`;
         document.body.appendChild(gate);
         $('#loginForm').addEventListener('submit', async e => {
@@ -1252,6 +1267,7 @@
         state.examConfig = exam;
         state.subjectKey = subjectKey;
         state.subjectName = subject.name;
+        if (state.screen !== "exam-selection") setActiveScreen("exam-selection");
         renderSubjectSelector();
 
         if (!DOM.subjectPapersContainer) {
