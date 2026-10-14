@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO cơ bản -->
-    <meta name="description" content="My Exam Web - Nền tảng luyện thi thử VSAT và THPTQG hiện đại.">
+    <meta name="description" content="My Exam Web - Nền tảng luyện thi thử VSAT và THPTQG hiện đại, hỗ trợ đọc ngữ liệu và quản trị đề trực tiếp trên web.">
     <meta name="theme-color" content="#0b1020">
 
     <title>My Exam Web — Luyện thi VSAT & THPTQG</title>
@@ -20,18 +20,11 @@
 
     <!-- CSS chính -->
     <link rel="stylesheet" href="./style.css">
-
-    <!--
-        app.js được đặt cuối <body> để toàn bộ DOM đã tồn tại
-        trước khi JavaScript khởi tạo ứng dụng.
-    -->
 </head>
 
 <body>
     <!-- =========================================================
          BACKGROUND DECORATION
-         Các blob/glow này sẽ được style bằng CSS để tạo cảm giác
-         Cyber / Neon / Glassmorphism.
     ========================================================== -->
     <div class="app-background" aria-hidden="true">
         <div class="bg-grid"></div>
@@ -43,7 +36,6 @@
 
     <!-- =========================================================
          APP SHELL
-         Toàn bộ website chạy như một SPA.
     ========================================================== -->
     <div id="app" class="app-shell">
 
@@ -67,8 +59,8 @@
                     </span>
 
                     <span class="brand-text">
-                        <strong>MY EXAM</strong>
-                        <small>VSAT × THPTQG</small>
+                        <strong>BLOUSE EXAM</strong>
+                        <small>VSAT × THPTQG STUDIO</small>
                     </span>
                 </button>
 
@@ -78,6 +70,7 @@
                         class="nav-link is-active"
                         type="button"
                         data-action="go-home"
+                        data-nav-screen="home"
                     >
                         Trang chủ
                     </button>
@@ -86,6 +79,7 @@
                         class="nav-link"
                         type="button"
                         data-action="open-exams"
+                        data-nav-screen="exam-selection"
                     >
                         Thi thử
                     </button>
@@ -94,8 +88,19 @@
                         class="nav-link"
                         type="button"
                         data-action="open-history"
+                        data-nav-screen="history"
                     >
                         Lịch sử
+                    </button>
+
+                    <button
+                        id="navAdminStudioBtn"
+                        class="nav-link nav-link-admin hidden"
+                        type="button"
+                        data-action="open-exam-studio"
+                        data-nav-screen="admin-studio"
+                    >
+                        🛠 Quản lý Đề
                     </button>
                 </nav>
 
@@ -142,7 +147,6 @@
 
         <!-- =====================================================
              MAIN CONTENT
-             JS sẽ chuyển đổi screen bằng class .is-active.
         ====================================================== -->
         <main id="mainContent" class="main-content">
 
@@ -163,18 +167,18 @@
                         <div class="hero-copy">
                             <div class="eyebrow-pill">
                                 <span class="pulse-dot"></span>
-                                <span>HỆ THỐNG LUYỆN THI THÔNG MINH</span>
+                                <span>NỀN TẢNG LUYỆN ĐỀ THÔNG MINH V6</span>
                             </div>
 
                             <h1 id="homeTitle" class="hero-title">
                                 Chinh phục kỳ thi.
-                                <span class="gradient-text">Theo cách của bạn.</span>
+                                <span class="gradient-text">Trực quan & Chuẩn cấu trúc.</span>
                             </h1>
 
                             <p class="hero-description">
-                                Luyện đề VSAT và THPTQG với ngân hàng câu hỏi linh hoạt,
-                                đề thi được xáo trộn tự động, đồng hồ thời gian thực,
-                                chấm điểm chi tiết và phân tích kết quả sau mỗi lần thi.
+                                Luyện đề VSAT và THPTQG với giao diện đọc ngữ liệu song song,
+                                làm theo từng đề cụ thể hoặc trộn đề tự động, đính kèm hình ảnh trực quan
+                                và trình quản lý sửa đề trực tiếp ngay trên web dành cho Admin.
                             </p>
 
                             <div class="hero-actions">
@@ -187,6 +191,16 @@
                                     <span>🚀</span>
                                     <span>Bắt đầu thi thử</span>
                                     <span class="button-arrow">→</span>
+                                </button>
+
+                                <button
+                                    id="heroAdminButton"
+                                    class="secondary-button secondary-button-lg hidden"
+                                    type="button"
+                                    data-action="open-exam-studio"
+                                >
+                                    <span>🛠</span>
+                                    <span>Quản lý & Tạo đề trên Web</span>
                                 </button>
 
                                 <button
@@ -203,21 +217,21 @@
                             <div class="hero-stats">
                                 <div class="stat-item">
                                     <strong>VSAT</strong>
-                                    <span>Thi thử</span>
+                                    <span>Đánh giá năng lực</span>
                                 </div>
 
                                 <div class="stat-divider"></div>
 
                                 <div class="stat-item">
                                     <strong>THPTQG</strong>
-                                    <span>Ôn luyện</span>
+                                    <span>Chuẩn cấu trúc mới</span>
                                 </div>
 
                                 <div class="stat-divider"></div>
 
                                 <div class="stat-item">
-                                    <strong id="questionCountStat">∞</strong>
-                                    <span>Câu hỏi</span>
+                                    <strong id="questionCountStat">Cloud + JSON</strong>
+                                    <span>Cập nhật trực tiếp</span>
                                 </div>
                             </div>
                         </div>
@@ -228,30 +242,30 @@
 
                                 <div class="hero-card-top">
                                     <div>
-                                        <span class="mini-label">LIVE EXAM</span>
-                                        <strong>Phòng thi thử</strong>
+                                        <span class="mini-label">READING PASSAGE × MCQ</span>
+                                        <strong>Phòng thi thế hệ mới</strong>
                                     </div>
 
                                     <span class="status-chip status-chip-live">
                                         <span class="status-dot"></span>
-                                        LIVE
+                                        TRỰC QUAN
                                     </span>
                                 </div>
 
                                 <div class="mini-progress">
                                     <div class="mini-progress-head">
-                                        <span>Tiến độ bài thi</span>
-                                        <strong>72%</strong>
+                                        <span>📖 Ngữ liệu Câu 10 → Câu 12</span>
+                                        <strong>4 lựa chọn A/B/C/D</strong>
                                     </div>
 
                                     <div class="progress-track">
-                                        <span class="progress-fill" style="width: 72%;"></span>
+                                        <span class="progress-fill" style="width: 78%;"></span>
                                     </div>
                                 </div>
 
                                 <div class="question-preview">
                                     <span class="question-preview-label">
-                                        CÂU 18
+                                        CỤM ĐỌC HIỂU · CÂU 10–12
                                     </span>
 
                                     <div class="question-preview-line long"></div>
@@ -281,18 +295,18 @@
 
                                 <div class="hero-card-bottom">
                                     <div class="mini-stat">
-                                        <span>Đúng</span>
-                                        <strong>16</strong>
+                                        <span>Đọc ngữ liệu</span>
+                                        <strong>Từ câu X–Y</strong>
                                     </div>
 
                                     <div class="mini-stat">
-                                        <span>Đã làm</span>
-                                        <strong>18/25</strong>
+                                        <span>Hình ảnh</span>
+                                        <strong>Từng câu hỏi</strong>
                                     </div>
 
                                     <div class="mini-stat">
-                                        <span>Còn lại</span>
-                                        <strong>21:42</strong>
+                                        <span>Admin</span>
+                                        <strong>Sửa trên Web</strong>
                                     </div>
                                 </div>
                             </div>
@@ -301,17 +315,17 @@
                             <div class="floating-card floating-card-score glass-card">
                                 <span class="floating-icon">✦</span>
                                 <span>
-                                    <small>Điểm gần nhất</small>
-                                    <strong>128 / 150</strong>
+                                    <small>Trình sửa đề Web</small>
+                                    <strong>Không cần sửa GitHub</strong>
                                 </span>
                                 <span class="trend-up">↗</span>
                             </div>
 
                             <div class="floating-card floating-card-streak glass-card">
-                                <span class="floating-icon">🔥</span>
+                                <span class="floating-icon">📷</span>
                                 <span>
-                                    <small>Chuỗi luyện đề</small>
-                                    <strong>07 ngày</strong>
+                                    <small>Hỗ trợ tải ảnh</small>
+                                    <strong>Từng câu & Ngữ liệu</strong>
                                 </span>
                             </div>
                         </div>
@@ -322,11 +336,11 @@
                         <div class="section-heading">
                             <div>
                                 <span class="section-kicker">01 / CHỌN KỲ THI</span>
-                                <h2>Hôm nay bạn muốn chinh phục gì?</h2>
+                                <h2>Hôm nay bạn muốn chinh phục kỳ thi nào?</h2>
                             </div>
 
                             <span class="section-hint">
-                                Chọn một kỳ thi để tiếp tục
+                                Chọn một kỳ thi để xem môn học và danh sách đề
                             </span>
                         </div>
 
@@ -351,19 +365,18 @@
                                 </div>
 
                                 <div class="exam-card-content">
-                                    <span class="exam-kicker">NĂNG LỰC</span>
+                                    <span class="exam-kicker">ĐÁNH GIÁ NĂNG LỰC</span>
                                     <h3>VSAT</h3>
 
                                     <p>
-                                        Bài thi đánh giá năng lực với nhiều dạng câu hỏi,
-                                        xáo trộn câu hỏi tự động theo từng phiên thi.
+                                        Bài thi đánh giá năng lực 4 phần: Đúng/Sai, Trắc nghiệm 4 lựa chọn đọc ngữ liệu (từ câu X đến câu Y), Ghép hợp và Trả lời ngắn.
                                     </p>
                                 </div>
 
                                 <div class="exam-meta">
-                                    <span>◷ 90 phút</span>
+                                    <span>◷ 50–90 phút</span>
                                     <span>◉ 25 câu</span>
-                                    <span>▣ 4 dạng</span>
+                                    <span>▣ Đọc ngữ liệu</span>
                                 </div>
 
                                 <span class="exam-card-arrow">↗</span>
@@ -384,22 +397,21 @@
                                         <span>T</span>
                                     </div>
 
-                                    <span class="exam-tag">ĐỀ CHUẨN</span>
+                                    <span class="exam-tag">10 ĐIỂM</span>
                                 </div>
 
                                 <div class="exam-card-content">
-                                    <span class="exam-kicker">TỐT NGHIỆP</span>
+                                    <span class="exam-kicker">TỐT NGHIỆP THPT</span>
                                     <h3>THPTQG</h3>
 
                                     <p>
-                                        Luyện đề theo cấu trúc trắc nghiệm mới,
-                                        hỗ trợ đầy đủ nhiều lựa chọn, đúng/sai và trả lời ngắn.
+                                        Luyện đề theo cấu trúc trắc nghiệm mới: Trắc nghiệm 4 lựa chọn (hỗ trợ nhóm câu hỏi đọc ngữ liệu), Đúng/Sai và Trả lời ngắn.
                                     </p>
                                 </div>
 
                                 <div class="exam-meta">
-                                    <span>◷ Theo môn</span>
-                                    <span>◉ Nhiều phần</span>
+                                    <span>◷ 50–90 phút</span>
+                                    <span>◉ 3 phần</span>
                                     <span>▣ Chấm tự động</span>
                                 </div>
 
@@ -412,31 +424,39 @@
                     <div class="section-block">
                         <div class="section-heading compact">
                             <div>
-                                <span class="section-kicker">02 / TRẢI NGHIỆM</span>
-                                <h2>Thi thật hơn, hiểu mình hơn.</h2>
+                                <span class="section-kicker">02 / NÂNG CẤP MỚI</span>
+                                <h2>Trải nghiệm luyện đề & quản trị toàn diện</h2>
                             </div>
                         </div>
 
                         <div class="feature-grid">
 
                             <article class="feature-card glass-card">
-                                <div class="feature-icon">⏱</div>
+                                <div class="feature-icon">📖</div>
                                 <div>
-                                    <h3>Đồng hồ thời gian thực</h3>
+                                    <h3>Trắc nghiệm Đọc ngữ liệu</h3>
                                     <p>
-                                        Tự động đếm ngược, cảnh báo khi gần hết giờ
-                                        và xử lý thời gian ngay trong phiên thi.
+                                        Hỗ trợ gắn đoạn đọc hiểu / ngữ liệu dùng chung cho cụm câu hỏi trắc nghiệm 4 lựa chọn (ví dụ từ Câu 10 đến Câu 12) với khung đọc song song tiện lợi.
                                     </p>
                                 </div>
                             </article>
 
                             <article class="feature-card glass-card">
-                                <div class="feature-icon">⌘</div>
+                                <div class="feature-icon">📷</div>
                                 <div>
-                                    <h3>Ngân hàng câu hỏi động</h3>
+                                    <h3>Tải ảnh cho từng câu hỏi</h3>
                                     <p>
-                                        Gom câu hỏi từ nhiều file JSON, xáo trộn
-                                        và tạo đề mới cho từng phiên làm bài.
+                                        Đính kèm, kéo thả hoặc dán ảnh (Ctrl+V) trực tiếp cho từng câu hỏi và từng đoạn ngữ liệu, kèm chế độ phóng to ảnh sắc nét khi làm bài.
+                                    </p>
+                                </div>
+                            </article>
+
+                            <article class="feature-card glass-card">
+                                <div class="feature-icon">🛠</div>
+                                <div>
+                                    <h3>Sửa & Tạo đề ngay trên Web</h3>
+                                    <p>
+                                        Tài khoản Admin có thể tạo đề mới, upload JSON hoặc bấm sửa trực tiếp nội dung, đáp án, hình ảnh của bất kỳ đề nào mà không cần sửa file trên GitHub.
                                     </p>
                                 </div>
                             </article>
@@ -444,21 +464,9 @@
                             <article class="feature-card glass-card">
                                 <div class="feature-icon">◈</div>
                                 <div>
-                                    <h3>Chấm điểm chi tiết</h3>
+                                    <h3>Chọn đề cụ thể hoặc Trộn đề</h3>
                                     <p>
-                                        Phân tích từng phần, từng dạng câu hỏi
-                                        và hiển thị đáp án để bạn xem lại.
-                                    </p>
-                                </div>
-                            </article>
-
-                            <article class="feature-card glass-card">
-                                <div class="feature-icon">↗</div>
-                                <div>
-                                    <h3>Lịch sử luyện đề</h3>
-                                    <p>
-                                        Lưu kết quả trên trình duyệt để theo dõi
-                                        tiến bộ qua từng lần thi.
+                                        Làm bài theo đúng từng mã đề nguyên bản hoặc để hệ thống trộn đề ngẫu nhiên từ ngân hàng câu hỏi mà vẫn giữ nguyên các cụm câu đọc ngữ liệu.
                                     </p>
                                 </div>
                             </article>
@@ -468,7 +476,7 @@
                     <!-- Footer -->
                     <footer class="main-footer">
                         <div>
-                            <strong>MY EXAM</strong>
+                            <strong>BLOUSE EXAM WEB</strong>
                             <span>•</span>
                             <span>Study smarter. Test better.</span>
                         </div>
@@ -483,8 +491,7 @@
             </section>
 
             <!-- =================================================
-                 SCREEN 2 — EXAM / SUBJECT SELECTOR
-                 JS điền danh sách môn tương ứng với kỳ thi.
+                 SCREEN 2 — EXAM / SUBJECT & PAPER SELECTOR
             ================================================== -->
             <section
                 id="examSelectionScreen"
@@ -505,24 +512,30 @@
                         <div class="selection-breadcrumb">
                             <span id="selectedExamBreadcrumb">VSAT</span>
                             <span>/</span>
-                            <span>Chọn môn</span>
+                            <span>Chọn môn & Đề thi</span>
                         </div>
                     </div>
 
                     <div class="selection-hero">
                         <div>
-                            <span class="section-kicker">BƯỚC 1 / 2</span>
+                            <span class="section-kicker">BƯỚC 1 / CHỌN KỲ THI & MÔN HỌC</span>
                             <h1 id="selectionTitle">
                                 Chọn môn để bắt đầu
                             </h1>
                             <p id="selectionDescription">
-                                Chọn một môn học, hệ thống sẽ tự động tạo đề từ ngân hàng câu hỏi.
+                                Chọn môn học bên dưới để làm theo từng đề cụ thể hoặc trộn đề ngẫu nhiên.
                             </p>
                         </div>
 
-                        <div class="selection-summary glass-card">
-                            <span>Kỳ thi</span>
-                            <strong id="selectionExamName">VSAT</strong>
+                        <div class="selection-hero-right">
+                            <div class="exam-switch-pills glass-card">
+                                <button type="button" class="exam-switch-pill" data-action="select-exam" data-exam="vsat" id="switchVsatBtn">VSAT</button>
+                                <button type="button" class="exam-switch-pill" data-action="select-exam" data-exam="thptqg" id="switchThptBtn">THPTQG</button>
+                            </div>
+                            <div class="selection-summary glass-card">
+                                <span>Đang chọn</span>
+                                <strong id="selectionExamName">VSAT</strong>
+                            </div>
                         </div>
                     </div>
 
@@ -533,10 +546,13 @@
                         aria-live="polite"
                     ></div>
 
+                    <!-- Khung danh sách đề của môn đang chọn -->
+                    <div id="subjectPapersContainer" class="subject-papers-container hidden"></div>
+
                     <!-- Fallback nếu JS chưa load -->
                     <div
                         id="subjectLoading"
-                        class="empty-state glass-card"
+                        class="empty-state glass-card hidden"
                     >
                         <div class="loading-orb"></div>
                         <h3>Đang tải danh sách môn...</h3>
@@ -563,6 +579,7 @@
                             <div>
                                 <span class="sidebar-kicker">PHÒNG THI</span>
                                 <h2 id="examTitle">Toán</h2>
+                                <small id="examPaperSubtitle" class="sidebar-paper-subtitle"></small>
                             </div>
 
                             <button
@@ -620,12 +637,22 @@
                         <!-- Sidebar bottom -->
                         <div class="sidebar-bottom">
                             <button
-                                class="secondary-button sidebar-button"
+                                id="adminEditCurrentExamBtn"
+                                class="secondary-button sidebar-button hidden"
+                                type="button"
+                                data-action="edit-current-exam"
+                                style="margin-bottom:8px;"
+                            >
+                                <span>✏️</span>
+                                Sửa đề này (Admin)
+                            </button>
+                            <button
+                                class="primary-button sidebar-button"
                                 type="button"
                                 data-action="finish-exam"
                             >
                                 <span>⚑</span>
-                                Nộp bài
+                                Nộp bài chấm điểm
                             </button>
                         </div>
                     </aside>
@@ -657,6 +684,16 @@
                             </div>
 
                             <div class="exam-top-actions">
+                                <button
+                                    id="togglePassageLayoutBtn"
+                                    class="tool-button hidden"
+                                    type="button"
+                                    data-action="toggle-passage-layout"
+                                    title="Đổi bố cục hiển thị Ngữ liệu (Chia đôi / Trên-Dưới)"
+                                >
+                                    ◫ <span>Bố cục Ngữ liệu</span>
+                                </button>
+
                                 <button
                                     id="flagQuestionButton"
                                     class="tool-button"
@@ -698,15 +735,6 @@
                             class="question-container glass-card"
                             aria-live="polite"
                         >
-                            <!--
-                                app.js sẽ render câu hỏi ở đây.
-
-                                Ví dụ:
-                                - MCQ
-                                - Đúng/Sai
-                                - Ghép hợp
-                                - Trả lời ngắn
-                            -->
                             <div class="question-loading">
                                 <div class="loading-spinner"></div>
                                 <span>Đang tải câu hỏi...</span>
@@ -827,7 +855,7 @@
                         <div class="section-heading compact">
                             <div>
                                 <span class="section-kicker">REVIEW</span>
-                                <h2>Xem lại bài làm</h2>
+                                <h2>Xem lại bài làm & Giải thích</h2>
                             </div>
 
                             <span id="reviewSummary" class="section-hint">
@@ -946,18 +974,128 @@
                     </div>
                 </div>
             </section>
+
+            <!-- =================================================
+                 SCREEN 6 — ADMIN STUDIO (QUẢN LÝ & SỬA ĐỀ TRỰC TIẾP TRÊN WEB)
+            ================================================== -->
+            <section
+                id="adminStudioScreen"
+                class="screen admin-studio-screen"
+                data-screen="admin-studio"
+                aria-labelledby="adminStudioTitle"
+            >
+                <div class="container admin-studio-container">
+                    <div class="page-topbar">
+                        <button
+                            class="back-button"
+                            type="button"
+                            data-action="go-home"
+                        >
+                            ← Trang chủ
+                        </button>
+
+                        <div class="selection-breadcrumb">
+                            <span>ADMIN STUDIO</span>
+                            <span>/</span>
+                            <span>Quản lý Đề thi & Tài khoản trực tiếp trên Web</span>
+                        </div>
+                    </div>
+
+                    <div class="admin-studio-header glass-card">
+                        <div>
+                            <span class="section-kicker">WEB EXAM MANAGEMENT · KHÔNG CẦN SỬA GITHUB</span>
+                            <h1 id="adminStudioTitle">Quản trị Đề thi, Hình ảnh & Ngữ liệu</h1>
+                            <p>Tạo đề mới, tải file JSON, sửa trực tiếp từng câu hỏi, đính kèm ảnh cho từng câu và thiết lập đoạn đọc ngữ liệu cho câu trắc nghiệm 4 lựa chọn (từ câu nào đến câu nào) ngay trên trình duyệt.</p>
+                        </div>
+                        <div class="admin-studio-tabs">
+                            <button type="button" class="primary-button" data-action="admin-switch-tab" data-tab="exams" id="adminTabExamsBtn">📚 Quản lý & Sửa Đề thi</button>
+                            <button type="button" class="secondary-button" data-action="admin-switch-tab" data-tab="users" id="adminTabUsersBtn">👥 Quản lý Tài khoản</button>
+                        </div>
+                    </div>
+
+                    <!-- TAB 1: QUẢN LÝ & TRÌNH SỬA ĐỀ TRỰC TIẾP -->
+                    <div id="adminExamsTabPanel" class="admin-tab-panel">
+                        <!-- Thanh chọn kỳ thi / môn học / tạo đề -->
+                        <div class="admin-toolbar glass-card">
+                            <div class="admin-toolbar-filters">
+                                <label class="admin-field-inline">
+                                    <span>Kỳ thi</span>
+                                    <select id="adminFilterExam" class="admin-select">
+                                        <option value="vsat">VSAT (150 điểm)</option>
+                                        <option value="thptqg">THPTQG (10 điểm)</option>
+                                    </select>
+                                </label>
+                                <label class="admin-field-inline">
+                                    <span>Môn học</span>
+                                    <select id="adminFilterSubject" class="admin-select"></select>
+                                </label>
+                            </div>
+                            <div class="admin-toolbar-actions">
+                                <label class="secondary-button file-upload-btn" title="Tải file đề JSON từ máy lên để chỉnh sửa và lưu lên web">
+                                    <span>📂 Nhập từ file JSON</span>
+                                    <input type="file" id="adminImportJsonInput" accept=".json,application/json" hidden>
+                                </label>
+                                <button type="button" class="primary-button" data-action="admin-create-new-exam">
+                                    <span>✨ + Tạo đề mới trên Web</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Danh sách các đề của môn đang chọn -->
+                        <div id="adminExamListSection" class="admin-exam-list-section">
+                            <div class="section-heading compact">
+                                <div>
+                                    <span class="section-kicker">DANH SÁCH ĐỀ THI</span>
+                                    <h2 id="adminSubjectListTitle">Các đề hiện có</h2>
+                                </div>
+                                <span id="adminExamCountHint" class="section-hint">0 đề</span>
+                            </div>
+                            <div id="adminExamCardsGrid" class="admin-exam-cards-grid"></div>
+                        </div>
+
+                        <!-- TRÌNH SỬA ĐỀ TRỰC TIẾP (VISUAL EXAM EDITOR) -->
+                        <div id="adminExamEditorWrap" class="admin-exam-editor-wrap hidden"></div>
+                    </div>
+
+                    <!-- TAB 2: QUẢN LÝ TÀI KHOẢN HỌC SINH -->
+                    <div id="adminUsersTabPanel" class="admin-tab-panel hidden">
+                        <div class="glass-card" style="padding:24px;border-radius:22px;">
+                            <div class="section-kicker">QUẢN LÝ TÀI KHOẢN</div>
+                            <h2 style="margin:6px 0 14px;">Cấp mới & Khóa/Mở tài khoản học sinh</h2>
+                            <form id="studioCreateUserForm" class="admin-create-form">
+                                <input id="studioNewFullName" placeholder="Họ và tên học sinh" required>
+                                <input id="studioNewUsername" placeholder="Tên đăng nhập (username)" required>
+                                <input id="studioNewPassword" placeholder="Mật khẩu (tối thiểu 6 ký tự)" type="password" required>
+                                <button class="primary-button" type="submit">+ Cấp tài khoản</button>
+                            </form>
+                            <div id="studioAdminUsersList" class="admin-users">Đang tải danh sách tài khoản...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
 
     <!-- =========================================================
          GLOBAL OVERLAY
-         Dùng chung cho popup / modal / drawer.
     ========================================================== -->
     <div
         id="globalOverlay"
         class="global-overlay hidden"
         aria-hidden="true"
     ></div>
+
+    <!-- =========================================================
+         IMAGE LIGHTBOX MODAL (PHÓNG TO ẢNH CÂU HỎI / NGỮ LIỆU)
+    ========================================================== -->
+    <div id="imageLightboxModal" class="image-lightbox hidden" aria-hidden="true">
+        <div class="image-lightbox-backdrop" data-action="close-lightbox"></div>
+        <div class="image-lightbox-content glass-card">
+            <button type="button" class="icon-button lightbox-close-btn" data-action="close-lightbox" aria-label="Đóng ảnh">×</button>
+            <img id="imageLightboxImg" src="" alt="Hình minh họa phóng to">
+            <div id="imageLightboxCaption" class="image-lightbox-caption"></div>
+        </div>
+    </div>
 
     <!-- =========================================================
          GUIDE MODAL
@@ -975,7 +1113,7 @@
             <div class="modal-header">
                 <div>
                     <span class="section-kicker">HƯỚNG DẪN</span>
-                    <h2 id="guideModalTitle">Cách sử dụng My Exam</h2>
+                    <h2 id="guideModalTitle">Cách sử dụng Blouse Exam Web</h2>
                 </div>
 
                 <button
@@ -993,9 +1131,9 @@
                 <div class="guide-item">
                     <span class="guide-number">01</span>
                     <div>
-                        <h3>Chọn kỳ thi</h3>
+                        <h3>Chọn kỳ thi & Môn học</h3>
                         <p>
-                            Chọn VSAT hoặc THPTQG tùy theo mục tiêu luyện tập.
+                            Chọn VSAT hoặc THPTQG, sau đó chọn môn học. Bạn có thể chọn làm một đề thi cụ thể hoặc bấm Trộn đề ngẫu nhiên từ ngân hàng câu hỏi.
                         </p>
                     </div>
                 </div>
@@ -1003,10 +1141,9 @@
                 <div class="guide-item">
                     <span class="guide-number">02</span>
                     <div>
-                        <h3>Chọn môn</h3>
+                        <h3>Làm câu hỏi Đọc ngữ liệu (Từ câu X đến câu Y)</h3>
                         <p>
-                            Hệ thống đọc danh sách file từ manifest.json của môn tương ứng
-                            rồi mới nạp câu hỏi thật từ các file JSON được khai báo.
+                            Với phần Trắc nghiệm 4 lựa chọn theo ngữ liệu đọc hiểu, hệ thống hiển thị khung Ngữ liệu chung kèm thanh chuyển nhanh các câu hỏi trong cụm (ví dụ Câu 10 → Câu 12). Bấm vào hình ảnh bất kỳ để phóng to.
                         </p>
                     </div>
                 </div>
@@ -1014,10 +1151,9 @@
                 <div class="guide-item">
                     <span class="guide-number">03</span>
                     <div>
-                        <h3>Làm bài</h3>
+                        <h3>Quản lý & Sửa đề trực tiếp trên Web (Dành cho Admin)</h3>
                         <p>
-                            Thời gian được đếm ngược real-time: Toán/Ngữ văn 90 phút,
-                            các môn còn lại 50 phút. Bạn có thể nhảy giữa các câu và đánh dấu câu cần xem lại.
+                            Đăng nhập tài khoản Admin và mở mục <strong>🛠 Quản lý Đề</strong> để tạo đề mới, tải ảnh cho từng câu hỏi, thiết lập đoạn đọc ngữ liệu từ câu nào đến câu nào và sửa trực tiếp mọi đề thi ngay trên web mà không cần chỉnh file JSON trên GitHub.
                         </p>
                     </div>
                 </div>
@@ -1025,10 +1161,9 @@
                 <div class="guide-item">
                     <span class="guide-number">04</span>
                     <div>
-                        <h3>Xem kết quả</h3>
+                        <h3>Chấm điểm & Xem lại chi tiết</h3>
                         <p>
-                            Sau khi nộp bài, hệ thống tính điểm, phân tích đúng/sai
-                            và cho phép xem lại đáp án.
+                            Sau khi nộp bài, hệ thống chấm điểm tự động theo đúng thang điểm chuẩn VSAT (150đ) / THPTQG (10đ) và hiển thị đáp án kèm lời giải chi tiết.
                         </p>
                     </div>
                 </div>
@@ -1048,7 +1183,6 @@
 
     <!-- =========================================================
          SUBMIT CONFIRM MODAL
-         JS mở modal này trước khi nộp bài.
     ========================================================== -->
     <div
         id="submitModal"
@@ -1112,11 +1246,6 @@
 
     <!-- =========================================================
          TOAST NOTIFICATION
-         Dùng để hiển thị popup nhỏ:
-         - Đã lưu câu trả lời
-         - Sắp hết giờ
-         - Đã đánh dấu
-         - Lỗi tải JSON
     ========================================================== -->
     <div
         id="toastContainer"
@@ -1124,12 +1253,6 @@
         aria-live="polite"
         aria-atomic="true"
     ></div>
-
-    <!-- =========================================================
-         AUDIO
-         Có thể dùng Web Audio API trong app.js để tạo sound effect
-         mà không cần file âm thanh bên ngoài.
-    ========================================================== -->
 
     <!-- =========================================================
          GLOBAL NOSCRIPT
@@ -1143,13 +1266,5 @@
 
     <!-- JavaScript chính -->
     <script src="./app.js" defer></script>
-
-    <!-- Gán năm hiện tại mà không cần hard-code -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const year = document.getElementById("currentYear");
-            if (year) year.textContent = new Date().getFullYear();
-        });
-    </script>
 </body>
 </html>
