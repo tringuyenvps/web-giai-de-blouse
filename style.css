@@ -5762,3 +5762,353 @@ html[data-theme="light"] .window-Browser-bar {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* =========================================================
+   30. AI OCR & EXAM PARSER MODAL STYLES
+   ========================================================= */
+
+.ai-ocr-modal-card {
+    width: min(840px, 96vw);
+    max-height: 92vh;
+    overflow-y: auto;
+    border-radius: 26px;
+    border: 1px solid rgba(55, 217, 255, 0.4);
+    box-shadow: 0 35px 120px rgba(0, 0, 0, 0.65), 0 0 50px rgba(55, 217, 255, 0.15);
+}
+
+.ai-source-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 16px;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+}
+
+.ai-source-tab {
+    flex: 1;
+    padding: 11px 16px;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all var(--fast) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.ai-source-tab.is-active {
+    background: linear-gradient(135deg, var(--cyan), var(--primary));
+    color: #fff;
+    box-shadow: 0 6px 18px var(--cyan-glow);
+}
+
+.ai-dropzone {
+    padding: 32px 20px;
+    border-radius: 18px;
+    border: 2px dashed rgba(55, 217, 255, 0.45);
+    background: rgba(55, 217, 255, 0.04);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--fast) ease;
+}
+
+.ai-dropzone:hover,
+.ai-dropzone.drag-over {
+    border-color: var(--cyan);
+    background: rgba(55, 217, 255, 0.1);
+    transform: scale(1.005);
+}
+
+.ai-dropzone-icon {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.ai-dropzone h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.ai-dropzone p {
+    margin: 0 0 12px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+}
+
+.ai-file-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(69, 230, 157, 0.15);
+    border: 1px solid rgba(69, 230, 157, 0.4);
+    color: var(--success);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ai-config-box {
+    padding: 20px;
+    border-radius: 18px;
+    display: grid;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.ai-toggle-row {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.ai-toggle-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ai-toggle-label input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ai-toggle-slider {
+    width: 48px;
+    height: 26px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    position: relative;
+    flex-shrink: 0;
+    transition: background var(--fast) ease;
+    margin-top: 2px;
+}
+
+.ai-toggle-slider::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform var(--fast) ease;
+}
+
+.ai-toggle-label input:checked + .ai-toggle-slider {
+    background: linear-gradient(135deg, var(--cyan), var(--primary));
+    box-shadow: 0 0 14px var(--cyan-glow);
+}
+
+.ai-toggle-label input:checked + .ai-toggle-slider::after {
+    transform: translateX(22px);
+}
+
+.ai-toggle-text strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 3px;
+}
+
+.ai-toggle-text small {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.ai-key-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.ai-key-hint {
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.55;
+}
+
+.ai-exam-meta-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ai-progress-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(55, 217, 255, 0.12), rgba(124, 92, 255, 0.08));
+    border: 1px solid rgba(55, 217, 255, 0.4);
+    animation: pulseGlow 1.8s ease-in-out infinite alternate;
+}
+
+.ai-progress-box strong {
+    display: block;
+    font-size: 14px;
+    color: var(--cyan);
+    margin-bottom: 2px;
+}
+
+.ai-progress-box p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-soft);
+}
+
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 10px rgba(55, 217, 255, 0.15); }
+    to { box-shadow: 0 0 26px rgba(55, 217, 255, 0.35); }
+}
+
+
+/* =========================================================
+   31. SCENARIO 2 AI OCR & ADMIN FAST ANSWER PICKER STYLES
+   ========================================================= */
+.ai-scenario-selector {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+.ai-scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.ai-scenario-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-soft);
+    cursor: pointer;
+    transition: all var(--fast) ease;
+}
+.ai-scenario-card input[type="radio"] {
+    margin-top: 3px;
+    accent-color: var(--cyan);
+}
+.ai-scenario-card.is-selected {
+    border-color: var(--cyan);
+    background: rgba(55, 217, 255, 0.11);
+    box-shadow: 0 0 0 1px rgba(55, 217, 255, 0.3);
+}
+.ai-scenario-card strong {
+    display: block;
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+.ai-scenario-card small {
+    display: block;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.answer-status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 800;
+}
+.answer-status-chip.is-missing {
+    background: rgba(255, 184, 77, 0.16) !important;
+    color: var(--warning) !important;
+    border: 1px solid rgba(255, 184, 77, 0.45);
+}
+.answer-status-chip.is-complete {
+    background: rgba(69, 230, 157, 0.15) !important;
+    color: var(--success) !important;
+    border: 1px solid rgba(69, 230, 157, 0.4);
+}
+.question-editor-card.is-unanswered-card {
+    border-color: rgba(255, 184, 77, 0.48);
+}
+
+.quick-mcq-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 10px 13px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+}
+.quick-mcq-btn {
+    min-width: 48px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 13px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-soft);
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all var(--fast) ease;
+}
+.quick-mcq-btn:hover {
+    border-color: var(--cyan);
+    color: var(--text);
+}
+.quick-mcq-btn.is-active {
+    background: var(--success);
+    color: #052315;
+    border-color: var(--success);
+    box-shadow: 0 4px 14px var(--success-glow);
+}
+
+.editor-tf-toggle-group {
+    display: inline-flex;
+    gap: 6px;
+}
+.editor-tf-btn {
+    padding: 7px 12px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 800;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-soft);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--fast) ease;
+}
+.editor-tf-btn.is-true {
+    background: var(--success);
+    color: #052315;
+    border-color: var(--success);
+}
+.editor-tf-btn.is-false {
+    background: var(--danger);
+    color: #fff;
+    border-color: var(--danger);
+}
+
+@media (max-width: 760px) {
+    .ai-scenario-grid {
+        grid-template-columns: 1fr;
+    }
+}
