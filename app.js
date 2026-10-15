@@ -214,6 +214,25 @@
         DOM.imageLightboxImg = $("#imageLightboxImg");
         DOM.imageLightboxCaption = $("#imageLightboxCaption");
 
+        DOM.aiOcrModal = $("#aiOcrModal");
+        DOM.aiTabFileBtn = $("#aiTabFileBtn");
+        DOM.aiTabPasteBtn = $("#aiTabPasteBtn");
+        DOM.aiFileSourcePanel = $("#aiFileSourcePanel");
+        DOM.aiTextSourcePanel = $("#aiTextSourcePanel");
+        DOM.aiDropzone = $("#aiDropzone");
+        DOM.aiExamFileInput = $("#aiExamFileInput");
+        DOM.aiSelectedFileInfo = $("#aiSelectedFileInfo");
+        DOM.aiExamTextInput = $("#aiExamTextInput");
+        DOM.aiAutoSolveCheck = $("#aiAutoSolveCheck");
+        DOM.aiGeminiApiKey = $("#aiGeminiApiKey");
+        DOM.aiSaveKeyBtn = $("#aiSaveKeyBtn");
+        DOM.aiExamSelect = $("#aiExamSelect");
+        DOM.aiSubjectSelect = $("#aiSubjectSelect");
+        DOM.aiParsingProgress = $("#aiParsingProgress");
+        DOM.aiProgressTitle = $("#aiProgressTitle");
+        DOM.aiProgressDesc = $("#aiProgressDesc");
+        DOM.aiStartParseBtn = $("#aiStartParseBtn");
+
         DOM.globalOverlay = $("#globalOverlay");
         DOM.guideModal = $("#guideModal");
         DOM.submitModal = $("#submitModal");
@@ -551,6 +570,7 @@
     function closeModals() {
         setModal(DOM.guideModal, false);
         setModal(DOM.submitModal, false);
+        setModal(DOM.aiOcrModal, false);
         closeLightbox();
     }
 
@@ -2423,12 +2443,38 @@
         refreshAdminExamList();
     }
 
+    function isEditorQuestionAnswered(q) {
+        if (!q) return false;
+        if (q.type === "mcq") {
+            const ans = String(q.answer ?? "").trim().toUpperCase();
+            return ["A", "B", "C", "D"].includes(ans);
+        }
+        if (q.type === "true_false") {
+            if (!isObject(q.answer)) return false;
+            const stmts = Array.isArray(q.statements) && q.statements.length ? q.statements : [{ key: "a" }, { key: "b" }, { key: "c" }, { key: "d" }];
+            return stmts.every(s => typeof q.answer[s.key] === "boolean");
+        }
+        if (q.type === "matching") {
+            if (!isObject(q.answer)) return false;
+            const pairs = Array.isArray(q.pairs) ? q.pairs : [];
+            return pairs.length > 0 && pairs.every(p => String(q.answer[p.key] ?? "").trim() !== "");
+        }
+        if (q.type === "short_answer") {
+            const primary = String(q.answer ?? "").trim();
+            const acc = Array.isArray(q.acceptedAnswers) ? q.acceptedAnswers.filter(x => String(x ?? "").trim() !== "") : [];
+            return primary !== "" || acc.length > 0;
+        }
+        return false;
+    }
+
     function renderAdminExamEditor() {
         const p = state.admin.editingPaper;
         if (!p || !DOM.adminExamEditorWrap) return;
         syncPassagesToQuestions(p);
 
         const totalQ = p.questions.length;
+        const answeredQCount = p.questions.filter(isEditorQuestionAnswered).length;
+        const missingQCount = totalQ - answeredQCount;
         const questionOptionsHTML = (selectedNum) => p.questions.map((q, idx) => {
             const n = idx + 1;
             return `<option value="${n}" ${Number(selectedNum) === n ? "selected" : ""}>Câu ${n} (${typeLabel(q.type)})</option>`;
@@ -2513,10 +2559,11 @@
                     <button type="button" class="secondary-button small" data-action="admin-close-editor">← Danh sách đề</button>
                     <div>
                         <strong style="font-size:15px;">✏️ Đang sửa: ${escapeHTML(p.title)}</strong>
-                        <span style="display:block;font-size:11.5px;color:var(--text-muted);">${totalQ} câu hỏi · ${p.passages.length} cụm đọc ngữ liệu · Lưu trực tiếp trên Web</span>
+                        <span style="display:block;font-size:11.5px;color:var(--text-muted);">${totalQ} câu hỏi · ${p.passages.length} cụm đọc ngữ liệu · <strong id="editorAnsweredSummary" style="color:${missingQCount > 0 ? "var(--warning)" : "var(--success)"};">${missingQCount > 0 ? `⚠️ Đã chọn đáp án: ${answeredQCount}/${totalQ} câu (Còn ${missingQCount} câu để trống)` : `✓ Đã chọn đủ đáp án (${totalQ}/${totalQ} câu)`}</strong></span>
                     </div>
                 </div>
                 <div class="editor-sticky-actions">
+                    ${missingQCount > 0 ? `<button type="button" class="secondary-button small" style="border-color:rgba(255,184,77,0.5);color:var(--warning);" data-action="editor-jump-unanswered">🎯 Đi tới câu chưa chọn đáp án (${missingQCount})</button>` : ""}
                     <button type="button" class="secondary-button small" data-action="admin-add-question">+ Thêm câu hỏi</button>
                     <button type="button" class="secondary-button small" data-action="admin-export-current-json">📥 Xuất file JSON</button>
                     <button type="button" class="primary-button" data-action="admin-save-paper" id="adminSavePaperBtn">
@@ -2598,12 +2645,14 @@
 
     function renderQuestionEditorCardHTML(q, idx, paper) {
         const qNum = idx + 1;
+        const hasAns = isEditorQuestionAnswered(q);
         const matchedPassageIdx = (paper.passages || []).findIndex(pas => qNum >= Number(pas.fromQuestion) && qNum <= Number(pas.toQuestion));
         const matchedPassage = matchedPassageIdx >= 0 ? paper.passages[matchedPassageIdx] : null;
 
         let typeSpecificHTML = "";
         if (q.type === "mcq") {
-            const correctKey = getCorrectMCQKey(q);
+            const rawAns = String(q.answer ?? "").trim().toUpperCase();
+            const correctKey = ["A", "B", "C", "D"].includes(rawAns) ? rawAns : "";
             const opts = q.options?.length ? q.options : [
                 { key: "A", text: "" }, { key: "B", text: "" }, { key: "C", text: "" }, { key: "D", text: "" }
             ];
@@ -2620,11 +2669,20 @@
                     </button>
                 </div>
                 <div class="editor-field">
-                    <span>4 Phương án lựa chọn (Tích chọn đáp án đúng A / B / C / D):</span>
+                    <div class="quick-mcq-bar">
+                        <strong style="font-size:12.5px;color:var(--text);">🎯 Chọn nhanh đáp án đúng cho Câu ${qNum}:</strong>
+                        ${["A", "B", "C", "D"].map(letter => `
+                            <button type="button" class="quick-mcq-btn ${correctKey === letter ? "is-active" : ""}" data-action="editor-pick-mcq-ans" data-q-index="${idx}" data-letter="${letter}">
+                                Đáp án ${letter} ${correctKey === letter ? "✓" : ""}
+                            </button>
+                        `).join("")}
+                        ${!correctKey ? `<span style="font-size:11.5px;color:var(--warning);font-weight:700;">⚠️ Đang để trống — Hãy bấm chọn A, B, C hoặc D</span>` : ""}
+                    </div>
+                    <span>4 Phương án lựa chọn (Sửa nội dung hoặc tích chọn đáp án):</span>
                     <div class="editor-mcq-options">
                         ${opts.map((o, oIdx) => {
                             const key = String(o.key || String.fromCharCode(65 + oIdx));
-                            const isCorrect = normalizeText(correctKey) === normalizeText(key);
+                            const isCorrect = correctKey !== "" && normalizeText(correctKey) === normalizeText(key);
                             return `
                                 <div class="editor-mcq-option-row ${isCorrect ? "is-correct" : ""}">
                                     <label class="editor-option-radio" title="Chọn ${escapeHTML(key)} làm đáp án đúng">
@@ -2645,19 +2703,19 @@
             ];
             typeSpecificHTML = `
                 <div class="editor-field">
-                    <span>Các mệnh đề Đúng / Sai (Chọn Đúng hoặc Sai cho từng ý a, b, c, d):</span>
+                    <span>Các mệnh đề Đúng / Sai (Bấm chọn <strong>✓ Đúng</strong> hoặc <strong>✕ Sai</strong> cho từng ý a, b, c, d):</span>
                     <div class="editor-tf-list">
                         ${stmts.map((s, sIdx) => {
                             const key = String(s.key || String.fromCharCode(97 + sIdx));
-                            const isTrue = ansObj[key] !== false;
+                            const val = ansObj[key];
                             return `
                                 <div class="editor-tf-row">
                                     <span class="editor-tf-key">${escapeHTML(key)}</span>
                                     <input type="text" class="editor-input" data-q-tf-text="${idx}" data-stmt-index="${sIdx}" value="${escapeHTML(s.text)}" placeholder="Nội dung mệnh đề ${escapeHTML(key)}">
-                                    <select class="admin-select" style="min-width:110px;" data-q-tf-ans="${idx}" data-stmt-key="${escapeHTML(key)}">
-                                        <option value="true" ${isTrue ? "selected" : ""}>✓ Đúng</option>
-                                        <option value="false" ${!isTrue ? "selected" : ""}>✕ Sai</option>
-                                    </select>
+                                    <div class="editor-tf-toggle-group">
+                                        <button type="button" class="editor-tf-btn ${val === true ? "is-true" : ""}" data-action="editor-pick-tf-ans" data-q-index="${idx}" data-stmt-key="${escapeHTML(key)}" data-bool="true">✓ Đúng</button>
+                                        <button type="button" class="editor-tf-btn ${val === false ? "is-false" : ""}" data-action="editor-pick-tf-ans" data-q-index="${idx}" data-stmt-key="${escapeHTML(key)}" data-bool="false">✕ Sai</button>
+                                    </div>
                                 </div>
                             `;
                         }).join("")}
@@ -2711,11 +2769,14 @@
         }
 
         return `
-            <article class="question-editor-card" data-q-card="${idx}">
+            <article class="question-editor-card ${hasAns ? "" : "is-unanswered-card"}" data-q-card="${idx}" id="editorQuestionCard_${idx}">
                 <div class="question-editor-head">
                     <div class="question-editor-badge">
                         <strong>Câu ${qNum}</strong>
                         <span>${escapeHTML(typeLabel(q.type))}</span>
+                        <span class="answer-status-chip ${hasAns ? "is-complete" : "is-missing"}" data-q-ans-status="${idx}">
+                            ${hasAns ? "✓ Đã chọn đáp án" : "⚠️ Chưa chọn đáp án"}
+                        </span>
                         ${matchedPassage ? `<span style="background:var(--cyan-soft);color:var(--cyan);">📖 Ngữ liệu Câu ${matchedPassage.fromQuestion}–${matchedPassage.toQuestion}</span>` : ""}
                     </div>
                     <div class="question-editor-controls">
@@ -3158,6 +3219,9 @@
                 case "open-admin-users":
                     await openAdminStudio(state.examKey, state.subjectKey, "users");
                     break;
+                case "open-ai-ocr-modal":
+                    openAiOcrModal();
+                    break;
                 case "admin-switch-tab":
                     switchAdminTab(target.dataset.tab);
                     break;
@@ -3334,6 +3398,43 @@
                     renderAdminExamEditor();
                     break;
                 }
+                case "editor-pick-mcq-ans": {
+                    const p = state.admin.editingPaper;
+                    const idx = safeNumber(target.dataset.qIndex, -1);
+                    const letter = String(target.dataset.letter || "").toUpperCase();
+                    if (!p || !p.questions[idx] || !letter) break;
+                    p.questions[idx].answer = letter;
+                    renderAdminExamEditor();
+                    playSound("select");
+                    break;
+                }
+                case "editor-pick-tf-ans": {
+                    const p = state.admin.editingPaper;
+                    const idx = safeNumber(target.dataset.qIndex, -1);
+                    const key = target.dataset.stmtKey;
+                    const boolVal = target.dataset.bool === "true";
+                    if (!p || !p.questions[idx] || !key) break;
+                    if (!isObject(p.questions[idx].answer)) p.questions[idx].answer = {};
+                    p.questions[idx].answer[key] = boolVal;
+                    renderAdminExamEditor();
+                    playSound("select");
+                    break;
+                }
+                case "editor-jump-unanswered": {
+                    const p = state.admin.editingPaper;
+                    if (!p) break;
+                    const firstMissingIdx = p.questions.findIndex(q => !isEditorQuestionAnswered(q));
+                    if (firstMissingIdx >= 0) {
+                        state.admin.partFilter = "all";
+                        renderAdminExamEditor();
+                        const card = document.getElementById(`editorQuestionCard_${firstMissingIdx}`);
+                        card?.scrollIntoView({ behavior: "smooth", block: "center" });
+                        showToast(`Đang di chuyển tới Câu ${firstMissingIdx + 1} chưa chọn đáp án.`, "warning", 2500);
+                    } else {
+                        showToast("Tất cả các câu hỏi trong đề đã có đáp án!", "success", 2500);
+                    }
+                    break;
+                }
                 default:
                     break;
             }
@@ -3468,11 +3569,488 @@
         });
     }
 
+
+    /* =========================================================
+       AI OCR & EXAM PARSER LOGIC (KỊCH BẢN 2 MẶC ĐỊNH:
+       CHỈ BÓC TÁCH CÂU HỎI, ĐỂ TRỐNG ĐÁP ÁN CHO ADMIN TỰ CHỌN)
+       ========================================================= */
+    const aiState = {
+        activeTab: "file",
+        selectedFile: null,
+        selectedFileData: null,
+        selectedMimeType: null,
+        extractedPdfText: "",
+        isParsing: false
+    };
+
+    let pdfJsReadyPromise = null;
+    function ensurePdfJs() {
+        if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+        if (pdfJsReadyPromise) return pdfJsReadyPromise;
+        pdfJsReadyPromise = new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+            script.async = true;
+            script.onload = () => {
+                if (window.pdfjsLib) {
+                    window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+                }
+                resolve(window.pdfjsLib || null);
+            };
+            script.onerror = () => resolve(null);
+            document.head.appendChild(script);
+        });
+        return pdfJsReadyPromise;
+    }
+
+    async function extractTextFromPdfInBrowser(file) {
+        try {
+            const pdfjsLib = await ensurePdfJs();
+            if (!pdfjsLib) return "";
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            const pageTexts = [];
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const textContent = await page.getTextContent();
+                let lastY = null;
+                let line = "";
+                for (const item of textContent.items) {
+                    const y = item.transform ? Math.round(item.transform[5]) : null;
+                    if (lastY !== null && y !== null && Math.abs(y - lastY) > 4) {
+                        pageTexts.push(line.trim());
+                        line = item.str;
+                    } else {
+                        line += (line && !line.endsWith(" ") ? " " : "") + item.str;
+                    }
+                    lastY = y;
+                }
+                if (line.trim()) pageTexts.push(line.trim());
+            }
+            return pageTexts.filter(Boolean).join("\n");
+        } catch (err) {
+            console.warn("[My Exam PDF.js] Không trích xuất được lớp chữ từ PDF:", err);
+            return "";
+        }
+    }
+
+    function clientParseExamText(text, examKey = "vsat", subjectKey = "sinh", autoSolve = false) {
+        const lines = String(text || "").replace(/\r\n/g, "\n").split("\n");
+        const questions = [];
+        const passages = [];
+        let currentPassage = null;
+
+        const qHeaderRegex = /^(?:Câu|Bài|Question)\s*(\d+)[\s.:\-–—]+(.*)/i;
+        const passageHeaderRegex = /(?:đọc\s+(?:đoạn\s+)?(?:thông\s+tin|ngữ\s+liệu|văn\s+bản|bài\s+đọc)?.*?(?:từ\s+câu|câu)\s*(\d+)\s*(?:đến|–|-)\s*(?:câu\s*)?(\d+))/i;
+        const optRegex = /^\s*([A-D])[\.\:\)]\s*(.*)/;
+        const stmtRegex = /^\s*([a-d])[\.\:\)]\s*(.*)/;
+
+        let currentQ = null;
+        let currentMode = "text";
+
+        function flushQ() {
+            if (!currentQ) return;
+            if (currentQ.type === "mcq" && (!currentQ.options || !currentQ.options.length)) {
+                currentQ.options = [
+                    { key: "A", text: "Phương án A" },
+                    { key: "B", text: "Phương án B" },
+                    { key: "C", text: "Phương án C" },
+                    { key: "D", text: "Phương án D" }
+                ];
+            }
+            if (currentQ.type === "true_false" && (!currentQ.statements || !currentQ.statements.length)) {
+                currentQ.statements = [
+                    { key: "a", text: "Mệnh đề a" },
+                    { key: "b", text: "Mệnh đề b" },
+                    { key: "c", text: "Mệnh đề c" },
+                    { key: "d", text: "Mệnh đề d" }
+                ];
+            }
+            if (!autoSolve) {
+                // Kịch bản 2: Để trống đáp án hoàn toàn để Admin tự chọn
+                if (currentQ.type === "mcq") currentQ.answer = "";
+                else if (currentQ.type === "true_false") currentQ.answer = {};
+                else if (currentQ.type === "matching") currentQ.answer = {};
+                else if (currentQ.type === "short_answer") {
+                    currentQ.answer = "";
+                    currentQ.acceptedAnswers = [];
+                }
+            }
+            questions.push(currentQ);
+            currentQ = null;
+            currentMode = "text";
+        }
+
+        for (const rawLine of lines) {
+            const line = rawLine.trim();
+            if (!line) continue;
+
+            const passMatch = line.match(passageHeaderRegex);
+            if (passMatch) {
+                flushQ();
+                const fromQ = Math.max(1, parseInt(passMatch[1], 10));
+                const toQ = Math.max(fromQ, parseInt(passMatch[2], 10));
+                currentPassage = {
+                    id: uid("passage"),
+                    fromQuestion: fromQ,
+                    toQuestion: toQ,
+                    title: line,
+                    text: "",
+                    image: ""
+                };
+                passages.push(currentPassage);
+                continue;
+            }
+
+            const qMatch = line.match(qHeaderRegex);
+            if (qMatch) {
+                flushQ();
+                const qNum = parseInt(qMatch[1], 10);
+                const qText = qMatch[2].trim();
+                let type = "mcq";
+                let part = 2;
+                let partTitle = "PHẦN II — Trắc nghiệm 4 lựa chọn";
+                if (examKey === "vsat") {
+                    if (qNum <= 9) { type = "true_false"; part = 1; partTitle = "PHẦN I — Trắc nghiệm Đúng / Sai"; }
+                    else if (qNum <= 15) { type = "mcq"; part = 2; partTitle = "PHẦN II — Đọc ngữ liệu & Trắc nghiệm 4 lựa chọn"; }
+                    else if (qNum <= 20) { type = "matching"; part = 3; partTitle = "PHẦN III — Trắc nghiệm Ghép hợp"; }
+                    else { type = "short_answer"; part = 4; partTitle = "PHẦN IV — Trắc nghiệm Trả lời ngắn"; }
+                } else {
+                    if (qNum <= 12) { type = "mcq"; part = 1; partTitle = "PHẦN I — Trắc nghiệm 4 lựa chọn"; }
+                    else if (qNum <= 16) { type = "true_false"; part = 2; partTitle = "PHẦN II — Trắc nghiệm Đúng / Sai"; }
+                    else { type = "short_answer"; part = 3; partTitle = "PHẦN III — Trắc nghiệm Trả lời ngắn"; }
+                }
+
+                currentQ = {
+                    id: `q_${Date.now().toString(36)}_${qNum}`,
+                    questionNumber: qNum,
+                    type,
+                    part,
+                    partTitle,
+                    text: qText,
+                    options: [],
+                    statements: [],
+                    pairs: [],
+                    answer: type === "mcq" || type === "short_answer" ? "" : {},
+                    acceptedAnswers: [],
+                    explanation: "",
+                    image: ""
+                };
+                continue;
+            }
+
+            if (currentPassage && !currentQ) {
+                currentPassage.text = currentPassage.text ? `${currentPassage.text}\n${line}` : line;
+                continue;
+            }
+
+            if (!currentQ) continue;
+
+            const multipleOpts = line.match(/([A-D])[\.\:\)]\s*([^A-D]+)/g);
+            if (multipleOpts && multipleOpts.length >= 2) {
+                currentQ.type = "mcq";
+                multipleOpts.forEach(chunk => {
+                    const sm = chunk.match(/^([A-D])[\.\:\)]\s*(.*)/i);
+                    if (sm) {
+                        const k = sm[1].toUpperCase();
+                        const t = sm[2].trim();
+                        if (!currentQ.options.some(o => o.key === k)) currentQ.options.push({ key: k, text: t });
+                    }
+                });
+                currentMode = "options";
+                continue;
+            }
+
+            const singleOpt = line.match(optRegex);
+            if (singleOpt) {
+                currentQ.type = "mcq";
+                const k = singleOpt[1].toUpperCase();
+                const t = singleOpt[2].trim();
+                if (!currentQ.options.some(o => o.key === k)) currentQ.options.push({ key: k, text: t });
+                currentMode = "options";
+                continue;
+            }
+
+            const singleStmt = line.match(stmtRegex);
+            if (singleStmt) {
+                currentQ.type = "true_false";
+                const k = singleStmt[1].toLowerCase();
+                const t = singleStmt[2].trim();
+                if (!currentQ.statements.some(s => s.key === k)) currentQ.statements.push({ key: k, text: t });
+                currentMode = "statements";
+                continue;
+            }
+
+            if (currentMode === "options" && currentQ.options.length) {
+                currentQ.options[currentQ.options.length - 1].text += ` ${line}`;
+            } else if (currentMode === "statements" && currentQ.statements.length) {
+                currentQ.statements[currentQ.statements.length - 1].text += ` ${line}`;
+            } else {
+                currentQ.text += (currentQ.text ? `\n${line}` : line);
+            }
+        }
+
+        flushQ();
+
+        return {
+            id: `exam_${examKey}_${subjectKey}_ocr_${Date.now()}`,
+            examKey,
+            subjectKey,
+            code: `${subjectKey}_ocr_${Date.now().toString(36)}`,
+            title: `Đề bóc tách AI OCR - ${getSubjectConfig(examKey, subjectKey)?.name || subjectKey}`,
+            sourceTitle: "Bóc tách theo Kịch bản 2 (Để trống đáp án cho Admin chọn)",
+            sourceFile: "",
+            isCloud: true,
+            durationMinutes: getDurationMinutes(examKey, subjectKey),
+            maxScore: getExamConfig(examKey)?.maxScore || 150,
+            passages,
+            questions
+        };
+    }
+
+    function populateAiSubjectSelect(examKey, selectedSub) {
+        const exam = getExamConfig(examKey) || EXAMS.vsat;
+        if (!DOM.aiSubjectSelect) return;
+        const targetSub = selectedSub || (exam.subjects.some(s => s.key === state.admin.subjectKey) ? state.admin.subjectKey : exam.subjects[0].key);
+        DOM.aiSubjectSelect.innerHTML = exam.subjects.map(s => `<option value="${escapeHTML(s.key)}" ${s.key === targetSub ? "selected" : ""}>${escapeHTML(s.name)}</option>`).join("");
+    }
+
+    function openAiOcrModal() {
+        if (!isAdmin()) return showToast("Chức năng chỉ dành cho Admin.", "error");
+        setModal(DOM.aiOcrModal, true);
+        const savedKey = localStorage.getItem("myExam.geminiApiKey") || "";
+        if (DOM.aiGeminiApiKey) DOM.aiGeminiApiKey.value = savedKey;
+
+        // Default to Scenario 2 (Manual answer selection by Admin)
+        const manualRadio = $("#aiScenarioManualRadio");
+        if (manualRadio) manualRadio.checked = true;
+        if (DOM.aiAutoSolveCheck) DOM.aiAutoSolveCheck.checked = false;
+        $("#aiScenario2Card")?.classList.add("is-selected");
+        $("#aiScenario1Card")?.classList.remove("is-selected");
+
+        const curExam = state.admin.examKey || "vsat";
+        const curSub = state.admin.subjectKey || "sinh";
+        if (DOM.aiExamSelect) DOM.aiExamSelect.value = curExam;
+        populateAiSubjectSelect(curExam, curSub);
+
+        aiState.selectedFile = null;
+        aiState.selectedFileData = null;
+        aiState.selectedMimeType = null;
+        aiState.extractedPdfText = "";
+        if (DOM.aiExamFileInput) DOM.aiExamFileInput.value = "";
+        if (DOM.aiSelectedFileInfo) {
+            DOM.aiSelectedFileInfo.classList.add("hidden");
+            DOM.aiSelectedFileInfo.innerHTML = "";
+        }
+        if (DOM.aiParsingProgress) DOM.aiParsingProgress.classList.add("hidden");
+        switchAiTab("file");
+    }
+
+    function switchAiTab(tab) {
+        aiState.activeTab = tab === "text" ? "text" : "file";
+        const isFile = aiState.activeTab === "file";
+        DOM.aiTabFileBtn?.classList.toggle("is-active", isFile);
+        DOM.aiTabPasteBtn?.classList.toggle("is-active", !isFile);
+        DOM.aiFileSourcePanel?.classList.toggle("hidden", !isFile);
+        DOM.aiTextSourcePanel?.classList.toggle("hidden", isFile);
+    }
+
+    async function handleAiSelectedFile(file) {
+        if (!file) return;
+        const isPdf = file.type.includes("pdf") || file.name.toLowerCase().endsWith(".pdf");
+        const isImg = file.type.startsWith("image/");
+        if (!isPdf && !isImg) {
+            return showToast("Vui lòng chọn file PDF hoặc file Ảnh (PNG, JPG, WebP).", "warning", 3500);
+        }
+        aiState.selectedFile = file;
+        aiState.selectedMimeType = isPdf ? "application/pdf" : (file.type || "image/jpeg");
+        aiState.extractedPdfText = "";
+
+        const reader = new FileReader();
+        reader.onload = async () => {
+            aiState.selectedFileData = reader.result;
+            const sizeKb = Math.round(file.size / 1024);
+            if (DOM.aiSelectedFileInfo) {
+                DOM.aiSelectedFileInfo.innerHTML = `<span>✓ Đã chọn: <strong>${escapeHTML(file.name)}</strong> (${sizeKb} KB)</span> <button type="button" class="icon-button" style="width:20px;height:20px;font-size:13px;display:inline-grid;" id="aiRemoveFileBtn">×</button>`;
+                DOM.aiSelectedFileInfo.classList.remove("hidden");
+                $("#aiRemoveFileBtn")?.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    aiState.selectedFile = null;
+                    aiState.selectedFileData = null;
+                    aiState.selectedMimeType = null;
+                    aiState.extractedPdfText = "";
+                    DOM.aiSelectedFileInfo.classList.add("hidden");
+                    if (DOM.aiExamFileInput) DOM.aiExamFileInput.value = "";
+                });
+            }
+            if (isPdf) {
+                const pdfText = await extractTextFromPdfInBrowser(file);
+                if (pdfText) {
+                    aiState.extractedPdfText = pdfText;
+                }
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+
+    async function executeAiExamParsing() {
+        if (aiState.isParsing) return;
+        const examKey = DOM.aiExamSelect?.value || state.admin.examKey || "vsat";
+        const subjectKey = DOM.aiSubjectSelect?.value || state.admin.subjectKey || "sinh";
+        // Scenario 2 is default: autoSolve is false unless Scenario 1 radio is explicitly checked
+        const autoSolve = Boolean(DOM.aiAutoSolveCheck?.checked);
+        const apiKey = String(DOM.aiGeminiApiKey?.value || localStorage.getItem("myExam.geminiApiKey") || "").trim();
+        const pastedText = String(DOM.aiExamTextInput?.value || "").trim();
+
+        if (aiState.activeTab === "file" && !aiState.selectedFileData) {
+            return showToast("Vui lòng kéo thả hoặc bấm 'Chọn file từ máy tính' để chọn file PDF/Ảnh đề thi.", "warning", 4000);
+        }
+        if (aiState.activeTab === "text" && !pastedText) {
+            return showToast("Vui lòng dán văn bản đề thi vào ô nhập liệu.", "warning", 3500);
+        }
+
+        const effectiveText = aiState.activeTab === "text" ? pastedText : aiState.extractedPdfText;
+
+        aiState.isParsing = true;
+        if (DOM.aiStartParseBtn) {
+            DOM.aiStartParseBtn.disabled = true;
+            DOM.aiStartParseBtn.innerHTML = `<span class="button-spinner" aria-hidden="true"></span> <span>Đang bóc tách câu hỏi...</span>`;
+        }
+        if (DOM.aiParsingProgress) DOM.aiParsingProgress.classList.remove("hidden");
+        if (DOM.aiProgressTitle) {
+            DOM.aiProgressTitle.textContent = autoSolve
+                ? "AI đang bóc tách đề thi & giải đáp án gợi ý..."
+                : "AI đang bóc tách câu hỏi & phương án (Kịch bản 2: Để trống đáp án cho Admin)...";
+        }
+
+        try {
+            const payload = {
+                examKey,
+                subjectKey,
+                autoSolve,
+                apiKey,
+                text: effectiveText,
+                fileData: aiState.activeTab === "file" ? aiState.selectedFileData : null,
+                mimeType: aiState.activeTab === "file" ? aiState.selectedMimeType : null
+            };
+
+            let parsedItem = null;
+            let message = "";
+            try {
+                const res = await apiPost("/api/admin/ai-parse-exam", payload);
+                if (res?.item) {
+                    parsedItem = res.item;
+                    message = res.message;
+                }
+            } catch (serverErr) {
+                // Fallback to client-side parser if text or PDF text was extracted in browser
+                if (effectiveText) {
+                    parsedItem = clientParseExamText(effectiveText, examKey, subjectKey, autoSolve);
+                    message = `Đã bóc tách ${parsedItem.questions.length} câu hỏi (Kịch bản 2: Để trống đáp án để Admin tự chọn).`;
+                } else {
+                    throw serverErr;
+                }
+            }
+
+            if (!parsedItem || !Array.isArray(parsedItem.questions) || !parsedItem.questions.length) {
+                throw new Error("Không bóc tách được câu hỏi nào từ dữ liệu đầu vào.");
+            }
+
+            // If Scenario 2 (autoSolve === false), strictly ensure answers are blank so Admin can pick them
+            if (!autoSolve) {
+                parsedItem.questions.forEach(q => {
+                    if (q.type === "mcq") q.answer = "";
+                    else if (q.type === "true_false") q.answer = {};
+                    else if (q.type === "matching") q.answer = {};
+                    else if (q.type === "short_answer") {
+                        q.answer = "";
+                        q.acceptedAnswers = [];
+                    }
+                });
+            }
+
+            setModal(DOM.aiOcrModal, false);
+            openPaperInAdminEditor(parsedItem);
+            playSound("success");
+            showToast(message || `Đã bóc tách ${parsedItem.questions.length} câu hỏi! Hãy tích chọn đáp án đúng cho từng câu rồi bấm Lưu.`, "success", 5000);
+        } catch (err) {
+            console.error("[My Exam AI OCR]", err);
+            showToast(`Lỗi bóc tách đề: ${err.message}`, "error", 6000);
+        } finally {
+            aiState.isParsing = false;
+            if (DOM.aiStartParseBtn) {
+                DOM.aiStartParseBtn.disabled = false;
+                DOM.aiStartParseBtn.innerHTML = `<span>🚀 Bắt đầu Phân tích & Tạo đề ngay</span>`;
+            }
+            if (DOM.aiParsingProgress) DOM.aiParsingProgress.classList.add("hidden");
+        }
+    }
+
+    function bindAiOcrEvents() {
+        DOM.aiTabFileBtn?.addEventListener("click", () => switchAiTab("file"));
+        DOM.aiTabPasteBtn?.addEventListener("click", () => switchAiTab("text"));
+        DOM.aiExamSelect?.addEventListener("change", () => {
+            populateAiSubjectSelect(DOM.aiExamSelect.value, null);
+        });
+
+        $$('input[name="aiAnswerScenario"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                const isScenario1 = Boolean(DOM.aiAutoSolveCheck?.checked);
+                $("#aiScenario1Card")?.classList.toggle("is-selected", isScenario1);
+                $("#aiScenario2Card")?.classList.toggle("is-selected", !isScenario1);
+            });
+        });
+
+        const dropzone = DOM.aiDropzone;
+        if (dropzone) {
+            ["dragenter", "dragover"].forEach(eventName => {
+                dropzone.addEventListener(eventName, e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropzone.classList.add("drag-over");
+                });
+            });
+            ["dragleave", "drop"].forEach(eventName => {
+                dropzone.addEventListener(eventName, e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropzone.classList.remove("drag-over");
+                });
+            });
+            dropzone.addEventListener("drop", e => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropzone.classList.remove("drag-over");
+                const files = e.dataTransfer?.files;
+                if (files && files[0]) handleAiSelectedFile(files[0]);
+            });
+        }
+
+        DOM.aiExamFileInput?.addEventListener("change", e => {
+            const files = e.target.files;
+            if (files && files[0]) handleAiSelectedFile(files[0]);
+        });
+
+        DOM.aiSaveKeyBtn?.addEventListener("click", () => {
+            const k = String(DOM.aiGeminiApiKey?.value || "").trim();
+            if (!k) {
+                localStorage.removeItem("myExam.geminiApiKey");
+                showToast("Đã xóa Gemini API Key khỏi trình duyệt.", "info");
+            } else {
+                localStorage.setItem("myExam.geminiApiKey", k);
+                showToast("Đã lưu Gemini API Key an toàn trên trình duyệt.", "success");
+            }
+        });
+
+        DOM.aiStartParseBtn?.addEventListener("click", executeAiExamParsing);
+    }
+
     async function boot() {
         cacheDOM();
         initTheme();
         bindGlobalEvents();
         bindHashNavigation();
+        bindAiOcrEvents();
         if (DOM.currentYear) DOM.currentYear.textContent = String(new Date().getFullYear());
         const historyScreen = document.getElementById('historyScreen');
         if (historyScreen && !document.getElementById('accountStatsPanel')) {
