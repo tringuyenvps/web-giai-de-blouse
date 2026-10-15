@@ -1743,10 +1743,83 @@
 
     function matchingHTML(q) {
         const answer = isObject(state.answers[q.id]) ? state.answers[q.id] : {};
-        return `<div class="matching-grid">${q.pairs.map((p, i) => {
-            const key = String(p.key ?? String(i + 1));
-            return `<div class="sub-question"><div class="sub-question-top"><span class="sub-question-label">${escapeHTML(key.toUpperCase())}</span><span class="sub-question-text math-content">${richText(p.left)}</span></div><div style="margin-top:12px;"><select style="width:100%;min-height:44px;padding:9px 11px;border:1px solid var(--border);border-radius:11px;background:var(--bg-soft);color:var(--text);outline:none;" data-answer-type="matching" data-key="${escapeHTML(key)}" aria-label="Đáp án ghép cho mục ${escapeHTML(key)}"><option value="">— Chọn phương án ghép —</option>${p.options.map(o => `<option value="${escapeHTML(o.key)}" ${String(answer[key] ?? "") === String(o.key) ? "selected" : ""}>${escapeHTML(o.key)} · ${escapeHTML(o.text)}</option>`).join("")}</select></div></div>`;
-        }).join("")}</div>`;
+        // Collect all distinct right options for reference panel
+        const rightMap = new Map();
+        (q.pairs || []).forEach(p => {
+            (p.options || []).forEach(o => {
+                const k = String(o.key || "").toUpperCase();
+                if (k && !rightMap.has(k)) rightMap.set(k, o);
+            });
+        });
+        const rightOptions = Array.from(rightMap.values()).sort((a, b) => a.key.localeCompare(b.key));
+
+        const referencePanelHTML = rightOptions.length ? `
+            <div class="matching-reference-panel glass-card">
+                <div class="matching-ref-header">
+                    <span class="matching-ref-kicker">📋 CỘT II — BẢNG CÁC PHƯƠNG ÁN LỰA CHỌN</span>
+                    <small>Chọn một chữ cái tương ứng để ghép với từng mục ở Cột I</small>
+                </div>
+                <div class="matching-ref-grid">
+                    ${rightOptions.map(o => `
+                        <div class="matching-ref-item">
+                            <span class="matching-ref-key">${escapeHTML(o.key)}</span>
+                            <div class="matching-ref-text math-content">${richText(o.text)}</div>
+                        </div>
+                    `).join("")}
+                </div>
+            </div>
+        ` : "";
+
+        const pairsHTML = (q.pairs || []).map((p, i) => {
+            const pKey = String(p.key ?? String(i + 1));
+            const curSelectedKey = String(answer[pKey] ?? "").toUpperCase();
+            const chosenOption = curSelectedKey ? (p.options.find(o => String(o.key).toUpperCase() === curSelectedKey) || rightMap.get(curSelectedKey)) : null;
+
+            return `
+                <div class="sub-question matching-sub-question ${curSelectedKey ? "is-answered" : ""}">
+                    <div class="sub-question-top">
+                        <span class="sub-question-label">${escapeHTML(pKey.toUpperCase())}</span>
+                        <div class="sub-question-text math-content">${richText(p.left)}</div>
+                    </div>
+                    <div class="matching-interactive-controls">
+                        <div class="matching-pill-bar">
+                            <span class="matching-pill-label">Ghép với:</span>
+                            <div class="matching-pills-row">
+                                ${p.options.map(o => {
+                                    const oKey = String(o.key).toUpperCase();
+                                    const active = curSelectedKey === oKey;
+                                    return `
+                                        <button type="button" class="matching-choice-pill ${active ? "is-active" : ""}" data-action="pick-matching-choice" data-pair-key="${escapeHTML(pKey)}" data-option-key="${escapeHTML(oKey)}" title="Ghép mục ${escapeHTML(pKey)} với phương án ${escapeHTML(oKey)}">
+                                            ${escapeHTML(oKey)} ${active ? "✓" : ""}
+                                        </button>
+                                    `;
+                                }).join("")}
+                                ${curSelectedKey ? `<button type="button" class="matching-clear-btn" data-action="clear-matching-choice" data-pair-key="${escapeHTML(pKey)}" title="Hủy chọn mục này">✕</button>` : ""}
+                            </div>
+                        </div>
+
+                        ${chosenOption ? `
+                            <div class="matching-chosen-box glass-card">
+                                <span class="chosen-badge">✓ Đã ghép với phương án ${escapeHTML(curSelectedKey)}</span>
+                                <div class="chosen-math-view math-content">${richText(chosenOption.text)}</div>
+                            </div>
+                        ` : `
+                            <div class="matching-unselected-hint">Chưa chọn phương án ghép cho mục ${escapeHTML(pKey)}. Bấm vào chữ cái ở trên để ghép.</div>
+                        `}
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        return `
+            <div class="matching-workspace">
+                ${referencePanelHTML}
+                <div class="matching-pairs-container">
+                    <div class="matching-col-kicker">📌 CỘT I — CÁC MỤC CẦN GHÉP</div>
+                    <div class="matching-grid">${pairsHTML}</div>
+                </div>
+            </div>
+        `;
     }
 
     function shortAnswerHTML(q) {
@@ -3406,6 +3479,30 @@
                     p.questions[idx].answer = letter;
                     renderAdminExamEditor();
                     playSound("select");
+                    break;
+                }
+                case "pick-matching-choice": {
+                    const q = currentQuestion();
+                    if (!q || state.hasSubmitted) break;
+                    const pKey = target.dataset.pairKey;
+                    const oKey = target.dataset.optionKey;
+                    if (!pKey || !oKey) break;
+                    if (!isObject(state.answers[q.id])) state.answers[q.id] = {};
+                    state.answers[q.id][pKey] = oKey;
+                    playSound("select");
+                    saveSession();
+                    renderCurrentQuestion();
+                    break;
+                }
+                case "clear-matching-choice": {
+                    const q = currentQuestion();
+                    if (!q || state.hasSubmitted) break;
+                    const pKey = target.dataset.pairKey;
+                    if (pKey && isObject(state.answers[q.id])) {
+                        delete state.answers[q.id][pKey];
+                        saveSession();
+                        renderCurrentQuestion();
+                    }
                     break;
                 }
                 case "editor-pick-tf-ans": {
