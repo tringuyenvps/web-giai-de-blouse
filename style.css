@@ -6112,3 +6112,206 @@ html[data-theme="light"] .window-Browser-bar {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* =========================================================
+   32. MODERN MATCHING QUESTION WORKSPACE & MATHJAX RENDERING
+   ========================================================= */
+
+.matching-workspace {
+    display: grid;
+    gap: 22px;
+}
+
+.matching-reference-panel {
+    padding: 20px 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(124, 92, 255, 0.35);
+    background:
+        linear-gradient(145deg, rgba(124, 92, 255, 0.08), rgba(55, 217, 255, 0.05)),
+        var(--surface-strong);
+    box-shadow: var(--shadow-sm);
+}
+
+.matching-ref-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.matching-ref-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--primary-2);
+    letter-spacing: 0.06em;
+}
+
+.matching-ref-header small {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+.matching-ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.matching-ref-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.035);
+    transition: all var(--fast) ease;
+}
+
+.matching-ref-item:hover {
+    border-color: rgba(124, 92, 255, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.matching-ref-key {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: var(--primary-soft);
+    color: var(--primary-2);
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.matching-ref-text {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text);
+    overflow-x: auto;
+}
+
+.matching-col-kicker {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+}
+
+.matching-sub-question {
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    display: grid;
+    gap: 12px;
+    transition: border-color var(--fast) ease;
+}
+
+.matching-sub-question.is-answered {
+    border-color: rgba(55, 217, 255, 0.45);
+}
+
+.matching-interactive-controls {
+    display: grid;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+
+.matching-pill-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.matching-pill-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.matching-pills-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.matching-choice-pill {
+    min-width: 44px;
+    height: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 13px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-soft);
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all var(--fast) ease;
+}
+
+.matching-choice-pill:hover {
+    border-color: var(--cyan);
+    color: var(--text);
+    transform: translateY(-1px);
+}
+
+.matching-choice-pill.is-active {
+    background: linear-gradient(135deg, var(--cyan), var(--primary));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px var(--cyan-glow);
+}
+
+.matching-clear-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 88, 120, 0.14);
+    color: var(--danger);
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 88, 120, 0.3);
+}
+
+.matching-chosen-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 11px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(55, 217, 255, 0.35);
+    background: rgba(55, 217, 255, 0.08);
+}
+
+.chosen-badge {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: 0.04em;
+}
+
+.chosen-math-view {
+    font-size: 14px;
+    color: var(--text);
+    overflow-x: auto;
+}
+
+.matching-unselected-hint {
+    font-size: 11.5px;
+    color: var(--text-dim);
+    font-style: italic;
+}
