@@ -1331,6 +1331,9 @@
                                 </label>
                             </div>
                             <div class="admin-toolbar-actions">
+                                <button type="button" class="secondary-button" style="border-color:rgba(55,217,255,0.45);color:var(--cyan);background:rgba(55,217,255,0.08);" data-action="open-ai-ocr-modal" title="Tải file PDF, ảnh chụp hoặc dán văn bản đề thi để AI tự bóc tách và giải đề">
+                                    <span>🤖 Nhập đề bằng AI (OCR PDF / Ảnh)</span>
+                                </button>
                                 <label class="secondary-button file-upload-btn" title="Tải file đề JSON từ máy lên để chỉnh sửa và lưu lên web">
                                     <span>📂 Nhập từ file JSON</span>
                                     <input type="file" id="adminImportJsonInput" accept=".json,application/json" hidden>
@@ -1394,6 +1397,146 @@
             <button type="button" class="icon-button lightbox-close-btn" data-action="close-lightbox" aria-label="Đóng ảnh">×</button>
             <img id="imageLightboxImg" src="" alt="Hình minh họa phóng to">
             <div id="imageLightboxCaption" class="image-lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         AI OCR / NHẬP ĐỀ THÔNG MINH MODAL
+    ========================================================== -->
+    <div
+        id="aiOcrModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="aiOcrModalTitle"
+        aria-hidden="true"
+    >
+        <div class="modal-card glass-card ai-ocr-modal-card">
+            <div class="modal-header">
+                <div>
+                    <span class="section-kicker" style="color:var(--cyan);">AI EXAM PARSER · GEMINI VISION & OCR</span>
+                    <h2 id="aiOcrModalTitle">🤖 Nhập đề thi tự động bằng AI</h2>
+                </div>
+                <button
+                    class="icon-button"
+                    type="button"
+                    data-action="close-modal"
+                    aria-label="Đóng"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="modal-body" style="display:grid;gap:18px;">
+                <!-- Tab chọn phương thức tải đề -->
+                <div class="ai-source-tabs">
+                    <button type="button" class="ai-source-tab is-active" data-ai-tab="file" id="aiTabFileBtn">
+                        📄 Tải file PDF hoặc Ảnh đề thi
+                    </button>
+                    <button type="button" class="ai-source-tab" data-ai-tab="text" id="aiTabPasteBtn">
+                        ✍️ Dán trực tiếp văn bản đề thi
+                    </button>
+                </div>
+
+                <!-- Source 1: File PDF / Ảnh -->
+                <div id="aiFileSourcePanel" class="ai-source-panel">
+                    <div class="ai-dropzone" id="aiDropzone">
+                        <div class="ai-dropzone-icon">📁</div>
+                        <h4>Kéo thả file PDF hoặc Ảnh chụp đề thi vào đây</h4>
+                        <p>Hỗ trợ file PDF nhiều trang, hoặc ảnh chụp đề thi (.png, .jpg, .webp). Tối đa 25MB.</p>
+                        <label class="primary-button file-upload-btn" style="width:max-content;margin:8px auto 0;">
+                            <span>📤 Chọn file từ máy tính</span>
+                            <input type="file" id="aiExamFileInput" accept=".pdf,image/*" hidden>
+                        </label>
+                        <div id="aiSelectedFileInfo" class="ai-file-info hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Source 2: Dán văn bản -->
+                <div id="aiTextSourcePanel" class="ai-source-panel hidden">
+                    <label class="editor-field">
+                        <span>Dán nội dung văn bản đề thi (Copy từ Word / PDF):</span>
+                        <textarea id="aiExamTextInput" class="editor-textarea" rows="8" placeholder="Dán nội dung đề thi vào đây...&#10;Ví dụ:&#10;Đọc đoạn thông tin sau và trả lời các câu hỏi từ câu 10 đến câu 12:&#10;...&#10;Câu 1: Cho hàm số...&#10;A. 1&#10;B. 2&#10;C. 3&#10;D. 4&#10;..."></textarea>
+                    </label>
+                </div>
+
+                <!-- Cấu hình AI & Tự động giải -->
+                <div class="ai-config-box glass-card">
+                    <div class="ai-scenario-selector">
+                        <span style="display:block;font-size:12px;font-weight:800;color:var(--cyan);margin-bottom:8px;letter-spacing:0.04em;">CHẾ ĐỘ XỬ LÝ ĐÁP ÁN KHI BÓC TÁCH ĐỀ:</span>
+                        <div class="ai-scenario-grid">
+                            <label class="ai-scenario-card is-selected" id="aiScenario2Card">
+                                <input type="radio" name="aiAnswerScenario" value="scenario2" id="aiScenarioManualRadio" checked>
+                                <div>
+                                    <strong>🎯 Kịch bản 2 (Khuyên dùng): AI chỉ bóc tách câu hỏi, để trống đáp án để Admin tự chọn</strong>
+                                    <small>AI tách chuẩn xác đề bài, đoạn đọc ngữ liệu (Từ câu X–Y) và các phương án A/B/C/D, để trống đáp án để Admin tự tích chọn nhanh trong 30 giây.</small>
+                                </div>
+                            </label>
+                            <label class="ai-scenario-card" id="aiScenario1Card">
+                                <input type="radio" name="aiAnswerScenario" value="scenario1" id="aiAutoSolveCheck">
+                                <div>
+                                    <strong>🤖 Kịch bản 1: Nhờ AI tự giải và gợi ý đáp án + lời giải</strong>
+                                    <small>Nếu đề không có đáp án, AI sẽ tự giải và điền đáp án gợi ý kèm lời giải chi tiết.</small>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ai-key-row">
+                        <label class="editor-field" style="flex:1;">
+                            <span>Google Gemini API Key (Tùy chọn - Dùng để đọc trực tiếp file PDF/Ảnh):</span>
+                            <input type="password" id="aiGeminiApiKey" class="editor-input" placeholder="Dán Gemini API Key (được lưu an toàn trên trình duyệt)">
+                        </label>
+                        <button type="button" class="secondary-button small" id="aiSaveKeyBtn" style="height:42px;align-self:flex-end;">
+                            Lưu Key
+                        </button>
+                    </div>
+                    <div class="ai-key-hint">
+                        <span>Chưa có API Key? <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;">Bấm vào đây để lấy key miễn phí từ Google AI Studio</a> (Free 100%). Nếu không có API Key, bạn có thể chuyển sang tab <strong>Dán văn bản</strong> để hệ thống bóc tách tự động hoàn toàn miễn phí.</span>
+                    </div>
+
+                    <div class="ai-exam-meta-row">
+                        <label class="editor-field">
+                            <span>Kỳ thi:</span>
+                            <select id="aiExamSelect" class="admin-select">
+                                <option value="vsat">VSAT (150 điểm)</option>
+                                <option value="thptqg">THPTQG (10 điểm)</option>
+                            </select>
+                        </label>
+                        <label class="editor-field">
+                            <span>Môn học:</span>
+                            <select id="aiSubjectSelect" class="admin-select"></select>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Loading State Banner -->
+                <div id="aiParsingProgress" class="ai-progress-box hidden">
+                    <div class="loading-spinner"></div>
+                    <div>
+                        <strong id="aiProgressTitle">AI đang đọc và bóc tách đề thi...</strong>
+                        <p id="aiProgressDesc">Hệ thống đang phân tích các câu hỏi, bảng đáp án, đoạn đọc ngữ liệu và công thức Toán/Hóa/Sinh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+                <button
+                    class="secondary-button"
+                    type="button"
+                    data-action="close-modal"
+                >
+                    Hủy bỏ
+                </button>
+
+                <button
+                    id="aiStartParseBtn"
+                    class="primary-button"
+                    type="button"
+                >
+                    <span>🚀 Bắt đầu Phân tích & Tạo đề ngay</span>
+                </button>
+            </div>
         </div>
     </div>
 
