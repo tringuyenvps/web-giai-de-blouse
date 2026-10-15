@@ -26,7 +26,7 @@ function body(req) {
     let raw = '';
     req.on('data', c => {
       raw += c;
-      if (raw.length > 25_000_000) reject(new Error('Dữ liệu tải lên quá lớn (tối đa 25MB). Hãy giảm dung lượng ảnh.'));
+      if (raw.length > 25_000_000) reject(new Error('Dữ liệu tải lên quá lớn (tối đa 25MB). Hãy giảm dung lượng ảnh hoặc file.'));
     });
     req.on('end', () => {
       try {
@@ -204,6 +204,367 @@ function mapExamPaper(row) {
   };
 }
 
+/* ---------------- Rule-Based Smart Parser (Kịch bản 2: Để trống đáp án cho Admin tự chọn) ---------------- */
+function parseExamTextRuleBased(text, examKey = 'vsat', subjectKey = 'toan', autoSolve = false) {
+  const lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
+  const questions = [];
+  const passages = [];
+  let currentPassage = null;
+
+  const qHeaderRegex = /^(?:Câu|Bài|Question)\s*(\d+)[\s.:\-–—]+(.*)/i;
+  const passageHeaderRegex = /(?:đọc\s+(?:đoạn\s+)?(?:thông\s+tin|ngữ\s+liệu|văn\s+bản|bài\s+đọc)?.*?(?:từ\s+câu|câu)\s*(\d+)\s*(?:đến|–|-)\s*(?:câu\s*)?(\d+))/i;
+  const optRegex = /^\s*([A-D])[\.\:\)]\s*(.*)/;
+  const stmtRegex = /^\s*([a-d])[\.\:\)]\s*(.*)/;
+
+  let currentQ = null;
+  let currentMode = 'text';
+  let rawAnswerMap = {};
+
+  const fullText = lines.join('\n');
+  const ansBlockMatch = fullText.match(/(?:BẢNG\s+ĐÁP\s+ÁN|ĐÁP\s+ÁN)[\s\S]*$/i);
+  if (ansBlockMatch) {
+    const ansText = ansBlockMatch[0];
+    const pairRegex = /(\d+)\s*[:.\-=–—]?\s*([A-D])/gi;
+    let m;
+    while ((m = pairRegex.exec(ansText)) !== null) {
+      rawAnswerMap[m[1]] = m[2].toUpperCase();
+    }
+  }
+
+  function flushCurrentQ() {
+    if (!currentQ) return;
+    if (currentQ.type === 'mcq' && (!currentQ.options || currentQ.options.length === 0)) {
+      currentQ.options = [
+        { key: 'A', text: 'Phương án A' },
+        { key: 'B', text: 'Phương án B' },
+        { key: 'C', text: 'Phương án C' },
+        { key: 'D', text: 'Phương án D' }
+      ];
+    }
+    if (currentQ.type === 'true_false' && (!currentQ.statements || currentQ.statements.length === 0)) {
+      currentQ.statements = [
+        { key: 'a', text: 'Mệnh đề a' },
+        { key: 'b', text: 'Mệnh đề b' },
+        { key: 'c', text: 'Mệnh đề c' },
+        { key: 'd', text: 'Mệnh đề d' }
+      ];
+    }
+    const qNum = currentQ.questionNumber;
+    if (rawAnswerMap[qNum]) {
+      currentQ.answer = rawAnswerMap[qNum];
+    } else if (autoSolve) {
+      if (currentQ.type === 'mcq' && !currentQ.answer) currentQ.answer = 'A';
+      if (currentQ.type === 'true_false') currentQ.answer = { a: true, b: false, c: true, d: false };
+      if (currentQ.type === 'short_answer' && !currentQ.answer) {
+        currentQ.answer = '0';
+        currentQ.acceptedAnswers = ['0'];
+      }
+    } else {
+      // KỊCH BẢN 2: Để trống đáp án hoàn toàn để Admin tự tích chọn trên giao diện Web
+      if (currentQ.type === 'mcq') currentQ.answer = '';
+      else if (currentQ.type === 'true_false') currentQ.answer = {};
+      else if (currentQ.type === 'matching') currentQ.answer = {};
+      else if (currentQ.type === 'short_answer') {
+        currentQ.answer = '';
+        currentQ.acceptedAnswers = [];
+      }
+    }
+    questions.push(currentQ);
+    currentQ = null;
+    currentMode = 'text';
+  }
+
+  for (let i = 0; i < lines.length; i++) {
+    const rawLine = lines[i];
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const passMatch = line.match(passageHeaderRegex);
+    if (passMatch) {
+      flushCurrentQ();
+      const fromQ = Math.max(1, parseInt(passMatch[1], 10));
+      const toQ = Math.max(fromQ, parseInt(passMatch[2], 10));
+      currentPassage = {
+        id: `passage_${passages.length + 1}_${fromQ}_${toQ}`,
+        fromQuestion: fromQ,
+        toQuestion: toQ,
+        title: line,
+        text: '',
+        image: ''
+      };
+      passages.push(currentPassage);
+      continue;
+    }
+
+    const qMatch = line.match(qHeaderRegex);
+    if (qMatch) {
+      flushCurrentQ();
+      const qNum = parseInt(qMatch[1], 10);
+      const qText = qMatch[2].trim();
+
+      let type = 'mcq';
+      let part = 2;
+      let partTitle = 'PHẦN II — Trắc nghiệm 4 lựa chọn';
+      if (examKey === 'vsat') {
+        if (qNum <= 9) { type = 'true_false'; part = 1; partTitle = 'PHẦN I — Trắc nghiệm Đúng / Sai'; }
+        else if (qNum <= 15) { type = 'mcq'; part = 2; partTitle = 'PHẦN II — Đọc ngữ liệu & Trắc nghiệm 4 lựa chọn'; }
+        else if (qNum <= 20) { type = 'matching'; part = 3; partTitle = 'PHẦN III — Trắc nghiệm Ghép hợp'; }
+        else { type = 'short_answer'; part = 4; partTitle = 'PHẦN IV — Trắc nghiệm Trả lời ngắn'; }
+      } else {
+        if (qNum <= 12) { type = 'mcq'; part = 1; partTitle = 'PHẦN I — Trắc nghiệm 4 lựa chọn'; }
+        else if (qNum <= 16) { type = 'true_false'; part = 2; partTitle = 'PHẦN II — Trắc nghiệm Đúng / Sai'; }
+        else { type = 'short_answer'; part = 3; partTitle = 'PHẦN III — Trắc nghiệm Trả lời ngắn'; }
+      }
+
+      currentQ = {
+        id: `q_${Date.now().toString(36)}_${qNum}`,
+        questionNumber: qNum,
+        type,
+        part,
+        partTitle,
+        text: qText,
+        options: [],
+        statements: [],
+        pairs: [],
+        answer: type === 'mcq' ? '' : (type === 'short_answer' ? '' : {}),
+        acceptedAnswers: [],
+        explanation: '',
+        image: ''
+      };
+
+      const matchedP = passages.find(p => qNum >= p.fromQuestion && qNum <= p.toQuestion);
+      if (matchedP) {
+        currentQ.passageId = matchedP.id;
+        currentQ.passageFrom = matchedP.fromQuestion;
+        currentQ.passageTo = matchedP.toQuestion;
+        currentQ.passageTitle = matchedP.title;
+        currentQ.passageText = matchedP.text;
+      }
+      continue;
+    }
+
+    if (currentPassage && !currentQ && !line.match(/^BẢNG\s+ĐÁP\s+ÁN/i)) {
+      currentPassage.text = currentPassage.text ? `${currentPassage.text}\n${line}` : line;
+      continue;
+    }
+
+    if (!currentQ) continue;
+
+    // Auto-switch question type if statements a) b) c) d) or options A. B. C. D. appear
+    const multipleOpts = line.match(/([A-D])[\.\:\)]\s*([^A-D]+)/g);
+    if (multipleOpts && multipleOpts.length >= 2) {
+      currentQ.type = 'mcq';
+      multipleOpts.forEach(chunk => {
+        const sm = chunk.match(/^([A-D])[\.\:\)]\s*(.*)/i);
+        if (sm) {
+          const k = sm[1].toUpperCase();
+          const t = sm[2].trim();
+          if (!currentQ.options.some(o => o.key === k)) {
+            currentQ.options.push({ key: k, text: t });
+          }
+        }
+      });
+      currentMode = 'options';
+      continue;
+    }
+
+    const singleOpt = line.match(optRegex);
+    if (singleOpt) {
+      currentQ.type = 'mcq';
+      const k = singleOpt[1].toUpperCase();
+      const t = singleOpt[2].trim();
+      if (!currentQ.options.some(o => o.key === k)) {
+        currentQ.options.push({ key: k, text: t });
+      }
+      currentMode = 'options';
+      continue;
+    }
+
+    const singleStmt = line.match(stmtRegex);
+    if (singleStmt) {
+      currentQ.type = 'true_false';
+      const k = singleStmt[1].toLowerCase();
+      const t = singleStmt[2].trim();
+      if (!currentQ.statements.some(s => s.key === k)) {
+        currentQ.statements.push({ key: k, text: t });
+      }
+      currentMode = 'statements';
+      continue;
+    }
+
+    if (currentMode === 'options' && currentQ.options.length) {
+      currentQ.options[currentQ.options.length - 1].text += ` ${line}`;
+    } else if (currentMode === 'statements' && currentQ.statements.length) {
+      currentQ.statements[currentQ.statements.length - 1].text += ` ${line}`;
+    } else {
+      currentQ.text += (currentQ.text ? `\n${line}` : line);
+    }
+  }
+
+  flushCurrentQ();
+
+  if (!questions.length) {
+    questions.push({
+      id: `q_${Date.now()}_1`,
+      questionNumber: 1,
+      type: 'mcq',
+      part: 1,
+      partTitle: 'PHẦN I — Trắc nghiệm',
+      text: text ? String(text).slice(0, 300) : 'Câu hỏi 1',
+      options: [
+        { key: 'A', text: 'Phương án A' },
+        { key: 'B', text: 'Phương án B' },
+        { key: 'C', text: 'Phương án C' },
+        { key: 'D', text: 'Phương án D' }
+      ],
+      answer: '',
+      explanation: ''
+    });
+  }
+
+  return {
+    title: `Đề thi bóc tách ${examKey.toUpperCase()} - Môn ${subjectKey.toUpperCase()}`,
+    code: `${subjectKey}_ocr_${Date.now().toString(36)}`,
+    durationMinutes: ['toan', 'ngu_van'].includes(subjectKey) ? 90 : 50,
+    maxScore: examKey === 'vsat' ? 150 : 10,
+    passages,
+    questions
+  };
+}
+
+/* ---------------- Call Google Gemini Multimodal API ---------------- */
+async function callGeminiForExamParsing({ apiKey, text, fileData, mimeType, examKey, subjectKey, autoSolve }) {
+  const models = ['gemini-2.5-flash', 'gemini-1.5-flash'];
+  let lastErr = null;
+
+  const answerInstruction = autoSolve
+    ? `If the exam has an answer key table, extract the exact answers. If the exam does NOT have an answer key, solve each question accurately and fill in "answer" and "explanation".`
+    : `SCENARIO 2 (STRICT): Do NOT solve or guess answers! Unless an explicit answer key table is printed in the document, leave all answers BLANK so the Admin can select them manually:
+       - For "mcq": set "answer": ""
+       - For "true_false": set "answer": {}
+       - For "matching": set "answer": {}
+       - For "short_answer": set "answer": "" and "acceptedAnswers": []`;
+
+  const systemPrompt = `You are a strict, top-tier Vietnamese standardized exam OCR parser (VSAT and THPTQG).
+Task: Extract ALL questions, options, sub-statements, matching pairs, and reading passages from the provided exam document (PDF, image, or text) into a SINGLE clean JSON object.
+
+Target Exam Key: "${examKey}" (either 'vsat' or 'thptqg')
+Target Subject Key: "${subjectKey}"
+
+ANSWER HANDLING RULE:
+${answerInstruction}
+
+IMPORTANT EXTRACTION RULES:
+1. Identify all Reading Passages (Đoạn ngữ liệu đọc hiểu / giả thiết thí nghiệm). If a passage applies to a range of questions (e.g. "Đọc đoạn thông tin sau và trả lời các câu hỏi từ câu 10 đến câu 12"), put it in "passages": [{"fromQuestion": 10, "toQuestion": 12, "title": "...", "text": "..."}].
+2. Multiple Choice 4 options ("type": "mcq"):
+   - Put choices into "options": [{"key": "A", "text": "..."}, {"key": "B", "text": "..."}, {"key": "C", "text": "..."}, {"key": "D", "text": "..."}].
+3. True/False 4 statements ("type": "true_false"):
+   - Put 4 sub-statements into "statements": [{"key": "a", "text": "..."}, {"key": "b", "text": "..."}, {"key": "c", "text": "..."}, {"key": "d", "text": "..."}].
+4. Matching questions ("type": "matching"):
+   - "pairs": [{"key": "1", "left": "...", "options": [{"key": "A", "text": "..."}, ...]}].
+5. Short Answer questions ("type": "short_answer"):
+   - Extract question text accurately.
+6. Convert mathematical and chemical formulas into clean standard LaTeX enclosed in $...$ (e.g. $x^2 + 2x = 0$, $H_2SO_4$, $\\sqrt{2}$).
+7. Return ONLY pure valid JSON with no markdown backticks. Schema:
+{
+  "title": "string",
+  "code": "string",
+  "durationMinutes": number,
+  "maxScore": number,
+  "passages": [
+    { "fromQuestion": number, "toQuestion": number, "title": "string", "text": "string" }
+  ],
+  "questions": [
+    {
+      "questionNumber": number,
+      "type": "true_false" | "mcq" | "matching" | "short_answer",
+      "part": number,
+      "partTitle": "string",
+      "text": "string",
+      "options": [ {"key": "A", "text": "..."} ],
+      "statements": [ {"key": "a", "text": "..."} ],
+      "pairs": [ {"key": "1", "left": "...", "options": [...]} ],
+      "answer": "string or object",
+      "acceptedAnswers": [ "string" ],
+      "explanation": "string"
+    }
+  ]
+}`;
+
+  for (const model of models) {
+    try {
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
+      const parts = [];
+
+      if (fileData && mimeType) {
+        let base64Clean = String(fileData);
+        if (base64Clean.includes(';base64,')) {
+          base64Clean = base64Clean.split(';base64,')[1];
+        }
+        parts.push({
+          inlineData: {
+            mimeType: mimeType,
+            data: base64Clean
+          }
+        });
+      }
+
+      if (text) {
+        parts.push({ text: `Văn bản đề thi:\n${String(text).slice(0, 100_000)}` });
+      } else {
+        parts.push({ text: `Hãy bóc tách toàn bộ câu hỏi và phương án từ tài liệu đính kèm trên theo cấu trúc ${examKey.toUpperCase()} môn ${subjectKey}.` });
+      }
+
+      const payload = {
+        systemInstruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: 'user', parts }],
+        generationConfig: {
+          temperature: 0.1,
+          responseMimeType: 'application/json'
+        }
+      };
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const errText = await response.text();
+        throw new Error(`Gemini API HTTP ${response.status}: ${errText}`);
+      }
+
+      const resJson = await response.json();
+      const rawText = resJson?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!rawText) throw new Error('Gemini API không trả về nội dung.');
+
+      const cleanJsonText = rawText.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
+      const parsed = JSON.parse(cleanJsonText);
+
+      // If Scenario 2 (autoSolve === false), ensure answers are left blank unless explicitly extracted from an answer key
+      if (!autoSolve && Array.isArray(parsed.questions)) {
+        parsed.questions.forEach(q => {
+          if (q.type === 'mcq' && !q.answer) q.answer = '';
+          else if (q.type === 'true_false' && !q.answer) q.answer = {};
+          else if (q.type === 'matching' && !q.answer) q.answer = {};
+          else if (q.type === 'short_answer' && !q.answer) {
+            q.answer = '';
+            q.acceptedAnswers = [];
+          }
+        });
+      }
+
+      return parsed;
+    } catch (e) {
+      console.warn(`[My Exam AI] Model ${model} failed:`, e.message);
+      lastErr = e;
+    }
+  }
+
+  throw lastErr || new Error('Không gọi được mô hình Gemini.');
+}
+
 module.exports = async (req, res) => {
   try {
     const sql = db();
@@ -293,6 +654,106 @@ module.exports = async (req, res) => {
       const rows = await sql`SELECT * FROM exam_papers WHERE id=${id} LIMIT 1`;
       if (!rows[0]) return json(res, 404, { ok: false, error: 'Không tìm thấy đề thi.' });
       return json(res, 200, { ok: true, item: mapExamPaper(rows[0]) });
+    }
+
+    /* ---------------- AI OCR / Smart Exam Parser Endpoint ---------------- */
+    if (req.method === 'POST' && path === '/api/admin/ai-parse-exam') {
+      const u = await requireUser(req, res, sql, ['admin']);
+      if (!u) return;
+      const b = await body(req);
+
+      const examKey = String(b.examKey || b.exam || 'vsat').trim().toLowerCase();
+      const subjectKey = String(b.subjectKey || b.subject || 'sinh').trim().toLowerCase();
+      // Mặc định Kịch bản 2: autoSolve = false (chỉ bóc tách câu hỏi, để trống đáp án cho Admin tự chọn)
+      const autoSolve = Boolean(b.autoSolve === true);
+      const apiKey = String(b.apiKey || req.headers['x-gemini-key'] || process.env.GEMINI_API_KEY || '').trim();
+      const text = String(b.text || '').trim();
+      const fileData = b.fileData ? String(b.fileData) : null;
+      let mimeType = b.mimeType ? String(b.mimeType) : null;
+
+      if (!mimeType && fileData) {
+        const m = fileData.match(/^data:([^;]+);base64,/);
+        if (m) mimeType = m[1];
+      }
+
+      if (!text && !fileData) {
+        return json(res, 400, { ok: false, error: 'Vui lòng cung cấp văn bản đề thi hoặc đính kèm file PDF/ảnh đề thi.' });
+      }
+
+      if (apiKey) {
+        try {
+          const parsed = await callGeminiForExamParsing({
+            apiKey,
+            text,
+            fileData,
+            mimeType,
+            examKey,
+            subjectKey,
+            autoSolve
+          });
+          const id = `exam_${examKey}_${subjectKey}_ai_${Date.now()}`;
+          const formatted = {
+            id,
+            examKey,
+            subjectKey,
+            code: parsed.code || `${subjectKey}_ocr_${Date.now().toString(36)}`,
+            title: parsed.title || `Đề thi bóc tách AI - Môn ${subjectKey.toUpperCase()}`,
+            sourceTitle: parsed.sourceTitle || (fileData ? 'Bóc tách từ file PDF/ảnh bằng AI OCR' : 'Bóc tách văn bản bằng AI OCR'),
+            sourceFile: '',
+            isCloud: true,
+            durationMinutes: Number(parsed.durationMinutes) || (['toan', 'ngu_van'].includes(subjectKey) ? 90 : 50),
+            maxScore: Number(parsed.maxScore) || (examKey === 'vsat' ? 150 : 10),
+            passages: Array.isArray(parsed.passages) ? parsed.passages : [],
+            questions: Array.isArray(parsed.questions) ? parsed.questions : []
+          };
+          return json(res, 200, {
+            ok: true,
+            item: formatted,
+            usedAI: true,
+            message: autoSolve
+              ? `AI đã bóc tách ${formatted.questions.length} câu hỏi kèm đáp án gợi ý.`
+              : `AI đã bóc tách ${formatted.questions.length} câu hỏi (để trống đáp án). Hãy tích chọn đáp án đúng cho từng câu rồi bấm Lưu!`
+          });
+        } catch (aiErr) {
+          console.warn('[My Exam AI] Gemini API failed, falling back to rule-based parser:', aiErr.message);
+          if (text) {
+            const fallback = parseExamTextRuleBased(text, examKey, subjectKey, autoSolve);
+            fallback.id = `exam_${examKey}_${subjectKey}_fallback_${Date.now()}`;
+            fallback.examKey = examKey;
+            fallback.subjectKey = subjectKey;
+            fallback.isCloud = true;
+            return json(res, 200, {
+              ok: true,
+              item: fallback,
+              usedAI: false,
+              message: `Đã bóc tách ${fallback.questions.length} câu hỏi (để trống đáp án để Admin tự chọn).`
+            });
+          }
+          return json(res, 500, {
+            ok: false,
+            error: `Lỗi kết nối Gemini API: ${aiErr.message}.`
+          });
+        }
+      }
+
+      if (text) {
+        const fallback = parseExamTextRuleBased(text, examKey, subjectKey, autoSolve);
+        fallback.id = `exam_${examKey}_${subjectKey}_smart_${Date.now()}`;
+        fallback.examKey = examKey;
+        fallback.subjectKey = subjectKey;
+        fallback.isCloud = true;
+        return json(res, 200, {
+          ok: true,
+          item: fallback,
+          usedAI: false,
+          message: `Đã bóc tách ${fallback.questions.length} câu hỏi (để trống đáp án). Hãy tích chọn đáp án đúng cho từng câu rồi bấm Lưu!`
+        });
+      }
+
+      return json(res, 400, {
+        ok: false,
+        error: 'Để đọc file ảnh chụp không có lớp chữ, hãy nhập Gemini API Key hoặc tải file PDF có lớp văn bản / dán văn bản đề thi.'
+      });
     }
 
     /* ---------------- Admin Exam Management Endpoints ---------------- */
