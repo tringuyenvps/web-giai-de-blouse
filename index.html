@@ -1,37 +1,54 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO cơ bản -->
-    <meta name="description" content="Blouse Exam Pro - Nền tảng luyện thi thử Đánh giá năng lực VSAT và Tốt nghiệp THPTQG chuyên nghiệp.">
-    <meta name="theme-color" content="#080d1a">
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Blouse Exam Pro — Nền tảng luyện thi Đánh giá năng lực VSAT và Tốt nghiệp THPT Quốc Gia chuyên sâu với giao diện Modern Academic Premium.">
+    <meta name="theme-color" content="#F5F7FC" id="metaThemeColor">
 
-    <title>Blouse Exam Pro — Nền tảng Luyện thi VSAT & THPTQG Chuyên sâu</title>
+    <title>Blouse Exam Pro — Nền tảng Luyện thi VSAT & THPTQG</title>
 
-    <!-- Font hiện đại, hỗ trợ tiếng Việt tốt -->
+    <!-- Prevent Theme Flash (FOUC) on Page Load -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem("myExam.theme");
+                var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                var theme = (stored === "dark" || stored === "light") ? stored : (prefersDark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+                var meta = document.getElementById("metaThemeColor");
+                if (meta) meta.setAttribute("content", theme === "dark" ? "#0B1020" : "#F5F7FC");
+            } catch (e) {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
+
+    <!-- Google Fonts: Be Vietnam Pro & Space Grotesk & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <!-- CSS chính -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <!-- Skip to Main Content for Keyboard Accessibility -->
+    <a href="#mainContent" class="skip-to-content">Chuyển đến nội dung chính</a>
+
     <!-- =========================================================
-         BACKGROUND DECORATION
+         SUBTLE ACADEMIC AMBIENT BACKGROUND
     ========================================================== -->
     <div class="app-background" aria-hidden="true">
         <div class="bg-grid"></div>
-        <div class="bg-noise"></div>
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
     </div>
 
     <!-- =========================================================
@@ -40,51 +57,50 @@
     <div id="app" class="app-shell">
 
         <!-- =====================================================
-             TOP ANNOUNCEMENT BAR (CHUẨN WEB EDTECH LỚN)
+             TOP ANNOUNCEMENT BAR
         ====================================================== -->
-        <div class="top-promo-bar">
+        <div class="top-promo-bar" role="region" aria-label="Thông báo hệ thống">
             <div class="container top-promo-inner">
                 <div class="top-promo-left">
                     <span class="promo-badge">CHUẨN CẤU TRÚC MỚI</span>
-                    <span>Hệ thống phòng thi trực tuyến tích hợp <strong>Đọc ngữ liệu song song (Từ câu X–Y)</strong>, phóng to hình ảnh & chấm điểm tự động chuẩn VSAT / THPTQG.</span>
+                    <span>Phòng thi trực tuyến tích hợp <strong>Đọc ngữ liệu song song (Từ câu X–Y)</strong>, phóng to hình ảnh &amp; chấm điểm tự động chuẩn VSAT / THPTQG.</span>
                 </div>
                 <div class="top-promo-right">
-                    <button type="button" class="promo-link" data-action="open-guide">📖 Hướng dẫn làm bài</button>
-                    <span class="promo-dot">•</span>
-                    <button type="button" class="promo-link" data-action="open-exams">🚀 Vào phòng thi ngay →</button>
+                    <button type="button" class="promo-link" data-action="open-guide">Cẩm nang phòng thi</button>
+                    <span class="promo-dot" aria-hidden="true">•</span>
+                    <button type="button" class="promo-link" data-action="open-library">Kho đề thi chuẩn →</button>
                 </div>
             </div>
         </div>
 
         <!-- =====================================================
-             TOP NAVBAR
+             DESKTOP & MOBILE STICKY NAVBAR
         ====================================================== -->
         <header id="mainHeader" class="main-header">
             <div class="header-inner container">
 
-                <!-- Logo -->
+                <!-- Left: Brand Identity -->
                 <button
                     id="brandButton"
                     class="brand"
                     type="button"
                     data-action="go-home"
-                    aria-label="Về trang chủ"
+                    aria-label="Về trang chủ Blouse Exam Pro"
                 >
-                    <span class="brand-mark">
-                        <span class="brand-mark-glow"></span>
-                        <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                            <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.12)"/>
-                            <path d="M10 16.5L14 20.5L22.5 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <span class="brand-mark" aria-hidden="true">
+                        <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.14)"/>
+                            <path d="M10.5 16.5L14.2 20.2L22 12.2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
 
                     <span class="brand-text">
                         <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
-                        <small>HỆ THỐNG KHẢO THÍ VSAT × THPTQG</small>
+                        <small>KHẢO THÍ HỌC THUẬT VSAT × THPTQG</small>
                     </span>
                 </button>
 
-                <!-- Navigation -->
+                <!-- Center: Primary Navigation -->
                 <nav class="main-nav" aria-label="Điều hướng chính">
                     <button
                         class="nav-link is-active"
@@ -92,7 +108,8 @@
                         data-action="go-home"
                         data-nav-screen="home"
                     >
-                        <span>🏠</span> Trang chủ
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9.5L10 3l7 6.5V17a1 1 0 01-1 1h-4v-5H8v5H4a1 1 0 01-1-1V9.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Tổng quan</span>
                     </button>
 
                     <button
@@ -101,7 +118,18 @@
                         data-action="open-exams"
                         data-nav-screen="exam-selection"
                     >
-                        <span>📝</span> Phòng thi thử
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2v-2M13.5 3.5a2.121 2.121 0 113 3L10 13l-4 1 1-4 6.5-6.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Thi thử</span>
+                    </button>
+
+                    <button
+                        class="nav-link"
+                        type="button"
+                        data-action="open-library"
+                        data-nav-screen="library"
+                    >
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h12v12H4zM8 4v12M12 8h4M12 12h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Kho đề</span>
                     </button>
 
                     <button
@@ -110,7 +138,18 @@
                         data-action="open-history"
                         data-nav-screen="history"
                     >
-                        <span>📊</span> Lịch sử & Thống kê
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 16h14M6 13V9M10 13V5M14 13v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Thống kê</span>
+                    </button>
+
+                    <button
+                        class="nav-link"
+                        type="button"
+                        data-action="open-leaderboard"
+                        data-nav-screen="leaderboard"
+                    >
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h8v4a4 4 0 01-8 0V3zM4 4h2v3a2 2 0 01-2-2V4zM14 4h2v1a2 2 0 01-2 2V4zM10 11v4M7 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Bảng xếp hạng</span>
                     </button>
 
                     <button
@@ -120,50 +159,150 @@
                         data-action="open-exam-studio"
                         data-nav-screen="admin-studio"
                     >
-                        <span>🛠</span> Quản lý & Sửa Đề
+                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" transform="translate(-2 -2)"/></svg>
+                        <span>Quản trị</span>
                     </button>
                 </nav>
 
-                <!-- Các control bên phải -->
+                <!-- Right: Actions & Account -->
                 <div class="header-actions">
 
-                    <!-- Hiển thị khi đang ở phòng thi -->
+                    <!-- Exam Countdown Timer (Shown when taking an exam) -->
                     <div
                         id="headerTimer"
                         class="header-timer hidden"
                         aria-live="polite"
+                        title="Thời gian làm bài còn lại"
                     >
-                        <span class="timer-icon">◷</span>
+                        <span class="timer-icon" aria-hidden="true">◷</span>
                         <span id="headerTimerValue">90:00</span>
                     </div>
 
-                    <!-- Theme -->
+                    <!-- Quick Guide Button -->
                     <button
-                        id="themeToggle"
                         class="icon-button glass-button"
                         type="button"
-                        data-action="toggle-theme"
-                        aria-label="Chuyển chế độ sáng tối"
-                        title="Chuyển chế độ Sáng / Tối"
+                        data-action="open-guide"
+                        aria-label="Mở cẩm nang hướng dẫn làm bài"
+                        title="Hướng dẫn làm bài"
                     >
-                        <span id="themeIcon">☾</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
                     </button>
 
-                    <!-- Tài khoản -->
+                    <!-- Theme Switcher Button -->
+                    <button
+                        id="themeToggle"
+                        class="icon-button glass-button theme-toggle-btn"
+                        type="button"
+                        data-action="toggle-theme"
+                        aria-label="Chuyển đổi giao diện Sáng / Tối"
+                        title="Chuyển chế độ Sáng / Tối"
+                    >
+                        <span id="themeIcon" class="theme-icon-wrap" aria-hidden="true">☾</span>
+                    </button>
+
+                    <!-- Account / Profile Menu Button -->
                     <button
                         id="profileButton"
                         class="profile-button glass-button"
                         type="button"
                         data-action="open-profile"
-                        aria-label="Mở hồ sơ"
+                        aria-label="Tài khoản và hồ sơ cá nhân"
                     >
                         <span class="profile-avatar">T</span>
                         <span class="profile-name">Thí sinh</span>
-                        <span class="profile-chevron">⌄</span>
+                        <span class="profile-chevron" aria-hidden="true">⌄</span>
+                    </button>
+
+                    <!-- Mobile Drawer Menu Trigger -->
+                    <button
+                        id="mobileNavToggleBtn"
+                        class="icon-button glass-button mobile-nav-trigger"
+                        type="button"
+                        data-action="toggle-mobile-drawer"
+                        aria-label="Mở menu điều hướng"
+                        aria-expanded="false"
+                        aria-controls="mobileNavDrawer"
+                    >
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
                     </button>
                 </div>
             </div>
         </header>
+
+        <!-- =====================================================
+             MOBILE NAVIGATION DRAWER
+        ====================================================== -->
+        <aside id="mobileNavDrawer" class="mobile-nav-drawer hidden" aria-label="Menu di động" aria-hidden="true">
+            <div class="mobile-drawer-backdrop" data-action="close-mobile-drawer"></div>
+            <div class="mobile-drawer-panel glass-card">
+                <div class="mobile-drawer-header">
+                    <div class="brand">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.14)"/>
+                                <path d="M10.5 16.5L14.2 20.2L22 12.2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="brand-text">
+                            <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
+                            <small>VSAT × THPTQG PLATFORM</small>
+                        </span>
+                    </div>
+                    <button type="button" class="icon-button" data-action="close-mobile-drawer" aria-label="Đóng menu">×</button>
+                </div>
+
+                <div class="mobile-drawer-user" id="mobileDrawerUserBox">
+                    <div class="profile-avatar" id="mobileDrawerAvatar">T</div>
+                    <div>
+                        <strong id="mobileDrawerName">Thí sinh</strong>
+                        <span id="mobileDrawerRole">Học viên luyện thi</span>
+                    </div>
+                </div>
+
+                <nav class="mobile-drawer-links" aria-label="Danh mục điều hướng">
+                    <button type="button" class="mobile-drawer-link is-active" data-action="go-home" data-nav-screen="home">
+                        <span>🏠</span> Tổng quan &amp; Dashboard
+                    </button>
+                    <button type="button" class="mobile-drawer-link" data-action="open-exams" data-nav-screen="exam-selection">
+                        <span>📝</span> Chọn kỳ thi &amp; Thi thử
+                    </button>
+                    <button type="button" class="mobile-drawer-link" data-action="open-library" data-nav-screen="library">
+                        <span>📚</span> Kho đề thi chuẩn hóa
+                    </button>
+                    <button type="button" class="mobile-drawer-link" data-action="open-history" data-nav-screen="history">
+                        <span>📊</span> Thống kê &amp; Lịch sử thi
+                    </button>
+                    <button type="button" class="mobile-drawer-link" data-action="open-leaderboard" data-nav-screen="leaderboard">
+                        <span>🏆</span> Bảng xếp hạng kỷ lục
+                    </button>
+                    <button type="button" class="mobile-drawer-link hidden" id="mobileDrawerAdminBtn" data-action="open-exam-studio" data-nav-screen="admin-studio">
+                        <span>🛠</span> Khu vực Quản trị (Admin)
+                    </button>
+                    <button type="button" class="mobile-drawer-link" data-action="open-guide">
+                        <span>📘</span> Cẩm nang hướng dẫn làm bài
+                    </button>
+                </nav>
+
+                <div class="mobile-drawer-footer">
+                    <button type="button" class="secondary-button" style="width:100%;justify-content:space-between;" data-action="toggle-theme">
+                        <span>Giao diện Sáng / Tối</span>
+                        <span id="mobileDrawerThemeLabel">Đổi giao diện</span>
+                    </button>
+                    <button type="button" class="secondary-button" style="width:100%;" data-action="open-profile">
+                        Tài khoản cá nhân
+                    </button>
+                </div>
+            </div>
+        </aside>
 
         <!-- =====================================================
              MAIN CONTENT
@@ -171,7 +310,7 @@
         <main id="mainContent" class="main-content">
 
             <!-- =================================================
-                 SCREEN 1 — HOME (LANDING PAGE CHUYÊN NGHIỆP)
+                 SCREEN 1 — HOME / PERSONAL LEARNING DASHBOARD
             ================================================== -->
             <section
                 id="homeScreen"
@@ -181,26 +320,22 @@
             >
                 <div class="container home-container">
 
-                    <!-- =========================================
-                         1. HERO BANNER VỚI MINH HỌA SỐNG ĐỘNG
-                    ========================================== -->
+                    <!-- 1. HERO SECTION -->
                     <div class="hero-section">
-
                         <div class="hero-copy">
                             <div class="eyebrow-pill">
-                                <span class="pulse-dot"></span>
-                                <span>NỀN TẢNG LUYỆN ĐỀ TRỰC TUYẾN CHUẨN HÓA</span>
+                                <span class="pulse-dot" aria-hidden="true"></span>
+                                <span>NỀN TẢNG LUYỆN ĐỀ HỌC THUẬT CHUẨN HÓA</span>
                             </div>
 
                             <h1 id="homeTitle" class="hero-title">
-                                Bứt phá điểm số kỳ thi
-                                <span class="gradient-text">VSAT & THPT Quốc Gia</span>
+                                Chinh phục điểm số kỳ thi
+                                <span class="gradient-text">VSAT &amp; THPT Quốc Gia</span>
                             </h1>
 
                             <p class="hero-description">
-                                Trải nghiệm phòng thi mô phỏng thực tế với giao diện <strong>Đọc ngữ liệu song song (từ câu X đến câu Y)</strong>,
-                                hệ thống hình ảnh minh họa sắc nét có phóng to, tự động chấm điểm phân tích chuyên sâu
-                                và công cụ biên tập đề trực tiếp trên trình duyệt.
+                                Môi trường khảo thí trực tuyến chuyên sâu với giao diện <strong>Đọc ngữ liệu song song (từ câu X đến câu Y)</strong>,
+                                phóng to sơ đồ thí nghiệm sắc nét, chấm điểm tự động chuẩn thang Bộ GD&amp;ĐT và các trường Đại học.
                             </p>
 
                             <div class="hero-actions">
@@ -210,9 +345,16 @@
                                     type="button"
                                     data-action="open-exams"
                                 >
-                                    <span>🚀</span>
-                                    <span>Vào phòng luyện đề ngay</span>
-                                    <span class="button-arrow">→</span>
+                                    <span>Bắt đầu thi thử</span>
+                                    <span class="button-arrow" aria-hidden="true">→</span>
+                                </button>
+
+                                <button
+                                    class="secondary-button secondary-button-lg"
+                                    type="button"
+                                    data-action="open-library"
+                                >
+                                    <span>Khám phá kho đề</span>
                                 </button>
 
                                 <button
@@ -221,52 +363,41 @@
                                     type="button"
                                     data-action="open-exam-studio"
                                 >
-                                    <span>🛠</span>
-                                    <span>Studio Quản lý & Sửa Đề</span>
-                                </button>
-
-                                <button
-                                    class="secondary-button secondary-button-lg"
-                                    type="button"
-                                    data-action="open-guide"
-                                >
-                                    <span>📘</span>
-                                    <span>Cẩm nang phòng thi</span>
+                                    <span>🛠 Quản trị &amp; Sửa đề</span>
                                 </button>
                             </div>
 
-                            <!-- Thanh chỉ số uy tín -->
+                            <!-- Key Platform Trust Metrics -->
                             <div class="hero-trust-strip">
                                 <div class="trust-metric">
-                                    <div class="trust-metric-icon">🎯</div>
+                                    <div class="trust-metric-icon" aria-hidden="true">🎯</div>
                                     <div>
                                         <strong>150 / 10 Điểm</strong>
-                                        <span>Chuẩn thang VSAT & THPTQG</span>
+                                        <span>Chuẩn thang VSAT &amp; THPTQG</span>
                                     </div>
                                 </div>
                                 <div class="trust-metric">
-                                    <div class="trust-metric-icon">📖</div>
+                                    <div class="trust-metric-icon" aria-hidden="true">📖</div>
                                     <div>
                                         <strong>Đọc ngữ liệu</strong>
-                                        <span>Gắn nhóm câu X → Y trực quan</span>
+                                        <span>Chia đôi màn hình Câu X → Y</span>
                                     </div>
                                 </div>
                                 <div class="trust-metric">
-                                    <div class="trust-metric-icon">☁️</div>
+                                    <div class="trust-metric-icon" aria-hidden="true">☁️</div>
                                     <div>
-                                        <strong id="questionCountStat">Cloud Sync</strong>
-                                        <span>Cập nhật đề trực tiếp trên Web</span>
+                                        <strong id="questionCountStat">Đồng bộ Cloud</strong>
+                                        <span>Lưu kết quả &amp; quản trị trực tuyến</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Hero Visual Illustration (Vivid Interactive Dashboard Mockup) -->
+                        <!-- Hero Academic Preview Window -->
                         <div class="hero-visual">
-                            <!-- Card chính mô phỏng giao diện Chia đôi Đọc ngữ liệu & Trắc nghiệm -->
                             <div class="hero-showcase-window glass-card">
                                 <div class="window-Browser-bar">
-                                    <div class="window-dots">
+                                    <div class="window-dots" aria-hidden="true">
                                         <span class="dot-red"></span>
                                         <span class="dot-yellow"></span>
                                         <span class="dot-green"></span>
@@ -274,40 +405,34 @@
                                     <div class="window-address">blouse-exam.pro/phong-thi-vsat-sinh-hoc</div>
                                     <span class="status-chip status-chip-live">
                                         <span class="status-dot"></span>
-                                        PHÒNG THI LIVE
+                                        PHÒNG THI CHUẨN
                                     </span>
                                 </div>
 
                                 <div class="window-split-body">
-                                    <!-- Cột trái mô phỏng Ngữ liệu & Hình ảnh biểu đồ SVG -->
+                                    <!-- Left Column: Reading Passage & Scientific Chart -->
                                     <div class="mock-passage-col">
                                         <div class="mock-badge-cyan">📖 NGỮ LIỆU · CÂU 10 ĐẾN CÂU 12</div>
-                                        <h4>Nghiên cứu sinh thái học quần xã & Quang chu kì</h4>
+                                        <h4>Nghiên cứu sinh thái học quần xã &amp; Quang chu kì</h4>
                                         <p>Quan sát đồ thị biến động mật độ cá thể loài X và Y khi có mặt loài côn trùng S trong khu vực khảo sát:</p>
-                                        <!-- Hình ảnh SVG biểu đồ khoa học sống động -->
                                         <div class="mock-svg-chart">
-                                            <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="280" height="120" rx="10" fill="rgba(15,23,42,0.75)"/>
-                                                <!-- Grid lines -->
-                                                <line x1="28" y1="22" x2="262" y2="22" stroke="rgba(255,255,255,0.08)" stroke-dasharray="3 3"/>
-                                                <line x1="28" y1="58" x2="262" y2="58" stroke="rgba(255,255,255,0.08)" stroke-dasharray="3 3"/>
-                                                <line x1="28" y1="94" x2="262" y2="94" stroke="rgba(255,255,255,0.18)"/>
-                                                <!-- Area under curve -->
-                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18 L260 94 L28 94 Z" fill="url(#chartGrad1)" opacity="0.35"/>
-                                                <!-- Curve 1 (Cyan) -->
-                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18" stroke="#37d9ff" stroke-width="3" stroke-linecap="round"/>
-                                                <!-- Curve 2 (Pink) -->
-                                                <path d="M28 74 C70 40, 120 72, 170 62 C210 54, 235 66, 260 46" stroke="#ff5f9e" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
-                                                <!-- Data points -->
-                                                <circle cx="110" cy="46" r="4.5" fill="#37d9ff"/>
-                                                <circle cx="185" cy="36" r="4.5" fill="#37d9ff"/>
-                                                <circle cx="260" cy="18" r="5" fill="#45e69d"/>
-                                                <text x="34" y="18" fill="#94a3b8" font-size="9" font-weight="700">Độ đa dạng loài (H')</text>
-                                                <text x="196" y="110" fill="#37d9ff" font-size="8.5" font-weight="700">● Có côn trùng S</text>
+                                            <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Biểu đồ minh họa biến động mật độ loài">
+                                                <rect width="280" height="120" rx="10" fill="#111A2E"/>
+                                                <line x1="28" y1="22" x2="262" y2="22" stroke="rgba(255,255,255,0.10)" stroke-dasharray="3 3"/>
+                                                <line x1="28" y1="58" x2="262" y2="58" stroke="rgba(255,255,255,0.10)" stroke-dasharray="3 3"/>
+                                                <line x1="28" y1="94" x2="262" y2="94" stroke="rgba(255,255,255,0.22)"/>
+                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18 L260 94 L28 94 Z" fill="url(#chartGrad1)" opacity="0.32"/>
+                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18" stroke="#55D5E8" stroke-width="2.8" stroke-linecap="round"/>
+                                                <path d="M28 74 C70 40, 120 72, 170 62 C210 54, 235 66, 260 46" stroke="#A78BFA" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round"/>
+                                                <circle cx="110" cy="46" r="4" fill="#55D5E8"/>
+                                                <circle cx="185" cy="36" r="4" fill="#55D5E8"/>
+                                                <circle cx="260" cy="18" r="4.5" fill="#48C99A"/>
+                                                <text x="34" y="18" fill="#A6B3C9" font-size="9" font-weight="700">Độ đa dạng loài (H')</text>
+                                                <text x="192" y="110" fill="#55D5E8" font-size="8.5" font-weight="700">● Có côn trùng S</text>
                                                 <defs>
                                                     <linearGradient id="chartGrad1" x1="0" y1="0" x2="0" y2="1">
-                                                        <stop offset="0%" stop-color="#37d9ff"/>
-                                                        <stop offset="100%" stop-color="#37d9ff" stop-opacity="0"/>
+                                                        <stop offset="0%" stop-color="#55D5E8"/>
+                                                        <stop offset="100%" stop-color="#55D5E8" stop-opacity="0"/>
                                                     </linearGradient>
                                                 </defs>
                                             </svg>
@@ -319,7 +444,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- Cột phải mô phỏng Câu hỏi 4 lựa chọn -->
+                                    <!-- Right Column: 4-Option Multiple Choice -->
                                     <div class="mock-question-col">
                                         <div class="mock-q-top">
                                             <span><strong>Câu 11</strong> / 25</span>
@@ -336,64 +461,124 @@
                                 </div>
                             </div>
 
-                            <!-- Các thẻ nổi (Floating Visual Badges) -->
+                            <!-- Floating Academic Highlights -->
                             <div class="floating-card floating-card-score glass-card">
-                                <div class="floating-svg-badge">
+                                <div class="floating-svg-badge" aria-hidden="true">
                                     <svg viewBox="0 0 36 36" width="34" height="34">
-                                        <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.12)" stroke-width="4" fill="none"/>
-                                        <circle cx="18" cy="18" r="15" stroke="#45e69d" stroke-width="4" stroke-dasharray="78 95" stroke-linecap="round" fill="none" transform="rotate(-90 18 18)"/>
+                                        <circle cx="18" cy="18" r="15" stroke="rgba(104,115,138,0.22)" stroke-width="4" fill="none"/>
+                                        <circle cx="18" cy="18" r="15" stroke="var(--color-success)" stroke-width="4" stroke-dasharray="78 95" stroke-linecap="round" fill="none" transform="rotate(-90 18 18)"/>
                                     </svg>
                                 </div>
                                 <span>
-                                    <small>Kết quả mục tiêu VSAT</small>
-                                    <strong>138.5 / 150 điểm</strong>
+                                    <small>Chấm điểm chuẩn hóa</small>
+                                    <strong>Lũy tiến &amp; Phân tích</strong>
                                 </span>
-                                <span class="trend-up">TOP 5%</span>
+                                <span class="trend-up">CHUẨN BỘ</span>
                             </div>
 
                             <div class="floating-card floating-card-streak glass-card">
-                                <span class="floating-icon">📷</span>
+                                <span class="floating-icon" aria-hidden="true">∑</span>
                                 <span>
-                                    <small>Hình ảnh & Công thức</small>
-                                    <strong>Phóng to HD & MathJax</strong>
+                                    <small>Công thức &amp; Hình ảnh</small>
+                                    <strong>MathJax LaTeX &amp; Zoom HD</strong>
                                 </span>
                             </div>
                         </div>
                     </div>
 
                     <!-- =========================================
-                         2. PHÂN KHU RÕ RÀNG 2 KỲ THI LỚN (VSAT & THPTQG)
+                         2. PERSONAL DASHBOARD & QUICK ACTIONS (REAL DATA)
+                    ========================================== -->
+                    <div id="homeDashboardSection" class="section-block dashboard-overview-block">
+                        <!-- Active Session Resume Banner (Populated dynamically if an unfinished session exists) -->
+                        <div id="homeResumeBanner" class="home-resume-banner hidden"></div>
+
+                        <div class="section-heading compact">
+                            <div>
+                                <span class="section-kicker">TIẾN ĐỘ HỌC TẬP CÁ NHÂN</span>
+                                <h2>Tổng quan kết quả &amp; Hoạt động gần đây</h2>
+                            </div>
+                            <div class="dashboard-quick-links">
+                                <button type="button" class="secondary-button small" data-action="open-library">📚 Mở kho đề</button>
+                                <button type="button" class="secondary-button small" data-action="open-history">📊 Xem toàn bộ thống kê →</button>
+                            </div>
+                        </div>
+
+                        <!-- Real User Metrics Grid -->
+                        <div class="dashboard-kpi-grid" id="homeUserStatsGrid">
+                            <div class="dashboard-kpi-card glass-card">
+                                <div class="kpi-card-top">
+                                    <span class="kpi-label">Số đề đã hoàn thành</span>
+                                    <span class="kpi-icon kpi-icon-blue" aria-hidden="true">📝</span>
+                                </div>
+                                <strong class="kpi-value" id="homeStatAttempts">0</strong>
+                                <span class="kpi-sub" id="homeStatAttemptsSub">Dữ liệu thực từ lịch sử làm bài</span>
+                            </div>
+
+                            <div class="dashboard-kpi-card glass-card">
+                                <div class="kpi-card-top">
+                                    <span class="kpi-label">Điểm cao nhất (VSAT)</span>
+                                    <span class="kpi-icon kpi-icon-purple" aria-hidden="true">🎯</span>
+                                </div>
+                                <strong class="kpi-value" id="homeStatBestVsat">—</strong>
+                                <span class="kpi-sub" id="homeStatAvgVsat">Thang điểm 150</span>
+                            </div>
+
+                            <div class="dashboard-kpi-card glass-card">
+                                <div class="kpi-card-top">
+                                    <span class="kpi-label">Điểm cao nhất (THPTQG)</span>
+                                    <span class="kpi-icon kpi-icon-cyan" aria-hidden="true">★</span>
+                                </div>
+                                <strong class="kpi-value" id="homeStatBestThpt">—</strong>
+                                <span class="kpi-sub" id="homeStatAvgThpt">Thang điểm 10</span>
+                            </div>
+
+                            <div class="dashboard-kpi-card glass-card">
+                                <div class="kpi-card-top">
+                                    <span class="kpi-label">Chuỗi ngày luyện tập</span>
+                                    <span class="kpi-icon kpi-icon-green" aria-hidden="true">🔥</span>
+                                </div>
+                                <strong class="kpi-value" id="homeStatStreak">0 ngày</strong>
+                                <span class="kpi-sub">Duy trì thói quen giải đề mỗi ngày</span>
+                            </div>
+                        </div>
+
+                        <!-- Recent Exam Attempts or New Learner Empty State (Rendered by JS from real data) -->
+                        <div id="homeRecentAttemptsBox" class="home-recent-attempts-box"></div>
+                    </div>
+
+                    <!-- =========================================
+                         3. EXAM PORTALS (VSAT & THPTQG)
                     ========================================== -->
                     <div id="examSelector" class="section-block">
                         <div class="section-heading">
                             <div>
                                 <span class="section-kicker">01 / CỔNG KHẢO THÍ TRỌNG ĐIỂM</span>
                                 <h2>Chọn kỳ thi mục tiêu của bạn</h2>
-                                <p class="section-subtext">Mỗi kỳ thi được thiết kế theo đúng ma trận đề, thời gian và công thức tính điểm chuẩn của Bộ GD&ĐT và các trường Đại học.</p>
+                                <p class="section-subtext">Mỗi kỳ thi được thiết kế theo đúng ma trận đề, thời lượng và công thức tính điểm chuẩn của Bộ GD&amp;ĐT và các trường Đại học.</p>
                             </div>
                         </div>
 
                         <div class="exam-portal-grid">
 
-                            <!-- CỔNG 1: KỲ THI VSAT -->
+                            <!-- PORTAL 1: VSAT -->
                             <article class="exam-portal-card portal-vsat glass-card">
                                 <div class="portal-illustration">
                                     <svg viewBox="0 0 400 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <rect width="400" height="130" fill="url(#vsatBannerGrad)"/>
-                                        <circle cx="340" cy="65" r="85" fill="rgba(124,92,255,0.18)"/>
-                                        <circle cx="340" cy="65" r="52" stroke="rgba(55,217,255,0.35)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                                        <!-- Graphic nodes -->
-                                        <rect x="26" y="24" width="128" height="32" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
-                                        <text x="40" y="44" fill="#fff" font-size="11" font-weight="800">✦ ĐÁNH GIÁ ĐẠI HỌC</text>
-                                        <path d="M250 95 L285 52 L320 74 L365 28" stroke="#37d9ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <circle cx="285" cy="52" r="5" fill="#fff"/>
-                                        <circle cx="320" cy="74" r="5" fill="#fff"/>
-                                        <circle cx="365" cy="28" r="6" fill="#45e69d"/>
+                                        <circle cx="340" cy="65" r="85" fill="rgba(255,255,255,0.08)"/>
+                                        <circle cx="340" cy="65" r="52" stroke="rgba(85,213,232,0.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                                        <rect x="26" y="24" width="142" height="30" rx="8" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.24)"/>
+                                        <text x="38" y="43" fill="#fff" font-size="10.5" font-weight="800" letter-spacing="0.06em">✦ ĐÁNH GIÁ ĐẠI HỌC</text>
+                                        <path d="M250 95 L285 52 L320 74 L365 28" stroke="#55D5E8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="285" cy="52" r="4.5" fill="#fff"/>
+                                        <circle cx="320" cy="74" r="4.5" fill="#fff"/>
+                                        <circle cx="365" cy="28" r="5.5" fill="#48C99A"/>
                                         <defs>
                                             <linearGradient id="vsatBannerGrad" x1="0" y1="0" x2="400" y2="130" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0%" stop-color="#2b1968"/>
-                                                <stop offset="55%" stop-color="#19234d"/>
-                                                <stop offset="100%" stop-color="#0f3156"/>
+                                                <stop offset="0%" stop-color="#233B91"/>
+                                                <stop offset="55%" stop-color="#2948BC"/>
+                                                <stop offset="100%" stop-color="#3457D5"/>
                                             </linearGradient>
                                         </defs>
                                     </svg>
@@ -406,7 +591,7 @@
                                             <span class="exam-kicker">KỲ THI ĐÁNH GIÁ ĐẦU VÀO ĐẠI HỌC</span>
                                             <h3>Kỳ thi V-SAT</h3>
                                         </div>
-                                        <div class="exam-logo">V</div>
+                                        <div class="exam-logo" aria-hidden="true">V</div>
                                     </div>
 
                                     <p class="portal-desc">
@@ -415,11 +600,11 @@
 
                                     <div class="portal-specs-grid">
                                         <div class="spec-box">
-                                            <span>Thời gian</span>
+                                            <span>Thời lượng</span>
                                             <strong>60 – 90 phút</strong>
                                         </div>
                                         <div class="spec-box">
-                                            <span>Số lượng câu</span>
+                                            <span>Cấu trúc đề</span>
                                             <strong>25 câu / 4 phần</strong>
                                         </div>
                                         <div class="spec-box">
@@ -428,12 +613,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="portal-subject-chips">
+                                    <div class="portal-subject-chips" aria-label="Chọn nhanh môn thi VSAT">
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="toan">∑ Toán</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="ly">⚛ Vật lý</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="hoa">◇ Hóa học</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="sinh">⌬ Sinh học</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="anh">A Tiếng Anh</button>
+                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="ngu_van">V Ngữ văn</button>
                                     </div>
 
                                     <button
@@ -442,30 +628,29 @@
                                         data-exam="vsat"
                                         data-action="select-exam"
                                     >
-                                        <span>Khám phá bộ đề V-SAT</span>
-                                        <span>→</span>
+                                        <span>Vào khu vực luyện thi V-SAT</span>
+                                        <span aria-hidden="true">→</span>
                                     </button>
                                 </div>
                             </article>
 
-                            <!-- CỔNG 2: KỲ THI THPT QUỐC GIA -->
+                            <!-- PORTAL 2: THPT QUOC GIA -->
                             <article class="exam-portal-card portal-thpt glass-card">
                                 <div class="portal-illustration">
                                     <svg viewBox="0 0 400 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <rect width="400" height="130" fill="url(#thptBannerGrad)"/>
-                                        <circle cx="335" cy="65" r="85" fill="rgba(55,217,255,0.15)"/>
-                                        <rect x="26" y="24" width="142" height="32" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
-                                        <text x="40" y="44" fill="#fff" font-size="11" font-weight="800">★ CHƯƠNG TRÌNH GDPT MỚI</text>
-                                        <!-- Bar chart illustration -->
-                                        <rect x="260" y="68" width="18" height="38" rx="4" fill="rgba(255,255,255,0.25)"/>
-                                        <rect x="288" y="50" width="18" height="56" rx="4" fill="#37d9ff"/>
-                                        <rect x="316" y="34" width="18" height="72" rx="4" fill="#45e69d"/>
-                                        <rect x="344" y="20" width="18" height="86" rx="4" fill="#ffb84d"/>
+                                        <circle cx="335" cy="65" r="85" fill="rgba(34,184,207,0.16)"/>
+                                        <rect x="26" y="24" width="154" height="30" rx="8" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.24)"/>
+                                        <text x="38" y="43" fill="#fff" font-size="10.5" font-weight="800" letter-spacing="0.06em">★ CHƯƠNG TRÌNH GDPT MỚI</text>
+                                        <rect x="260" y="68" width="18" height="38" rx="4" fill="rgba(255,255,255,0.28)"/>
+                                        <rect x="288" y="50" width="18" height="56" rx="4" fill="#55D5E8"/>
+                                        <rect x="316" y="34" width="18" height="72" rx="4" fill="#48C99A"/>
+                                        <rect x="344" y="20" width="18" height="86" rx="4" fill="#F3BE55"/>
                                         <defs>
                                             <linearGradient id="thptBannerGrad" x1="0" y1="0" x2="400" y2="130" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0%" stop-color="#0f3854"/>
-                                                <stop offset="55%" stop-color="#14284b"/>
-                                                <stop offset="100%" stop-color="#2c1b4e"/>
+                                                <stop offset="0%" stop-color="#1E3278"/>
+                                                <stop offset="52%" stop-color="#4A3FB5"/>
+                                                <stop offset="100%" stop-color="#7557D5"/>
                                             </linearGradient>
                                         </defs>
                                     </svg>
@@ -478,7 +663,7 @@
                                             <span class="exam-kicker">KỲ THI TỐT NGHIỆP THPT QUỐC GIA</span>
                                             <h3>Kỳ thi THPTQG</h3>
                                         </div>
-                                        <div class="exam-logo logo-cyan">T</div>
+                                        <div class="exam-logo logo-cyan" aria-hidden="true">T</div>
                                     </div>
 
                                     <p class="portal-desc">
@@ -487,7 +672,7 @@
 
                                     <div class="portal-specs-grid">
                                         <div class="spec-box">
-                                            <span>Thời gian</span>
+                                            <span>Thời lượng</span>
                                             <strong>50 – 90 phút</strong>
                                         </div>
                                         <div class="spec-box">
@@ -500,12 +685,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="portal-subject-chips">
+                                    <div class="portal-subject-chips" aria-label="Chọn nhanh môn thi THPTQG">
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="toan">∑ Toán</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="ly">⚡ Vật lý</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="hoa">⚗ Hóa học</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="sinh">⌬ Sinh học</button>
                                         <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="tieng_anh">A Tiếng Anh</button>
+                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">V Ngữ văn</button>
                                     </div>
 
                                     <button
@@ -514,8 +700,8 @@
                                         data-exam="thptqg"
                                         data-action="select-exam"
                                     >
-                                        <span>Khám phá bộ đề THPTQG</span>
-                                        <span>→</span>
+                                        <span>Vào khu vực luyện thi THPTQG</span>
+                                        <span aria-hidden="true">→</span>
                                     </button>
                                 </div>
                             </article>
@@ -523,106 +709,177 @@
                     </div>
 
                     <!-- =========================================
-                         3. GIỚI THIỆU TRỰC QUAN 4 DẠNG CÂU HỎI SỐNG ĐỘNG
+                         4. SUBJECT SHOWCASE GRID
                     ========================================== -->
                     <div class="section-block">
                         <div class="section-heading">
                             <div>
-                                <span class="section-kicker">02 / CÔNG NGHỆ KHẢO THÍ TRỰC QUAN</span>
-                                <h2>4 dạng thức câu hỏi tương tác sống động</h2>
-                                <p class="section-subtext">Được thiết kế tối ưu cho việc đọc hiểu văn bản khoa học, quan sát đồ thị và tính toán nhanh ngay trên màn hình.</p>
+                                <span class="section-kicker">02 / NGÂN HÀNG ĐỀ THEO MÔN HỌC</span>
+                                <h2>Chọn nhanh môn học mục tiêu</h2>
+                                <p class="section-subtext">Chọn môn học bên dưới để xem danh sách đề từ manifest và bắt đầu làm bài ngay.</p>
+                            </div>
+                            <button type="button" class="secondary-button small" data-action="open-library">Xem tất cả trong Kho đề →</button>
+                        </div>
+
+                        <div class="home-subjects-showcase">
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#3457D5" data-action="choose-subject" data-exam="vsat" data-subject="toan">
+                                <div class="tile-icon-wrap" aria-hidden="true">∑</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">TƯ DUY ĐỊNH LƯỢNG</span>
+                                    <h3>Toán học</h3>
+                                    <p>Giải tích, hình học Oxyz, xác suất thống kê &amp; bài toán thực tiễn.</p>
+                                    <div class="tile-meta"><span>◷ 90 phút</span><span data-subject-count="vsat:toan">Chọn đề →</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#16865C" data-action="choose-subject" data-exam="vsat" data-subject="sinh">
+                                <div class="tile-icon-wrap" aria-hidden="true">⌬</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">KHOA HỌC SỰ SỐNG</span>
+                                    <h3>Sinh học</h3>
+                                    <p>Sinh học tế bào, di truyền phân tử, quần thể, sinh thái &amp; thí nghiệm đọc hiểu.</p>
+                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:sinh">Chọn đề →</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#22B8CF" data-action="choose-subject" data-exam="vsat" data-subject="hoa">
+                                <div class="tile-icon-wrap" aria-hidden="true">◇</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">THỰC NGHIỆM &amp; PHÂN TỬ</span>
+                                    <h3>Hóa học</h3>
+                                    <p>Hóa hữu cơ, este-lipit, điện phân, chuẩn độ &amp; ngữ liệu thực nghiệm.</p>
+                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:hoa">Chọn đề →</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#7557D5" data-action="choose-subject" data-exam="vsat" data-subject="ly">
+                                <div class="tile-icon-wrap" aria-hidden="true">⚛</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">KHOA HỌC TỰ NHIÊN</span>
+                                    <h3>Vật lý</h3>
+                                    <p>Dao động cơ, sóng, dòng điện xoay chiều, nhiệt học &amp; vật lý hạt nhân.</p>
+                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:ly">Chọn đề →</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#D99116" data-action="choose-subject" data-exam="vsat" data-subject="anh">
+                                <div class="tile-icon-wrap" aria-hidden="true">A</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">NGÔN NGỮ QUỐC TẾ</span>
+                                    <h3>Tiếng Anh</h3>
+                                    <p>Đọc hiểu đoạn văn học thuật, từ vựng ngữ cảnh &amp; cấu trúc ngữ pháp.</p>
+                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:anh">Chọn đề →</span></div>
+                                </div>
+                            </button>
+
+                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#233B91" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">
+                                <div class="tile-icon-wrap" aria-hidden="true">V</div>
+                                <div class="tile-body">
+                                    <span class="tile-kicker">ĐỌC HIỂU &amp; VĂN HỌC</span>
+                                    <h3>Ngữ văn</h3>
+                                    <p>Đọc hiểu ngữ liệu ngoài sách giáo khoa, tiếng Việt &amp; tư duy văn học.</p>
+                                    <div class="tile-meta"><span>◷ 90 phút</span><span data-subject-count="thptqg:ngu_van">Chọn đề →</span></div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- =========================================
+                         5. 4 INTERACTIVE QUESTION FORMATS
+                    ========================================== -->
+                    <div class="section-block">
+                        <div class="section-heading">
+                            <div>
+                                <span class="section-kicker">03 / ĐỊNH DẠNG KHẢO THÍ HIỆN ĐẠI</span>
+                                <h2>4 dạng thức câu hỏi tương tác chuẩn hóa</h2>
+                                <p class="section-subtext">Tối ưu cho việc đọc hiểu văn bản khoa học, quan sát đồ thị và tính toán chính xác trên máy tính lẫn điện thoại.</p>
                             </div>
                         </div>
 
                         <div class="visual-format-grid">
-                            <!-- Card 1: Đọc ngữ liệu -->
                             <article class="visual-format-card glass-card">
-                                <div class="format-art">
+                                <div class="format-art" aria-hidden="true">
                                     <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(55,217,255,0.07)"/>
-                                        <rect x="14" y="14" width="112" height="82" rx="8" fill="rgba(55,217,255,0.14)" stroke="rgba(55,217,255,0.4)"/>
-                                        <rect x="22" y="24" width="68" height="7" rx="3.5" fill="#37d9ff"/>
-                                        <rect x="22" y="37" width="94" height="5" rx="2.5" fill="rgba(255,255,255,0.35)"/>
-                                        <rect x="22" y="47" width="86" height="5" rx="2.5" fill="rgba(255,255,255,0.35)"/>
-                                        <rect x="22" y="59" width="94" height="28" rx="5" fill="rgba(15,23,42,0.55)"/>
-                                        <path d="M28 80 L48 67 L68 74 L92 63 L110 70" stroke="#45e69d" stroke-width="2" stroke-linecap="round"/>
-                                        <!-- Right side MCQ -->
-                                        <rect x="134" y="14" width="112" height="82" rx="8" fill="rgba(124,92,255,0.12)" stroke="rgba(124,92,255,0.35)"/>
-                                        <rect x="142" y="24" width="96" height="11" rx="4" fill="rgba(255,255,255,0.12)"/>
-                                        <rect x="142" y="41" width="96" height="11" rx="4" fill="rgba(69,230,157,0.28)" stroke="#45e69d"/>
-                                        <rect x="142" y="58" width="96" height="11" rx="4" fill="rgba(255,255,255,0.12)"/>
-                                        <rect x="142" y="75" width="96" height="11" rx="4" fill="rgba(255,255,255,0.12)"/>
+                                        <rect width="260" height="110" rx="12" fill="rgba(34,184,207,0.08)"/>
+                                        <rect x="14" y="14" width="112" height="82" rx="8" fill="rgba(34,184,207,0.14)" stroke="rgba(34,184,207,0.4)"/>
+                                        <rect x="22" y="24" width="68" height="7" rx="3.5" fill="#22B8CF"/>
+                                        <rect x="22" y="37" width="94" height="5" rx="2.5" fill="rgba(104,115,138,0.45)"/>
+                                        <rect x="22" y="47" width="86" height="5" rx="2.5" fill="rgba(104,115,138,0.45)"/>
+                                        <rect x="22" y="59" width="94" height="28" rx="5" fill="#111A2E"/>
+                                        <path d="M28 80 L48 67 L68 74 L92 63 L110 70" stroke="#48C99A" stroke-width="2" stroke-linecap="round"/>
+                                        <rect x="134" y="14" width="112" height="82" rx="8" fill="rgba(52,87,213,0.10)" stroke="rgba(52,87,213,0.35)"/>
+                                        <rect x="142" y="24" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
+                                        <rect x="142" y="41" width="96" height="11" rx="4" fill="rgba(22,134,92,0.22)" stroke="#16865C"/>
+                                        <rect x="142" y="58" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
+                                        <rect x="142" y="75" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
                                     </svg>
                                 </div>
                                 <div class="format-info">
-                                    <span class="format-tag tag-cyan">DẠNG ĐẶC BIỆT · CÂU X ĐẾN CÂU Y</span>
-                                    <h3>Đọc ngữ liệu & Trắc nghiệm 4 lựa chọn</h3>
-                                    <p>Hiển thị đoạn văn bản, sơ đồ thí nghiệm dùng chung cho một cụm câu hỏi (VD: Câu 10 → Câu 12) với chế độ chia đôi màn hình thông minh.</p>
+                                    <span class="format-tag tag-cyan">CỤM CÂU X ĐẾN CÂU Y</span>
+                                    <h3>Đọc ngữ liệu &amp; Trắc nghiệm 4 lựa chọn</h3>
+                                    <p>Hiển thị đoạn văn bản, sơ đồ thí nghiệm dùng chung cho một cụm câu hỏi (VD: Câu 10 → Câu 12) với chế độ chia đôi màn hình.</p>
                                 </div>
                             </article>
 
-                            <!-- Card 2: Đúng / Sai 4 mệnh đề -->
                             <article class="visual-format-card glass-card">
-                                <div class="format-art">
+                                <div class="format-art" aria-hidden="true">
                                     <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(69,230,157,0.06)"/>
-                                        <rect x="16" y="16" width="228" height="22" rx="6" fill="rgba(255,255,255,0.06)"/>
-                                        <circle cx="28" cy="27" r="6" fill="#7c5cff"/><text x="25.5" y="30" fill="#fff" font-size="8" font-weight="700">a</text>
-                                        <rect x="42" y="24" width="110" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
-                                        <rect x="172" y="19" width="32" height="16" rx="5" fill="#45e69d"/><text x="179" y="30" fill="#062315" font-size="8" font-weight="800">Đúng</text>
-                                        <rect x="208" y="19" width="30" height="16" rx="5" fill="rgba(255,255,255,0.1)"/>
+                                        <rect width="260" height="110" rx="12" fill="rgba(22,134,92,0.08)"/>
+                                        <rect x="16" y="18" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
+                                        <circle cx="28" cy="29" r="6" fill="#3457D5"/><text x="25.5" y="32" fill="#fff" font-size="8" font-weight="700">a</text>
+                                        <rect x="42" y="26" width="110" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
+                                        <rect x="172" y="21" width="32" height="16" rx="5" fill="#16865C"/><text x="178" y="32" fill="#fff" font-size="7.5" font-weight="800">Đúng</text>
+                                        <rect x="208" y="21" width="30" height="16" rx="5" fill="rgba(104,115,138,0.2)"/>
 
-                                        <rect x="16" y="44" width="228" height="22" rx="6" fill="rgba(255,255,255,0.06)"/>
-                                        <circle cx="28" cy="55" r="6" fill="#7c5cff"/><text x="25.5" y="58" fill="#fff" font-size="8" font-weight="700">b</text>
-                                        <rect x="42" y="52" width="96" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
-                                        <rect x="172" y="47" width="32" height="16" rx="5" fill="rgba(255,255,255,0.1)"/>
-                                        <rect x="208" y="47" width="30" height="16" rx="5" fill="#ff5878"/><text x="216" y="58" fill="#fff" font-size="8" font-weight="800">Sai</text>
+                                        <rect x="16" y="46" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
+                                        <circle cx="28" cy="57" r="6" fill="#3457D5"/><text x="25.5" y="60" fill="#fff" font-size="8" font-weight="700">b</text>
+                                        <rect x="42" y="54" width="96" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
+                                        <rect x="172" y="49" width="32" height="16" rx="5" fill="rgba(104,115,138,0.2)"/>
+                                        <rect x="208" y="49" width="30" height="16" rx="5" fill="#D94343"/><text x="216" y="60" fill="#fff" font-size="7.5" font-weight="800">Sai</text>
 
-                                        <rect x="16" y="72" width="228" height="22" rx="6" fill="rgba(255,255,255,0.06)"/>
-                                        <circle cx="28" cy="83" r="6" fill="#7c5cff"/><text x="25.5" y="86" fill="#fff" font-size="8" font-weight="700">c</text>
-                                        <rect x="42" y="80" width="115" height="6" rx="3" fill="rgba(255,255,255,0.4)"/>
-                                        <rect x="172" y="75" width="32" height="16" rx="5" fill="#45e69d"/><text x="179" y="86" fill="#062315" font-size="8" font-weight="800">Đúng</text>
+                                        <rect x="16" y="74" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
+                                        <circle cx="28" cy="85" r="6" fill="#3457D5"/><text x="25.5" y="88" fill="#fff" font-size="8" font-weight="700">c</text>
+                                        <rect x="42" y="82" width="115" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
+                                        <rect x="172" y="77" width="32" height="16" rx="5" fill="#16865C"/><text x="178" y="88" fill="#fff" font-size="7.5" font-weight="800">Đúng</text>
                                     </svg>
                                 </div>
                                 <div class="format-info">
                                     <span class="format-tag tag-green">CHẤM ĐIỂM LŨY TIẾN</span>
                                     <h3>Trắc nghiệm Đúng / Sai (4 ý a, b, c, d)</h3>
-                                    <p>Đánh giá khả năng phân tích toàn diện từng mệnh đề. Hệ thống tự động tính điểm lũy tiến theo số mệnh đề trả lời đúng (1, 2, 3 hoặc cả 4 ý).</p>
+                                    <p>Đánh giá khả năng phân tích từng mệnh đề. Hệ thống tự động tính điểm lũy tiến theo số mệnh đề trả lời đúng (1, 2, 3 hoặc cả 4 ý).</p>
                                 </div>
                             </article>
 
-                            <!-- Card 3: Ghép hợp -->
                             <article class="visual-format-card glass-card">
-                                <div class="format-art">
+                                <div class="format-art" aria-hidden="true">
                                     <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(124,92,255,0.07)"/>
-                                        <rect x="18" y="18" width="78" height="22" rx="6" fill="rgba(124,92,255,0.25)" stroke="#7c5cff"/>
-                                        <rect x="18" y="46" width="78" height="22" rx="6" fill="rgba(55,217,255,0.2)" stroke="#37d9ff"/>
-                                        <rect x="18" y="74" width="78" height="22" rx="6" fill="rgba(255,95,158,0.2)" stroke="#ff5f9e"/>
-                                        <rect x="164" y="18" width="78" height="22" rx="6" fill="rgba(255,255,255,0.1)"/>
-                                        <rect x="164" y="46" width="78" height="22" rx="6" fill="rgba(255,255,255,0.1)"/>
-                                        <rect x="164" y="74" width="78" height="22" rx="6" fill="rgba(255,255,255,0.1)"/>
-                                        <path d="M96 29 C128 29, 132 57, 164 57" stroke="#7c5cff" stroke-width="2.5"/>
-                                        <path d="M96 57 C128 57, 132 85, 164 85" stroke="#37d9ff" stroke-width="2.5"/>
-                                        <path d="M96 85 C128 85, 132 29, 164 29" stroke="#ff5f9e" stroke-width="2.5"/>
+                                        <rect width="260" height="110" rx="12" fill="rgba(117,87,213,0.08)"/>
+                                        <rect x="18" y="18" width="78" height="22" rx="6" fill="rgba(52,87,213,0.18)" stroke="#3457D5"/>
+                                        <rect x="18" y="46" width="78" height="22" rx="6" fill="rgba(34,184,207,0.18)" stroke="#22B8CF"/>
+                                        <rect x="18" y="74" width="78" height="22" rx="6" fill="rgba(117,87,213,0.18)" stroke="#7557D5"/>
+                                        <rect x="164" y="18" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
+                                        <rect x="164" y="46" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
+                                        <rect x="164" y="74" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
+                                        <path d="M96 29 C128 29, 132 57, 164 57" stroke="#3457D5" stroke-width="2.2"/>
+                                        <path d="M96 57 C128 57, 132 85, 164 85" stroke="#22B8CF" stroke-width="2.2"/>
+                                        <path d="M96 85 C128 85, 132 29, 164 29" stroke="#7557D5" stroke-width="2.2"/>
                                     </svg>
                                 </div>
                                 <div class="format-info">
                                     <span class="format-tag tag-purple">TƯ DUY LIÊN KẾT</span>
                                     <h3>Trắc nghiệm Ghép hợp (Matching)</h3>
-                                    <p>Ghép nối chính xác từng khái niệm, quá trình sinh hóa hoặc công thức ở cột trái với các phương án tương ứng ở cột phải (mỗi ý đúng 1.5 điểm).</p>
+                                    <p>Ghép nối chính xác từng khái niệm, quá trình sinh hóa hoặc công thức ở Cột I với các phương án tương ứng ở Cột II.</p>
                                 </div>
                             </article>
 
-                            <!-- Card 4: Trả lời ngắn -->
                             <article class="visual-format-card glass-card">
-                                <div class="format-art">
+                                <div class="format-art" aria-hidden="true">
                                     <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(255,184,77,0.07)"/>
-                                        <rect x="24" y="28" width="212" height="54" rx="12" fill="rgba(15,23,42,0.75)" stroke="#ffb84d" stroke-width="1.8"/>
-                                        <text x="42" y="61" fill="#ffb84d" font-size="22" font-family="monospace" font-weight="800">13.33</text>
-                                        <rect x="162" y="40" width="60" height="30" rx="8" fill="#45e69d"/>
-                                        <text x="174" y="59" fill="#052114" font-size="10" font-weight="800">✓ ĐÚNG</text>
+                                        <rect width="260" height="110" rx="12" fill="rgba(217,145,22,0.08)"/>
+                                        <rect x="24" y="28" width="212" height="54" rx="12" fill="#111A2E" stroke="#D99116" stroke-width="1.8"/>
+                                        <text x="42" y="61" fill="#F3BE55" font-size="21" font-family="monospace" font-weight="800">13.33</text>
+                                        <rect x="162" y="40" width="60" height="30" rx="8" fill="#16865C"/>
+                                        <text x="172" y="59" fill="#ffffff" font-size="10" font-weight="800">✓ ĐÚNG</text>
                                     </svg>
                                 </div>
                                 <div class="format-info">
@@ -635,163 +892,55 @@
                     </div>
 
                     <!-- =========================================
-                         4. HỆ SINH THÁI 6 MÔN HỌC CHUYÊN SÂU
-                    ========================================== -->
-                    <div class="section-block">
-                        <div class="section-heading">
-                            <div>
-                                <span class="section-kicker">03 / NGÂN HÀNG ĐỀ THEO MÔN HỌC</span>
-                                <h2>Chọn nhanh môn học yêu thích</h2>
-                                <p class="section-subtext">Bấm vào bất kỳ môn học nào bên dưới để xem danh sách đề thi thật và bắt đầu luyện tập ngay.</p>
-                            </div>
-                        </div>
-
-                        <div class="home-subjects-showcase">
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#7c5cff" data-action="choose-subject" data-exam="vsat" data-subject="toan">
-                                <div class="tile-icon-wrap">∑</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">TƯ DUY ĐỊNH LƯỢNG</span>
-                                    <h3>Toán học</h3>
-                                    <p>Giải tích, hình học Oxyz, xác suất thống kê & bài toán thực tế.</p>
-                                    <div class="tile-meta"><span>◷ 90 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#ff5f9e" data-action="choose-subject" data-exam="vsat" data-subject="sinh">
-                                <div class="tile-icon-wrap">⌬</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">KHOA HỌC SỰ SỐNG</span>
-                                    <h3>Sinh học</h3>
-                                    <p>Sinh học tế bào, di truyền phân tử, quần thể, sinh thái & thí nghiệm đọc hiểu.</p>
-                                    <div class="tile-meta"><span>◷ 50–60 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#45e69d" data-action="choose-subject" data-exam="vsat" data-subject="hoa">
-                                <div class="tile-icon-wrap">◇</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">THỰC NGHIỆM & PHÂN TỬ</span>
-                                    <h3>Hóa học</h3>
-                                    <p>Hóa hữu cơ, este-lipit, điện phân, chuẩn độ & ngữ liệu thực nghiệm.</p>
-                                    <div class="tile-meta"><span>◷ 50–60 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#37d9ff" data-action="choose-subject" data-exam="vsat" data-subject="ly">
-                                <div class="tile-icon-wrap">⚛</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">KHOA HỌC TỰ NHIÊN</span>
-                                    <h3>Vật lý</h3>
-                                    <p>Dao động cơ, sóng, dòng điện xoay chiều, nhiệt học & vật lý hạt nhân.</p>
-                                    <div class="tile-meta"><span>◷ 50–60 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#ffb84d" data-action="choose-subject" data-exam="vsat" data-subject="anh">
-                                <div class="tile-icon-wrap">A</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">NGÔN NGỮ QUỐC TẾ</span>
-                                    <h3>Tiếng Anh</h3>
-                                    <p>Đọc hiểu đoạn văn học thuật, từ vựng ngữ cảnh & cấu trúc ngữ pháp.</p>
-                                    <div class="tile-meta"><span>◷ 50–60 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#a98cff" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">
-                                <div class="tile-icon-wrap">V</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">ĐỌC HIỂU & VĂN HỌC</span>
-                                    <h3>Ngữ văn</h3>
-                                    <p>Đọc hiểu ngữ liệu ngoài sách giáo khoa, tiếng Việt & tư duy văn học.</p>
-                                    <div class="tile-meta"><span>◷ 90 phút</span><span>→ Chọn đề ngay</span></div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- =========================================
-                         5. QUY TRÌNH 4 BƯỚC & TÍNH NĂNG ADMIN STUDIO
-                    ========================================== -->
-                    <div class="section-block">
-                        <div class="section-heading compact">
-                            <div>
-                                <span class="section-kicker">04 / LỘ TRÌNH THÔNG MINH</span>
-                                <h2>4 bước luyện đề & quản trị khép kín trên Web</h2>
-                            </div>
-                        </div>
-
-                        <div class="workflow-steps-grid">
-                            <article class="workflow-step-card glass-card">
-                                <div class="step-num-badge">01</div>
-                                <h3>Chọn đề nguyên bản hoặc Trộn đề</h3>
-                                <p>Làm bài theo đúng mã đề chuẩn hoặc để hệ thống trộn ngẫu nhiên từ ngân hàng câu hỏi mà vẫn giữ nguyên các cụm câu đọc ngữ liệu.</p>
-                            </article>
-
-                            <article class="workflow-step-card glass-card">
-                                <div class="step-num-badge">02</div>
-                                <h3>Đọc ngữ liệu & Phóng to hình ảnh</h3>
-                                <p>Quan sát văn bản ngữ liệu song song với câu hỏi trắc nghiệm (từ câu X đến câu Y), bấm vào hình ảnh bất kỳ để phóng to độ nét cao.</p>
-                            </article>
-
-                            <article class="workflow-step-card glass-card">
-                                <div class="step-num-badge">03</div>
-                                <h3>Chấm điểm & Phân tích tức thì</h3>
-                                <p>Tự động chấm điểm ngay khi nộp bài, thống kê tỷ lệ đúng theo từng phần và hiển thị đáp án đối chiếu kèm lời giải chi tiết.</p>
-                            </article>
-
-                            <article class="workflow-step-card glass-card">
-                                <div class="step-num-badge">04</div>
-                                <h3>Admin sửa đề trực tiếp trên Web</h3>
-                                <p>Tài khoản Admin có thể tạo đề mới, tải ảnh cho từng câu hỏi và sửa trực tiếp mọi đề thi trên trình duyệt mà không cần sửa file JSON trên GitHub.</p>
-                            </article>
-                        </div>
-                    </div>
-
-                    <!-- =========================================
-                         6. FOOTER ĐA CỘT CHUẨN WEB LỚN
+                         6. FOOTER
                     ========================================== -->
                     <footer class="enterprise-footer glass-card">
                         <div class="footer-grid">
                             <div class="footer-brand-col">
                                 <div class="brand" style="pointer-events:none;margin-bottom:12px;">
-                                    <span class="brand-mark">
-                                        <span class="brand-mark-icon">✦</span>
+                                    <span class="brand-mark" aria-hidden="true">
+                                        <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none">
+                                            <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.14)"/>
+                                            <path d="M10.5 16.5L14.2 20.2L22 12.2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
                                     </span>
                                     <span class="brand-text">
                                         <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
                                         <small>VSAT × THPTQG PLATFORM</small>
                                     </span>
                                 </div>
-                                <p>Nền tảng luyện đề Đánh giá năng lực V-SAT và Tốt nghiệp THPT Quốc Gia trực quan, hỗ trợ đọc ngữ liệu song song và quản trị đề thi trực tuyến.</p>
+                                <p>Nền tảng luyện đề Đánh giá năng lực V-SAT và Tốt nghiệp THPT Quốc Gia chuyên sâu, hỗ trợ đọc ngữ liệu song song và quản trị đề thi trực tuyến.</p>
                             </div>
 
                             <div class="footer-links-col">
                                 <h4>Kỳ thi trọng điểm</h4>
-                                <button type="button" data-action="select-exam" data-exam="vsat">Luyện đề V-SAT (150 điểm)</button>
-                                <button type="button" data-action="select-exam" data-exam="thptqg">Luyện đề THPTQG (10 điểm)</button>
+                                <button type="button" data-action="select-exam" data-exam="vsat">Kỳ thi V-SAT (Thang 150 điểm)</button>
+                                <button type="button" data-action="select-exam" data-exam="thptqg">Kỳ thi THPTQG (Thang 10 điểm)</button>
                                 <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="sinh">Đề V-SAT Sinh học</button>
                                 <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="hoa">Đề V-SAT Hóa học</button>
+                                <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="toan">Đề V-SAT Toán học</button>
                             </div>
 
                             <div class="footer-links-col">
                                 <h4>Tiện ích học tập</h4>
-                                <button type="button" data-action="open-exams">Phòng thi thử trực tuyến</button>
-                                <button type="button" data-action="open-history">Lịch sử & Thống kê điểm</button>
-                                <button type="button" data-action="open-guide">Hướng dẫn sử dụng</button>
+                                <button type="button" data-action="open-library">Kho đề thi chuẩn hóa</button>
+                                <button type="button" data-action="open-history">Thống kê kết quả học tập</button>
+                                <button type="button" data-action="open-leaderboard">Bảng xếp hạng kỷ lục</button>
+                                <button type="button" data-action="open-guide">Cẩm nang hướng dẫn làm bài</button>
                                 <button type="button" data-action="toggle-theme">Chuyển chế độ Sáng / Tối</button>
                             </div>
                         </div>
 
                         <div class="footer-bottom-bar">
-                            <div>© <span id="currentYear"></span> <strong>Blouse Exam Pro</strong> · Thiết kế tối ưu cho trải nghiệm luyện thi chuyên sâu.</div>
-                            <div>Hỗ trợ MathJax LaTeX · Cloud PostgreSQL · Responsive UI</div>
+                            <div>© <span id="currentYear"></span> <strong>Blouse Exam Pro</strong> · Modern Academic Premium EdTech Platform.</div>
+                            <div>MathJax LaTeX · Cloud PostgreSQL · Responsive Design</div>
                         </div>
                     </footer>
                 </div>
             </section>
 
             <!-- =================================================
-                 SCREEN 2 — EXAM / SUBJECT & PAPER SELECTOR
+                 SCREEN 2 — EXAM & SUBJECT SELECTION
             ================================================== -->
             <section
                 id="examSelectionScreen"
@@ -806,63 +955,205 @@
                             type="button"
                             data-action="go-home"
                         >
-                            ← Trang chủ
+                            ← Về tổng quan
                         </button>
 
-                        <div class="selection-breadcrumb">
-                            <span id="selectedExamBreadcrumb">VSAT</span>
-                            <span>/</span>
-                            <span>Chọn môn & Đề thi</span>
+                        <nav class="selection-breadcrumb" aria-label="Breadcrumb">
+                            <span>Thi thử</span>
+                            <span aria-hidden="true">/</span>
+                            <strong id="selectedExamBreadcrumb">VSAT</strong>
+                            <span aria-hidden="true">/</span>
+                            <span>Chọn môn &amp; Đề thi</span>
+                        </nav>
+                    </div>
+
+                    <!-- Two Interactive Exam Selection Cards (VSAT & THPTQG) -->
+                    <div class="exam-choice-banner-grid" role="region" aria-label="Chọn kỳ thi">
+                        <div
+                            id="switchVsatBtn"
+                            class="exam-choice-card is-active"
+                            role="button"
+                            tabindex="0"
+                            data-action="select-exam"
+                            data-exam="vsat"
+                            aria-label="Chọn kỳ thi V-SAT (Thang điểm 150)"
+                        >
+                            <div class="exam-choice-card-head">
+                                <span class="exam-choice-badge">THANG ĐIỂM 150</span>
+                                <span class="exam-choice-check" aria-hidden="true">✓ Đang chọn</span>
+                            </div>
+                            <h3>Kỳ thi Đánh giá ĐH V-SAT</h3>
+                            <p>25 câu hỏi / 4 phần: Đúng/Sai, Trắc nghiệm đọc ngữ liệu (Câu 10–15), Ghép hợp và Trả lời ngắn.</p>
+                            <div class="exam-choice-footer">
+                                <span>6 môn học độc lập</span>
+                                <span class="exam-choice-cta">Chọn kỳ thi VSAT →</span>
+                            </div>
+                        </div>
+
+                        <div
+                            id="switchThptBtn"
+                            class="exam-choice-card"
+                            role="button"
+                            tabindex="0"
+                            data-action="select-exam"
+                            data-exam="thptqg"
+                            aria-label="Chọn kỳ thi Tốt nghiệp THPT Quốc Gia (Thang điểm 10)"
+                        >
+                            <div class="exam-choice-card-head">
+                                <span class="exam-choice-badge badge-purple">THANG ĐIỂM 10</span>
+                                <span class="exam-choice-check" aria-hidden="true">✓ Đang chọn</span>
+                            </div>
+                            <h3>Kỳ thi Tốt nghiệp THPTQG</h3>
+                            <p>Cấu trúc GDPT mới gồm 3 phần: Trắc nghiệm 4 lựa chọn, Đúng/Sai lũy tiến 4 ý và Trả lời ngắn.</p>
+                            <div class="exam-choice-footer">
+                                <span>6 môn học chuẩn Bộ</span>
+                                <span class="exam-choice-cta">Chọn kỳ thi THPTQG →</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="selection-hero glass-card" style="padding:26px 28px;border-radius:24px;margin-bottom:26px;">
+                    <div class="selection-hero glass-card">
                         <div>
-                            <span class="section-kicker">BƯỚC 1 / CHỌN KỲ THI & MÔN HỌC</span>
-                            <h1 id="selectionTitle" style="margin:6px 0 8px;">
-                                Chọn môn để bắt đầu
-                            </h1>
-                            <p id="selectionDescription" style="margin:0;">
-                                Chọn môn học bên dưới để mở thư viện đề thi cụ thể hoặc tạo đề trộn ngẫu nhiên.
+                            <span class="section-kicker">BƯỚC 1 / CHỌN MÔN HỌC</span>
+                            <h1 id="selectionTitle">Chọn môn để bắt đầu</h1>
+                            <p id="selectionDescription">
+                                Chọn môn học bên dưới để mở danh sách đề thi thật từ manifest hoặc tạo đề trộn ngẫu nhiên.
                             </p>
                         </div>
 
                         <div class="selection-hero-right">
-                            <div class="exam-switch-pills glass-card">
-                                <button type="button" class="exam-switch-pill" data-action="select-exam" data-exam="vsat" id="switchVsatBtn">Kỳ thi VSAT</button>
-                                <button type="button" class="exam-switch-pill" data-action="select-exam" data-exam="thptqg" id="switchThptBtn">Kỳ thi THPTQG</button>
-                            </div>
-                            <div class="selection-summary glass-card">
-                                <span>Đang chọn</span>
+                            <div class="selection-summary">
+                                <span>Kỳ thi đang chọn</span>
                                 <strong id="selectionExamName">VSAT</strong>
                             </div>
+                            <button type="button" class="secondary-button" data-action="open-library">
+                                📚 Mở Kho đề tổng hợp
+                            </button>
                         </div>
                     </div>
 
-                    <!-- JS render các môn vào đây -->
+                    <!-- Subject Cards Grid (Rendered by JS) -->
                     <div
                         id="subjectGrid"
                         class="subject-grid"
                         aria-live="polite"
                     ></div>
 
-                    <!-- Khung danh sách đề của môn đang chọn -->
+                    <!-- Subject Papers Picker (Rendered by JS when a subject is chosen) -->
                     <div id="subjectPapersContainer" class="subject-papers-container hidden"></div>
 
-                    <!-- Fallback nếu JS chưa load -->
+                    <!-- Loading State -->
                     <div
                         id="subjectLoading"
                         class="empty-state glass-card hidden"
                     >
-                        <div class="loading-orb"></div>
-                        <h3>Đang tải danh sách môn...</h3>
-                        <p>Hệ thống đang khởi tạo ngân hàng câu hỏi.</p>
+                        <div class="loading-spinner"></div>
+                        <h3>Đang tải danh sách môn học...</h3>
+                        <p>Hệ thống đang đồng bộ ngân hàng đề thi từ manifest.</p>
                     </div>
                 </div>
             </section>
 
             <!-- =================================================
-                 SCREEN 3 — EXAM ROOM
+                 SCREEN 2B — KHO ĐỀ THI (SEARCHABLE & FILTERABLE EXAM LIBRARY)
+            ================================================== -->
+            <section
+                id="libraryScreen"
+                class="screen library-screen"
+                data-screen="library"
+                aria-labelledby="libraryTitle"
+            >
+                <div class="container">
+                    <div class="page-topbar">
+                        <button
+                            class="back-button"
+                            type="button"
+                            data-action="go-home"
+                        >
+                            ← Về tổng quan
+                        </button>
+
+                        <nav class="selection-breadcrumb" aria-label="Breadcrumb">
+                            <span>Tổng quan</span>
+                            <span aria-hidden="true">/</span>
+                            <strong>Kho đề thi chuẩn hóa</strong>
+                        </nav>
+                    </div>
+
+                    <div class="library-header glass-card">
+                        <div>
+                            <span class="section-kicker">NGÂN HÀNG ĐỀ THI THỰC TẾ</span>
+                            <h1 id="libraryTitle">Kho đề luyện thi VSAT &amp; THPT Quốc Gia</h1>
+                            <p>Tra cứu, lọc theo kỳ thi và môn học từ dữ liệu thực trong <code>manifest.json</code> và hệ thống Cloud.</p>
+                        </div>
+                        <div class="library-header-stats">
+                            <div class="lib-stat-pill">
+                                <span>Tổng số đề khả dụng</span>
+                                <strong id="libraryTotalCount">0 đề</strong>
+                            </div>
+                            <button type="button" class="secondary-button small" data-action="reload-library" title="Tải lại danh sách đề">
+                                ↻ Làm mới dữ liệu
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filter & Search Bar -->
+                    <div class="library-filter-bar glass-card" role="search" aria-label="Bộ lọc kho đề thi">
+                        <div class="library-search-box">
+                            <label for="librarySearchInput" class="sr-only">Tìm kiếm đề thi theo tên hoặc mã đề</label>
+                            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input
+                                id="librarySearchInput"
+                                type="search"
+                                class="library-search-input"
+                                placeholder="Tìm theo tên đề, mã đề, môn học hoặc tên file (VD: de2, Sinh học, Hóa...)"
+                                autocomplete="off"
+                            >
+                        </div>
+
+                        <div class="library-filter-controls">
+                            <div class="filter-group">
+                                <label for="libraryFilterExam">Kỳ thi</label>
+                                <select id="libraryFilterExam" class="admin-select">
+                                    <option value="all">Tất cả kỳ thi</option>
+                                    <option value="vsat">VSAT (150 điểm)</option>
+                                    <option value="thptqg">THPTQG (10 điểm)</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="libraryFilterSubject">Môn học</label>
+                                <select id="libraryFilterSubject" class="admin-select">
+                                    <option value="all">Tất cả môn học</option>
+                                    <option value="toan">Toán học</option>
+                                    <option value="sinh">Sinh học</option>
+                                    <option value="hoa">Hóa học</option>
+                                    <option value="ly">Vật lý</option>
+                                    <option value="anh">Tiếng Anh (VSAT)</option>
+                                    <option value="tieng_anh">Tiếng Anh (THPTQG)</option>
+                                    <option value="ngu_van">Ngữ văn</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="librarySortSelect">Sắp xếp</label>
+                                <select id="librarySortSelect" class="admin-select">
+                                    <option value="manifest">Mặc định (Manifest)</option>
+                                    <option value="title_asc">Tên đề (A → Z)</option>
+                                    <option value="questions_desc">Số lượng câu hỏi</option>
+                                    <option value="duration_asc">Thời lượng thi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Library Results Container (Loading Skeleton / Cards / Empty / Error) -->
+                    <div id="libraryResultsContainer" class="library-results-container" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <!-- =================================================
+                 SCREEN 3 — EXAM ROOM (DISTRACTION-FREE & HIGH FOCUS)
             ================================================== -->
             <section
                 id="examScreen"
@@ -872,12 +1163,15 @@
             >
                 <div class="exam-layout">
 
-                    <!-- Sidebar -->
-                    <aside id="examSidebar" class="exam-sidebar">
+                    <!-- Left / Drawer Sidebar: Timer & Question Navigation Palette -->
+                    <aside id="examSidebar" class="exam-sidebar" aria-label="Bảng điều hướng câu hỏi và thời gian">
 
                         <div class="sidebar-header">
                             <div>
-                                <span class="sidebar-kicker">PHÒNG THI TRỰC TUYẾN</span>
+                                <div class="sidebar-exam-badges">
+                                    <span id="sidebarExamBadge" class="sidebar-kicker-badge">VSAT</span>
+                                    <span class="sidebar-kicker">PHÒNG THI</span>
+                                </div>
                                 <h2 id="examTitle">Toán</h2>
                                 <small id="examPaperSubtitle" class="sidebar-paper-subtitle"></small>
                             </div>
@@ -886,55 +1180,60 @@
                                 class="icon-button sidebar-close-button"
                                 type="button"
                                 data-action="toggle-sidebar"
-                                aria-label="Đóng sidebar"
+                                aria-label="Đóng bảng câu hỏi"
                             >
                                 ×
                             </button>
                         </div>
 
-                        <!-- Timer lớn -->
+                        <!-- Countdown Timer -->
                         <div id="sidebarTimer" class="sidebar-timer glass-card">
-                            <span>THỜI GIAN CÒN LẠI</span>
+                            <div class="sidebar-timer-top">
+                                <span>THỜI GIAN CÒN LẠI</span>
+                                <span class="timer-live-pill">ĐANG TÍNH GIỜ</span>
+                            </div>
                             <strong id="sidebarTimerValue">90:00</strong>
-                            <div class="timer-progress">
+                            <div class="timer-progress" aria-hidden="true">
                                 <span id="timerProgressFill"></span>
                             </div>
                         </div>
 
-                        <!-- Legend -->
-                        <div class="palette-legend">
+                        <!-- Accessible State Legend (Color + Shape/Symbol) -->
+                        <div class="palette-legend" aria-label="Chú giải trạng thái câu hỏi">
                             <span>
-                                <i class="legend-dot legend-answered"></i>
-                                Đã làm
+                                <i class="legend-dot legend-answered" aria-hidden="true">✓</i>
+                                Đã trả lời
                             </span>
-
                             <span>
-                                <i class="legend-dot legend-current"></i>
-                                Đang chọn
+                                <i class="legend-dot legend-current" aria-hidden="true">●</i>
+                                Đang xem
                             </span>
-
                             <span>
-                                <i class="legend-dot legend-flagged"></i>
+                                <i class="legend-dot legend-unanswered" aria-hidden="true"></i>
+                                Chưa làm
+                            </span>
+                            <span>
+                                <i class="legend-dot legend-flagged" aria-hidden="true">⚑</i>
                                 Xem lại
                             </span>
                         </div>
 
-                        <!-- Question palette -->
+                        <!-- Question Palette Grid -->
                         <div class="question-palette-wrapper">
                             <div class="palette-heading">
-                                <strong>Bảng câu hỏi</strong>
-                                <span id="paletteCount">0/0</span>
+                                <strong>Bảng điều hướng câu hỏi</strong>
+                                <span id="paletteCount" class="palette-count-pill">0/0 đã làm</span>
                             </div>
 
-                            <!-- JS render các số câu -->
                             <div
                                 id="questionPalette"
                                 class="question-palette"
-                                aria-label="Danh sách câu hỏi"
+                                role="navigation"
+                                aria-label="Danh sách số thứ tự câu hỏi"
                             ></div>
                         </div>
 
-                        <!-- Sidebar bottom -->
+                        <!-- Sidebar Footer Controls -->
                         <div class="sidebar-bottom">
                             <button
                                 id="adminEditCurrentExamBtn"
@@ -943,43 +1242,45 @@
                                 data-action="edit-current-exam"
                                 style="margin-bottom:8px;"
                             >
-                                <span>✏️</span>
-                                Sửa đề này (Admin)
+                                <span>✏️ Sửa đề này (Admin)</span>
                             </button>
                             <button
-                                class="primary-button sidebar-button"
+                                class="primary-button sidebar-button submit-exam-btn"
                                 type="button"
                                 data-action="finish-exam"
                             >
-                                <span>⚑</span>
-                                Nộp bài chấm điểm
+                                <span>✓ Nộp bài chấm điểm</span>
+                            </button>
+                            <button
+                                class="secondary-button sidebar-button"
+                                type="button"
+                                data-action="go-home"
+                                style="margin-top:8px;"
+                            >
+                                <span>← Tạm rời phòng (Tự động lưu)</span>
                             </button>
                         </div>
                     </aside>
 
-                    <!-- Main exam panel -->
+                    <!-- Main Exam Workspace -->
                     <div class="exam-main">
 
-                        <!-- Exam topbar -->
+                        <!-- Exam Room Topbar -->
                         <div class="exam-topbar glass-card">
                             <div class="exam-info">
                                 <button
                                     class="mobile-menu-button"
                                     type="button"
                                     data-action="toggle-sidebar"
-                                    aria-label="Mở danh sách câu hỏi"
+                                    aria-label="Mở bảng danh sách câu hỏi"
+                                    title="Danh sách câu hỏi"
                                 >
                                     ☰
                                 </button>
 
-                                <div>
-                                    <span id="examPartLabel" class="mini-label">
-                                        PHẦN 1
-                                    </span>
-
-                                    <strong id="examPartTitle">
-                                        Trắc nghiệm nhiều lựa chọn
-                                    </strong>
+                                <div class="exam-part-info">
+                                    <span id="examPartLabel" class="mini-label">PHẦN 1</span>
+                                    <strong id="examPartTitle">Trắc nghiệm nhiều lựa chọn</strong>
                                 </div>
                             </div>
 
@@ -991,7 +1292,7 @@
                                     data-action="toggle-passage-layout"
                                     title="Đổi bố cục hiển thị Ngữ liệu (Chia đôi / Trên-Dưới)"
                                 >
-                                    ◫ <span>Bố cục Ngữ liệu</span>
+                                    <span aria-hidden="true">◫</span> <span>Bố cục Ngữ liệu</span>
                                 </button>
 
                                 <button
@@ -999,19 +1300,27 @@
                                     class="tool-button"
                                     type="button"
                                     data-action="toggle-flag"
-                                    title="Đánh dấu xem lại"
-                                    aria-label="Đánh dấu câu hỏi"
+                                    title="Đánh dấu câu hỏi này để xem lại trước khi nộp"
+                                    aria-label="Đánh dấu xem lại câu hỏi này"
                                 >
-                                    ⚑ <span>Đánh dấu</span>
+                                    <span aria-hidden="true">⚑</span> <span>Đánh dấu xem lại</span>
+                                </button>
+
+                                <button
+                                    class="primary-button small topbar-submit-btn"
+                                    type="button"
+                                    data-action="finish-exam"
+                                >
+                                    <span>Nộp bài</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Overall progress -->
+                        <!-- Progress Bar -->
                         <div class="exam-progress-block">
                             <div class="progress-meta">
                                 <span>
-                                    Câu
+                                    Đang ở câu
                                     <strong id="currentQuestionNumber">1</strong>
                                     /
                                     <strong id="totalQuestionNumber">25</strong>
@@ -1020,7 +1329,7 @@
                                 <span id="questionProgressText">0% hoàn thành</span>
                             </div>
 
-                            <div class="progress-track progress-track-lg">
+                            <div class="progress-track progress-track-lg" aria-hidden="true">
                                 <span
                                     id="questionProgressFill"
                                     class="progress-fill"
@@ -1029,7 +1338,7 @@
                             </div>
                         </div>
 
-                        <!-- Question -->
+                        <!-- Question Content Area -->
                         <article
                             id="questionContainer"
                             class="question-container glass-card"
@@ -1037,14 +1346,14 @@
                         >
                             <div class="question-loading">
                                 <div class="loading-spinner"></div>
-                                <span>Đang tải câu hỏi...</span>
+                                <span>Đang chuẩn bị đề thi...</span>
                             </div>
                         </article>
 
-                        <!-- Navigation -->
+                        <!-- Bottom Navigation Bar -->
                         <div class="question-navigation">
                             <button
-                                class="secondary-button"
+                                class="secondary-button nav-step-btn"
                                 type="button"
                                 data-action="prev-question"
                             >
@@ -1052,9 +1361,18 @@
                             </button>
 
                             <button
-                                class="primary-button"
+                                class="secondary-button mobile-palette-trigger"
+                                type="button"
+                                data-action="toggle-sidebar"
+                            >
+                                ☷ Bảng câu hỏi
+                            </button>
+
+                            <button
+                                class="primary-button nav-step-btn"
                                 type="button"
                                 data-action="next-question"
+                                id="nextQuestionBtn"
                             >
                                 Câu tiếp theo →
                             </button>
@@ -1064,7 +1382,7 @@
             </section>
 
             <!-- =================================================
-                 SCREEN 4 — RESULT
+                 SCREEN 4 — RESULT & DETAILED REVIEW
             ================================================== -->
             <section
                 id="resultScreen"
@@ -1074,7 +1392,7 @@
             >
                 <div class="container result-container">
 
-                    <!-- Celebration -->
+                    <!-- Celebration Canvas -->
                     <div
                         id="resultCelebration"
                         class="result-celebration hidden"
@@ -1085,17 +1403,11 @@
 
                     <div class="result-header">
                         <span class="section-kicker">BÁO CÁO KẾT QUẢ BÀI THI</span>
-
-                        <h1 id="resultTitle">
-                            Hoàn thành bài thi 🎉
-                        </h1>
-
-                        <p id="resultSubtitle">
-                            Kết quả được chấm tự động theo thang điểm chuẩn của kỳ thi.
-                        </p>
+                        <h1 id="resultTitle">Hoàn thành bài thi</h1>
+                        <p id="resultSubtitle">Kết quả được chấm tự động theo thang điểm chuẩn của kỳ thi.</p>
                     </div>
 
-                    <!-- Score hero -->
+                    <!-- Score Hero Card -->
                     <div class="score-hero glass-card">
                         <div class="score-ring" id="scoreRing">
                             <div class="score-ring-inner">
@@ -1106,36 +1418,62 @@
                         </div>
 
                         <div class="score-summary">
-                            <span class="score-label">ĐÁNH GIÁ NĂNG LỰC</span>
-                            <h2 id="resultMessage">
-                                Tiếp tục cố gắng nhé!
-                            </h2>
+                            <div class="score-summary-head">
+                                <span class="score-label">ĐÁNH GIÁ KẾT QUẢ</span>
+                                <span id="resultPercentBadge" class="result-percent-badge">0%</span>
+                            </div>
+                            <h2 id="resultMessage">Tiếp tục cố gắng nhé!</h2>
 
                             <div class="score-mini-grid">
-                                <div>
-                                    <span>Câu đúng</span>
+                                <div class="score-stat-box stat-correct">
+                                    <span>✓ Câu đúng trọn vẹn</span>
                                     <strong id="correctCount">0</strong>
                                 </div>
 
-                                <div>
-                                    <span>Chưa trọn / Sai</span>
+                                <div class="score-stat-box stat-wrong">
+                                    <span>✕ Chưa trọn / Sai</span>
                                     <strong id="wrongCount">0</strong>
                                 </div>
 
-                                <div>
-                                    <span>Bỏ trống</span>
+                                <div class="score-stat-box stat-unanswered">
+                                    <span>○ Bỏ trống</span>
                                     <strong id="unansweredCount">0</strong>
                                 </div>
 
-                                <div>
-                                    <span>Thời gian làm</span>
+                                <div class="score-stat-box stat-time">
+                                    <span>◷ Thời gian làm bài</span>
                                     <strong id="usedTime">00:00</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Breakdown -->
+                    <!-- Quick Top Result Actions -->
+                    <div class="result-actions result-actions-top">
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            data-action="go-home"
+                        >
+                            ← Về trang chủ
+                        </button>
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            data-action="open-exams"
+                        >
+                            📚 Chọn đề khác
+                        </button>
+                        <button
+                            class="primary-button"
+                            type="button"
+                            data-action="retry-exam"
+                        >
+                            🔄 Làm lại đề này
+                        </button>
+                    </div>
+
+                    <!-- Section-by-Section Breakdown -->
                     <div class="result-section">
                         <div class="section-heading compact">
                             <div>
@@ -1150,17 +1488,21 @@
                         ></div>
                     </div>
 
-                    <!-- Review -->
+                    <!-- Detailed Answer Review with Filter Tabs -->
                     <div class="result-section">
                         <div class="section-heading compact">
                             <div>
-                                <span class="section-kicker">ĐÁP ÁN & LỜI GIẢI</span>
-                                <h2>Xem lại chi tiết từng câu hỏi</h2>
+                                <span class="section-kicker">ĐÁP ÁN &amp; LỜI GIẢI CHI TIẾT</span>
+                                <h2>Xem lại từng câu hỏi</h2>
                             </div>
 
-                            <span id="reviewSummary" class="section-hint">
-                                0 câu
-                            </span>
+                            <div class="review-filter-group" role="tablist" aria-label="Lọc câu hỏi xem lại">
+                                <button type="button" class="review-filter-btn is-active" data-action="filter-review" data-review-filter="all">Tất cả</button>
+                                <button type="button" class="review-filter-btn" data-action="filter-review" data-review-filter="correct">✓ Đúng</button>
+                                <button type="button" class="review-filter-btn" data-action="filter-review" data-review-filter="wrong">✕ Sai / Chưa trọn</button>
+                                <button type="button" class="review-filter-btn" data-action="filter-review" data-review-filter="unanswered">○ Bỏ trống</button>
+                                <span id="reviewSummary" class="section-hint">0 câu</span>
+                            </div>
                         </div>
 
                         <div
@@ -1169,7 +1511,7 @@
                         ></div>
                     </div>
 
-                    <!-- Result actions -->
+                    <!-- Bottom Result Actions -->
                     <div class="result-actions">
                         <button
                             class="secondary-button"
@@ -1178,7 +1520,13 @@
                         >
                             ← Về trang chủ
                         </button>
-
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            data-action="open-library"
+                        >
+                            📚 Mở kho đề thi
+                        </button>
                         <button
                             class="primary-button"
                             type="button"
@@ -1191,7 +1539,7 @@
             </section>
 
             <!-- =================================================
-                 SCREEN 5 — HISTORY
+                 SCREEN 5 — ANALYTICS, HISTORY & LEADERBOARD
             ================================================== -->
             <section
                 id="historyScreen"
@@ -1207,25 +1555,32 @@
                             type="button"
                             data-action="go-home"
                         >
-                            ← Trang chủ
+                            ← Về tổng quan
                         </button>
 
-                        <span class="selection-breadcrumb">
-                            Lịch sử & Phân tích kết quả
-                        </span>
+                        <nav class="selection-breadcrumb" aria-label="Breadcrumb">
+                            <span>Tổng quan</span>
+                            <span aria-hidden="true">/</span>
+                            <strong>Thống kê &amp; Bảng xếp hạng</strong>
+                        </nav>
                     </div>
 
-                    <div class="page-heading">
-                        <span class="section-kicker">LEARNING ANALYTICS</span>
-                        <h1 id="historyTitle">
-                            Hành trình luyện thi của bạn
-                        </h1>
-                        <p>
-                            Toàn bộ lịch sử làm bài, kỷ lục điểm số và mức độ tiến bộ được đồng bộ theo tài khoản.
-                        </p>
+                    <div class="history-header-row">
+                        <div class="page-heading" style="margin-bottom:0;">
+                            <span class="section-kicker">PHÂN TÍCH HỌC TẬP &amp; KỶ LỤC</span>
+                            <h1 id="historyTitle">Thống kê kết quả &amp; Bảng xếp hạng</h1>
+                            <p>Dữ liệu lịch sử làm bài, biểu đồ tiến bộ và bảng xếp hạng thành tích được tổng hợp từ dữ liệu thực tế.</p>
+                        </div>
+
+                        <!-- Exam Filter Pills for Analytics & Leaderboard -->
+                        <div class="history-filter-pills glass-card" role="group" aria-label="Lọc thống kê theo kỳ thi">
+                            <button type="button" class="history-filter-pill is-active" data-action="filter-history-exam" data-exam-filter="all">Tất cả</button>
+                            <button type="button" class="history-filter-pill" data-action="filter-history-exam" data-exam-filter="vsat">VSAT (150đ)</button>
+                            <button type="button" class="history-filter-pill" data-action="filter-history-exam" data-exam-filter="thptqg">THPTQG (10đ)</button>
+                        </div>
                     </div>
 
-                    <!-- Thống kê -->
+                    <!-- Summary Stat Cards -->
                     <div class="history-stat-grid">
                         <div class="history-stat glass-card">
                             <span>Tổng số lần thi</span>
@@ -1248,35 +1603,71 @@
                         </div>
                     </div>
 
-                    <!-- History list -->
-                    <div
-                        id="historyList"
-                        class="history-list"
-                    ></div>
+                    <!-- Per-Exam Performance Breakdown (Server / Local Sync) -->
+                    <div id="accountStatsPanel" class="account-stats-panel"></div>
 
-                    <div
-                        id="historyEmpty"
-                        class="empty-state glass-card"
-                    >
-                        <div class="empty-icon">◌</div>
-                        <h3>Chưa có lịch sử thi</h3>
-                        <p>
-                            Hoàn thành một bài thi đầu tiên để hệ thống bắt đầu vẽ biểu đồ thống kê cho bạn.
-                        </p>
+                    <!-- Real Score History Chart -->
+                    <div id="historyChartSection" class="history-chart-section glass-card">
+                        <div class="section-heading compact" style="margin-bottom:14px;">
+                            <div>
+                                <span class="section-kicker">BIỂU ĐỒ TIẾN ĐỘ</span>
+                                <h2>Xu hướng điểm số qua các lần làm bài</h2>
+                            </div>
+                            <span id="historyChartHint" class="section-hint">Theo tỷ lệ % hoàn thành</span>
+                        </div>
+                        <div id="historyChartContainer" class="history-chart-container"></div>
+                    </div>
 
-                        <button
-                            class="primary-button"
-                            type="button"
-                            data-action="open-exams"
+                    <!-- Leaderboard / Top Records Table -->
+                    <div id="leaderboardSection" class="leaderboard-section glass-card">
+                        <div class="section-heading compact" style="margin-bottom:14px;">
+                            <div>
+                                <span class="section-kicker">BẢNG XẾP HẠNG THÀNH TÍCH</span>
+                                <h2>Kỷ lục điểm số cao nhất</h2>
+                            </div>
+                            <span id="leaderboardCountHint" class="section-hint">Xếp hạng theo tỷ lệ điểm đạt được</span>
+                        </div>
+                        <div id="leaderboardTableWrap" class="leaderboard-table-wrap"></div>
+                    </div>
+
+                    <!-- Chronological Attempt List -->
+                    <div class="history-list-section">
+                        <div class="section-heading compact" style="margin-bottom:14px;">
+                            <div>
+                                <span class="section-kicker">NHẬT KÝ CHI TIẾT</span>
+                                <h2>Danh sách bài thi đã hoàn thành</h2>
+                            </div>
+                        </div>
+
+                        <div
+                            id="historyList"
+                            class="history-list"
+                        ></div>
+
+                        <div
+                            id="historyEmpty"
+                            class="empty-state glass-card"
                         >
-                            🚀 Bắt đầu thi ngay
-                        </button>
+                            <div class="empty-icon" aria-hidden="true">📊</div>
+                            <h3>Chưa có dữ liệu bài thi</h3>
+                            <p>
+                                Hoàn thành một bài thi thử đầu tiên để hệ thống ghi nhận điểm số, vẽ biểu đồ tiến độ và xếp hạng kỷ lục cho bạn.
+                            </p>
+
+                            <button
+                                class="primary-button"
+                                type="button"
+                                data-action="open-exams"
+                            >
+                                Bắt đầu bài thi đầu tiên →
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- =================================================
-                 SCREEN 6 — ADMIN STUDIO (QUẢN LÝ & SỬA ĐỀ TRỰC TIẾP TRÊN WEB)
+                 SCREEN 6 — ADMIN STUDIO (SIDEBAR + PROFESSIONAL DASHBOARD)
             ================================================== -->
             <section
                 id="adminStudioScreen"
@@ -1291,92 +1682,252 @@
                             type="button"
                             data-action="go-home"
                         >
-                            ← Trang chủ
+                            ← Về trang chủ
                         </button>
 
-                        <div class="selection-breadcrumb">
-                            <span>ADMIN STUDIO PRO</span>
-                            <span>/</span>
-                            <span>Quản lý Đề thi, Hình ảnh & Ngữ liệu trực tiếp trên Web</span>
-                        </div>
+                        <nav class="selection-breadcrumb" aria-label="Breadcrumb">
+                            <span>QUẢN TRỊ HỆ THỐNG</span>
+                            <span aria-hidden="true">/</span>
+                            <strong id="adminBreadcrumbCurrent">Tổng quan &amp; Quản lý Đề thi</strong>
+                        </nav>
                     </div>
 
-                    <div class="admin-studio-header glass-card">
-                        <div>
-                            <span class="section-kicker">WEB EXAM MANAGEMENT · KHÔNG CẦN SỬA GITHUB</span>
-                            <h1 id="adminStudioTitle">Studio Quản trị Đề thi, Hình ảnh & Ngữ liệu</h1>
-                            <p>Tạo đề mới, tải file JSON, sửa trực tiếp từng câu hỏi, đính kèm ảnh cho từng câu và thiết lập đoạn đọc ngữ liệu cho câu trắc nghiệm 4 lựa chọn (từ câu nào đến câu nào) ngay trên trình duyệt.</p>
-                        </div>
-                        <div class="admin-studio-tabs">
-                            <button type="button" class="primary-button" data-action="admin-switch-tab" data-tab="exams" id="adminTabExamsBtn">📚 Quản lý & Sửa Đề thi</button>
-                            <button type="button" class="secondary-button" data-action="admin-switch-tab" data-tab="users" id="adminTabUsersBtn">👥 Quản lý Tài khoản</button>
-                        </div>
-                    </div>
-
-                    <!-- TAB 1: QUẢN LÝ & TRÌNH SỬA ĐỀ TRỰC TIẾP -->
-                    <div id="adminExamsTabPanel" class="admin-tab-panel">
-                        <!-- Thanh chọn kỳ thi / môn học / tạo đề -->
-                        <div class="admin-toolbar glass-card">
-                            <div class="admin-toolbar-filters">
-                                <label class="admin-field-inline">
-                                    <span>Kỳ thi</span>
-                                    <select id="adminFilterExam" class="admin-select">
-                                        <option value="vsat">VSAT (150 điểm)</option>
-                                        <option value="thptqg">THPTQG (10 điểm)</option>
-                                    </select>
-                                </label>
-                                <label class="admin-field-inline">
-                                    <span>Môn học</span>
-                                    <select id="adminFilterSubject" class="admin-select"></select>
-                                </label>
+                    <div class="admin-workspace-layout">
+                        <!-- Admin Left Sidebar Navigation -->
+                        <aside class="admin-sidebar-nav glass-card" aria-label="Điều hướng khu vực quản trị">
+                            <div class="admin-sidebar-brand">
+                                <span class="section-kicker">ADMIN CONSOLE</span>
+                                <strong>Quản trị hệ thống</strong>
+                                <small>Phân quyền Quản trị viên</small>
                             </div>
-                            <div class="admin-toolbar-actions">
-                                <button type="button" class="secondary-button" style="border-color:rgba(55,217,255,0.45);color:var(--cyan);background:rgba(55,217,255,0.08);" data-action="open-ai-ocr-modal" title="Tải file PDF, ảnh chụp hoặc dán văn bản đề thi để AI tự bóc tách và giải đề">
-                                    <span>🤖 Nhập đề bằng AI (OCR PDF / Ảnh)</span>
+
+                            <div class="admin-nav-group">
+                                <span class="admin-nav-group-label">NGHIỆP VỤ QUẢN TRỊ</span>
+                                <button type="button" class="admin-side-link" data-action="admin-switch-tab" data-tab="overview" id="adminTabOverviewBtn">
+                                    <span>📊</span>
+                                    <div>
+                                        <strong>Tổng quan quản trị</strong>
+                                        <small>Thống kê &amp; Manifest</small>
+                                    </div>
                                 </button>
-                                <label class="secondary-button file-upload-btn" title="Tải file đề JSON từ máy lên để chỉnh sửa và lưu lên web">
-                                    <span>📂 Nhập từ file JSON</span>
-                                    <input type="file" id="adminImportJsonInput" accept=".json,application/json" hidden>
-                                </label>
-                                <button type="button" class="primary-button" data-action="admin-create-new-exam">
-                                    <span>✨ + Tạo đề mới trên Web</span>
+                                <button type="button" class="admin-side-link is-active" data-action="admin-switch-tab" data-tab="exams" id="adminTabExamsBtn">
+                                    <span>📚</span>
+                                    <div>
+                                        <strong>Đề thi &amp; Dữ liệu</strong>
+                                        <small>Kho đề, Ngữ liệu &amp; Ảnh</small>
+                                    </div>
+                                </button>
+                                <button type="button" class="admin-side-link" data-action="admin-switch-tab" data-tab="users" id="adminTabUsersBtn">
+                                    <span>👥</span>
+                                    <div>
+                                        <strong>Tài khoản học sinh</strong>
+                                        <small>Danh sách &amp; Cấp tài khoản</small>
+                                    </div>
                                 </button>
                             </div>
-                        </div>
 
-                        <!-- Danh sách các đề của môn đang chọn -->
-                        <div id="adminExamListSection" class="admin-exam-list-section">
-                            <div class="section-heading compact">
+                            <div class="admin-nav-group">
+                                <span class="admin-nav-group-label">CÔNG CỤ NHANH</span>
+                                <button type="button" class="admin-side-link" data-action="open-ai-ocr-modal">
+                                    <span>🤖</span>
+                                    <div>
+                                        <strong>AI OCR Bóc tách đề</strong>
+                                        <small>Từ PDF / Ảnh / Văn bản</small>
+                                    </div>
+                                </button>
+                                <button type="button" class="admin-side-link" data-action="admin-create-new-exam">
+                                    <span>✨</span>
+                                    <div>
+                                        <strong>Tạo đề thi mới</strong>
+                                        <small>Khởi tạo trực tiếp trên Web</small>
+                                    </div>
+                                </button>
+                            </div>
+                        </aside>
+
+                        <!-- Admin Main Content Area -->
+                        <div class="admin-main-column">
+                            <div class="admin-studio-header glass-card">
                                 <div>
-                                    <span class="section-kicker">THƯ VIỆN ĐỀ THI</span>
-                                    <h2 id="adminSubjectListTitle">Các đề hiện có</h2>
+                                    <span class="section-kicker">TRUNG TÂM QUẢN TRỊ DỮ LIỆU &amp; TÀI KHOẢN</span>
+                                    <h1 id="adminStudioTitle">Quản trị Đề thi, Ngữ liệu &amp; Tài khoản</h1>
+                                    <p>Quản lý toàn bộ ngân hàng đề thi VSAT &amp; THPTQG, kiểm tra manifest, biên tập câu hỏi trực tiếp và cấp phát tài khoản học sinh qua API.</p>
                                 </div>
-                                <span id="adminExamCountHint" class="section-hint">0 đề</span>
                             </div>
-                            <div id="adminExamCardsGrid" class="admin-exam-cards-grid"></div>
-                        </div>
 
-                        <!-- TRÌNH SỬA ĐỀ TRỰC TIẾP (VISUAL EXAM EDITOR) -->
-                        <div id="adminExamEditorWrap" class="admin-exam-editor-wrap hidden"></div>
-                    </div>
+                            <!-- TAB 0: TỔNG QUAN QUẢN TRỊ & MANIFEST -->
+                            <div id="adminOverviewTabPanel" class="admin-tab-panel hidden">
+                                <div class="admin-kpi-grid" id="adminOverviewKpiGrid">
+                                    <div class="dashboard-kpi-card glass-card">
+                                        <div class="kpi-card-top">
+                                            <span class="kpi-label">Tổng số đề trong kho</span>
+                                            <span class="kpi-icon kpi-icon-blue">📚</span>
+                                        </div>
+                                        <strong class="kpi-value" id="adminKpiTotalPapers">—</strong>
+                                        <span class="kpi-sub">Tính trên tất cả môn VSAT &amp; THPTQG</span>
+                                    </div>
+                                    <div class="dashboard-kpi-card glass-card">
+                                        <div class="kpi-card-top">
+                                            <span class="kpi-label">Đề gốc (Manifest JSON)</span>
+                                            <span class="kpi-icon kpi-icon-purple">📁</span>
+                                        </div>
+                                        <strong class="kpi-value" id="adminKpiStaticPapers">—</strong>
+                                        <span class="kpi-sub">Nạp từ <code>database/*/manifest.json</code></span>
+                                    </div>
+                                    <div class="dashboard-kpi-card glass-card">
+                                        <div class="kpi-card-top">
+                                            <span class="kpi-label">Đề lưu trên Web / Cloud</span>
+                                            <span class="kpi-icon kpi-icon-cyan">☁️</span>
+                                        </div>
+                                        <strong class="kpi-value" id="adminKpiCloudPapers">—</strong>
+                                        <span class="kpi-sub">Đồng bộ PostgreSQL &amp; trình duyệt</span>
+                                    </div>
+                                    <div class="dashboard-kpi-card glass-card">
+                                        <div class="kpi-card-top">
+                                            <span class="kpi-label">Tài khoản hệ thống</span>
+                                            <span class="kpi-icon kpi-icon-green">👥</span>
+                                        </div>
+                                        <strong class="kpi-value" id="adminKpiTotalUsers">—</strong>
+                                        <span class="kpi-sub" id="adminKpiUsersSub">Quản trị viên &amp; Học sinh</span>
+                                    </div>
+                                </div>
 
-                    <!-- TAB 2: QUẢN LÝ TÀI KHOẢN HỌC SINH -->
-                    <div id="adminUsersTabPanel" class="admin-tab-panel hidden">
-                        <div class="glass-card" style="padding:26px;border-radius:22px;">
-                            <div class="section-kicker">QUẢN LÝ TÀI KHOẢN HỌC SINH</div>
-                            <h2 style="margin:6px 0 14px;">Cấp mới & Khóa/Mở tài khoản</h2>
-                            <form id="studioCreateUserForm" class="admin-create-form">
-                                <input id="studioNewFullName" placeholder="Họ và tên học sinh" required>
-                                <input id="studioNewUsername" placeholder="Tên đăng nhập (username)" required>
-                                <input id="studioNewPassword" placeholder="Mật khẩu (tối thiểu 6 ký tự)" type="password" required>
-                                <button class="primary-button" type="submit">+ Cấp tài khoản</button>
-                            </form>
-                            <div id="studioAdminUsersList" class="admin-users">Đang tải danh sách tài khoản...</div>
+                                <div class="glass-card" style="padding:24px;border-radius:18px;margin-top:20px;">
+                                    <div class="section-heading compact" style="margin-bottom:16px;">
+                                        <div>
+                                            <span class="section-kicker">TRẠNG THÁI DỮ LIỆU &amp; MANIFEST</span>
+                                            <h2>Kiểm tra ngân hàng đề theo Kỳ thi &amp; Môn học</h2>
+                                        </div>
+                                        <button type="button" class="secondary-button small" data-action="admin-refresh-overview">↻ Quét lại dữ liệu</button>
+                                    </div>
+                                    <div id="adminManifestTableWrap" class="leaderboard-table-wrap"></div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 1: QUẢN LÝ & SỬA ĐỀ TRỰC TIẾP -->
+                            <div id="adminExamsTabPanel" class="admin-tab-panel">
+                                <!-- Toolbar -->
+                                <div class="admin-toolbar glass-card">
+                                    <div class="admin-toolbar-filters">
+                                        <label class="admin-field-inline">
+                                            <span>Kỳ thi</span>
+                                            <select id="adminFilterExam" class="admin-select">
+                                                <option value="vsat">VSAT (150 điểm)</option>
+                                                <option value="thptqg">THPTQG (10 điểm)</option>
+                                            </select>
+                                        </label>
+                                        <label class="admin-field-inline">
+                                            <span>Môn học</span>
+                                            <select id="adminFilterSubject" class="admin-select"></select>
+                                        </label>
+                                    </div>
+                                    <div class="admin-toolbar-actions">
+                                        <button type="button" class="secondary-button" data-action="open-ai-ocr-modal" title="Tải file PDF, ảnh chụp hoặc dán văn bản đề thi để AI tự bóc tách">
+                                            <span>🤖 Nhập đề bằng AI (OCR PDF / Ảnh)</span>
+                                        </button>
+                                        <label class="secondary-button file-upload-btn" title="Tải file đề JSON từ máy lên để chỉnh sửa và lưu lên web">
+                                            <span>📂 Nhập từ file JSON</span>
+                                            <input type="file" id="adminImportJsonInput" accept=".json,application/json" hidden>
+                                        </label>
+                                        <button type="button" class="primary-button" data-action="admin-create-new-exam">
+                                            <span>✨ + Tạo đề mới trên Web</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Exam List for Selected Subject -->
+                                <div id="adminExamListSection" class="admin-exam-list-section">
+                                    <div class="section-heading compact">
+                                        <div>
+                                            <span class="section-kicker">THƯ VIỆN ĐỀ THI</span>
+                                            <h2 id="adminSubjectListTitle">Các đề hiện có</h2>
+                                        </div>
+                                        <span id="adminExamCountHint" class="section-hint">0 đề</span>
+                                    </div>
+                                    <div id="adminExamCardsGrid" class="admin-exam-cards-grid"></div>
+                                </div>
+
+                                <!-- Visual Exam Editor -->
+                                <div id="adminExamEditorWrap" class="admin-exam-editor-wrap hidden"></div>
+                            </div>
+
+                            <!-- TAB 2: QUẢN LÝ TÀI KHOẢN & CẤP TÀI KHOẢN -->
+                            <div id="adminUsersTabPanel" class="admin-tab-panel hidden">
+                                <!-- Account Provisioning Card -->
+                                <div class="glass-card admin-users-card">
+                                    <div class="section-kicker">CẤP TÀI KHOẢN MỚI</div>
+                                    <h2 style="margin:6px 0 6px;">Tạo tài khoản học sinh</h2>
+                                    <p style="margin:0 0 18px;font-size:13px;">Tài khoản được cấp sẽ lưu trực tiếp vào cơ sở dữ liệu PostgreSQL và có thể đăng nhập ngay lập tức.</p>
+
+                                    <form id="studioCreateUserForm" class="admin-create-form">
+                                        <label class="editor-field">
+                                            <span>Họ và tên học sinh</span>
+                                            <input id="studioNewFullName" class="editor-input" placeholder="VD: Nguyễn Văn An" required>
+                                        </label>
+                                        <label class="editor-field">
+                                            <span>Tên đăng nhập (Username)</span>
+                                            <input id="studioNewUsername" class="editor-input" placeholder="VD: nguyenvanan_12a1" pattern="^[a-zA-Z0-9_.-]{3,32}$" title="3-32 ký tự, chỉ gồm chữ, số, dấu chấm, gạch dưới hoặc gạch ngang" required>
+                                        </label>
+                                        <label class="editor-field">
+                                            <span>Mật khẩu khởi tạo</span>
+                                            <input id="studioNewPassword" class="editor-input" placeholder="Tối thiểu 6 ký tự" type="password" minlength="6" required>
+                                        </label>
+                                        <div class="admin-create-submit-wrap">
+                                            <button class="primary-button" type="submit" style="width:100%;">+ Cấp tài khoản</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Accounts List & Search Card -->
+                                <div class="glass-card admin-users-card" style="margin-top:20px;">
+                                    <div class="admin-users-list-header">
+                                        <div>
+                                            <div class="section-kicker">DANH SÁCH TÀI KHOẢN</div>
+                                            <h2 style="margin:4px 0 0;">Quản lý trạng thái tài khoản</h2>
+                                        </div>
+                                        <div class="admin-users-filters">
+                                            <input type="search" id="adminUserSearchInput" class="editor-input" placeholder="Tìm theo tên hoặc @username..." aria-label="Tìm kiếm tài khoản">
+                                            <select id="adminUserStatusFilter" class="admin-select" aria-label="Lọc theo trạng thái tài khoản">
+                                                <option value="all">Tất cả trạng thái</option>
+                                                <option value="active">Đang hoạt động</option>
+                                                <option value="disabled">Đã khóa</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="studioAdminUsersList" class="admin-users">Đang tải danh sách tài khoản...</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+
+        <!-- =====================================================
+             MOBILE BOTTOM NAVIGATION BAR (Hidden during Exam)
+        ====================================================== -->
+        <nav id="mobileBottomNav" class="mobile-bottom-nav" aria-label="Điều hướng nhanh trên điện thoại">
+            <button type="button" class="mobile-bottom-item is-active" data-action="go-home" data-nav-screen="home">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9.5L10 3l7 6.5V17a1 1 0 01-1 1h-4v-5H8v5H4a1 1 0 01-1-1V9.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Tổng quan</span>
+            </button>
+            <button type="button" class="mobile-bottom-item" data-action="open-exams" data-nav-screen="exam-selection">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2v-2M13.5 3.5a2.121 2.121 0 113 3L10 13l-4 1 1-4 6.5-6.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Thi thử</span>
+            </button>
+            <button type="button" class="mobile-bottom-item" data-action="open-library" data-nav-screen="library">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h12v12H4zM8 4v12M12 8h4M12 12h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Kho đề</span>
+            </button>
+            <button type="button" class="mobile-bottom-item" data-action="open-history" data-nav-screen="history">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 16h14M6 13V9M10 13V5M14 13v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Thống kê</span>
+            </button>
+            <button type="button" class="mobile-bottom-item" data-action="open-profile">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="7" r="3.2"/><path d="M4 17c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" stroke-linecap="round"/></svg>
+                <span>Cá nhân</span>
+            </button>
+        </nav>
     </div>
 
     <!-- =========================================================
@@ -1389,9 +1940,9 @@
     ></div>
 
     <!-- =========================================================
-         IMAGE LIGHTBOX MODAL (PHÓNG TO ẢNH CÂU HỎI / NGỮ LIỆU)
+         IMAGE LIGHTBOX MODAL
     ========================================================== -->
-    <div id="imageLightboxModal" class="image-lightbox hidden" aria-hidden="true">
+    <div id="imageLightboxModal" class="image-lightbox hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Phóng to hình minh họa">
         <div class="image-lightbox-backdrop" data-action="close-lightbox"></div>
         <div class="image-lightbox-content glass-card">
             <button type="button" class="icon-button lightbox-close-btn" data-action="close-lightbox" aria-label="Đóng ảnh">×</button>
@@ -1401,7 +1952,7 @@
     </div>
 
     <!-- =========================================================
-         AI OCR / NHẬP ĐỀ THÔNG MINH MODAL
+         AI OCR / SMART EXAM PARSER MODAL
     ========================================================== -->
     <div
         id="aiOcrModal"
@@ -1414,21 +1965,20 @@
         <div class="modal-card glass-card ai-ocr-modal-card">
             <div class="modal-header">
                 <div>
-                    <span class="section-kicker" style="color:var(--cyan);">AI EXAM PARSER · GEMINI VISION & OCR</span>
+                    <span class="section-kicker">AI EXAM PARSER · GEMINI VISION &amp; OCR</span>
                     <h2 id="aiOcrModalTitle">🤖 Nhập đề thi tự động bằng AI</h2>
                 </div>
                 <button
                     class="icon-button"
                     type="button"
                     data-action="close-modal"
-                    aria-label="Đóng"
+                    aria-label="Đóng hộp thoại"
                 >
                     ×
                 </button>
             </div>
 
             <div class="modal-body" style="display:grid;gap:18px;">
-                <!-- Tab chọn phương thức tải đề -->
                 <div class="ai-source-tabs">
                     <button type="button" class="ai-source-tab is-active" data-ai-tab="file" id="aiTabFileBtn">
                         📄 Tải file PDF hoặc Ảnh đề thi
@@ -1438,10 +1988,10 @@
                     </button>
                 </div>
 
-                <!-- Source 1: File PDF / Ảnh -->
+                <!-- Source 1: PDF / Image File -->
                 <div id="aiFileSourcePanel" class="ai-source-panel">
                     <div class="ai-dropzone" id="aiDropzone">
-                        <div class="ai-dropzone-icon">📁</div>
+                        <div class="ai-dropzone-icon" aria-hidden="true">📁</div>
                         <h4>Kéo thả file PDF hoặc Ảnh chụp đề thi vào đây</h4>
                         <p>Hỗ trợ file PDF nhiều trang, hoặc ảnh chụp đề thi (.png, .jpg, .webp). Tối đa 25MB.</p>
                         <label class="primary-button file-upload-btn" style="width:max-content;margin:8px auto 0;">
@@ -1452,7 +2002,7 @@
                     </div>
                 </div>
 
-                <!-- Source 2: Dán văn bản -->
+                <!-- Source 2: Paste Text -->
                 <div id="aiTextSourcePanel" class="ai-source-panel hidden">
                     <label class="editor-field">
                         <span>Dán nội dung văn bản đề thi (Copy từ Word / PDF):</span>
@@ -1460,16 +2010,16 @@
                     </label>
                 </div>
 
-                <!-- Cấu hình AI & Tự động giải -->
+                <!-- AI Scenario & Config -->
                 <div class="ai-config-box glass-card">
                     <div class="ai-scenario-selector">
-                        <span style="display:block;font-size:12px;font-weight:800;color:var(--cyan);margin-bottom:8px;letter-spacing:0.04em;">CHẾ ĐỘ XỬ LÝ ĐÁP ÁN KHI BÓC TÁCH ĐỀ:</span>
+                        <span class="ai-scenario-heading">CHẾ ĐỘ XỬ LÝ ĐÁP ÁN KHI BÓC TÁCH ĐỀ:</span>
                         <div class="ai-scenario-grid">
                             <label class="ai-scenario-card is-selected" id="aiScenario2Card">
                                 <input type="radio" name="aiAnswerScenario" value="scenario2" id="aiScenarioManualRadio" checked>
                                 <div>
                                     <strong>🎯 Kịch bản 2 (Khuyên dùng): AI chỉ bóc tách câu hỏi, để trống đáp án để Admin tự chọn</strong>
-                                    <small>AI tách chuẩn xác đề bài, đoạn đọc ngữ liệu (Từ câu X–Y) và các phương án A/B/C/D, để trống đáp án để Admin tự tích chọn nhanh trong 30 giây.</small>
+                                    <small>AI tách chuẩn xác đề bài, đoạn đọc ngữ liệu (Từ câu X–Y) và các phương án A/B/C/D, để trống đáp án để Admin tự tích chọn nhanh.</small>
                                 </div>
                             </label>
                             <label class="ai-scenario-card" id="aiScenario1Card">
@@ -1485,14 +2035,14 @@
                     <div class="ai-key-row">
                         <label class="editor-field" style="flex:1;">
                             <span>Google Gemini API Key (Tùy chọn - Dùng để đọc trực tiếp file PDF/Ảnh):</span>
-                            <input type="password" id="aiGeminiApiKey" class="editor-input" placeholder="Dán Gemini API Key (được lưu an toàn trên trình duyệt)">
+                            <input type="password" id="aiGeminiApiKey" class="editor-input" placeholder="Dán Gemini API Key (được lưu trên trình duyệt của bạn)">
                         </label>
                         <button type="button" class="secondary-button small" id="aiSaveKeyBtn" style="height:42px;align-self:flex-end;">
                             Lưu Key
                         </button>
                     </div>
                     <div class="ai-key-hint">
-                        <span>Chưa có API Key? <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;">Bấm vào đây để lấy key miễn phí từ Google AI Studio</a> (Free 100%). Nếu không có API Key, bạn có thể chuyển sang tab <strong>Dán văn bản</strong> để hệ thống bóc tách tự động hoàn toàn miễn phí.</span>
+                        <span>Nếu không dùng API Key, bạn có thể chuyển sang tab <strong>Dán văn bản</strong> hoặc tải PDF có lớp văn bản để hệ thống bóc tách bằng trình phân tích nội bộ.</span>
                     </div>
 
                     <div class="ai-exam-meta-row">
@@ -1510,7 +2060,7 @@
                     </div>
                 </div>
 
-                <!-- Loading State Banner -->
+                <!-- Parsing Progress Banner -->
                 <div id="aiParsingProgress" class="ai-progress-box hidden">
                     <div class="loading-spinner"></div>
                     <div>
@@ -1534,7 +2084,7 @@
                     class="primary-button"
                     type="button"
                 >
-                    <span>🚀 Bắt đầu Phân tích & Tạo đề ngay</span>
+                    <span>🚀 Bắt đầu Phân tích &amp; Tạo đề ngay</span>
                 </button>
             </div>
         </div>
@@ -1552,7 +2102,6 @@
         aria-hidden="true"
     >
         <div class="modal-card glass-card">
-
             <div class="modal-header">
                 <div>
                     <span class="section-kicker">CẨM NANG HỆ THỐNG</span>
@@ -1563,20 +2112,19 @@
                     class="icon-button"
                     type="button"
                     data-action="close-modal"
-                    aria-label="Đóng"
+                    aria-label="Đóng hướng dẫn"
                 >
                     ×
                 </button>
             </div>
 
             <div class="modal-body">
-
                 <div class="guide-item">
                     <span class="guide-number">01</span>
                     <div>
-                        <h3>Chọn kỳ thi & Mã đề</h3>
+                        <h3>Chọn kỳ thi, Môn học &amp; Mã đề</h3>
                         <p>
-                            Chọn cổng thi VSAT (150 điểm) hoặc THPTQG (10 điểm), sau đó chọn môn học để làm từng đề cụ thể hoặc trộn đề ngẫu nhiên.
+                            Chọn cổng thi VSAT (150 điểm) hoặc THPTQG (10 điểm), hoặc vào mục <strong>Kho đề</strong> để tìm kiếm và lọc đề thi theo môn học. Bạn có thể làm từng mã đề gốc hoặc tạo đề trộn ngẫu nhiên.
                         </p>
                     </div>
                 </div>
@@ -1586,7 +2134,7 @@
                     <div>
                         <h3>Làm câu hỏi Đọc ngữ liệu (Từ câu X đến câu Y)</h3>
                         <p>
-                            Với phần Trắc nghiệm 4 lựa chọn theo ngữ liệu đọc hiểu, hệ thống hiển thị khung Ngữ liệu chung kèm các nút chuyển nhanh câu hỏi trong cụm (VD: Câu 10 → Câu 12). Bấm vào hình ảnh bất kỳ để phóng to.
+                            Với phần Trắc nghiệm 4 lựa chọn theo ngữ liệu đọc hiểu, hệ thống hiển thị khung Ngữ liệu chung kèm thanh chuyển nhanh câu hỏi trong cụm (VD: Câu 10 → Câu 12). Bấm vào hình ảnh bất kỳ để phóng to độ phân giải cao.
                         </p>
                     </div>
                 </div>
@@ -1594,9 +2142,9 @@
                 <div class="guide-item">
                     <span class="guide-number">03</span>
                     <div>
-                        <h3>Quản lý & Sửa đề trực tiếp trên Web (Dành cho Admin)</h3>
+                        <h3>Điều hướng câu hỏi &amp; Lưu tự động</h3>
                         <p>
-                            Đăng nhập tài khoản Admin và mở mục <strong>🛠 Quản lý & Sửa Đề</strong> để tạo đề mới, tải ảnh cho từng câu hỏi, thiết lập đoạn đọc ngữ liệu từ câu nào đến câu nào và sửa trực tiếp mọi đề thi ngay trên web mà không cần chỉnh file JSON trên GitHub.
+                            Sử dụng bảng câu hỏi bên trái (hoặc phím mũi tên <code>←</code> <code>→</code> trên bàn phím) để chuyển câu, bấm <strong>⚑ Đánh dấu xem lại</strong> với những câu cần kiểm tra. Phiên làm bài được lưu tự động liên tục.
                         </p>
                     </div>
                 </div>
@@ -1604,9 +2152,9 @@
                 <div class="guide-item">
                     <span class="guide-number">04</span>
                     <div>
-                        <h3>Chấm điểm & Xem lại chi tiết</h3>
+                        <h3>Chấm điểm, Xem lại &amp; Thống kê tiến bộ</h3>
                         <p>
-                            Sau khi nộp bài, hệ thống chấm điểm tự động theo đúng thang điểm chuẩn và hiển thị đáp án kèm lời giải chi tiết.
+                            Sau khi nộp bài, hệ thống chấm điểm tự động theo đúng thang điểm chuẩn, lọc xem lại từng câu Đúng / Sai / Bỏ trống và lưu vào mục <strong>Thống kê &amp; Bảng xếp hạng</strong>.
                         </p>
                     </div>
                 </div>
@@ -1625,7 +2173,7 @@
     </div>
 
     <!-- =========================================================
-         SUBMIT CONFIRM MODAL
+         SUBMIT CONFIRMATION MODAL
     ========================================================== -->
     <div
         id="submitModal"
@@ -1636,8 +2184,7 @@
         aria-hidden="true"
     >
         <div class="modal-card glass-card modal-card-sm">
-
-            <div class="modal-icon modal-icon-warning">!</div>
+            <div class="modal-icon modal-icon-warning" aria-hidden="true">!</div>
 
             <div class="modal-header centered">
                 <div>
@@ -1648,12 +2195,12 @@
 
             <div class="submit-summary">
                 <div>
-                    <span>Đã làm</span>
+                    <span>Đã trả lời</span>
                     <strong id="submitAnsweredCount">0</strong>
                 </div>
 
                 <div>
-                    <span>Còn trống</span>
+                    <span>Chưa trả lời</span>
                     <strong id="submitUnansweredCount">0</strong>
                 </div>
 
@@ -1661,6 +2208,10 @@
                     <span>Thời gian còn</span>
                     <strong id="submitRemainingTime">00:00</strong>
                 </div>
+            </div>
+
+            <div id="submitUnansweredWarning" class="submit-warning-banner hidden" role="alert">
+                ⚠️ Bạn vẫn còn câu hỏi chưa trả lời. Hãy kiểm tra lại bảng câu hỏi trước khi nộp bài!
             </div>
 
             <p class="modal-note">
@@ -1688,7 +2239,7 @@
     </div>
 
     <!-- =========================================================
-         TOAST NOTIFICATION
+         TOAST NOTIFICATION CONTAINER
     ========================================================== -->
     <div
         id="toastContainer"
@@ -1698,16 +2249,15 @@
     ></div>
 
     <!-- =========================================================
-         GLOBAL NOSCRIPT
+         GLOBAL NOSCRIPT WARNING
     ========================================================== -->
     <noscript>
         <div class="noscript-warning">
-            Website cần JavaScript để hoạt động đầy đủ. Hãy bật JavaScript
-            trên trình duyệt của bạn rồi tải lại trang.
+            Website cần JavaScript để hoạt động đầy đủ. Hãy bật JavaScript trên trình duyệt của bạn rồi tải lại trang.
         </div>
     </noscript>
 
-    <!-- JavaScript chính -->
+    <!-- Main Application Script -->
     <script src="./app.js" defer></script>
 </body>
 </html>
