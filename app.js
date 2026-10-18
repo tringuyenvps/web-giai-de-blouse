@@ -113,8 +113,18 @@
         result: null,
         loadedSources: [],
         pendingResumeSession: null,
-        audioEnabled: true,
+        audioEnabled: false,
         passageLayout: "split", // "split" | "stacked"
+        reviewFilter: "all",
+        historyExamFilter: "all",
+        subjectPaperCounts: {},
+        library: {
+            papers: [],
+            loaded: false,
+            isLoading: false,
+            error: null
+        },
+        adminUsersCache: [],
         admin: {
             tab: "exams",
             examKey: "vsat",
@@ -471,21 +481,61 @@
     }
 
     /* ---------------- Theme / audio / toast / lightbox ---------------- */
+    function getPreferredTheme() {
+        try {
+            const stored = localStorage.getItem(APP.storage.theme);
+            if (stored === "light" || stored === "dark") return stored;
+        } catch (_) {}
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+        }
+        return "light";
+    }
     function initTheme() {
-        const stored = localStorage.getItem(APP.storage.theme);
-        applyTheme(stored === "light" ? "light" : "dark", false);
-        const layout = localStorage.getItem(APP.storage.passageLayout);
-        if (layout === "stacked" || layout === "split") state.passageLayout = layout;
+        applyTheme(getPreferredTheme(), false);
+        try {
+            const layout = localStorage.getItem(APP.storage.passageLayout);
+            if (layout === "stacked" || layout === "split") state.passageLayout = layout;
+        } catch (_) {}
+        if (window.matchMedia) {
+            const mq = window.matchMedia("(prefers-color-scheme: dark)");
+            mq.addEventListener?.("change", e => {
+                try {
+                    if (!localStorage.getItem(APP.storage.theme)) {
+                        applyTheme(e.matches ? "dark" : "light", false);
+                    }
+                } catch (_) {}
+            });
+        }
+        window.addEventListener("storage", e => {
+            if (e.key === APP.storage.theme && (e.newValue === "light" || e.newValue === "dark")) {
+                applyTheme(e.newValue, false);
+            }
+        });
     }
     function applyTheme(theme, persist = true) {
-        const safe = theme === "light" ? "light" : "dark";
+        const safe = theme === "dark" ? "dark" : "light";
         DOM.html.dataset.theme = safe;
-        if (DOM.themeIcon) DOM.themeIcon.textContent = safe === "dark" ? "☀" : "☾";
-        if (persist) localStorage.setItem(APP.storage.theme, safe);
+        const metaTheme = document.getElementById("metaThemeColor");
+        if (metaTheme) metaTheme.setAttribute("content", safe === "dark" ? "#0B1020" : "#F5F7FC");
+        const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+        const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        if (DOM.themeIcon) DOM.themeIcon.innerHTML = safe === "dark" ? sunSvg : moonSvg;
+        const toggleBtn = document.getElementById("themeToggle");
+        if (toggleBtn) {
+            toggleBtn.setAttribute("aria-pressed", safe === "dark" ? "true" : "false");
+            toggleBtn.setAttribute("aria-label", safe === "dark" ? "Đang ở chế độ Tối — Bấm để chuyển sang chế độ Sáng" : "Đang ở chế độ Sáng — Bấm để chuyển sang chế độ Tối");
+        }
+        const drawerLabel = document.getElementById("mobileDrawerThemeLabel");
+        if (drawerLabel) drawerLabel.textContent = safe === "dark" ? "☀ Chế độ Tối" : "☾ Chế độ Sáng";
+        const authThemeBtn = document.getElementById("authThemeToggleBtn");
+        if (authThemeBtn) authThemeBtn.innerHTML = safe === "dark" ? `${sunSvg} <span>Chế độ Sáng</span>` : `${moonSvg} <span>Chế độ Tối</span>`;
+        if (persist) {
+            try { localStorage.setItem(APP.storage.theme, safe); } catch (_) {}
+        }
     }
     function toggleTheme() {
-        applyTheme(DOM.html.dataset.theme === "light" ? "dark" : "light");
-        playTone(520, 0.04, "sine", 0.018);
+        applyTheme(DOM.html.dataset.theme === "dark" ? "light" : "dark");
     }
     function togglePassageLayout() {
         state.passageLayout = state.passageLayout === "split" ? "stacked" : "split";
@@ -571,7 +621,36 @@
         setModal(DOM.guideModal, false);
         setModal(DOM.submitModal, false);
         setModal(DOM.aiOcrModal, false);
+        document.getElementById("customConfirmModal")?.remove();
         closeLightbox();
+    }
+
+    function askConfirmModal(title, message, confirmLabel = "Xác nhận", danger = false) {
+        return new Promise(resolve => {
+            document.getElementById("customConfirmModal")?.remove();
+            const wrap = document.createElement("div");
+            wrap.id = "customConfirmModal";
+            wrap.className = "floating-modal-wrap";
+            wrap.innerHTML = `
+                <div class="floating-modal glass-card" role="dialog" aria-modal="true" style="max-width:440px;">
+                    <span class="section-kicker">XÁC NHẬN THAO TÁC</span>
+                    <h2 style="margin:6px 0 8px;font-size:20px;">${escapeHTML(title)}</h2>
+                    <p style="margin:0 0 20px;font-size:13.5px;line-height:1.55;">${escapeHTML(message)}</p>
+                    <div style="display:flex;justify-content:flex-end;gap:10px;">
+                        <button type="button" class="secondary-button" id="confirmCancelBtn">Hủy bỏ</button>
+                        <button type="button" class="${danger ? "danger-button" : "primary-button"}" id="confirmOkBtn">${escapeHTML(confirmLabel)}</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(wrap);
+            const cleanup = (val) => {
+                wrap.remove();
+                resolve(val);
+            };
+            wrap.querySelector("#confirmCancelBtn")?.addEventListener("click", () => cleanup(false));
+            wrap.querySelector("#confirmOkBtn")?.addEventListener("click", () => cleanup(true));
+            wrap.addEventListener("click", e => { if (e.target === wrap) cleanup(false); });
+        });
     }
 
     /* ---------------- Authentication / Server ---------------- */
@@ -598,40 +677,63 @@
         gate.id = 'authGate';
         gate.className = 'auth-gate';
         gate.innerHTML = `
-          <div class="auth-card auth-portal-card glass-card">
+          <div class="auth-card auth-portal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="authPortalTitle">
             <div class="auth-visual-side">
               <div>
-                <span class="promo-badge">BLOUSE EXAM PRO V6.5</span>
-                <h2>Hệ thống Luyện thi Đánh giá Năng lực VSAT & THPTQG</h2>
-                <p>Mô phỏng phòng thi thực tế với công nghệ hiển thị ngữ liệu đọc hiểu song song và chấm điểm phân tích chuyên sâu.</p>
+                <span class="promo-badge">BLOUSE EXAM PRO</span>
+                <h2>Nền tảng Luyện thi Đánh giá Năng lực VSAT &amp; THPT Quốc Gia</h2>
+                <p>Môi trường khảo thí học thuật chuẩn hóa với giao diện đọc ngữ liệu song song, công thức LaTeX sắc nét và phân tích điểm số chuyên sâu.</p>
                 <div class="auth-feature-bullets">
                   <div class="auth-feature-bullet"><span>📖</span><span>Trắc nghiệm Đọc ngữ liệu (Từ câu X đến câu Y)</span></div>
-                  <div class="auth-feature-bullet"><span>📷</span><span>Đính kèm & phóng to hình ảnh từng câu hỏi</span></div>
-                  <div class="auth-feature-bullet"><span>🛠</span><span>Admin Studio tạo & sửa đề trực tiếp trên Web</span></div>
+                  <div class="auth-feature-bullet"><span>📷</span><span>Phóng to hình ảnh &amp; công thức MathJax chuẩn xác</span></div>
+                  <div class="auth-feature-bullet"><span>📊</span><span>Thống kê lịch sử, biểu đồ tiến bộ &amp; bảng xếp hạng</span></div>
                 </div>
               </div>
-              <div style="font-size:11.5px;opacity:0.7;">© Blouse Exam Pro · Cloud PostgreSQL Synchronized</div>
+              <div style="font-size:11.5px;opacity:0.8;">© Blouse Exam Pro · Modern Academic Premium Platform</div>
             </div>
             <div class="auth-form-side">
-              <div class="auth-logo" style="margin:0 0 12px;">✦</div>
-              <div class="auth-kicker">CỔNG ĐĂNG NHẬP</div>
-              <h1 style="margin:6px 0 8px;font-size:26px;">Chào mừng trở lại</h1>
-              <p style="margin-bottom:18px;font-size:13px;">Đăng nhập bằng tài khoản học sinh hoặc tài khoản Quản trị viên (Admin).</p>
+              <div class="auth-form-top-row">
+                <div class="auth-logo" aria-hidden="true">✦</div>
+                <button type="button" id="authThemeToggleBtn" class="secondary-button small" data-action="toggle-theme" aria-label="Chuyển chế độ Sáng / Tối">
+                  <span>Đổi giao diện</span>
+                </button>
+              </div>
+              <div class="auth-kicker">CỔNG XÁC THỰC THÍ SINH &amp; QUẢN TRỊ</div>
+              <h1 id="authPortalTitle" style="margin:6px 0 8px;font-size:24px;">Đăng nhập hệ thống</h1>
+              <p style="margin-bottom:18px;font-size:13px;">Sử dụng tài khoản học sinh được cấp hoặc tài khoản Quản trị viên để bắt đầu.</p>
               <form id="loginForm" class="auth-form">
-                <label>Tên đăng nhập<input id="loginUsername" autocomplete="username" placeholder="Nhập username (VD: admin)" required></label>
-                <label>Mật khẩu<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required></label>
+                <label for="loginUsername">
+                  <span>Tên đăng nhập</span>
+                  <input id="loginUsername" name="username" autocomplete="username" placeholder="Nhập tên đăng nhập" required>
+                </label>
+                <label for="loginPassword">
+                  <span>Mật khẩu</span>
+                  <div class="password-input-wrap">
+                    <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+                    <button type="button" id="toggleLoginPassBtn" class="password-toggle-btn" aria-label="Hiện hoặc ẩn mật khẩu">Hiện</button>
+                  </div>
+                </label>
                 <button class="primary-button auth-submit" type="submit">Đăng nhập vào hệ thống →</button>
-                <div id="loginError" class="auth-error hidden"></div>
+                <div id="loginError" class="auth-error hidden" role="alert"></div>
               </form>
             </div>
           </div>`;
         document.body.appendChild(gate);
+        applyTheme(DOM.html.dataset.theme || "light", false);
+        const passInput = $('#loginPassword');
+        const togglePassBtn = $('#toggleLoginPassBtn');
+        togglePassBtn?.addEventListener('click', () => {
+            if (!passInput) return;
+            const isHidden = passInput.type === 'password';
+            passInput.type = isHidden ? 'text' : 'password';
+            togglePassBtn.textContent = isHidden ? 'Ẩn' : 'Hiện';
+        });
         $('#loginForm').addEventListener('submit', async e => {
             e.preventDefault();
             const btn = $('.auth-submit');
             const error = $('#loginError');
             btn.disabled = true;
-            btn.textContent = 'Đang đăng nhập...';
+            btn.innerHTML = '<span class="button-spinner" aria-hidden="true"></span><span>Đang xác thực...</span>';
             error.classList.add('hidden');
             try {
                 const usernameInput = $('#loginUsername').value.trim();
@@ -642,13 +744,14 @@
                 gate.classList.add('hidden');
                 await syncHistoryFromServer();
                 renderHistory();
+                renderHomeDashboard();
                 showToast(`Xin chào ${currentUser.fullName || currentUser.username}!`, 'success', 3000);
             } catch (err) {
-                error.textContent = err.message;
+                error.textContent = err.message || 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin.';
                 error.classList.remove('hidden');
             } finally {
                 btn.disabled = false;
-                btn.textContent = 'Đăng nhập';
+                btn.textContent = 'Đăng nhập vào hệ thống →';
             }
         });
     }
@@ -658,27 +761,30 @@
     }
 
     function updateUserUI() {
+        const displayName = currentUser ? (currentUser.fullName || currentUser.username) : 'Đăng nhập';
+        const initial = currentUser ? String(currentUser.fullName || currentUser.username).charAt(0).toUpperCase() : 'T';
+        const roleLabel = currentUser ? (isAdmin() ? 'Quản trị viên (Admin)' : 'Thí sinh luyện thi') : 'Chưa đăng nhập';
+
         const name = $('.profile-name');
         const avatar = $('.profile-avatar');
-        if (name) name.textContent = currentUser ? (currentUser.fullName || currentUser.username) : 'Thí sinh';
-        if (avatar) avatar.textContent = currentUser ? String(currentUser.fullName || currentUser.username).charAt(0).toUpperCase() : 'T';
+        if (name) name.textContent = displayName;
+        if (avatar) avatar.textContent = initial;
+
+        const mName = $('#mobileDrawerName');
+        const mRole = $('#mobileDrawerRole');
+        const mAvatar = $('#mobileDrawerAvatar');
+        if (mName) mName.textContent = displayName;
+        if (mRole) mRole.textContent = roleLabel;
+        if (mAvatar) mAvatar.textContent = initial;
 
         const adminActive = isAdmin();
         DOM.navAdminStudioBtn?.classList.toggle('hidden', !adminActive);
         DOM.heroAdminButton?.classList.toggle('hidden', !adminActive);
         DOM.adminEditCurrentExamBtn?.classList.toggle('hidden', !adminActive);
+        $('#mobileDrawerAdminBtn')?.classList.toggle('hidden', !adminActive);
 
         const old = $('#adminDashboardButton');
         if (old) old.remove();
-        if (adminActive) {
-            const b = document.createElement('button');
-            b.id = 'adminDashboardButton';
-            b.className = 'icon-button glass-button';
-            b.dataset.action = 'open-exam-studio';
-            b.title = 'Mở Quản lý Đề & Tài khoản (Admin)';
-            b.textContent = '⚙';
-            $('.header-actions')?.prepend(b);
-        }
     }
 
     async function authBoot() {
@@ -720,12 +826,33 @@
     }
 
     async function openProfile() {
-        if (!currentUser) return;
+        closeMobileDrawer();
+        if (!currentUser) {
+            $('#authGate')?.classList.remove('hidden');
+            return;
+        }
         document.getElementById('profileModal')?.remove();
         const modal = document.createElement('div');
         modal.id = 'profileModal';
         modal.className = 'floating-modal-wrap';
-        modal.innerHTML = `<div class="floating-modal glass-card"><button class="modal-x" data-action="close-profile">×</button><div class="profile-big-avatar">${escapeHTML(String(currentUser.fullName || currentUser.username).charAt(0).toUpperCase())}</div><h2>${escapeHTML(currentUser.fullName || currentUser.username)}</h2><p>@${escapeHTML(currentUser.username)} · ${isAdmin() ? 'Quản trị viên (Admin)' : 'Thí sinh'}</p><div class="profile-modal-actions">${isAdmin() ? '<button class="primary-button" data-action="open-exam-studio">🛠 Quản lý & Sửa Đề thi trên Web</button><button class="secondary-button" data-action="open-admin-users">👥 Quản lý Tài khoản</button>' : ''}<button class="danger-button" data-action="logout">Đăng xuất</button></div></div>`;
+        modal.innerHTML = `
+            <div class="floating-modal glass-card" role="dialog" aria-modal="true" aria-label="Thông tin tài khoản">
+                <button class="modal-x" type="button" data-action="close-profile" aria-label="Đóng">×</button>
+                <div style="display:flex;align-items:center;gap:14px;">
+                    <div class="profile-big-avatar">${escapeHTML(String(currentUser.fullName || currentUser.username).charAt(0).toUpperCase())}</div>
+                    <div>
+                        <span class="section-kicker">${isAdmin() ? 'TÀI KHOẢN QUẢN TRỊ' : 'HỒ SƠ THÍ SINH'}</span>
+                        <h2 style="margin:2px 0;">${escapeHTML(currentUser.fullName || currentUser.username)}</h2>
+                        <p>@${escapeHTML(currentUser.username)} · ${isAdmin() ? 'Quản trị viên hệ thống' : 'Học viên chính thức'}</p>
+                    </div>
+                </div>
+                <div class="profile-modal-actions">
+                    <button type="button" class="secondary-button" data-action="open-history">📊 Lịch sử &amp; Thống kê</button>
+                    <button type="button" class="secondary-button" data-action="toggle-theme">☀/☾ Đổi giao diện Sáng/Tối</button>
+                    ${isAdmin() ? '<button type="button" class="primary-button" data-action="open-exam-studio">🛠 Quản trị Đề thi</button><button type="button" class="secondary-button" data-action="open-admin-users">👥 Quản lý Tài khoản</button>' : ''}
+                    <button type="button" class="danger-button" data-action="logout" style="margin-left:auto;">Đăng xuất</button>
+                </div>
+            </div>`;
         document.body.appendChild(modal);
     }
 
@@ -773,11 +900,36 @@
         });
     }
 
-    /* ---------------- Navigation ---------------- */
-    function setActiveScreen(name, writeHash = true) {
+    /* ---------------- Mobile Drawer & Navigation ---------------- */
+    function openMobileDrawer() {
+        const drawer = document.getElementById("mobileNavDrawer");
+        const trigger = document.getElementById("mobileNavToggleBtn");
+        if (!drawer) return;
+        drawer.classList.remove("hidden");
+        drawer.setAttribute("aria-hidden", "false");
+        trigger?.setAttribute("aria-expanded", "true");
+    }
+    function closeMobileDrawer() {
+        const drawer = document.getElementById("mobileNavDrawer");
+        const trigger = document.getElementById("mobileNavToggleBtn");
+        if (!drawer) return;
+        drawer.classList.add("hidden");
+        drawer.setAttribute("aria-hidden", "true");
+        trigger?.setAttribute("aria-expanded", "false");
+    }
+    function toggleMobileDrawer() {
+        const drawer = document.getElementById("mobileNavDrawer");
+        if (!drawer) return;
+        if (drawer.classList.contains("hidden")) openMobileDrawer();
+        else closeMobileDrawer();
+    }
+
+    function setActiveScreen(name, writeHash = true, navHighlight = null) {
+        closeMobileDrawer();
         DOM.screens.forEach(screen => screen.classList.toggle("is-active", screen.dataset.screen === name));
-        $$(".nav-link[data-nav-screen]").forEach(btn => {
-            btn.classList.toggle("is-active", btn.dataset.navScreen === name);
+        const activeNavKey = navHighlight || name;
+        $$("[data-nav-screen]").forEach(btn => {
+            btn.classList.toggle("is-active", btn.dataset.navScreen === activeNavKey);
         });
         state.screen = name;
         DOM.body.classList.toggle("is-exam", name === "exam");
@@ -787,22 +939,37 @@
         }
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
     function goHome() {
         if (state.screen === "exam" && state.questions.length && !state.hasSubmitted) {
-            showToast("Phiên thi vẫn đang được lưu. Bạn có thể tiếp tục bất cứ lúc nào.", "warning", 3200);
+            saveSession();
+            showToast("Phiên thi đã được lưu tự động. Bạn có thể tiếp tục bất cứ lúc nào.", "info", 3000);
         }
         closeModals();
+        renderHomeDashboard();
         setActiveScreen("home");
     }
-    function openGuide() { setModal(DOM.guideModal, true); playSound("click"); }
+
+    function openGuide() {
+        closeMobileDrawer();
+        setModal(DOM.guideModal, true);
+    }
+
     function openSubmitModal() {
         if (!state.questions.length || state.hasSubmitted || state.isSubmitting) return;
         const answered = countAnswered();
+        const unanswered = Math.max(0, state.questions.length - answered);
         DOM.submitAnsweredCount.textContent = String(answered);
-        DOM.submitUnansweredCount.textContent = String(state.questions.length - answered);
+        DOM.submitUnansweredCount.textContent = String(unanswered);
         DOM.submitRemainingTime.textContent = formatTimer(getRemainingSeconds());
+        const warnBanner = document.getElementById("submitUnansweredWarning");
+        if (warnBanner) {
+            warnBanner.classList.toggle("hidden", unanswered === 0);
+            if (unanswered > 0) {
+                warnBanner.textContent = `⚠️ Bạn còn ${unanswered} câu hỏi chưa trả lời. Hãy kiểm tra kỹ trước khi nộp bài!`;
+            }
+        }
         setModal(DOM.submitModal, true);
-        playSound("click");
     }
 
     function openExamSelector(examKey = null) {
@@ -815,27 +982,39 @@
         DOM.subjectPapersContainer?.classList.add("hidden");
         renderSubjectSelector();
         setActiveScreen("exam-selection");
-        playSound("click");
     }
 
     function renderSubjectSelector() {
         const exam = state.examConfig || EXAMS.vsat;
         DOM.selectedExamBreadcrumb.textContent = exam.name;
         DOM.selectionExamName.textContent = exam.name;
-        DOM.selectionTitle.textContent = `Chọn môn ${exam.name} để bắt đầu`;
+        DOM.selectionTitle.textContent = `Chọn môn thi ${exam.name} để bắt đầu`;
         DOM.selectionDescription.textContent = exam.description;
         DOM.switchVsatBtn?.classList.toggle("is-active", exam.key === "vsat");
         DOM.switchThptBtn?.classList.toggle("is-active", exam.key === "thptqg");
+        DOM.switchVsatBtn?.setAttribute("aria-pressed", exam.key === "vsat" ? "true" : "false");
+        DOM.switchThptBtn?.setAttribute("aria-pressed", exam.key === "thptqg" ? "true" : "false");
         DOM.subjectLoading?.classList.add("hidden");
 
-        DOM.subjectGrid.innerHTML = exam.subjects.map((subject, i) => {
+        DOM.subjectGrid.innerHTML = exam.subjects.map((subject) => {
             const duration = getDurationMinutes(exam.key, subject.key);
             const isSelected = state.subjectKey === subject.key;
-            return `<button class="subject-card glass-card fade-up ${isSelected ? "is-selected" : ""}" type="button" style="--subject-accent:${escapeHTML(subject.accent)};animation-delay:${Math.min(i * 0.04, 0.3)}s" data-action="choose-subject" data-exam="${escapeHTML(exam.key)}" data-subject="${escapeHTML(subject.key)}">
-                <span class="subject-card-icon">${escapeHTML(subject.icon)}</span>
-                <h3>${escapeHTML(subject.name)}</h3>
-                <p>${escapeHTML(subject.description)}</p>
-                <span class="subject-card-meta"><span>◷ ${duration} phút</span><span>↗ Chọn đề / Thi ngay</span></span>
+            const countKey = `${exam.key}:${subject.key}`;
+            const knownCount = state.subjectPaperCounts[countKey];
+            const statusText = typeof knownCount === "number"
+                ? (knownCount > 0 ? `${knownCount} đề sẵn sàng` : "Đang cập nhật đề")
+                : "Sẵn sàng luyện đề";
+            const hasPapersClass = typeof knownCount === "number" && knownCount > 0 ? "has-papers" : "";
+            return `<button class="subject-card glass-card ${isSelected ? "is-selected" : ""}" type="button" data-action="choose-subject" data-exam="${escapeHTML(exam.key)}" data-subject="${escapeHTML(subject.key)}">
+                <div>
+                    <div class="subject-card-top">
+                        <span class="subject-card-icon" aria-hidden="true">${escapeHTML(subject.icon)}</span>
+                        <span class="subject-status-pill ${hasPapersClass}" data-subject-count="${escapeHTML(countKey)}">${escapeHTML(statusText)}</span>
+                    </div>
+                    <h3>${escapeHTML(subject.name)}</h3>
+                    <p>${escapeHTML(subject.description)}</p>
+                </div>
+                <span class="subject-card-meta"><span>◷ ${duration} phút</span><span>Bắt đầu làm bài →</span></span>
             </button>`;
         }).join("");
     }
@@ -938,12 +1117,23 @@
         return out;
     }
 
+    const LEGACY_ASSET_MAP = {
+        "./database/vsat/sinh/assets/de4/p2.png": "./database/vsat/sinh/assets/de4/q06.png",
+        "./database/vsat/sinh/assets/de4/p3.png": "./database/vsat/sinh/assets/de4/q10_12.png",
+        "./database/vsat/sinh/assets/de4/p4.png": "./database/vsat/sinh/assets/de4/q13_15.png",
+        "./database/vsat/sinh/assets/de13/p8.png": "./database/vsat/sinh/assets/de13/q13_15.png",
+        "./database/vsat/sinh/assets/de13/p11.png": "./database/vsat/sinh/assets/de13/q25.png"
+    };
+
     function resolveAsset(sourceUrl, asset) {
         if (!asset) return "";
         const raw = String(asset).trim();
         if (!raw) return "";
         if (/^data:/i.test(raw) || /^https?:\/\//i.test(raw) || /^\//.test(raw)) return raw;
-        if (/^(?:\.\/)?database\//i.test(raw)) return `./${raw.replace(/^\.\//, "")}`;
+        if (/^(?:\.\/)?database\//i.test(raw)) {
+            const normalized = `./${raw.replace(/^\.\//, "")}`;
+            return LEGACY_ASSET_MAP[normalized] || normalized;
+        }
         try {
             if (sourceUrl && /^https?:\/\//i.test(sourceUrl)) return new URL(raw, sourceUrl).href;
         } catch (_) {}
@@ -1563,6 +1753,8 @@
 
     /* ---------------- Exam Rendering (With Reading Passage & Lightbox) ---------------- */
     function renderExamShell() {
+        const examBadge = document.getElementById("sidebarExamBadge");
+        if (examBadge) examBadge.textContent = state.examConfig?.name || "VSAT";
         DOM.examTitle.textContent = state.subjectName || "Môn học";
         if (DOM.examPaperSubtitle) DOM.examPaperSubtitle.textContent = state.selectedPaperTitle || "";
         DOM.totalQuestionNumber.textContent = String(state.questions.length);
@@ -1584,7 +1776,7 @@
     function updatePaletteCount() {
         if (!DOM.paletteCount) return;
         const answered = countAnswered();
-        DOM.paletteCount.textContent = `${answered}/${state.questions.length}`;
+        DOM.paletteCount.textContent = `${answered}/${state.questions.length} đã làm`;
         $$(".palette-button", DOM.questionPalette).forEach(btn => {
             const i = safeNumber(btn.dataset.index, -1);
             const q = state.questions[i];
@@ -1895,6 +2087,11 @@
     }
     function updateNavigationButtons() {
         $$('[data-action="prev-question"]').forEach(b => b.disabled = state.currentIndex <= 0);
+        const nextBtn = document.getElementById("nextQuestionBtn");
+        if (nextBtn && state.questions.length) {
+            const isLast = state.currentIndex >= state.questions.length - 1;
+            nextBtn.textContent = isLast ? "Hoàn thành & Nộp bài →" : "Câu tiếp theo →";
+        }
     }
     function toggleFlag() {
         const q = currentQuestion(); if (!q || state.hasSubmitted) return;
@@ -2065,21 +2262,28 @@
     }
 
     function renderResult(result) {
-        DOM.resultTitle.textContent = `Hoàn thành ${result.examName} 🎉`;
-        DOM.resultSubtitle.textContent = `${result.subjectName}${result.paperTitle ? ` · ${result.paperTitle}` : ""} · ${result.reason === "timeout" ? "Hệ thống tự động nộp khi hết giờ." : "Bạn đã chủ động nộp bài."}`;
+        state.reviewFilter = "all";
+        $$(".review-filter-btn").forEach(btn => btn.classList.toggle("is-active", btn.dataset.reviewFilter === "all"));
+        DOM.resultTitle.textContent = `Hoàn thành kỳ thi ${result.examName}`;
+        DOM.resultSubtitle.textContent = `Môn ${result.subjectName}${result.paperTitle ? ` · ${result.paperTitle}` : ""} · ${result.reason === "timeout" ? "Hệ thống tự động nộp khi hết giờ." : "Nộp bài thành công."}`;
         DOM.resultScore.textContent = formatScore(result.score);
         DOM.resultMaxScore.textContent = `/ ${formatScore(result.maxScore)}`;
+        const pctBadge = document.getElementById("resultPercentBadge");
+        if (pctBadge) pctBadge.textContent = `Đạt ${Math.round(safeNumber(result.percent))}%`;
         DOM.resultMessage.textContent = resultMessage(result.percent);
         DOM.correctCount.textContent = String(result.correctCount);
         DOM.wrongCount.textContent = String(result.wrongCount);
         DOM.unansweredCount.textContent = String(result.unansweredCount);
         DOM.usedTime.textContent = formatTimer(result.usedSeconds);
-        DOM.reviewSummary.textContent = `${result.evaluations.length} câu · ${formatScore(result.score)}/${formatScore(result.maxScore)}`;
+        DOM.reviewSummary.textContent = `${result.evaluations.length} câu · ${formatScore(result.score)}/${formatScore(result.maxScore)}đ`;
         const degree = clamp(result.percent, 0, 100) * 3.6;
         DOM.scoreRing?.style.setProperty("--score-degree", `${degree}deg`);
-        if (DOM.scoreRing) DOM.scoreRing.style.background = `conic-gradient(var(--primary) 0deg, var(--cyan) var(--score-degree), rgba(255,255,255,.08) var(--score-degree), rgba(255,255,255,.08) 360deg)`;
+        if (DOM.scoreRing) {
+            DOM.scoreRing.style.background = `conic-gradient(var(--brand-primary) 0deg, var(--accent-cyan) var(--score-degree), var(--border-color) var(--score-degree), var(--border-color) 360deg)`;
+        }
         renderBreakdown(result);
         renderReview(result);
+        renderHomeDashboard();
         resetConfettiCanvas();
         requestAnimationFrame(() => typesetMath(DOM.reviewList));
     }
@@ -2105,46 +2309,309 @@
     }
 
     function renderReview(result) {
-        DOM.reviewList.innerHTML = (result.evaluations || []).map((item, i) => {
+        const allItems = (result?.evaluations || []).map((item, i) => ({ item, idx: i }));
+        const filter = state.reviewFilter || "all";
+        const filtered = allItems.filter(({ item }) => {
+            const e = item.evaluation;
+            if (filter === "correct") return e.isCorrect;
+            if (filter === "wrong") return !e.isCorrect && e.status !== "unanswered";
+            if (filter === "unanswered") return e.status === "unanswered";
+            return true;
+        });
+
+        if (DOM.reviewSummary) {
+            DOM.reviewSummary.textContent = `${filtered.length}/${allItems.length} câu`;
+        }
+
+        if (!filtered.length) {
+            DOM.reviewList.innerHTML = `<div class="empty-state" style="padding:28px;"><h3>Không có câu hỏi nào trong nhóm này</h3><p>Hãy chọn bộ lọc khác ở phía trên để xem các câu hỏi còn lại.</p></div>`;
+            return;
+        }
+
+        DOM.reviewList.innerHTML = filtered.map(({ item, idx }) => {
             const q = item.question;
             const e = item.evaluation;
-            const status = e.status === "unanswered" ? "BỎ TRỐNG" : e.status === "partial" ? "ĐÚNG MỘT PHẦN" : e.isCorrect ? "ĐÚNG" : "SAI";
+            const status = e.status === "unanswered" ? "○ BỎ TRỐNG" : e.status === "partial" ? "◐ ĐÚNG MỘT PHẦN" : e.isCorrect ? "✓ ĐÚNG" : "✕ SAI";
             const cls = e.status === "unanswered" ? "unanswered" : e.isCorrect ? "correct" : "wrong";
             const hasPass = hasReadingPassage(q);
             return `<article class="review-item">
                 <div class="review-item-top">
                     <div class="review-item-title">
-                        <span class="review-question-number">${i + 1}</span>
+                        <span class="review-question-number">C${idx + 1}</span>
                         <strong>${escapeHTML(typeLabel(q.type))}</strong>
-                        ${hasPass ? `<span class="paper-badge badge-passage">📖 Ngữ liệu Câu ${q.passageFrom || i + 1}–${q.passageTo || i + 1}</span>` : ""}
+                        ${hasPass ? `<span class="paper-badge badge-passage">📖 Ngữ liệu Câu ${q.passageFrom || idx + 1}–${q.passageTo || idx + 1}</span>` : ""}
                     </div>
                     <span class="review-item-status ${cls}">${status} · ${formatScore(e.earnedScore)}đ</span>
                 </div>
-                ${hasPass && q.passageText ? `<div style="margin:8px 0;padding:10px 12px;border-radius:10px;background:rgba(55,217,255,0.07);border:1px solid rgba(55,217,255,0.2);font-size:12px;"><strong>${escapeHTML(q.passageTitle || "Ngữ liệu đọc hiểu:")}</strong><div class="math-content" style="margin-top:4px;">${richText(q.passageText)}</div></div>` : ""}
-                ${q.image ? renderImageBlock(q.image, `Hình Câu ${i + 1}`) : ""}
+                ${hasPass && q.passageText ? `<div style="margin:10px 0;padding:12px 14px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);font-size:13px;"><strong>${escapeHTML(q.passageTitle || "Ngữ liệu đọc hiểu:")}</strong><div class="math-content" style="margin-top:4px;">${richText(q.passageText)}</div></div>` : ""}
+                ${q.image ? renderImageBlock(q.image, `Hình Câu ${idx + 1}`) : ""}
                 <div class="review-item-question math-content">${richText(q.text)}</div>
                 <div class="review-item-answer">
                     <div class="review-answer-box ${e.isCorrect || e.status === "unanswered" ? "" : "answer-user-wrong"}">
-                        <span>Bạn trả lời</span>
+                        <span>Bạn đã chọn</span>
                         <strong>${renderUserAnswer(q, item.userAnswer)}</strong>
                     </div>
                     <div class="review-answer-box answer-correct">
-                        <span>Đáp án đúng</span>
+                        <span>Đáp án chuẩn</span>
                         <strong>${renderCorrectAnswer(q)}</strong>
                     </div>
                 </div>
-                ${q.explanation ? `<div style="display:flex;gap:9px;margin-top:10px;padding:12px;border-radius:10px;background:var(--surface-soft);"><span>💡</span><div><strong style="font-size:12px;">Giải thích chi tiết</strong><div class="math-content" style="margin-top:4px;font-size:12.5px;">${richText(q.explanation)}</div></div></div>` : ""}
+                ${q.explanation ? `<div style="display:flex;gap:10px;margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--bg-secondary);border:1px solid var(--border-color);"><span>💡</span><div><strong style="font-size:12.5px;">Lời giải &amp; Phân tích</strong><div class="math-content" style="margin-top:4px;font-size:13px;">${richText(q.explanation)}</div></div></div>` : ""}
             </article>`;
         }).join("");
+        requestAnimationFrame(() => typesetMath(DOM.reviewList));
     }
 
-    /* ---------------- History ---------------- */
+    /* ---------------- Personal Dashboard, Analytics, Chart & Leaderboard ---------------- */
+    function renderHomeDashboard() {
+        const allHistory = loadHistory().filter(item => item && item.examKey && Number.isFinite(Number(item.score)));
+        const saved = getSavedSession();
+
+        // 1. Resume Session Banner on Home
+        const resumeBox = document.getElementById("homeResumeBanner");
+        if (resumeBox) {
+            if (saved) {
+                const exName = getExamConfig(saved.examKey)?.name || saved.examKey.toUpperCase();
+                resumeBox.classList.remove("hidden");
+                resumeBox.innerHTML = `
+                    <div>
+                        <strong style="color:var(--color-warning);font-size:14px;">◷ Phiên làm bài đang tạm dừng: ${escapeHTML(exName)} — Môn ${escapeHTML(saved.subjectName || saved.subjectKey)}</strong>
+                        <p style="margin:3px 0 0;font-size:12.5px;">Thời gian còn lại: <strong>${formatTimer(saved.remainingSeconds)}</strong> · Đã lưu tự động</p>
+                    </div>
+                    <button type="button" class="primary-button small" data-action="resume-saved-session">Tiếp tục bài thi →</button>
+                `;
+            } else {
+                resumeBox.classList.add("hidden");
+                resumeBox.innerHTML = "";
+            }
+        }
+
+        // 2. KPI Metrics from Real History
+        const vsatList = allHistory.filter(x => x.examKey === "vsat");
+        const thptList = allHistory.filter(x => x.examKey === "thptqg");
+        const streak = calculateStreak(allHistory);
+
+        const elAttempts = document.getElementById("homeStatAttempts");
+        const elAttemptsSub = document.getElementById("homeStatAttemptsSub");
+        const elBestVsat = document.getElementById("homeStatBestVsat");
+        const elAvgVsat = document.getElementById("homeStatAvgVsat");
+        const elBestThpt = document.getElementById("homeStatBestThpt");
+        const elAvgThpt = document.getElementById("homeStatAvgThpt");
+        const elStreak = document.getElementById("homeStatStreak");
+
+        if (elAttempts) elAttempts.textContent = String(allHistory.length);
+        if (elAttemptsSub) elAttemptsSub.textContent = allHistory.length ? `${vsatList.length} bài VSAT · ${thptList.length} bài THPTQG` : "Chưa có bài thi hoàn thành";
+
+        if (elBestVsat) {
+            elBestVsat.textContent = vsatList.length ? `${formatScore(Math.max(...vsatList.map(x => safeNumber(x.score))))} / 150` : "—";
+        }
+        if (elAvgVsat) {
+            const avgV = vsatList.length ? vsatList.reduce((s, x) => s + safeNumber(x.score), 0) / vsatList.length : 0;
+            elAvgVsat.textContent = vsatList.length ? `Trung bình: ${formatScore(avgV)}đ (${vsatList.length} lần)` : "Chưa có dữ liệu VSAT";
+        }
+
+        if (elBestThpt) {
+            elBestThpt.textContent = thptList.length ? `${formatScore(Math.max(...thptList.map(x => safeNumber(x.score))))} / 10` : "—";
+        }
+        if (elAvgThpt) {
+            const avgT = thptList.length ? thptList.reduce((s, x) => s + safeNumber(x.score), 0) / thptList.length : 0;
+            elAvgThpt.textContent = thptList.length ? `Trung bình: ${formatScore(avgT)}đ (${thptList.length} lần)` : "Chưa có dữ liệu THPTQG";
+        }
+
+        if (elStreak) elStreak.textContent = `${streak} ngày`;
+
+        // 3. Recent Attempts or New Learner Empty State
+        const recentBox = document.getElementById("homeRecentAttemptsBox");
+        if (!recentBox) return;
+
+        if (!allHistory.length) {
+            recentBox.innerHTML = `
+                <div class="new-learner-empty">
+                    <div>
+                        <strong style="font-size:15px;color:var(--text-primary);display:block;margin-bottom:4px;">👋 Bắt đầu lộ trình luyện đề của bạn</strong>
+                        <p style="margin:0;font-size:13px;">Bạn chưa có bài làm nào được ghi nhận. Chọn một môn học VSAT hoặc THPTQG để làm thử đề chuẩn hóa và nhận phân tích chi tiết ngay sau khi nộp bài.</p>
+                    </div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button type="button" class="primary-button small" data-action="open-exams">🚀 Chọn môn thi thử</button>
+                        <button type="button" class="secondary-button small" data-action="open-library">📚 Duyệt kho đề</button>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        const recentItems = allHistory.slice(0, 3);
+        recentBox.innerHTML = `
+            <div style="margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+                <strong style="font-size:13px;color:var(--text-secondary);">ĐỀ THI GẦN ĐÂY CỦA BẠN</strong>
+                <span style="font-size:12px;color:var(--text-dim);">Hiển thị ${recentItems.length} bài gần nhất</span>
+            </div>
+            <div class="recent-attempts-grid">
+                ${recentItems.map((item, idx) => {
+                    const exName = getExamConfig(item.examKey)?.name || item.examKey.toUpperCase();
+                    const pct = Math.round(safeNumber(item.percent));
+                    return `
+                        <article class="recent-attempt-card">
+                            <div>
+                                <div class="recent-attempt-head">
+                                    <span class="history-exam-chip">${escapeHTML(exName)} · ${escapeHTML(item.subjectName || item.subjectKey)}</span>
+                                    <strong style="font-family:var(--font-display);font-size:16px;color:var(--brand-primary);">${formatScore(item.score)}/${formatScore(item.maxScore)}đ</strong>
+                                </div>
+                                <p style="margin:6px 0 4px;font-size:12.5px;font-weight:600;color:var(--text-primary);">${escapeHTML(item.paperTitle || `Bài thi môn ${item.subjectName || item.subjectKey}`)}</p>
+                                <span style="font-size:11.5px;color:var(--text-secondary);">${escapeHTML(formatDateTime(item.createdAt))} · Đạt ${pct}%</span>
+                            </div>
+                            <div style="display:flex;gap:8px;">
+                                <button type="button" class="secondary-button small" style="flex:1;" data-action="open-history-result" data-history-index="${idx}">Xem lại đáp án</button>
+                                <button type="button" class="primary-button small" data-action="choose-subject" data-exam="${escapeHTML(item.examKey)}" data-subject="${escapeHTML(item.subjectKey)}">Luyện tiếp</button>
+                            </div>
+                        </article>
+                    `;
+                }).join("")}
+            </div>
+        `;
+    }
+
+    function renderScoreTrendChart(filteredHistory) {
+        const container = document.getElementById("historyChartContainer");
+        if (!container) return;
+
+        if (!filteredHistory.length) {
+            container.innerHTML = `<div class="empty-state" style="padding:24px;"><p style="margin:0;">Chưa có dữ liệu điểm số cho bộ lọc hiện tại. Hoàn thành bài thi để xem biểu đồ xu hướng tiến bộ.</p></div>`;
+            return;
+        }
+
+        // Take up to 12 most recent attempts in chronological order
+        const items = filteredHistory.slice(0, 12).reverse();
+        const width = 760;
+        const height = 200;
+        const padLeft = 42;
+        const padRight = 24;
+        const padTop = 22;
+        const padBottom = 34;
+        const plotW = width - padLeft - padRight;
+        const plotH = height - padTop - padBottom;
+
+        const points = items.map((item, i) => {
+            const x = items.length === 1 ? padLeft + plotW / 2 : padLeft + (i / (items.length - 1)) * plotW;
+            const pct = clamp(safeNumber(item.percent, item.maxScore ? (item.score / item.maxScore) * 100 : 0), 0, 100);
+            const y = padTop + plotH - (pct / 100) * plotH;
+            return { x, y, pct: Math.round(pct), item, index: i + 1 };
+        });
+
+        const polylinePoints = points.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+        const areaPath = points.length > 1
+            ? `M ${points[0].x.toFixed(1)} ${(padTop + plotH).toFixed(1)} L ` + points.map(p => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" L ") + ` L ${points[points.length - 1].x.toFixed(1)} ${(padTop + plotH).toFixed(1)} Z`
+            : "";
+
+        container.innerHTML = `
+            <svg class="score-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Biểu đồ xu hướng điểm số theo tỷ lệ phần trăm">
+                <defs>
+                    <linearGradient id="historyChartFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="var(--brand-primary)" stop-opacity="0.28"/>
+                        <stop offset="100%" stop-color="var(--brand-primary)" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <!-- Grid lines -->
+                ${[0, 25, 50, 75, 100].map(val => {
+                    const y = (padTop + plotH - (val / 100) * plotH).toFixed(1);
+                    return `
+                        <line x1="${padLeft}" y1="${y}" x2="${width - padRight}" y2="${y}" stroke="var(--border-color)" stroke-dasharray="${val === 0 ? "0" : "4 4"}"/>
+                        <text x="${padLeft - 8}" y="${Number(y) + 4}" text-anchor="end" fill="var(--text-secondary)" font-size="10" font-weight="600">${val}%</text>
+                    `;
+                }).join("")}
+                ${areaPath ? `<path d="${areaPath}" fill="url(#historyChartFill)"/>` : ""}
+                ${points.length > 1 ? `<polyline fill="none" stroke="var(--brand-primary)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" points="${polylinePoints}"/>` : ""}
+                ${points.map(p => `
+                    <g>
+                        <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="var(--bg-card)" stroke="var(--brand-primary)" stroke-width="2.5"/>
+                        <text x="${p.x.toFixed(1)}" y="${(p.y - 9).toFixed(1)}" text-anchor="middle" fill="var(--text-primary)" font-size="10" font-weight="700">${formatScore(p.item.score)}đ</text>
+                        <text x="${p.x.toFixed(1)}" y="${height - 10}" text-anchor="middle" fill="var(--text-secondary)" font-size="10" font-weight="600">Lần ${p.index}</text>
+                    </g>
+                `).join("")}
+            </svg>
+        `;
+    }
+
+    function renderLeaderboardTable(filteredHistory, allHistory) {
+        const wrap = document.getElementById("leaderboardTableWrap");
+        if (!wrap) return;
+
+        if (!filteredHistory.length) {
+            wrap.innerHTML = `<div class="empty-state" style="padding:24px;"><p style="margin:0;">Chưa có kỷ lục bài thi nào được ghi nhận.</p></div>`;
+            return;
+        }
+
+        const ranked = filteredHistory
+            .map(item => ({
+                item,
+                originalIndex: allHistory.indexOf(item),
+                pct: safeNumber(item.percent, item.maxScore ? (item.score / item.maxScore) * 100 : 0)
+            }))
+            .sort((a, b) => (b.pct - a.pct) || (safeNumber(b.item.score) - safeNumber(a.item.score)) || (safeNumber(a.item.usedSeconds) - safeNumber(b.item.usedSeconds)))
+            .slice(0, 10);
+
+        const userLabel = currentUser ? (currentUser.fullName || currentUser.username) : "Bạn (Thí sinh)";
+
+        wrap.innerHTML = `
+            <table class="academic-table">
+                <thead>
+                    <tr>
+                        <th>Hạng</th>
+                        <th>Thí sinh</th>
+                        <th>Kỳ thi &amp; Môn học</th>
+                        <th>Điểm số</th>
+                        <th>Tỷ lệ đạt</th>
+                        <th>Thời gian</th>
+                        <th>Ngày hoàn thành</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${ranked.map((entry, idx) => {
+                        const rank = idx + 1;
+                        const rankClass = rank <= 3 ? `rank-${rank}` : "";
+                        const it = entry.item;
+                        const exName = getExamConfig(it.examKey)?.name || it.examKey.toUpperCase();
+                        return `
+                            <tr>
+                                <td><span class="rank-badge ${rankClass}">#${rank}</span></td>
+                                <td><strong>${escapeHTML(userLabel)}</strong></td>
+                                <td>
+                                    <span class="history-exam-chip">${escapeHTML(exName)}</span>
+                                    <strong style="margin-left:6px;">${escapeHTML(it.subjectName || it.subjectKey)}</strong>
+                                </td>
+                                <td><strong style="color:var(--brand-primary);font-family:var(--font-display);">${formatScore(it.score)} / ${formatScore(it.maxScore)}</strong></td>
+                                <td><span class="user-status-badge is-active">${Math.round(entry.pct)}%</span></td>
+                                <td style="font-family:var(--font-mono);font-size:12px;">${formatTimer(it.usedSeconds)}</td>
+                                <td style="font-size:12px;color:var(--text-secondary);">${escapeHTML(formatDateTime(it.createdAt))}</td>
+                                <td>
+                                    <button type="button" class="secondary-button small" data-action="open-history-result" data-history-index="${entry.originalIndex}">Xem lại</button>
+                                </td>
+                            </tr>
+                        `;
+                    }).join("")}
+                </tbody>
+            </table>
+        `;
+    }
+
     function renderHistory() {
-        const history = loadHistory().filter(item => item && item.examKey && Number.isFinite(Number(item.score)));
+        const allHistory = loadHistory().filter(item => item && item.examKey && Number.isFinite(Number(item.score)));
+        const filterKey = state.historyExamFilter || "all";
+        const history = filterKey === "all" ? allHistory : allHistory.filter(x => x.examKey === filterKey);
+
+        $$(".history-filter-pill").forEach(btn => {
+            btn.classList.toggle("is-active", btn.dataset.examFilter === filterKey);
+        });
+
         DOM.historyExamCount.textContent = String(history.length);
         DOM.historyBestScore.textContent = formatScore(history.reduce((m, x) => Math.max(m, safeNumber(x.score)), 0));
         DOM.historyAverageScore.textContent = formatScore(history.length ? history.reduce((s, x) => s + safeNumber(x.score), 0) / history.length : 0);
-        DOM.historyStreak.textContent = `${calculateStreak(history)} ngày`;
+        DOM.historyStreak.textContent = `${calculateStreak(allHistory)} ngày`;
+
+        renderScoreTrendChart(history);
+        renderLeaderboardTable(history, allHistory);
+
         if (!history.length) {
             DOM.historyList.innerHTML = "";
             DOM.historyEmpty.classList.remove("hidden");
@@ -2152,9 +2619,29 @@
             return;
         }
         DOM.historyEmpty.classList.add("hidden");
-        DOM.historyList.innerHTML = history.map((item, index) => `<article class="history-item glass-card"><div class="history-main"><div class="history-main-top"><span class="history-exam-chip">${escapeHTML(getExamConfig(item.examKey)?.name || item.examKey)}</span><span class="history-subject">${escapeHTML(item.subjectName || item.subjectKey)}</span></div><div class="history-date">${escapeHTML(formatDateTime(item.createdAt))} · ${Math.round(safeNumber(item.percent))}%</div></div><div class="history-score"><strong>${formatScore(item.score)}</strong><span>/ ${formatScore(item.maxScore)} điểm</span></div><div class="history-action"><button class="secondary-button" type="button" data-action="open-history-result" data-history-index="${index}">Xem lại</button></div></article>`).join("");
+        DOM.historyList.innerHTML = history.map((item) => {
+            const origIndex = allHistory.indexOf(item);
+            return `<article class="history-item glass-card">
+                <div class="history-main">
+                    <div class="history-main-top">
+                        <span class="history-exam-chip">${escapeHTML(getExamConfig(item.examKey)?.name || item.examKey)}</span>
+                        <span class="history-subject">${escapeHTML(item.subjectName || item.subjectKey)}</span>
+                        ${item.paperTitle ? `<span class="section-hint">${escapeHTML(item.paperTitle)}</span>` : ""}
+                    </div>
+                    <div class="history-date">${escapeHTML(formatDateTime(item.createdAt))} · Đúng ${safeNumber(item.correctCount)} câu · Thời gian ${formatTimer(item.usedSeconds)} · Đạt ${Math.round(safeNumber(item.percent))}%</div>
+                </div>
+                <div class="history-score">
+                    <strong>${formatScore(item.score)}</strong>
+                    <span>/ ${formatScore(item.maxScore)} điểm</span>
+                </div>
+                <div class="history-action">
+                    <button class="secondary-button small" type="button" data-action="open-history-result" data-history-index="${origIndex}">Xem lại chi tiết</button>
+                </div>
+            </article>`;
+        }).join("");
         renderAccountStats();
     }
+
     function calculateStreak(history) {
         const keys = [...new Set(history.map(item => {
             const d = new Date(item.createdAt); return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString("sv-SE");
@@ -2168,7 +2655,20 @@
         }
         return streak;
     }
-    function openHistory() { renderHistory(); setActiveScreen("history"); playSound("click"); }
+
+    function openHistory() {
+        renderHistory();
+        setActiveScreen("history");
+    }
+
+    function openLeaderboard() {
+        renderHistory();
+        setActiveScreen("history", true, "leaderboard");
+        setTimeout(() => {
+            document.getElementById("leaderboardSection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 80);
+    }
+
     function renderHistoricalResult(item) {
         if (!item) return;
         state.result = deepClone(item);
@@ -2178,6 +2678,175 @@
         state.examConfig = getExamConfig(item.examKey);
         renderResult(item);
         setActiveScreen("result");
+    }
+
+    /* ---------------- Kho Đề Thi (Searchable & Filterable Exam Library) ---------------- */
+    async function preloadAllSubjectCounts() {
+        const pairs = [];
+        Object.values(EXAMS).forEach(ex => {
+            ex.subjects.forEach(sub => pairs.push({ examKey: ex.key, subjectKey: sub.key }));
+        });
+        let totalPapers = 0;
+        let totalQuestions = 0;
+        const allPapers = [];
+
+        await Promise.all(pairs.map(async ({ examKey, subjectKey }) => {
+            try {
+                const papers = await loadSubjectPapers(examKey, subjectKey);
+                const key = `${examKey}:${subjectKey}`;
+                state.subjectPaperCounts[key] = papers.length;
+                totalPapers += papers.length;
+                papers.forEach(p => {
+                    totalQuestions += p.questions.length;
+                    allPapers.push(p);
+                });
+                $$(`[data-subject-count="${key}"]`).forEach(el => {
+                    el.textContent = papers.length > 0 ? `${papers.length} đề sẵn sàng →` : "Đang cập nhật";
+                });
+            } catch (_) {}
+        }));
+
+        state.library.papers = allPapers;
+        state.library.loaded = true;
+        if (DOM.questionCountStat && totalPapers > 0) {
+            DOM.questionCountStat.textContent = `${totalPapers} Đề · ${totalQuestions} Câu hỏi`;
+        }
+        const totalEl = document.getElementById("libraryTotalCount");
+        if (totalEl) totalEl.textContent = `${totalPapers} đề thi`;
+        if (state.screen === "exam-selection") renderSubjectSelector();
+        if (state.screen === "library") renderLibraryResults();
+    }
+
+    async function loadLibraryData(force = false) {
+        const host = document.getElementById("libraryResultsContainer");
+        if (state.library.loaded && !force) {
+            renderLibraryResults();
+            return;
+        }
+        state.library.isLoading = true;
+        state.library.error = null;
+        if (host) {
+            host.innerHTML = `
+                <div class="skeleton-grid" aria-busy="true" aria-label="Đang tải danh sách đề thi">
+                    ${Array.from({ length: 6 }, () => `
+                        <div class="skeleton-card">
+                            <div class="skeleton-line w-40"></div>
+                            <div class="skeleton-line w-75"></div>
+                            <div class="skeleton-line w-60"></div>
+                            <div class="skeleton-line h-btn"></div>
+                        </div>
+                    `).join("")}
+                </div>
+            `;
+        }
+        try {
+            await preloadAllSubjectCounts();
+            state.library.isLoading = false;
+            renderLibraryResults();
+        } catch (err) {
+            state.library.isLoading = false;
+            state.library.error = err.message || "Không tải được danh sách đề thi.";
+            renderLibraryResults();
+        }
+    }
+
+    function renderLibraryResults() {
+        const host = document.getElementById("libraryResultsContainer");
+        if (!host) return;
+
+        if (state.library.error) {
+            host.innerHTML = `
+                <div class="empty-state glass-card">
+                    <div class="empty-icon">⚠️</div>
+                    <h3>Không thể tải dữ liệu kho đề</h3>
+                    <p>${escapeHTML(state.library.error)}</p>
+                    <button type="button" class="primary-button" data-action="reload-library">↻ Thử tải lại</button>
+                </div>
+            `;
+            return;
+        }
+
+        const query = normalizeText(document.getElementById("librarySearchInput")?.value || "");
+        const exFilter = document.getElementById("libraryFilterExam")?.value || "all";
+        const subFilter = document.getElementById("libraryFilterSubject")?.value || "all";
+        const sortBy = document.getElementById("librarySortSelect")?.value || "manifest";
+
+        let list = (state.library.papers || []).filter(p => {
+            if (exFilter !== "all" && p.examKey !== exFilter) return false;
+            if (subFilter !== "all" && p.subjectKey !== subFilter) return false;
+            if (query) {
+                const subName = getSubjectConfig(p.examKey, p.subjectKey)?.name || p.subjectKey;
+                const haystack = normalizeText(`${p.title} ${p.code} ${p.sourceFile} ${p.sourceTitle} ${p.examKey} ${subName}`);
+                if (!haystack.includes(query)) return false;
+            }
+            return true;
+        });
+
+        if (sortBy === "title_asc") {
+            list = list.slice().sort((a, b) => String(a.title).localeCompare(String(b.title), "vi"));
+        } else if (sortBy === "questions_desc") {
+            list = list.slice().sort((a, b) => b.questions.length - a.questions.length);
+        } else if (sortBy === "duration_asc") {
+            list = list.slice().sort((a, b) => (a.durationMinutes || 50) - (b.durationMinutes || 50));
+        }
+
+        const totalEl = document.getElementById("libraryTotalCount");
+        if (totalEl) totalEl.textContent = `${list.length} / ${state.library.papers.length} đề`;
+
+        if (!list.length) {
+            host.innerHTML = `
+                <div class="empty-state glass-card">
+                    <div class="empty-icon">📚</div>
+                    <h3>Không tìm thấy đề thi phù hợp</h3>
+                    <p>Chưa có đề thi nào khớp với từ khóa hoặc bộ lọc môn học hiện tại. Bạn có thể đặt lại bộ lọc để xem toàn bộ đề có sẵn trong manifest.</p>
+                    <button type="button" class="secondary-button" data-action="reset-library-filters">Đặt lại bộ lọc</button>
+                </div>
+            `;
+            return;
+        }
+
+        host.innerHTML = `
+            <div class="paper-cards-grid">
+                ${list.map((p) => {
+                    const exName = getExamConfig(p.examKey)?.name || p.examKey.toUpperCase();
+                    const subCfg = getSubjectConfig(p.examKey, p.subjectKey);
+                    const subName = subCfg?.name || p.subjectKey;
+                    const passageCount = p.passages?.length || new Set(p.questions.filter(q => q.passageId || q.passageText).map(q => q.passageId || `${q.passageFrom}-${q.passageTo}`)).size;
+                    const imgCount = p.questions.filter(q => q.image || q.passageImage).length;
+                    return `
+                        <article class="paper-card glass-card">
+                            <div>
+                                <div class="paper-card-top">
+                                    <span class="paper-badge">${escapeHTML(exName)} · ${escapeHTML(subName)}</span>
+                                    <span class="paper-badge ${p.isCloud ? "badge-cloud" : "badge-passage"}">${p.isCloud ? "☁ Cloud Web" : `📁 ${escapeHTML(p.sourceFile || "Manifest")}`}</span>
+                                </div>
+                                <h3>${escapeHTML(p.title)}</h3>
+                                <p>${escapeHTML(p.sourceTitle || `Mã đề: ${p.code}`)}</p>
+                            </div>
+                            <div>
+                                <div class="paper-meta-list" style="margin-bottom:12px;">
+                                    <span>◷ ${p.durationMinutes || getDurationMinutes(p.examKey, p.subjectKey)} phút</span>
+                                    <span>◉ ${p.questions.length} câu hỏi</span>
+                                    ${passageCount ? `<span>📖 ${passageCount} cụm ngữ liệu</span>` : ""}
+                                    ${imgCount ? `<span>📷 ${imgCount} hình minh họa</span>` : ""}
+                                </div>
+                                <div class="paper-card-Buttons">
+                                    <button type="button" class="primary-button" data-action="start-paper" data-exam="${escapeHTML(p.examKey)}" data-subject="${escapeHTML(p.subjectKey)}" data-paper-id="${escapeHTML(p.id)}">
+                                        ▶ Bắt đầu làm đề
+                                    </button>
+                                    ${isAdmin() ? `<button type="button" class="secondary-button" data-action="admin-edit-paper" data-exam="${escapeHTML(p.examKey)}" data-subject="${escapeHTML(p.subjectKey)}" data-paper-id="${escapeHTML(p.id)}" title="Sửa đề này">✏️ Sửa</button>` : ""}
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                }).join("")}
+            </div>
+        `;
+    }
+
+    async function openLibrary() {
+        setActiveScreen("library");
+        await loadLibraryData(false);
     }
 
     /* =========================================================
@@ -2199,41 +2868,167 @@
             return;
         }
         document.getElementById("profileModal")?.remove();
-        document.getElementById("adminModal")?.remove();
-        populateAdminSubjectSelect(examKey || state.admin.examKey || "vsat", subjectKey || state.admin.subjectKey || "sinh");
+                populateAdminSubjectSelect(examKey || state.admin.examKey || "vsat", subjectKey || state.admin.subjectKey || "sinh");
         switchAdminTab(tab);
         setActiveScreen("admin-studio");
         await refreshAdminExamList();
     }
 
     function switchAdminTab(tab) {
-        state.admin.tab = tab === "users" ? "users" : "exams";
-        const isExams = state.admin.tab === "exams";
-        DOM.adminTabExamsBtn?.classList.toggle("primary-button", isExams);
-        DOM.adminTabExamsBtn?.classList.toggle("secondary-button", !isExams);
-        DOM.adminTabUsersBtn?.classList.toggle("primary-button", !isExams);
-        DOM.adminTabUsersBtn?.classList.toggle("secondary-button", isExams);
-        DOM.adminExamsTabPanel?.classList.toggle("hidden", !isExams);
-        DOM.adminUsersTabPanel?.classList.toggle("hidden", isExams);
-        if (!isExams) loadStudioAdminUsers();
+        const validTabs = ["overview", "exams", "users"];
+        state.admin.tab = validTabs.includes(tab) ? tab : "exams";
+        const cur = state.admin.tab;
+
+        const overviewBtn = document.getElementById("adminTabOverviewBtn");
+        const overviewPanel = document.getElementById("adminOverviewTabPanel");
+        const bread = document.getElementById("adminBreadcrumbCurrent");
+
+        overviewBtn?.classList.toggle("is-active", cur === "overview");
+        DOM.adminTabExamsBtn?.classList.toggle("is-active", cur === "exams");
+        DOM.adminTabUsersBtn?.classList.toggle("is-active", cur === "users");
+
+        overviewPanel?.classList.toggle("hidden", cur !== "overview");
+        DOM.adminExamsTabPanel?.classList.toggle("hidden", cur !== "exams");
+        DOM.adminUsersTabPanel?.classList.toggle("hidden", cur !== "users");
+
+        if (bread) {
+            bread.textContent = cur === "overview" ? "Tổng quan quản trị & Manifest" : (cur === "users" ? "Quản lý & Cấp tài khoản" : "Quản lý Đề thi & Dữ liệu");
+        }
+
+        if (cur === "overview") renderAdminOverview();
+        else if (cur === "users") loadStudioAdminUsers();
+    }
+
+    async function renderAdminOverview() {
+        await preloadAllSubjectCounts();
+        const papers = state.library.papers || [];
+        const staticCount = papers.filter(p => p.isStatic && !p.isCloud).length;
+        const cloudCount = papers.filter(p => p.isCloud).length;
+
+        const elTotal = document.getElementById("adminKpiTotalPapers");
+        const elStatic = document.getElementById("adminKpiStaticPapers");
+        const elCloud = document.getElementById("adminKpiCloudPapers");
+        const elUsers = document.getElementById("adminKpiTotalUsers");
+        const elUsersSub = document.getElementById("adminKpiUsersSub");
+
+        if (elTotal) elTotal.textContent = `${papers.length} đề`;
+        if (elStatic) elStatic.textContent = `${staticCount} đề`;
+        if (elCloud) elCloud.textContent = `${cloudCount} đề`;
+
+        try {
+            const d = await apiGet("/api/admin/users");
+            state.adminUsersCache = Array.isArray(d.users) ? d.users : [];
+            const activeCount = state.adminUsersCache.filter(u => u.status === "active").length;
+            if (elUsers) elUsers.textContent = `${state.adminUsersCache.length} tài khoản`;
+            if (elUsersSub) elUsersSub.textContent = `${activeCount} đang hoạt động`;
+        } catch (_) {
+            if (elUsers) elUsers.textContent = "Local Mode";
+        }
+
+        const tableWrap = document.getElementById("adminManifestTableWrap");
+        if (!tableWrap) return;
+
+        const rows = [];
+        Object.values(EXAMS).forEach(ex => {
+            ex.subjects.forEach(sub => {
+                const subPapers = papers.filter(p => p.examKey === ex.key && p.subjectKey === sub.key);
+                const qTotal = subPapers.reduce((s, p) => s + p.questions.length, 0);
+                const manifestPath = `./database/${ex.key}/${sub.key}/manifest.json`;
+                rows.push({
+                    examKey: ex.key,
+                    examName: ex.name,
+                    subjectKey: sub.key,
+                    subjectName: sub.name,
+                    manifestPath,
+                    paperCount: subPapers.length,
+                    questionCount: qTotal
+                });
+            });
+        });
+
+        tableWrap.innerHTML = `
+            <table class="academic-table">
+                <thead>
+                    <tr>
+                        <th>Kỳ thi</th>
+                        <th>Môn học</th>
+                        <th>Đường dẫn Manifest</th>
+                        <th>Số lượng đề</th>
+                        <th>Tổng câu hỏi</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows.map(r => `
+                        <tr>
+                            <td><span class="history-exam-chip">${escapeHTML(r.examName)}</span></td>
+                            <td><strong>${escapeHTML(r.subjectName)}</strong></td>
+                            <td><code>${escapeHTML(r.manifestPath)}</code></td>
+                            <td><strong>${r.paperCount} đề</strong></td>
+                            <td>${r.questionCount} câu</td>
+                            <td>
+                                <span class="user-status-badge ${r.paperCount > 0 ? "is-active" : ""}">
+                                    ${r.paperCount > 0 ? "✓ Đã nạp dữ liệu" : "Chưa có đề"}
+                                </span>
+                            </td>
+                            <td>
+                                <button type="button" class="secondary-button small" data-action="admin-jump-subject" data-exam="${escapeHTML(r.examKey)}" data-subject="${escapeHTML(r.subjectKey)}">Quản lý đề →</button>
+                            </td>
+                        </tr>
+                    `).join("")}
+                </tbody>
+            </table>
+        `;
+    }
+
+    function renderAdminUsersList() {
+        const host = DOM.studioAdminUsersList;
+        if (!host) return;
+        const q = normalizeText(document.getElementById("adminUserSearchInput")?.value || "");
+        const statusFilter = document.getElementById("adminUserStatusFilter")?.value || "all";
+
+        const filtered = (state.adminUsersCache || []).filter(u => {
+            if (statusFilter !== "all" && u.status !== statusFilter) return false;
+            if (q) {
+                const hay = normalizeText(`${u.fullName || ""} ${u.username || ""} ${u.role || ""}`);
+                if (!hay.includes(q)) return false;
+            }
+            return true;
+        });
+
+        if (!filtered.length) {
+            host.innerHTML = `<div class="empty-state" style="padding:20px;"><p style="margin:0;">Không tìm thấy tài khoản nào khớp với bộ lọc.</p></div>`;
+            return;
+        }
+
+        host.innerHTML = filtered.map(u => {
+            const isActive = u.status === "active";
+            return `
+                <div class="admin-user-row">
+                    <div>
+                        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                            <b>${escapeHTML(u.fullName || u.username)}</b>
+                            <span class="user-status-badge ${isActive ? "is-active" : "is-disabled"}">${u.role === "admin" ? "★ Quản trị viên" : (isActive ? "● Đang hoạt động" : "🔒 Đã khóa")}</span>
+                        </div>
+                        <span>@${escapeHTML(u.username)} · Tạo ngày: ${escapeHTML(formatDateTime(u.createdAt))}</span>
+                    </div>
+                    ${u.role === "student" ? `<button class="secondary-button small" type="button" data-admin-id="${escapeHTML(u.id)}" data-admin-username="${escapeHTML(u.username)}" data-admin-status="${isActive ? "disabled" : "active"}">${isActive ? "🔒 Khóa tài khoản" : "🔓 Mở khóa"}</button>` : ""}
+                </div>
+            `;
+        }).join("");
     }
 
     async function loadStudioAdminUsers() {
         const host = DOM.studioAdminUsersList;
         if (!host) return;
+        host.innerHTML = `<div class="question-loading" style="min-height:120px;"><div class="loading-spinner"></div><span>Đang tải danh sách tài khoản...</span></div>`;
         try {
             const d = await apiGet('/api/admin/users');
-            host.innerHTML = (d.users || []).map(u => `
-                <div class="admin-user-row">
-                    <div>
-                        <b>${escapeHTML(u.fullName || u.username)}</b>
-                        <span>@${escapeHTML(u.username)} · ${u.role === 'admin' ? 'Quản trị viên' : (u.status === 'active' ? 'Đang hoạt động' : 'Đã khóa')}</span>
-                    </div>
-                    ${u.role === 'student' ? `<button class="secondary-button small" data-admin-id="${escapeHTML(u.id)}" data-admin-status="${u.status === 'active' ? 'disabled' : 'active'}">${u.status === 'active' ? '🔒 Khóa' : '🔓 Mở khóa'}</button>` : ''}
-                </div>
-            `).join('') || 'Chưa có tài khoản học sinh.';
+            state.adminUsersCache = Array.isArray(d.users) ? d.users : [];
+            renderAdminUsersList();
         } catch (e) {
-            host.textContent = e.message;
+            host.innerHTML = `<div class="empty-state" style="padding:20px;"><p style="margin:0;">${escapeHTML(e.message)}</p></div>`;
         }
     }
 
@@ -3249,7 +4044,42 @@
             switch (action) {
                 case "go-home": goHome(); break;
                 case "open-exams": openExamSelector(state.examKey || "vsat"); break;
+                case "open-library": await openLibrary(); break;
+                case "reload-library": await loadLibraryData(true); break;
+                case "reset-library-filters": {
+                    const sInput = document.getElementById("librarySearchInput");
+                    const exSel = document.getElementById("libraryFilterExam");
+                    const subSel = document.getElementById("libraryFilterSubject");
+                    const sortSel = document.getElementById("librarySortSelect");
+                    if (sInput) sInput.value = "";
+                    if (exSel) exSel.value = "all";
+                    if (subSel) subSel.value = "all";
+                    if (sortSel) sortSel.value = "manifest";
+                    renderLibraryResults();
+                    break;
+                }
                 case "open-history": await syncHistoryFromServer(); openHistory(); break;
+                case "open-leaderboard": await syncHistoryFromServer(); openLeaderboard(); break;
+                case "filter-history-exam": {
+                    state.historyExamFilter = target.dataset.examFilter || "all";
+                    renderHistory();
+                    break;
+                }
+                case "filter-review": {
+                    state.reviewFilter = target.dataset.reviewFilter || "all";
+                    $$(".review-filter-btn").forEach(btn => btn.classList.toggle("is-active", btn.dataset.reviewFilter === state.reviewFilter));
+                    if (state.result) renderReview(state.result);
+                    break;
+                }
+                case "toggle-mobile-drawer": toggleMobileDrawer(); break;
+                case "close-mobile-drawer": closeMobileDrawer(); break;
+                case "admin-refresh-overview": await renderAdminOverview(); break;
+                case "admin-jump-subject": {
+                    populateAdminSubjectSelect(target.dataset.exam || "vsat", target.dataset.subject || "sinh");
+                    switchAdminTab("exams");
+                    await refreshAdminExamList();
+                    break;
+                }
                 case "select-exam": openExamSelector(target.dataset.exam); break;
                 case "choose-subject": await chooseSubject(target.dataset.exam, target.dataset.subject); break;
                 case "start-paper": {
@@ -3354,7 +4184,7 @@
                     const idx = safeNumber(target.dataset.paperIndex, -1);
                     const paper = state.admin.papers[idx];
                     if (!paper) break;
-                    if (!window.confirm(`Bạn có chắc muốn xóa đề "${paper.title}" không?`)) break;
+                    if (!(await askConfirmModal("Xóa đề thi?", `Bạn có chắc chắn muốn xóa đề "${paper.title}" không?`, "Xóa đề", true))) break;
                     paper.isDeleted = true;
                     saveLocalCustomExam(paper);
                     try {
@@ -3541,12 +4371,46 @@
         document.addEventListener("click", async event => {
             const b = event.target.closest?.("[data-admin-id]");
             if (!b) return;
+            const nextStatus = b.dataset.adminStatus;
+            const uname = b.dataset.adminUsername || "";
+            const actionLabel = nextStatus === "disabled" ? `khóa tài khoản @${uname}` : `mở khóa tài khoản @${uname}`;
+            const confirmed = await askConfirmModal(
+                nextStatus === "disabled" ? "Khóa tài khoản học sinh?" : "Mở khóa tài khoản học sinh?",
+                `Bạn có chắc chắn muốn ${actionLabel} không?`,
+                nextStatus === "disabled" ? "Khóa tài khoản" : "Mở khóa",
+                nextStatus === "disabled"
+            );
+            if (!confirmed) return;
+            b.disabled = true;
             try {
-                await apiPatch(`/api/admin/users/${encodeURIComponent(b.dataset.adminId)}`, { status: b.dataset.adminStatus });
-                showToast('Đã cập nhật trạng thái tài khoản.', 'success');
-                loadStudioAdminUsers();
+                await apiPatch(`/api/admin/users/${encodeURIComponent(b.dataset.adminId)}`, { status: nextStatus });
+                showToast(`Đã ${actionLabel} thành công.`, 'success');
+                await loadStudioAdminUsers();
             } catch (e) {
                 showToast(e.message, 'error', 5000);
+            } finally {
+                b.disabled = false;
+            }
+        });
+
+        // Library filter listeners
+        document.getElementById("librarySearchInput")?.addEventListener("input", renderLibraryResults);
+        document.getElementById("libraryFilterExam")?.addEventListener("change", renderLibraryResults);
+        document.getElementById("libraryFilterSubject")?.addEventListener("change", renderLibraryResults);
+        document.getElementById("librarySortSelect")?.addEventListener("change", renderLibraryResults);
+
+        // Admin user search & filter listeners
+        document.getElementById("adminUserSearchInput")?.addEventListener("input", renderAdminUsersList);
+        document.getElementById("adminUserStatusFilter")?.addEventListener("change", renderAdminUsersList);
+
+        // Keyboard accessibility for role="button" exam choice cards
+        document.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") {
+                const roleBtn = e.target.closest?.('[role="button"][data-action]');
+                if (roleBtn) {
+                    e.preventDefault();
+                    roleBtn.click();
+                }
             }
         });
 
@@ -3632,6 +4496,12 @@
             if (!DOM.resultCelebration?.classList.contains("hidden")) resetConfettiCanvas();
         });
         document.addEventListener("pointerdown", () => getAudioContext(), { once: true, passive: true });
+        document.addEventListener("error", e => {
+            const t = e.target;
+            if (t && t.tagName === "IMG" && t.classList.contains("question-image")) {
+                t.closest(".question-image-wrap, .passage-image-wrap")?.classList.add("hidden");
+            }
+        }, true);
     }
 
     function extractQuestionArray(data, inherited = {}) {
@@ -3660,9 +4530,14 @@
         window.addEventListener("popstate", () => {
             const hash = location.hash.replace(/^#/, "");
             if (hash === "history") openHistory();
+            else if (hash === "leaderboard") openLeaderboard();
+            else if (hash === "library") openLibrary();
             else if (hash === "exam-selection") openExamSelector(state.examKey || "vsat");
             else if (hash === "admin-studio" && isAdmin()) openAdminStudio();
-            else setActiveScreen("home", false);
+            else {
+                renderHomeDashboard();
+                setActiveScreen("home", false);
+            }
         });
     }
 
@@ -4164,7 +5039,9 @@
         } else {
             renderHistory();
         }
+        renderHomeDashboard();
         setActiveScreen("home", false);
+        preloadAllSubjectCounts().catch(() => {});
 
         const saved = getSavedSession();
         if (saved) {
