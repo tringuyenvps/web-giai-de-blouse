@@ -517,7 +517,7 @@
         const safe = theme === "dark" ? "dark" : "light";
         DOM.html.dataset.theme = safe;
         const metaTheme = document.getElementById("metaThemeColor");
-        if (metaTheme) metaTheme.setAttribute("content", safe === "dark" ? "#0B1020" : "#F5F7FC");
+        if (metaTheme) metaTheme.setAttribute("content", safe === "dark" ? "#0B1020" : "#F8EDD6");
         const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
         const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
         if (DOM.themeIcon) DOM.themeIcon.innerHTML = safe === "dark" ? sunSvg : moonSvg;
@@ -680,26 +680,24 @@
           <div class="auth-card auth-portal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="authPortalTitle">
             <div class="auth-visual-side">
               <div>
-                <span class="promo-badge">BLOUSE EXAM PRO</span>
-                <h2>Nền tảng Luyện thi Đánh giá Năng lực VSAT &amp; THPT Quốc Gia</h2>
-                <p>Môi trường khảo thí học thuật chuẩn hóa với giao diện đọc ngữ liệu song song, công thức LaTeX sắc nét và phân tích điểm số chuyên sâu.</p>
-                <div class="auth-feature-bullets">
-                  <div class="auth-feature-bullet"><span>📖</span><span>Trắc nghiệm Đọc ngữ liệu (Từ câu X đến câu Y)</span></div>
-                  <div class="auth-feature-bullet"><span>📷</span><span>Phóng to hình ảnh &amp; công thức MathJax chuẩn xác</span></div>
-                  <div class="auth-feature-bullet"><span>📊</span><span>Thống kê lịch sử, biểu đồ tiến bộ &amp; bảng xếp hạng</span></div>
-                </div>
+                <div class="vsa-wordmark" style="font-size:1.7rem;">VSA<svg class="vsa-arrow-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 19L15.8 8.2L13.6 6L21 4L19 11.4L16.8 9.2L6 20L5 19Z"/></svg></div>
+                <h2>Đồng hành cùng bạn chinh phục mọi kỳ thi!</h2>
+                <p>Học tập thông minh · Vững bước tương lai — Luyện thi VSAT &amp; THPT Quốc Gia chuẩn cấu trúc.</p>
               </div>
-              <div style="font-size:11.5px;opacity:0.8;">© Blouse Exam Pro · Modern Academic Premium Platform</div>
+              <div>
+                <img src="./assets/images/vsat-campus.jpg" alt="" aria-hidden="true" class="vsa-auth-collage">
+                <div style="font-size:11.5px;opacity:0.75;margin-top:10px;">© VSA · Học có chiến lược. Thi có bản lĩnh.</div>
+              </div>
             </div>
             <div class="auth-form-side">
               <div class="auth-form-top-row">
-                <div class="auth-logo" aria-hidden="true">✦</div>
+                <span class="vsa-star" style="font-size:20px;" aria-hidden="true">✦</span>
                 <button type="button" id="authThemeToggleBtn" class="secondary-button small" data-action="toggle-theme" aria-label="Chuyển chế độ Sáng / Tối">
                   <span>Đổi giao diện</span>
                 </button>
               </div>
-              <div class="auth-kicker">CỔNG XÁC THỰC THÍ SINH &amp; QUẢN TRỊ</div>
-              <h1 id="authPortalTitle" style="margin:6px 0 8px;font-size:24px;">Đăng nhập hệ thống</h1>
+              <div class="auth-kicker">CỔNG ĐĂNG NHẬP VSA</div>
+              <h1 id="authPortalTitle" style="margin:6px 0 8px;font-size:24px;font-weight:900;">Đăng nhập</h1>
               <p style="margin-bottom:18px;font-size:13px;">Sử dụng tài khoản học sinh được cấp hoặc tài khoản Quản trị viên để bắt đầu.</p>
               <form id="loginForm" class="auth-form">
                 <label for="loginUsername">
@@ -713,7 +711,7 @@
                     <button type="button" id="toggleLoginPassBtn" class="password-toggle-btn" aria-label="Hiện hoặc ẩn mật khẩu">Hiện</button>
                   </div>
                 </label>
-                <button class="primary-button auth-submit" type="submit">Đăng nhập vào hệ thống →</button>
+                <button class="primary-button auth-submit" type="submit">Đăng nhập →</button>
                 <div id="loginError" class="auth-error hidden" role="alert"></div>
               </form>
             </div>
