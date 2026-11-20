@@ -517,7 +517,7 @@
         const safe = theme === "dark" ? "dark" : "light";
         DOM.html.dataset.theme = safe;
         const metaTheme = document.getElementById("metaThemeColor");
-        if (metaTheme) metaTheme.setAttribute("content", safe === "dark" ? "#0B1020" : "#F8EDD6");
+        if (metaTheme) metaTheme.setAttribute("content", safe === "dark" ? "#0D121C" : "#F8EDD6");
         const sunSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
         const moonSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
         if (DOM.themeIcon) DOM.themeIcon.innerHTML = safe === "dark" ? sunSvg : moonSvg;
@@ -685,7 +685,8 @@
                 <p>Học tập thông minh · Vững bước tương lai — Luyện thi VSAT &amp; THPT Quốc Gia chuẩn cấu trúc.</p>
               </div>
               <div>
-                <img src="./assets/images/vsat-campus.jpg" alt="" aria-hidden="true" class="vsa-auth-collage">
+                <img src="./assets/images/vsat-campus.jpg" alt="" aria-hidden="true" class="vsa-auth-collage vsa-img-light">
+                <img src="./assets/images/hero-dark.jpg" alt="" aria-hidden="true" class="vsa-auth-collage vsa-img-dark">
                 <div style="font-size:11.5px;opacity:0.75;margin-top:10px;">© VSA · Học có chiến lược. Thi có bản lĩnh.</div>
               </div>
             </div>
