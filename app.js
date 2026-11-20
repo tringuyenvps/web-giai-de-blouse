@@ -697,6 +697,10 @@
                 </button>
               </div>
               <div class="auth-kicker">CỔNG ĐĂNG NHẬP VSA</div>
+              <div class="vsa-auth-tabs" role="tablist">
+                <button type="button" class="vsa-auth-tab is-active" id="vsaTabLogin">Đăng nhập</button>
+                <button type="button" class="vsa-auth-tab" id="vsaTabRegister">Đăng ký</button>
+              </div>
               <h1 id="authPortalTitle" style="margin:6px 0 8px;font-size:24px;font-weight:900;">Đăng nhập</h1>
               <p style="margin-bottom:18px;font-size:13px;">Sử dụng tài khoản học sinh được cấp hoặc tài khoản Quản trị viên để bắt đầu.</p>
               <form id="loginForm" class="auth-form">
@@ -714,11 +718,36 @@
                 <button class="primary-button auth-submit" type="submit">Đăng nhập →</button>
                 <div id="loginError" class="auth-error hidden" role="alert"></div>
               </form>
+              <div id="vsaRegisterNote" class="hidden" style="padding:18px;border-radius:14px;background:var(--vsa-cream-light);border:1px solid var(--vsa-border);font-size:13.5px;line-height:1.55;">
+                <strong>Đăng ký tài khoản VSA</strong>
+                <p style="margin:8px 0 12px;">Tài khoản học viên được quản trị viên cấp trực tiếp để đồng bộ điểm thi &amp; bảng xếp hạng. Vui lòng liên hệ giáo viên/Admin để nhận tài khoản hoặc quay lại tab Đăng nhập.</p>
+                <button type="button" id="vsaBackToLoginBtn" class="primary-button" style="width:100%;">Quay lại Đăng nhập →</button>
+              </div>
             </div>
           </div>`;
         document.body.appendChild(gate);
         applyTheme(DOM.html.dataset.theme || "light", false);
         const passInput = $('#loginPassword');
+        const tabLogin = $('#vsaTabLogin');
+        const tabReg = $('#vsaTabRegister');
+        const loginFormEl = $('#loginForm');
+        const regNoteEl = $('#vsaRegisterNote');
+        const authTitleEl = $('#authPortalTitle');
+        tabLogin?.addEventListener('click', () => {
+            tabLogin.classList.add('is-active');
+            tabReg?.classList.remove('is-active');
+            loginFormEl?.classList.remove('hidden');
+            regNoteEl?.classList.add('hidden');
+            if (authTitleEl) authTitleEl.textContent = 'Đăng nhập';
+        });
+        tabReg?.addEventListener('click', () => {
+            tabReg.classList.add('is-active');
+            tabLogin?.classList.remove('is-active');
+            loginFormEl?.classList.add('hidden');
+            regNoteEl?.classList.remove('hidden');
+            if (authTitleEl) authTitleEl.textContent = 'Đăng ký tài khoản';
+        });
+        $('#vsaBackToLoginBtn')?.addEventListener('click', () => tabLogin?.click());
         const togglePassBtn = $('#toggleLoginPassBtn');
         togglePassBtn?.addEventListener('click', () => {
             if (!passInput) return;
@@ -774,6 +803,10 @@
         if (mName) mName.textContent = displayName;
         if (mRole) mRole.textContent = roleLabel;
         if (mAvatar) mAvatar.textContent = initial;
+        const dashName = $('#vsaStudentDashName');
+        const dashAvatar = $('#vsaStudentDashAvatar');
+        if (dashName) dashName.textContent = displayName;
+        if (dashAvatar) dashAvatar.textContent = initial;
 
         const adminActive = isAdmin();
         DOM.navAdminStudioBtn?.classList.toggle('hidden', !adminActive);
@@ -982,6 +1015,15 @@
         setActiveScreen("exam-selection");
     }
 
+    document.addEventListener("input", (e) => {
+        if (e.target && e.target.id === "subjectSearchInput") {
+            const q = normalizeText(e.target.value);
+            $$("#subjectGrid .subject-card").forEach(card => {
+                const txt = normalizeText(card.textContent || "");
+                card.classList.toggle("hidden", !!q && !txt.includes(q));
+            });
+        }
+    });
     function renderSubjectSelector() {
         const exam = state.examConfig || EXAMS.vsat;
         DOM.selectedExamBreadcrumb.textContent = exam.name;
@@ -2268,6 +2310,13 @@
         DOM.resultMaxScore.textContent = `/ ${formatScore(result.maxScore)}`;
         const pctBadge = document.getElementById("resultPercentBadge");
         if (pctBadge) pctBadge.textContent = `Đạt ${Math.round(safeNumber(result.percent))}%`;
+        const donutRing = document.getElementById("vsaResultDonutRing");
+        const donutPct = document.getElementById("vsaResultDonutPct");
+        const totalQ = Math.max(1, (result.evaluations || []).length);
+        const cDeg = Math.round((result.correctCount / totalQ) * 360);
+        const wDeg = Math.round(((result.correctCount + result.wrongCount) / totalQ) * 360);
+        if (donutRing) donutRing.style.background = `conic-gradient(var(--color-success) 0deg, var(--color-success) ${cDeg}deg, var(--vsa-red) ${cDeg}deg, var(--vsa-red) ${wDeg}deg, var(--vsa-border) ${wDeg}deg)`;
+        if (donutPct) donutPct.textContent = `${Math.round(safeNumber(result.percent))}%`;
         DOM.resultMessage.textContent = resultMessage(result.percent);
         DOM.correctCount.textContent = String(result.correctCount);
         DOM.wrongCount.textContent = String(result.wrongCount);
