@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO & Metadata -->
-    <meta name="description" content="Blouse Exam Pro — Nền tảng luyện thi Đánh giá năng lực VSAT và Tốt nghiệp THPT Quốc Gia chuyên sâu với giao diện Modern Academic Premium.">
-    <meta name="theme-color" content="#F5F7FC" id="metaThemeColor">
+    <meta name="description" content="VSA — Học có chiến lược, thi có bản lĩnh. Nền tảng luyện thi Đánh giá năng lực VSAT và Tốt nghiệp THPT Quốc Gia.">
+    <meta name="theme-color" content="#F8EDD6" id="metaThemeColor">
 
-    <title>Blouse Exam Pro — Nền tảng Luyện thi VSAT & THPTQG</title>
+    <title>VSA — Học có chiến lược. Thi có bản lĩnh.</title>
 
     <!-- Prevent Theme Flash (FOUC) on Page Load -->
     <script>
@@ -19,7 +19,7 @@
                 var theme = (stored === "dark" || stored === "light") ? stored : (prefersDark ? "dark" : "light");
                 document.documentElement.setAttribute("data-theme", theme);
                 var meta = document.getElementById("metaThemeColor");
-                if (meta) meta.setAttribute("content", theme === "dark" ? "#0B1020" : "#F5F7FC");
+                if (meta) meta.setAttribute("content", theme === "dark" ? "#0B1020" : "#F8EDD6");
             } catch (e) {
                 document.documentElement.setAttribute("data-theme", "light");
             }
@@ -30,12 +30,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./vsa-theme.css">
 </head>
 
 <body>
@@ -79,25 +80,15 @@
         <header id="mainHeader" class="main-header">
             <div class="header-inner container">
 
-                <!-- Left: Brand Identity -->
+                <!-- Left: VSA Brand Identity -->
                 <button
                     id="brandButton"
-                    class="brand"
+                    class="brand vsa-brand-btn"
                     type="button"
                     data-action="go-home"
-                    aria-label="Về trang chủ Blouse Exam Pro"
+                    aria-label="Về trang chủ VSA"
                 >
-                    <span class="brand-mark" aria-hidden="true">
-                        <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none">
-                            <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.14)"/>
-                            <path d="M10.5 16.5L14.2 20.2L22 12.2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-
-                    <span class="brand-text">
-                        <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
-                        <small>KHẢO THÍ HỌC THUẬT VSAT × THPTQG</small>
-                    </span>
+                    <span class="vsa-wordmark">VSA<svg class="vsa-arrow-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 19L15.8 8.2L13.6 6L21 4L19 11.4L16.8 9.2L6 20L5 19Z"/></svg></span>
                 </button>
 
                 <!-- Center: Primary Navigation -->
@@ -108,8 +99,7 @@
                         data-action="go-home"
                         data-nav-screen="home"
                     >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9.5L10 3l7 6.5V17a1 1 0 01-1 1h-4v-5H8v5H4a1 1 0 01-1-1V9.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Tổng quan</span>
+                        <span>Trang chủ</span>
                     </button>
 
                     <button
@@ -118,8 +108,7 @@
                         data-action="open-exams"
                         data-nav-screen="exam-selection"
                     >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2v-2M13.5 3.5a2.121 2.121 0 113 3L10 13l-4 1 1-4 6.5-6.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Thi thử</span>
+                        <span>Luyện thi ⌄</span>
                     </button>
 
                     <button
@@ -128,18 +117,7 @@
                         data-action="open-library"
                         data-nav-screen="library"
                     >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h12v12H4zM8 4v12M12 8h4M12 12h4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Kho đề</span>
-                    </button>
-
-                    <button
-                        class="nav-link"
-                        type="button"
-                        data-action="open-history"
-                        data-nav-screen="history"
-                    >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 16h14M6 13V9M10 13V5M14 13v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <span>Thống kê</span>
+                        <span>Đề thi ⌄</span>
                     </button>
 
                     <button
@@ -148,8 +126,24 @@
                         data-action="open-leaderboard"
                         data-nav-screen="leaderboard"
                     >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h8v4a4 4 0 01-8 0V3zM4 4h2v3a2 2 0 01-2-2V4zM14 4h2v1a2 2 0 01-2 2V4zM10 11v4M7 17h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         <span>Bảng xếp hạng</span>
+                    </button>
+
+                    <button
+                        class="nav-link"
+                        type="button"
+                        data-action="open-history"
+                        data-nav-screen="history"
+                    >
+                        <span>Thống kê</span>
+                    </button>
+
+                    <button
+                        class="nav-link"
+                        type="button"
+                        data-action="open-guide"
+                    >
+                        <span>Giới thiệu</span>
                     </button>
 
                     <button
@@ -159,7 +153,6 @@
                         data-action="open-exam-studio"
                         data-nav-screen="admin-studio"
                     >
-                        <svg class="nav-svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" transform="translate(-2 -2)"/></svg>
                         <span>Quản trị</span>
                     </button>
                 </nav>
@@ -177,21 +170,6 @@
                         <span class="timer-icon" aria-hidden="true">◷</span>
                         <span id="headerTimerValue">90:00</span>
                     </div>
-
-                    <!-- Quick Guide Button -->
-                    <button
-                        class="icon-button glass-button"
-                        type="button"
-                        data-action="open-guide"
-                        aria-label="Mở cẩm nang hướng dẫn làm bài"
-                        title="Hướng dẫn làm bài"
-                    >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                        </svg>
-                    </button>
 
                     <!-- Theme Switcher Button -->
                     <button
@@ -214,7 +192,7 @@
                         aria-label="Tài khoản và hồ sơ cá nhân"
                     >
                         <span class="profile-avatar">T</span>
-                        <span class="profile-name">Thí sinh</span>
+                        <span class="profile-name">Đăng nhập</span>
                         <span class="profile-chevron" aria-hidden="true">⌄</span>
                     </button>
 
@@ -253,8 +231,8 @@
                             </svg>
                         </span>
                         <span class="brand-text">
-                            <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
-                            <small>VSAT × THPTQG PLATFORM</small>
+                            <strong>VSA <em class="brand-pro-badge">↗</em></strong>
+                            <small>HỌC CÓ CHIẾN LƯỢC · THI CÓ BẢN LĨNH</small>
                         </span>
                     </div>
                     <button type="button" class="icon-button" data-action="close-mobile-drawer" aria-label="Đóng menu">×</button>
@@ -320,177 +298,254 @@
             >
                 <div class="container home-container">
 
-                    <!-- 1. HERO SECTION -->
-                    <div class="hero-section">
-                        <div class="hero-copy">
-                            <div class="eyebrow-pill">
-                                <span class="pulse-dot" aria-hidden="true"></span>
-                                <span>NỀN TẢNG LUYỆN ĐỀ HỌC THUẬT CHUẨN HÓA</span>
-                            </div>
-
-                            <h1 id="homeTitle" class="hero-title">
-                                Chinh phục điểm số kỳ thi
-                                <span class="gradient-text">VSAT &amp; THPT Quốc Gia</span>
-                            </h1>
-
-                            <p class="hero-description">
-                                Môi trường khảo thí trực tuyến chuyên sâu với giao diện <strong>Đọc ngữ liệu song song (từ câu X đến câu Y)</strong>,
-                                phóng to sơ đồ thí nghiệm sắc nét, chấm điểm tự động chuẩn thang Bộ GD&amp;ĐT và các trường Đại học.
-                            </p>
-
-                            <div class="hero-actions">
-                                <button
-                                    id="startExamButton"
-                                    class="primary-button primary-button-lg"
-                                    type="button"
-                                    data-action="open-exams"
-                                >
-                                    <span>Bắt đầu thi thử</span>
-                                    <span class="button-arrow" aria-hidden="true">→</span>
-                                </button>
-
-                                <button
-                                    class="secondary-button secondary-button-lg"
-                                    type="button"
-                                    data-action="open-library"
-                                >
-                                    <span>Khám phá kho đề</span>
-                                </button>
-
-                                <button
-                                    id="heroAdminButton"
-                                    class="secondary-button secondary-button-lg hidden"
-                                    type="button"
-                                    data-action="open-exam-studio"
-                                >
-                                    <span>🛠 Quản trị &amp; Sửa đề</span>
-                                </button>
-                            </div>
-
-                            <!-- Key Platform Trust Metrics -->
-                            <div class="hero-trust-strip">
-                                <div class="trust-metric">
-                                    <div class="trust-metric-icon" aria-hidden="true">🎯</div>
-                                    <div>
-                                        <strong>150 / 10 Điểm</strong>
-                                        <span>Chuẩn thang VSAT &amp; THPTQG</span>
-                                    </div>
-                                </div>
-                                <div class="trust-metric">
-                                    <div class="trust-metric-icon" aria-hidden="true">📖</div>
-                                    <div>
-                                        <strong>Đọc ngữ liệu</strong>
-                                        <span>Chia đôi màn hình Câu X → Y</span>
-                                    </div>
-                                </div>
-                                <div class="trust-metric">
-                                    <div class="trust-metric-icon" aria-hidden="true">☁️</div>
-                                    <div>
-                                        <strong id="questionCountStat">Đồng bộ Cloud</strong>
-                                        <span>Lưu kết quả &amp; quản trị trực tuyến</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- 1. VSA EDITORIAL HERO SECTION -->
+                    <div class="vsa-hero-wrapper">
+                        <!-- Left Editorial Rail -->
+                        <div class="vsa-rail-left" aria-hidden="true">
+                            <span class="vsa-rail-line"></span>
+                            <span class="vsa-rail-star">✦</span>
+                            <span class="vsa-rail-line"></span>
                         </div>
 
-                        <!-- Hero Academic Preview Window -->
-                        <div class="hero-visual">
-                            <div class="hero-showcase-window glass-card">
-                                <div class="window-Browser-bar">
-                                    <div class="window-dots" aria-hidden="true">
-                                        <span class="dot-red"></span>
-                                        <span class="dot-yellow"></span>
-                                        <span class="dot-green"></span>
-                                    </div>
-                                    <div class="window-address">blouse-exam.pro/phong-thi-vsat-sinh-hoc</div>
-                                    <span class="status-chip status-chip-live">
-                                        <span class="status-dot"></span>
-                                        PHÒNG THI CHUẨN
-                                    </span>
+                        <!-- Right Editorial Rail -->
+                        <div class="vsa-rail-right" aria-hidden="true">
+                            <div class="vsa-issue-stamp">
+                                <small>SỐ</small>
+                                <strong>01</strong>
+                                <em>2025</em>
+                            </div>
+                            <span class="vsa-rail-line" style="max-height:76px;"></span>
+                            <span class="vsa-rail-star">✦</span>
+                        </div>
+
+                        <div class="vsa-hero-grid">
+                            <!-- Hero Left Copy -->
+                            <div class="vsa-hero-copy">
+                                <div class="vsa-eyebrow-row">
+                                    <span>Nền tảng luyện thi hàng đầu Việt Nam</span>
+                                    <span class="vsa-eyebrow-rule" aria-hidden="true"></span>
                                 </div>
 
-                                <div class="window-split-body">
-                                    <!-- Left Column: Reading Passage & Scientific Chart -->
-                                    <div class="mock-passage-col">
-                                        <div class="mock-badge-cyan">📖 NGỮ LIỆU · CÂU 10 ĐẾN CÂU 12</div>
-                                        <h4>Nghiên cứu sinh thái học quần xã &amp; Quang chu kì</h4>
-                                        <p>Quan sát đồ thị biến động mật độ cá thể loài X và Y khi có mặt loài côn trùng S trong khu vực khảo sát:</p>
-                                        <div class="mock-svg-chart">
-                                            <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Biểu đồ minh họa biến động mật độ loài">
-                                                <rect width="280" height="120" rx="10" fill="#111A2E"/>
-                                                <line x1="28" y1="22" x2="262" y2="22" stroke="rgba(255,255,255,0.10)" stroke-dasharray="3 3"/>
-                                                <line x1="28" y1="58" x2="262" y2="58" stroke="rgba(255,255,255,0.10)" stroke-dasharray="3 3"/>
-                                                <line x1="28" y1="94" x2="262" y2="94" stroke="rgba(255,255,255,0.22)"/>
-                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18 L260 94 L28 94 Z" fill="url(#chartGrad1)" opacity="0.32"/>
-                                                <path d="M28 88 C75 82, 110 34, 155 38 C200 42, 225 22, 260 18" stroke="#55D5E8" stroke-width="2.8" stroke-linecap="round"/>
-                                                <path d="M28 74 C70 40, 120 72, 170 62 C210 54, 235 66, 260 46" stroke="#A78BFA" stroke-width="2.2" stroke-dasharray="5 4" stroke-linecap="round"/>
-                                                <circle cx="110" cy="46" r="4" fill="#55D5E8"/>
-                                                <circle cx="185" cy="36" r="4" fill="#55D5E8"/>
-                                                <circle cx="260" cy="18" r="4.5" fill="#48C99A"/>
-                                                <text x="34" y="18" fill="#A6B3C9" font-size="9" font-weight="700">Độ đa dạng loài (H')</text>
-                                                <text x="192" y="110" fill="#55D5E8" font-size="8.5" font-weight="700">● Có côn trùng S</text>
-                                                <defs>
-                                                    <linearGradient id="chartGrad1" x1="0" y1="0" x2="0" y2="1">
-                                                        <stop offset="0%" stop-color="#55D5E8"/>
-                                                        <stop offset="100%" stop-color="#55D5E8" stop-opacity="0"/>
-                                                    </linearGradient>
-                                                </defs>
-                                            </svg>
-                                        </div>
-                                        <div class="mock-pill-row">
-                                            <span class="mock-pill done">Câu 10 ✓</span>
-                                            <span class="mock-pill active">Câu 11 ●</span>
-                                            <span class="mock-pill">Câu 12</span>
-                                        </div>
-                                    </div>
+                                <h1 id="homeTitle" class="vsa-hero-title">
+                                    HỌC CÓ<br>
+                                    <span class="vsa-accent-red">CHIẾN LƯỢC.</span><br>
+                                    THI CÓ <span class="vsa-accent-red">BẢN LĨNH.</span>
+                                </h1>
 
-                                    <!-- Right Column: 4-Option Multiple Choice -->
-                                    <div class="mock-question-col">
-                                        <div class="mock-q-top">
-                                            <span><strong>Câu 11</strong> / 25</span>
-                                            <span class="mock-timer-pill">◷ 42:18</span>
-                                        </div>
-                                        <p class="mock-q-title">Trong quần xã nghiên cứu trên, loài côn trùng S đóng vai trò sinh thái nào?</p>
-                                        <div class="mock-options-list">
-                                            <div class="mock-opt"><span>A</span> Loài ưu thế trong quần xã</div>
-                                            <div class="mock-opt is-chosen"><span>B</span> Loài chủ chốt kiểm soát đa dạng ✓</div>
-                                            <div class="mock-opt"><span>C</span> Loài đặc trưng vùng nhiệt đới</div>
-                                            <div class="mock-opt"><span>D</span> Loài ngẫu nhiên xâm nhập</div>
-                                        </div>
-                                    </div>
+                                <p class="vsa-hero-subtitle">
+                                    Luyện thi VSAT và THPTQG thông minh hơn, hiệu quả hơn, chinh phục mục tiêu của bạn!
+                                </p>
+
+                                <div class="vsa-hero-actions">
+                                    <button
+                                        id="startExamButton"
+                                        class="vsa-cta-dark"
+                                        type="button"
+                                        data-action="open-exams"
+                                    >
+                                        <span>Bắt đầu luyện thi</span>
+                                        <span aria-hidden="true">→</span>
+                                    </button>
+
+                                    <button
+                                        class="vsa-guide-play-btn"
+                                        type="button"
+                                        data-action="open-guide"
+                                    >
+                                        <span class="vsa-play-circle" aria-hidden="true">▶</span>
+                                        <span>Xem hướng dẫn</span>
+                                    </button>
+
+                                    <button
+                                        id="heroAdminButton"
+                                        class="secondary-button small hidden"
+                                        type="button"
+                                        data-action="open-exam-studio"
+                                    >
+                                        <span>🛠 Quản trị &amp; Sửa đề</span>
+                                    </button>
                                 </div>
                             </div>
 
-                            <!-- Floating Academic Highlights -->
-                            <div class="floating-card floating-card-score glass-card">
-                                <div class="floating-svg-badge" aria-hidden="true">
-                                    <svg viewBox="0 0 36 36" width="34" height="34">
-                                        <circle cx="18" cy="18" r="15" stroke="rgba(104,115,138,0.22)" stroke-width="4" fill="none"/>
-                                        <circle cx="18" cy="18" r="15" stroke="var(--color-success)" stroke-width="4" stroke-dasharray="78 95" stroke-linecap="round" fill="none" transform="rotate(-90 18 18)"/>
-                                    </svg>
-                                </div>
-                                <span>
-                                    <small>Chấm điểm chuẩn hóa</small>
-                                    <strong>Lũy tiến &amp; Phân tích</strong>
-                                </span>
-                                <span class="trend-up">CHUẨN BỘ</span>
-                            </div>
-
-                            <div class="floating-card floating-card-streak glass-card">
-                                <span class="floating-icon" aria-hidden="true">∑</span>
-                                <span>
-                                    <small>Công thức &amp; Hình ảnh</small>
-                                    <strong>MathJax LaTeX &amp; Zoom HD</strong>
-                                </span>
+                            <!-- Hero Right Collage Illustration -->
+                            <div class="vsa-hero-art-wrap">
+                                <img
+                                    src="./assets/images/hero-collage.jpg"
+                                    alt="Minh họa phiếu trả lời trắc nghiệm và bút chì luyện thi VSA"
+                                    class="vsa-hero-art-img"
+                                >
+                                <div class="vsa-math-doodle" aria-hidden="true">∫<sub>a</sub><sup>b</sup> f(x)dx</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- =========================================
-                         2. PERSONAL DASHBOARD & QUICK ACTIONS (REAL DATA)
-                    ========================================== -->
+                    <!-- 2. TWO GIANT EXAM PORTALS (01 / VSAT & 02 / THPTQG) -->
+                    <div id="examSelector" class="vsa-portals-grid">
+                        <article
+                            class="vsa-portal-banner is-vsat"
+                            role="button"
+                            tabindex="0"
+                            data-exam="vsat"
+                            data-action="select-exam"
+                            aria-label="Vào khu vực luyện thi VSAT"
+                        >
+                            <img
+                                src="./assets/images/vsat-campus.jpg"
+                                alt=""
+                                aria-hidden="true"
+                                class="vsa-portal-bg-img"
+                            >
+                            <div class="vsa-portal-content">
+                                <div class="vsa-portal-kicker">
+                                    <span class="vsa-portal-num">01</span>
+                                    <span>/ KỲ THI ĐÁNH GIÁ NĂNG LỰC</span>
+                                </div>
+                                <h2 class="vsa-portal-title">VSAT</h2>
+                                <p class="vsa-portal-sub">
+                                    <strong>Luyện thi VSAT</strong>
+                                    Tự tin chinh phục kỳ thi đánh giá năng lực
+                                </p>
+                            </div>
+                            <span class="vsa-portal-arrow-btn" aria-hidden="true">→</span>
+                        </article>
+
+                        <article
+                            class="vsa-portal-banner is-thpt"
+                            role="button"
+                            tabindex="0"
+                            data-exam="thptqg"
+                            data-action="select-exam"
+                            aria-label="Vào khu vực luyện thi THPTQG"
+                        >
+                            <img
+                                src="./assets/images/thpt-grad.jpg"
+                                alt=""
+                                aria-hidden="true"
+                                class="vsa-portal-bg-img"
+                            >
+                            <div class="vsa-portal-content">
+                                <div class="vsa-portal-kicker">
+                                    <span class="vsa-portal-num">02</span>
+                                    <span>/ KỲ THI TỐT NGHIỆP THPT</span>
+                                </div>
+                                <h2 class="vsa-portal-title">THPTQG</h2>
+                                <p class="vsa-portal-sub">
+                                    <strong>Luyện thi THPT Quốc Gia</strong>
+                                    Vững vàng bước vào cánh cửa đại học
+                                </p>
+                            </div>
+                            <span class="vsa-portal-arrow-btn" aria-hidden="true">→</span>
+                        </article>
+                    </div>
+
+                    <!-- 3. BOTTOM 3-COLUMN EDITORIAL STRIP -->
+                    <div class="vsa-bottom-strip">
+                        <!-- Column 1: Latest Exams -->
+                        <div class="vsa-latest-col">
+                            <div class="vsa-strip-head">
+                                <h2><span class="vsa-star" aria-hidden="true">✦</span> Đề thi mới nhất</h2>
+                                <button type="button" class="vsa-text-link" data-action="open-library">Xem tất cả →</button>
+                            </div>
+
+                            <div class="vsa-latest-list">
+                                <div class="vsa-exam-row">
+                                    <span class="vsa-exam-tag tag-vsat">VSAT</span>
+                                    <span class="vsa-exam-row-title">Đề thi thử VSAT - Toán học</span>
+                                    <span class="vsa-exam-row-meta"><span>◷ 90 phút</span></span>
+                                    <button type="button" class="vsa-row-btn" data-action="choose-subject" data-exam="vsat" data-subject="toan">Làm bài →</button>
+                                </div>
+                                <div class="vsa-exam-row">
+                                    <span class="vsa-exam-tag tag-thpt">THPTQG</span>
+                                    <span class="vsa-exam-row-title">Đề thi THPTQG - Môn Toán</span>
+                                    <span class="vsa-exam-row-meta"><span>◷ 90 phút</span></span>
+                                    <button type="button" class="vsa-row-btn" data-action="choose-subject" data-exam="thptqg" data-subject="toan">Làm bài →</button>
+                                </div>
+                                <div class="vsa-exam-row">
+                                    <span class="vsa-exam-tag tag-vsat">VSAT</span>
+                                    <span class="vsa-exam-row-title">Đề thi thử VSAT - Sinh học</span>
+                                    <span class="vsa-exam-row-meta"><span>◷ 60 phút</span></span>
+                                    <button type="button" class="vsa-row-btn" data-action="choose-subject" data-exam="vsat" data-subject="sinh">Làm bài →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Subject Medallions -->
+                        <div class="vsa-subjects-col">
+                            <div class="vsa-strip-head">
+                                <h2><span class="vsa-star" aria-hidden="true">✦</span> Các môn học</h2>
+                            </div>
+
+                            <div class="vsa-subjects-row">
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="vsat" data-subject="toan">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="11" x2="10" y2="11"/><line x1="14" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="10" y2="15"/><line x1="14" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
+                                    </span>
+                                    <strong>Toán</strong>
+                                    <small>(90 phút)</small>
+                                </button>
+
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+                                    </span>
+                                    <strong>Ngữ Văn</strong>
+                                    <small>(90 phút)</small>
+                                </button>
+
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="vsat" data-subject="ly">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(-30 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(90 12 12)"/></svg>
+                                    </span>
+                                    <strong>Vật Lý</strong>
+                                    <small>(50 phút)</small>
+                                </button>
+
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="vsat" data-subject="hoa">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5.2 18.2A2 2 0 0 0 7 21h10a2 2 0 0 0 1.8-2.8L14 9.5V3"/><line x1="7.5" y1="15" x2="16.5" y2="15"/></svg>
+                                    </span>
+                                    <strong>Hóa Học</strong>
+                                    <small>(50 phút)</small>
+                                </button>
+
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="vsat" data-subject="sinh">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 3c0 5 10 5 10 10s-10 5-10 8"/><path d="M17 3c0 5-10 5-10 10s10 5 10 8"/><line x1="8.5" y1="6" x2="15.5" y2="6"/><line x1="8.5" y1="18" x2="15.5" y2="18"/></svg>
+                                    </span>
+                                    <strong>Sinh Học</strong>
+                                    <small>(50 phút)</small>
+                                </button>
+
+                                <button type="button" class="vsa-subj-pill" data-action="choose-subject" data-exam="vsat" data-subject="anh">
+                                    <span class="vsa-subj-circle" aria-hidden="true">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="4.5" y1="8" x2="19.5" y2="8"/><line x1="4.5" y1="16" x2="19.5" y2="16"/></svg>
+                                    </span>
+                                    <strong>Tiếng Anh</strong>
+                                    <small>(50 phút)</small>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Column 3: Dark Charcoal Stat Card -->
+                        <button type="button" class="vsa-dark-stat-card" data-action="open-exams">
+                            <div class="vsa-dark-stat-top">
+                                <h3>Cùng hàng triệu sĩ tử chinh phục ước mơ!</h3>
+                                <span class="vsa-dark-arrow" aria-hidden="true">↗</span>
+                            </div>
+                            <div class="vsa-dark-stat-bottom">
+                                <div>
+                                    <strong class="vsa-dark-stat-num" id="questionCountStat">100K+</strong>
+                                    <span class="vsa-dark-stat-label">Lượt luyện thi</span>
+                                </div>
+                                <div class="vsa-mini-bars" aria-hidden="true">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- 4. PERSONAL LEARNING DASHBOARD (PRESERVED REAL DATA HOOKS) -->
                     <div id="homeDashboardSection" class="section-block dashboard-overview-block">
-                        <!-- Active Session Resume Banner (Populated dynamically if an unfinished session exists) -->
                         <div id="homeResumeBanner" class="home-resume-banner hidden"></div>
 
                         <div class="section-heading compact">
@@ -499,12 +554,11 @@
                                 <h2>Tổng quan kết quả &amp; Hoạt động gần đây</h2>
                             </div>
                             <div class="dashboard-quick-links">
-                                <button type="button" class="secondary-button small" data-action="open-library">📚 Mở kho đề</button>
-                                <button type="button" class="secondary-button small" data-action="open-history">📊 Xem toàn bộ thống kê →</button>
+                                <button type="button" class="secondary-button small" data-action="open-library">Mở kho đề</button>
+                                <button type="button" class="secondary-button small" data-action="open-history">Xem thống kê →</button>
                             </div>
                         </div>
 
-                        <!-- Real User Metrics Grid -->
                         <div class="dashboard-kpi-grid" id="homeUserStatsGrid">
                             <div class="dashboard-kpi-card glass-card">
                                 <div class="kpi-card-top">
@@ -543,397 +597,21 @@
                             </div>
                         </div>
 
-                        <!-- Recent Exam Attempts or New Learner Empty State (Rendered by JS from real data) -->
                         <div id="homeRecentAttemptsBox" class="home-recent-attempts-box"></div>
                     </div>
 
-                    <!-- =========================================
-                         3. EXAM PORTALS (VSAT & THPTQG)
-                    ========================================== -->
-                    <div id="examSelector" class="section-block">
-                        <div class="section-heading">
-                            <div>
-                                <span class="section-kicker">01 / CỔNG KHẢO THÍ TRỌNG ĐIỂM</span>
-                                <h2>Chọn kỳ thi mục tiêu của bạn</h2>
-                                <p class="section-subtext">Mỗi kỳ thi được thiết kế theo đúng ma trận đề, thời lượng và công thức tính điểm chuẩn của Bộ GD&amp;ĐT và các trường Đại học.</p>
-                            </div>
+                    <!-- 5. EDITORIAL MINIMAL FOOTER -->
+                    <footer class="vsa-editorial-footer">
+                        <div class="vsa-footer-tagline">
+                            <span class="vsa-star" aria-hidden="true">✦</span>
+                            <span>Học đúng cách &nbsp;—&nbsp; Thi đúng hướng &nbsp;—&nbsp; Vươn tới tương lai</span>
                         </div>
-
-                        <div class="exam-portal-grid">
-
-                            <!-- PORTAL 1: VSAT -->
-                            <article class="exam-portal-card portal-vsat glass-card">
-                                <div class="portal-illustration">
-                                    <svg viewBox="0 0 400 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <rect width="400" height="130" fill="url(#vsatBannerGrad)"/>
-                                        <circle cx="340" cy="65" r="85" fill="rgba(255,255,255,0.08)"/>
-                                        <circle cx="340" cy="65" r="52" stroke="rgba(85,213,232,0.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
-                                        <rect x="26" y="24" width="142" height="30" rx="8" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.24)"/>
-                                        <text x="38" y="43" fill="#fff" font-size="10.5" font-weight="800" letter-spacing="0.06em">✦ ĐÁNH GIÁ ĐẠI HỌC</text>
-                                        <path d="M250 95 L285 52 L320 74 L365 28" stroke="#55D5E8" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <circle cx="285" cy="52" r="4.5" fill="#fff"/>
-                                        <circle cx="320" cy="74" r="4.5" fill="#fff"/>
-                                        <circle cx="365" cy="28" r="5.5" fill="#48C99A"/>
-                                        <defs>
-                                            <linearGradient id="vsatBannerGrad" x1="0" y1="0" x2="400" y2="130" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0%" stop-color="#233B91"/>
-                                                <stop offset="55%" stop-color="#2948BC"/>
-                                                <stop offset="100%" stop-color="#3457D5"/>
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-                                    <span class="portal-score-badge">THANG ĐIỂM 150</span>
-                                </div>
-
-                                <div class="portal-body">
-                                    <div class="portal-title-row">
-                                        <div>
-                                            <span class="exam-kicker">KỲ THI ĐÁNH GIÁ ĐẦU VÀO ĐẠI HỌC</span>
-                                            <h3>Kỳ thi V-SAT</h3>
-                                        </div>
-                                        <div class="exam-logo" aria-hidden="true">V</div>
-                                    </div>
-
-                                    <p class="portal-desc">
-                                        Đánh giá năng lực chuyên sâu theo từng môn độc lập với <strong>25 câu hỏi / đề</strong> chia làm 4 phần: Đúng/Sai, Trắc nghiệm 4 lựa chọn đọc ngữ liệu (từ câu 10 đến 15), Ghép hợp và Trả lời ngắn.
-                                    </p>
-
-                                    <div class="portal-specs-grid">
-                                        <div class="spec-box">
-                                            <span>Thời lượng</span>
-                                            <strong>60 – 90 phút</strong>
-                                        </div>
-                                        <div class="spec-box">
-                                            <span>Cấu trúc đề</span>
-                                            <strong>25 câu / 4 phần</strong>
-                                        </div>
-                                        <div class="spec-box">
-                                            <span>Đọc ngữ liệu</span>
-                                            <strong>Cụm Câu 10–15</strong>
-                                        </div>
-                                    </div>
-
-                                    <div class="portal-subject-chips" aria-label="Chọn nhanh môn thi VSAT">
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="toan">∑ Toán</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="ly">⚛ Vật lý</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="hoa">◇ Hóa học</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="sinh">⌬ Sinh học</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="anh">A Tiếng Anh</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="vsat" data-subject="ngu_van">V Ngữ văn</button>
-                                    </div>
-
-                                    <button
-                                        class="primary-button portal-cta-btn"
-                                        type="button"
-                                        data-exam="vsat"
-                                        data-action="select-exam"
-                                    >
-                                        <span>Vào khu vực luyện thi V-SAT</span>
-                                        <span aria-hidden="true">→</span>
-                                    </button>
-                                </div>
-                            </article>
-
-                            <!-- PORTAL 2: THPT QUOC GIA -->
-                            <article class="exam-portal-card portal-thpt glass-card">
-                                <div class="portal-illustration">
-                                    <svg viewBox="0 0 400 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                        <rect width="400" height="130" fill="url(#thptBannerGrad)"/>
-                                        <circle cx="335" cy="65" r="85" fill="rgba(34,184,207,0.16)"/>
-                                        <rect x="26" y="24" width="154" height="30" rx="8" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.24)"/>
-                                        <text x="38" y="43" fill="#fff" font-size="10.5" font-weight="800" letter-spacing="0.06em">★ CHƯƠNG TRÌNH GDPT MỚI</text>
-                                        <rect x="260" y="68" width="18" height="38" rx="4" fill="rgba(255,255,255,0.28)"/>
-                                        <rect x="288" y="50" width="18" height="56" rx="4" fill="#55D5E8"/>
-                                        <rect x="316" y="34" width="18" height="72" rx="4" fill="#48C99A"/>
-                                        <rect x="344" y="20" width="18" height="86" rx="4" fill="#F3BE55"/>
-                                        <defs>
-                                            <linearGradient id="thptBannerGrad" x1="0" y1="0" x2="400" y2="130" gradientUnits="userSpaceOnUse">
-                                                <stop offset="0%" stop-color="#1E3278"/>
-                                                <stop offset="52%" stop-color="#4A3FB5"/>
-                                                <stop offset="100%" stop-color="#7557D5"/>
-                                            </linearGradient>
-                                        </defs>
-                                    </svg>
-                                    <span class="portal-score-badge badge-cyan">THANG ĐIỂM 10</span>
-                                </div>
-
-                                <div class="portal-body">
-                                    <div class="portal-title-row">
-                                        <div>
-                                            <span class="exam-kicker">KỲ THI TỐT NGHIỆP THPT QUỐC GIA</span>
-                                            <h3>Kỳ thi THPTQG</h3>
-                                        </div>
-                                        <div class="exam-logo logo-cyan" aria-hidden="true">T</div>
-                                    </div>
-
-                                    <p class="portal-desc">
-                                        Bám sát cấu trúc đề minh họa mới nhất gồm <strong>3 phần rõ rệt</strong>: Trắc nghiệm 4 lựa chọn (hỗ trợ nhóm câu hỏi đọc hiểu ngữ liệu), Trắc nghiệm Đúng/Sai 4 ý và Trả lời ngắn.
-                                    </p>
-
-                                    <div class="portal-specs-grid">
-                                        <div class="spec-box">
-                                            <span>Thời lượng</span>
-                                            <strong>50 – 90 phút</strong>
-                                        </div>
-                                        <div class="spec-box">
-                                            <span>Cấu trúc đề</span>
-                                            <strong>3 Phần chuẩn Bộ</strong>
-                                        </div>
-                                        <div class="spec-box">
-                                            <span>Chấm điểm</span>
-                                            <strong>Lũy tiến Đúng/Sai</strong>
-                                        </div>
-                                    </div>
-
-                                    <div class="portal-subject-chips" aria-label="Chọn nhanh môn thi THPTQG">
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="toan">∑ Toán</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="ly">⚡ Vật lý</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="hoa">⚗ Hóa học</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="sinh">⌬ Sinh học</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="tieng_anh">A Tiếng Anh</button>
-                                        <button type="button" class="mini-sub-chip" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">V Ngữ văn</button>
-                                    </div>
-
-                                    <button
-                                        class="primary-button portal-cta-btn"
-                                        type="button"
-                                        data-exam="thptqg"
-                                        data-action="select-exam"
-                                    >
-                                        <span>Vào khu vực luyện thi THPTQG</span>
-                                        <span aria-hidden="true">→</span>
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <!-- =========================================
-                         4. SUBJECT SHOWCASE GRID
-                    ========================================== -->
-                    <div class="section-block">
-                        <div class="section-heading">
-                            <div>
-                                <span class="section-kicker">02 / NGÂN HÀNG ĐỀ THEO MÔN HỌC</span>
-                                <h2>Chọn nhanh môn học mục tiêu</h2>
-                                <p class="section-subtext">Chọn môn học bên dưới để xem danh sách đề từ manifest và bắt đầu làm bài ngay.</p>
-                            </div>
-                            <button type="button" class="secondary-button small" data-action="open-library">Xem tất cả trong Kho đề →</button>
-                        </div>
-
-                        <div class="home-subjects-showcase">
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#3457D5" data-action="choose-subject" data-exam="vsat" data-subject="toan">
-                                <div class="tile-icon-wrap" aria-hidden="true">∑</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">TƯ DUY ĐỊNH LƯỢNG</span>
-                                    <h3>Toán học</h3>
-                                    <p>Giải tích, hình học Oxyz, xác suất thống kê &amp; bài toán thực tiễn.</p>
-                                    <div class="tile-meta"><span>◷ 90 phút</span><span data-subject-count="vsat:toan">Chọn đề →</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#16865C" data-action="choose-subject" data-exam="vsat" data-subject="sinh">
-                                <div class="tile-icon-wrap" aria-hidden="true">⌬</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">KHOA HỌC SỰ SỐNG</span>
-                                    <h3>Sinh học</h3>
-                                    <p>Sinh học tế bào, di truyền phân tử, quần thể, sinh thái &amp; thí nghiệm đọc hiểu.</p>
-                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:sinh">Chọn đề →</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#22B8CF" data-action="choose-subject" data-exam="vsat" data-subject="hoa">
-                                <div class="tile-icon-wrap" aria-hidden="true">◇</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">THỰC NGHIỆM &amp; PHÂN TỬ</span>
-                                    <h3>Hóa học</h3>
-                                    <p>Hóa hữu cơ, este-lipit, điện phân, chuẩn độ &amp; ngữ liệu thực nghiệm.</p>
-                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:hoa">Chọn đề →</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#7557D5" data-action="choose-subject" data-exam="vsat" data-subject="ly">
-                                <div class="tile-icon-wrap" aria-hidden="true">⚛</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">KHOA HỌC TỰ NHIÊN</span>
-                                    <h3>Vật lý</h3>
-                                    <p>Dao động cơ, sóng, dòng điện xoay chiều, nhiệt học &amp; vật lý hạt nhân.</p>
-                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:ly">Chọn đề →</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#D99116" data-action="choose-subject" data-exam="vsat" data-subject="anh">
-                                <div class="tile-icon-wrap" aria-hidden="true">A</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">NGÔN NGỮ QUỐC TẾ</span>
-                                    <h3>Tiếng Anh</h3>
-                                    <p>Đọc hiểu đoạn văn học thuật, từ vựng ngữ cảnh &amp; cấu trúc ngữ pháp.</p>
-                                    <div class="tile-meta"><span>◷ 50 phút</span><span data-subject-count="vsat:anh">Chọn đề →</span></div>
-                                </div>
-                            </button>
-
-                            <button type="button" class="home-subject-tile glass-card" style="--tile-color:#233B91" data-action="choose-subject" data-exam="thptqg" data-subject="ngu_van">
-                                <div class="tile-icon-wrap" aria-hidden="true">V</div>
-                                <div class="tile-body">
-                                    <span class="tile-kicker">ĐỌC HIỂU &amp; VĂN HỌC</span>
-                                    <h3>Ngữ văn</h3>
-                                    <p>Đọc hiểu ngữ liệu ngoài sách giáo khoa, tiếng Việt &amp; tư duy văn học.</p>
-                                    <div class="tile-meta"><span>◷ 90 phút</span><span data-subject-count="thptqg:ngu_van">Chọn đề →</span></div>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- =========================================
-                         5. 4 INTERACTIVE QUESTION FORMATS
-                    ========================================== -->
-                    <div class="section-block">
-                        <div class="section-heading">
-                            <div>
-                                <span class="section-kicker">03 / ĐỊNH DẠNG KHẢO THÍ HIỆN ĐẠI</span>
-                                <h2>4 dạng thức câu hỏi tương tác chuẩn hóa</h2>
-                                <p class="section-subtext">Tối ưu cho việc đọc hiểu văn bản khoa học, quan sát đồ thị và tính toán chính xác trên máy tính lẫn điện thoại.</p>
-                            </div>
-                        </div>
-
-                        <div class="visual-format-grid">
-                            <article class="visual-format-card glass-card">
-                                <div class="format-art" aria-hidden="true">
-                                    <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(34,184,207,0.08)"/>
-                                        <rect x="14" y="14" width="112" height="82" rx="8" fill="rgba(34,184,207,0.14)" stroke="rgba(34,184,207,0.4)"/>
-                                        <rect x="22" y="24" width="68" height="7" rx="3.5" fill="#22B8CF"/>
-                                        <rect x="22" y="37" width="94" height="5" rx="2.5" fill="rgba(104,115,138,0.45)"/>
-                                        <rect x="22" y="47" width="86" height="5" rx="2.5" fill="rgba(104,115,138,0.45)"/>
-                                        <rect x="22" y="59" width="94" height="28" rx="5" fill="#111A2E"/>
-                                        <path d="M28 80 L48 67 L68 74 L92 63 L110 70" stroke="#48C99A" stroke-width="2" stroke-linecap="round"/>
-                                        <rect x="134" y="14" width="112" height="82" rx="8" fill="rgba(52,87,213,0.10)" stroke="rgba(52,87,213,0.35)"/>
-                                        <rect x="142" y="24" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
-                                        <rect x="142" y="41" width="96" height="11" rx="4" fill="rgba(22,134,92,0.22)" stroke="#16865C"/>
-                                        <rect x="142" y="58" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
-                                        <rect x="142" y="75" width="96" height="11" rx="4" fill="rgba(104,115,138,0.2)"/>
-                                    </svg>
-                                </div>
-                                <div class="format-info">
-                                    <span class="format-tag tag-cyan">CỤM CÂU X ĐẾN CÂU Y</span>
-                                    <h3>Đọc ngữ liệu &amp; Trắc nghiệm 4 lựa chọn</h3>
-                                    <p>Hiển thị đoạn văn bản, sơ đồ thí nghiệm dùng chung cho một cụm câu hỏi (VD: Câu 10 → Câu 12) với chế độ chia đôi màn hình.</p>
-                                </div>
-                            </article>
-
-                            <article class="visual-format-card glass-card">
-                                <div class="format-art" aria-hidden="true">
-                                    <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(22,134,92,0.08)"/>
-                                        <rect x="16" y="18" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
-                                        <circle cx="28" cy="29" r="6" fill="#3457D5"/><text x="25.5" y="32" fill="#fff" font-size="8" font-weight="700">a</text>
-                                        <rect x="42" y="26" width="110" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
-                                        <rect x="172" y="21" width="32" height="16" rx="5" fill="#16865C"/><text x="178" y="32" fill="#fff" font-size="7.5" font-weight="800">Đúng</text>
-                                        <rect x="208" y="21" width="30" height="16" rx="5" fill="rgba(104,115,138,0.2)"/>
-
-                                        <rect x="16" y="46" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
-                                        <circle cx="28" cy="57" r="6" fill="#3457D5"/><text x="25.5" y="60" fill="#fff" font-size="8" font-weight="700">b</text>
-                                        <rect x="42" y="54" width="96" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
-                                        <rect x="172" y="49" width="32" height="16" rx="5" fill="rgba(104,115,138,0.2)"/>
-                                        <rect x="208" y="49" width="30" height="16" rx="5" fill="#D94343"/><text x="216" y="60" fill="#fff" font-size="7.5" font-weight="800">Sai</text>
-
-                                        <rect x="16" y="74" width="228" height="22" rx="6" fill="rgba(104,115,138,0.12)"/>
-                                        <circle cx="28" cy="85" r="6" fill="#3457D5"/><text x="25.5" y="88" fill="#fff" font-size="8" font-weight="700">c</text>
-                                        <rect x="42" y="82" width="115" height="6" rx="3" fill="rgba(104,115,138,0.45)"/>
-                                        <rect x="172" y="77" width="32" height="16" rx="5" fill="#16865C"/><text x="178" y="88" fill="#fff" font-size="7.5" font-weight="800">Đúng</text>
-                                    </svg>
-                                </div>
-                                <div class="format-info">
-                                    <span class="format-tag tag-green">CHẤM ĐIỂM LŨY TIẾN</span>
-                                    <h3>Trắc nghiệm Đúng / Sai (4 ý a, b, c, d)</h3>
-                                    <p>Đánh giá khả năng phân tích từng mệnh đề. Hệ thống tự động tính điểm lũy tiến theo số mệnh đề trả lời đúng (1, 2, 3 hoặc cả 4 ý).</p>
-                                </div>
-                            </article>
-
-                            <article class="visual-format-card glass-card">
-                                <div class="format-art" aria-hidden="true">
-                                    <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(117,87,213,0.08)"/>
-                                        <rect x="18" y="18" width="78" height="22" rx="6" fill="rgba(52,87,213,0.18)" stroke="#3457D5"/>
-                                        <rect x="18" y="46" width="78" height="22" rx="6" fill="rgba(34,184,207,0.18)" stroke="#22B8CF"/>
-                                        <rect x="18" y="74" width="78" height="22" rx="6" fill="rgba(117,87,213,0.18)" stroke="#7557D5"/>
-                                        <rect x="164" y="18" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
-                                        <rect x="164" y="46" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
-                                        <rect x="164" y="74" width="78" height="22" rx="6" fill="rgba(104,115,138,0.18)"/>
-                                        <path d="M96 29 C128 29, 132 57, 164 57" stroke="#3457D5" stroke-width="2.2"/>
-                                        <path d="M96 57 C128 57, 132 85, 164 85" stroke="#22B8CF" stroke-width="2.2"/>
-                                        <path d="M96 85 C128 85, 132 29, 164 29" stroke="#7557D5" stroke-width="2.2"/>
-                                    </svg>
-                                </div>
-                                <div class="format-info">
-                                    <span class="format-tag tag-purple">TƯ DUY LIÊN KẾT</span>
-                                    <h3>Trắc nghiệm Ghép hợp (Matching)</h3>
-                                    <p>Ghép nối chính xác từng khái niệm, quá trình sinh hóa hoặc công thức ở Cột I với các phương án tương ứng ở Cột II.</p>
-                                </div>
-                            </article>
-
-                            <article class="visual-format-card glass-card">
-                                <div class="format-art" aria-hidden="true">
-                                    <svg viewBox="0 0 260 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="260" height="110" rx="12" fill="rgba(217,145,22,0.08)"/>
-                                        <rect x="24" y="28" width="212" height="54" rx="12" fill="#111A2E" stroke="#D99116" stroke-width="1.8"/>
-                                        <text x="42" y="61" fill="#F3BE55" font-size="21" font-family="monospace" font-weight="800">13.33</text>
-                                        <rect x="162" y="40" width="60" height="30" rx="8" fill="#16865C"/>
-                                        <text x="172" y="59" fill="#ffffff" font-size="10" font-weight="800">✓ ĐÚNG</text>
-                                    </svg>
-                                </div>
-                                <div class="format-info">
-                                    <span class="format-tag tag-amber">TÍNH TOÁN CHÍNH XÁC</span>
-                                    <h3>Trắc nghiệm Trả lời ngắn</h3>
-                                    <p>Điền trực tiếp kết quả tính toán. Hệ thống đối chiếu thông minh cả số thập phân dấu chấm (<code>13.33</code>), dấu phẩy (<code>13,33</code>) và phân số.</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <!-- =========================================
-                         6. FOOTER
-                    ========================================== -->
-                    <footer class="enterprise-footer glass-card">
-                        <div class="footer-grid">
-                            <div class="footer-brand-col">
-                                <div class="brand" style="pointer-events:none;margin-bottom:12px;">
-                                    <span class="brand-mark" aria-hidden="true">
-                                        <svg class="brand-svg-icon" viewBox="0 0 32 32" fill="none">
-                                            <path d="M16 3L28 9.5V22.5L16 29L4 22.5V9.5L16 3Z" stroke="currentColor" stroke-width="2.2" fill="rgba(255,255,255,0.14)"/>
-                                            <path d="M10.5 16.5L14.2 20.2L22 12.2" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                    <span class="brand-text">
-                                        <strong>BLOUSE EXAM <em class="brand-pro-badge">PRO</em></strong>
-                                        <small>VSAT × THPTQG PLATFORM</small>
-                                    </span>
-                                </div>
-                                <p>Nền tảng luyện đề Đánh giá năng lực V-SAT và Tốt nghiệp THPT Quốc Gia chuyên sâu, hỗ trợ đọc ngữ liệu song song và quản trị đề thi trực tuyến.</p>
-                            </div>
-
-                            <div class="footer-links-col">
-                                <h4>Kỳ thi trọng điểm</h4>
-                                <button type="button" data-action="select-exam" data-exam="vsat">Kỳ thi V-SAT (Thang 150 điểm)</button>
-                                <button type="button" data-action="select-exam" data-exam="thptqg">Kỳ thi THPTQG (Thang 10 điểm)</button>
-                                <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="sinh">Đề V-SAT Sinh học</button>
-                                <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="hoa">Đề V-SAT Hóa học</button>
-                                <button type="button" data-action="choose-subject" data-exam="vsat" data-subject="toan">Đề V-SAT Toán học</button>
-                            </div>
-
-                            <div class="footer-links-col">
-                                <h4>Tiện ích học tập</h4>
-                                <button type="button" data-action="open-library">Kho đề thi chuẩn hóa</button>
-                                <button type="button" data-action="open-history">Thống kê kết quả học tập</button>
-                                <button type="button" data-action="open-leaderboard">Bảng xếp hạng kỷ lục</button>
-                                <button type="button" data-action="open-guide">Cẩm nang hướng dẫn làm bài</button>
-                                <button type="button" data-action="toggle-theme">Chuyển chế độ Sáng / Tối</button>
-                            </div>
-                        </div>
-
-                        <div class="footer-bottom-bar">
-                            <div>© <span id="currentYear"></span> <strong>Blouse Exam Pro</strong> · Modern Academic Premium EdTech Platform.</div>
-                            <div>MathJax LaTeX · Cloud PostgreSQL · Responsive Design</div>
+                        <div class="vsa-footer-links">
+                            <button type="button" data-action="open-exams">Luyện thi</button>
+                            <button type="button" data-action="open-library">Kho đề</button>
+                            <button type="button" data-action="open-leaderboard">Bảng xếp hạng</button>
+                            <button type="button" data-action="open-guide">Hướng dẫn</button>
+                            <span>© <span id="currentYear">2025</span> VSA</span>
                         </div>
                     </footer>
                 </div>
@@ -983,7 +661,12 @@
                                 <span class="exam-choice-check" aria-hidden="true">✓ Đang chọn</span>
                             </div>
                             <h3>Kỳ thi Đánh giá ĐH V-SAT</h3>
-                            <p>25 câu hỏi / 4 phần: Đúng/Sai, Trắc nghiệm đọc ngữ liệu (Câu 10–15), Ghép hợp và Trả lời ngắn.</p>
+                            <p>Đánh giá năng lực — 25 câu / 4 phần chuẩn hóa</p>
+                            <ul class="vsa-choice-bullets">
+                                <li>Tư duy toàn diện</li>
+                                <li>Ứng dụng thực tiễn &amp; đọc ngữ liệu</li>
+                                <li>Cơ hội rộng mở vào đại học</li>
+                            </ul>
                             <div class="exam-choice-footer">
                                 <span>6 môn học độc lập</span>
                                 <span class="exam-choice-cta">Chọn kỳ thi VSAT →</span>
@@ -1004,7 +687,12 @@
                                 <span class="exam-choice-check" aria-hidden="true">✓ Đang chọn</span>
                             </div>
                             <h3>Kỳ thi Tốt nghiệp THPTQG</h3>
-                            <p>Cấu trúc GDPT mới gồm 3 phần: Trắc nghiệm 4 lựa chọn, Đúng/Sai lũy tiến 4 ý và Trả lời ngắn.</p>
+                            <p>Tốt nghiệp THPT — 3 phần chuẩn cấu trúc Bộ</p>
+                            <ul class="vsa-choice-bullets">
+                                <li>Kiến thức cơ bản &amp; nâng cao</li>
+                                <li>Ôn tập trọng tâm theo chuyên đề</li>
+                                <li>Vững vàng tương lai</li>
+                            </ul>
                             <div class="exam-choice-footer">
                                 <span>6 môn học chuẩn Bộ</span>
                                 <span class="exam-choice-cta">Chọn kỳ thi THPTQG →</span>
@@ -1627,7 +1315,13 @@
                             </div>
                             <span id="leaderboardCountHint" class="section-hint">Xếp hạng theo tỷ lệ điểm đạt được</span>
                         </div>
-                        <div id="leaderboardTableWrap" class="leaderboard-table-wrap"></div>
+                        <div class="vsa-leaderboard-grid">
+                            <div id="leaderboardTableWrap" class="leaderboard-table-wrap"></div>
+                            <div class="vsa-trophy-panel" aria-hidden="true">
+                                <img src="./assets/images/leaderboard-trophy.jpg" alt="Cúp vinh danh bảng xếp hạng VSA">
+                                <span class="vsa-trophy-caption">Keep going!</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Chronological Attempt List -->
@@ -1696,9 +1390,8 @@
                         <!-- Admin Left Sidebar Navigation -->
                         <aside class="admin-sidebar-nav glass-card" aria-label="Điều hướng khu vực quản trị">
                             <div class="admin-sidebar-brand">
-                                <span class="section-kicker">ADMIN CONSOLE</span>
-                                <strong>Quản trị hệ thống</strong>
-                                <small>Phân quyền Quản trị viên</small>
+                                <div class="vsa-admin-wordmark">VSA<svg class="vsa-arrow-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 19L15.8 8.2L13.6 6L21 4L19 11.4L16.8 9.2L6 20L5 19Z"/></svg> <em>Admin</em></div>
+                                <small>Quản trị hệ thống &amp; Dữ liệu đề thi</small>
                             </div>
 
                             <div class="admin-nav-group">
@@ -2105,7 +1798,7 @@
             <div class="modal-header">
                 <div>
                     <span class="section-kicker">CẨM NANG HỆ THỐNG</span>
-                    <h2 id="guideModalTitle">Hướng dẫn sử dụng Blouse Exam Pro</h2>
+                    <h2 id="guideModalTitle">Hướng dẫn sử dụng VSA</h2>
                 </div>
 
                 <button
