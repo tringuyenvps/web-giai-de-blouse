@@ -1255,3 +1255,160 @@ html[data-theme="dark"] .auth-form input { background: #12151E !important; }
     .vsa-exam-row { grid-template-columns: 64px minmax(0, 1fr) auto; }
     .vsa-exam-row-meta { display: none; }
 }
+
+
+/* --------------------------------------------------------------------------
+   12. DUAL LIGHT / DARK ARTWORK SWAP & OBSIDIAN DARK MODE POLISH
+   -------------------------------------------------------------------------- */
+.vsa-img-dark,
+.vsa-dark-hero-script {
+    display: none !important;
+}
+html[data-theme="dark"] .vsa-img-light {
+    display: none !important;
+}
+html[data-theme="dark"] .vsa-img-dark {
+    display: block !important;
+}
+html[data-theme="dark"] .vsa-math-doodle {
+    display: none !important;
+}
+html[data-theme="dark"] .vsa-dark-hero-script {
+    display: block !important;
+    position: absolute;
+    right: 6%;
+    bottom: 8%;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.45rem;
+    line-height: 1.15;
+    color: #F5E6C8;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+    transform: rotate(-7deg);
+    pointer-events: none;
+}
+
+/* Deep Midnight Obsidian Dark Theme Tokens (#0D121C) */
+html[data-theme="dark"] {
+    --vsa-cream: #0D121C;
+    --vsa-cream-light: #131A28;
+    --vsa-cream-card: #151C2B;
+    --vsa-cream-surface: #161E2E;
+    --vsa-cream-pill: #1C2538;
+    --vsa-ink: #F8FAFC;
+    --vsa-ink-soft: #CBD5E1;
+    --vsa-ink-muted: #94A3B8;
+    --vsa-red: #FF4B26;
+    --vsa-red-hover: #E83C19;
+    --vsa-blue: #3B6BFF;
+    --vsa-blue-hover: #245BFF;
+    --vsa-gold: #F5B73B;
+    --vsa-charcoal: #090D16;
+    --vsa-border: rgba(255, 255, 255, 0.09);
+    --vsa-border-strong: rgba(255, 255, 255, 0.18);
+
+    --bg-page: #0D121C;
+    --bg-elevated: #131A28;
+    --bg-card: #151C2B;
+    --bg-secondary: #1B2436;
+    --bg-hover: #212C42;
+    --bg-input: #1B2436;
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border-color: rgba(255, 255, 255, 0.09);
+    --border-strong: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="dark"] .main-header {
+    background: rgba(13, 18, 28, 0.92) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+html[data-theme="dark"] .vsa-hero-art-img {
+    border: none !important;
+    box-shadow: none !important;
+    mix-blend-mode: lighten !important;
+}
+html[data-theme="dark"] .vsa-portal-banner {
+    background-color: #151C2B !important;
+    border-color: rgba(255, 255, 255, 0.14) !important;
+}
+html[data-theme="dark"] .vsa-portal-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(13, 18, 28, 0.92) 0%, rgba(13, 18, 28, 0.65) 56%, rgba(13, 18, 28, 0.15) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+html[data-theme="dark"] .vsa-portal-banner.is-thpt .vsa-portal-arrow-btn {
+    background: rgba(13, 18, 28, 0.82);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+}
+
+/* Dark Exam Room: Solid Royal Blue Selected Option (Image 4 Dark) */
+html[data-theme="dark"] .question-container.glass-card,
+html[data-theme="dark"] .exam-sidebar {
+    background: #151C2B !important;
+    border-color: rgba(255, 255, 255, 0.09) !important;
+}
+html[data-theme="dark"] .palette-btn {
+    background: #1B2436 !important;
+    color: #CBD5E1 !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+html[data-theme="dark"] .palette-btn.is-answered,
+html[data-theme="dark"] .palette-btn.is-current {
+    background: #2B57F5 !important;
+    border-color: #2B57F5 !important;
+    color: #FFFFFF !important;
+}
+html[data-theme="dark"] .option-item.is-selected,
+html[data-theme="dark"] .mcq-option.is-selected {
+    background: linear-gradient(90deg, #245BFF 0%, #3768FF 100%) !important;
+    border-color: #5580FF !important;
+    color: #FFFFFF !important;
+}
+html[data-theme="dark"] .option-item.is-selected *,
+html[data-theme="dark"] .mcq-option.is-selected * {
+    color: #FFFFFF !important;
+}
+
+/* Dark Student Sidebar Active Vermilion Pill (Image 6 Dark) */
+html[data-theme="dark"] .vsa-student-nav-btn.is-active {
+    background: var(--vsa-red) !important;
+    color: #FFFFFF !important;
+}
+
+/* Dark Leaderboard Trophy & Gold Caption (Image 7 Dark) */
+html[data-theme="dark"] .vsa-trophy-panel img {
+    mix-blend-mode: lighten !important;
+}
+html[data-theme="dark"] .vsa-trophy-caption {
+    color: var(--vsa-gold) !important;
+}
+
+/* Dark Auth Portal (Image 9 Dark) */
+html[data-theme="dark"] .auth-gate {
+    background: #0D121C !important;
+}
+html[data-theme="dark"] .auth-portal-card.glass-card {
+    background: #0D121C !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+html[data-theme="dark"] .auth-visual-side {
+    background: #0D121C !important;
+}
+html[data-theme="dark"] .auth-form-side {
+    background: #151C2B !important;
+}
+html[data-theme="dark"] .auth-form input {
+    background: #1C2436 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #FFFFFF !important;
+}
+html[data-theme="dark"] .vsa-auth-collage {
+    mix-blend-mode: lighten !important;
+}
